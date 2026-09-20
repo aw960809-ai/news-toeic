@@ -1,42 +1,50 @@
-<!doctype html>
-<html lang="zh-Hant">
+<!DOCTYPE html>
+<html lang="zh-Hant" data-pwa-app="news-toeic">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  <meta name="theme-color" content="#0b5d45">
-  <meta name="application-name" content="News×TOEIC">
-  <meta name="description" content="GitHub-native News x TOEIC learning system">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,viewport-fit=cover">
   <title>News × TOEIC</title>
+  <meta name="theme-color" content="#F3F1EA">
+  <meta name="application-name" content="News×TOEIC">
+  <meta name="description" content="News × TOEIC personal trainer">
   <link rel="manifest" href="./manifest-original.webmanifest">
-<link rel="icon" href="./icon-original-192.png" type="image/png" sizes="192x192">
-<link rel="icon" href="./icon-original-512.png" type="image/png" sizes="512x512">
-<link rel="apple-touch-icon" href="./apple-touch-original.png" sizes="180x180">
-
-
-<link rel="stylesheet" href="./styles.css">
+  <link rel="icon" href="./icon-original-192.png" type="image/png" sizes="192x192">
+  <link rel="icon" href="./icon-original-512.png" type="image/png" sizes="512x512">
+  <link rel="apple-touch-icon" href="./apple-touch-original.png" sizes="180x180">
+  <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
-<div class="app">
-<header class="topbar">
-  <div><p class="eyebrow">NEWS × TOEIC · GITHUB</p><h1>News × TOEIC</h1></div>
-  <span id="modeBadge" class="badge ok">GitHub 原生</span>
-</header>
-<main id="appMain"></main>
-<nav class="bottom-nav">
-  <button class="nav-btn active" data-route="today"><span>◎</span><small>今日</small></button>
-  <button class="nav-btn" data-route="news"><span>▤</span><small>新聞</small></button>
-  <button class="nav-btn" data-route="practice"><span>✎</span><small>題型</small></button>
-  <button class="nav-btn" data-route="review"><span>↺</span><small>複習</small></button>
-  <button class="nav-btn" data-route="progress"><span>◒</span><small>進度</small></button>
-  <button class="nav-btn" data-route="settings"><span>⚙</span><small>設定</small></button>
-</nav>
-<dialog id="lessonDialog">
-  <div class="dialog-head"><h2 id="lessonTitle"></h2><button id="dialogClose" class="ghost">關閉</button></div>
-  <div id="lessonBody"></div>
-</dialog>
-<div id="toastHost"></div>
-</div>
-<script src="./app.js"></script>
-<script src="./voice-image-upgrade.js"></script>
+  <div id="app">
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">PERSONAL TOEIC TRAINER</p>
+        <h1>News × TOEIC</h1>
+      </div>
+    </header>
+    <main id="appMain"></main>
+    <nav class="bottom-nav" aria-label="主要導覽">
+      <button data-route="today" class="nav-btn active"><span>⌂</span><small>今日</small></button>
+      <button data-route="news" class="nav-btn"><span>▤</span><small>新聞</small></button>
+      <button data-route="practice" class="nav-btn"><span>7</span><small>題型</small></button>
+      <button data-route="review" class="nav-btn"><span>↺</span><small>複習</small></button>
+      <button data-route="progress" class="nav-btn"><span>◔</span><small>分析</small></button>
+      <button data-route="settings" class="nav-btn"><span>⚙</span><small>設定</small></button>
+    </nav>
+    <dialog id="lessonDialog" class="lesson-dialog">
+      <form method="dialog" class="dialog-head">
+        <div>
+          <p class="eyebrow">LEARNING SESSION</p>
+          <h2 id="lessonTitle">TOEIC 訓練</h2>
+        </div>
+        <button class="icon-btn" id="dialogClose" value="cancel" aria-label="關閉">✕</button>
+      </form>
+      <div id="lessonBody" class="lesson-body"></div>
+    </dialog>
+    <div id="toastHost"></div>
+  </div>
+  <script src="./app.js"></script>
+  <script src="./voice-image-upgrade.js"></script>
+  <script src="./ui-feedback.js"></script>
+  <script src="./pwa-runtime.js"></script>
 </body>
 </html>

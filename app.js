@@ -1,6 +1,6 @@
 'use strict';
 
-const VERSION='2.0.0-github';
+const VERSION='2.1.0-github';
 const KEYS={
  generated:'generated',sessions:'sessions',mistakes:'mistakes',settings:'settings',
  daily:'dailyMainAssignment',dailyHistory:'dailyMainHistory',dailyPool:'dailyMainCandidatePool',
@@ -210,7 +210,7 @@ function bind(){
  document.querySelector('#flushQueue')?.addEventListener('click',()=>{migrateQueuedGoalEvents();toast('舊待傳紀錄已搬到 GitHub 直連同步中心')});
 }
 
-function switchRoute(next){route=next;document.querySelectorAll('.nav-btn').forEach(x=>x.classList.toggle('active',x.dataset.route===next));render()}
+function switchRoute(next){route=next;document.querySelectorAll('.nav-btn').forEach(x=>x.classList.toggle('active',x.dataset.route===next));render();window.scrollTo({top:0,left:0,behavior:'instant'})}
 
 function openLesson(id){
  const a=allLessons().find(x=>x.id===id);if(!a)return;
@@ -303,7 +303,6 @@ function startFullMock(){
 
 document.querySelector('#dialogClose').onclick=()=>dialog.close();
 document.querySelectorAll('.nav-btn').forEach(b=>b.onclick=()=>switchRoute(b.dataset.route));
-if('serviceWorker'in navigator)navigator.serviceWorker.register('./sw.js').catch(()=>{});
 migrateQueuedGoalEvents();
 render();
 void loadNews();
