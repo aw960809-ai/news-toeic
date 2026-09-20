@@ -91,3 +91,32 @@ button:disabled{opacity:.45;cursor:default;transform:none!important;filter:none!
   .actions>button,.actions>a{flex:1 1 auto}
 }
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important;animation-duration:.01ms!important}}
+
+/* v2.1.1 AppDeploy mobile parity: progress KPI layout */
+.kpis{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:8px;
+  margin:12px 0 18px;
+}
+.kpi{
+  position:relative;
+  overflow:hidden;
+  min-height:78px;
+}
+.kpi::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:14px;
+  bottom:14px;
+  width:3px;
+  border-radius:999px;
+  background:var(--accent);
+}
+.kpi:nth-child(2)::before{background:var(--gold)}
+.kpi:nth-child(3)::before{background:var(--ok)}
+@media(max-width:520px){
+  .kpis{grid-template-columns:1fr 1fr}
+  .kpis .kpi:last-child{grid-column:1 / -1}
+}

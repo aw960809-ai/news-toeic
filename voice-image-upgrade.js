@@ -208,7 +208,7 @@
         <button id="toeicVoiceSave" class="primary">儲存聽力設定</button>
         <button id="toeicVoiceTest" class="secondary">測試播放</button>
       </div>
-      <small class="muted">若未來把錄音檔加入 <code>apps/toeic/audio/</code> 並在 manifest 登錄，系統會自動優先播放錄音。</small>
+      <small class="muted">若未來把錄音檔加入 <code>audio/</code> 並在 audio/manifest.json 登錄，系統會自動優先播放錄音。</small>
     `;
     host.appendChild(wrapper);
 
