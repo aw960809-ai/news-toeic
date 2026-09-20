@@ -1,0 +1,8 @@
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 520'>
+<rect width='800' height='520' fill='#eef5f2'/><rect x='68' y='82' width='664' height='352' rx='26' fill='#ffffff' stroke='#cfdcd6' stroke-width='4'/>
+<rect x='100' y='120' width='220' height='250' fill='#edf3f0'/><rect x='468' y='332' width='160' height='48' rx='8' fill='#a1b2ab'/>
+<circle cx='344' cy='190' r='34' fill='#f0c49d'/><path d='M312 176c18-36 64-38 74-2' fill='#557566'/><rect x='310' y='226' width='72' height='112' rx='22' fill='#769f8d'/>
+<path d='M378 262l98-36 18 30-102 42z' fill='#f0c49d'/><path d='M308 270l-42 44 20 18 42-40z' fill='#f0c49d'/>
+<rect x='466' y='198' width='126' height='102' fill='#d7b07a' stroke='#ae7f46' stroke-width='4'/><path d='M466 198l62-34 64 34' fill='#e4c293' stroke='#ae7f46' stroke-width='4'/>
+<text x='400' y='472' font-size='28' font-family='sans-serif' text-anchor='middle' fill='#496257'>Delivery box</text>
+</svg>

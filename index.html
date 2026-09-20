@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#0b5d45">
+  <meta name="description" content="GitHub-native News x TOEIC learning system">
+  <title>News × TOEIC</title>
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="icon" href="./icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+<div class="app">
+<header class="topbar">
+  <div><p class="eyebrow">NEWS × TOEIC · GITHUB</p><h1>News × TOEIC</h1></div>
+  <span id="modeBadge" class="badge ok">GitHub 原生</span>
+</header>
+<main id="appMain"></main>
+<nav class="bottom-nav">
+  <button class="nav-btn active" data-route="today"><span>◎</span><small>今日</small></button>
+  <button class="nav-btn" data-route="news"><span>▤</span><small>新聞</small></button>
+  <button class="nav-btn" data-route="practice"><span>✎</span><small>題型</small></button>
+  <button class="nav-btn" data-route="review"><span>↺</span><small>複習</small></button>
+  <button class="nav-btn" data-route="progress"><span>◒</span><small>進度</small></button>
+  <button class="nav-btn" data-route="settings"><span>⚙</span><small>設定</small></button>
+</nav>
+<dialog id="lessonDialog">
+  <div class="dialog-head"><h2 id="lessonTitle"></h2><button id="dialogClose" class="ghost">關閉</button></div>
+  <div id="lessonBody"></div>
+</dialog>
+<div id="toastHost"></div>
+</div>
+<script src="./app.js"></script>
+<script src="./voice-image-upgrade.js"></script>
+</body>
+</html>

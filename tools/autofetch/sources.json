@@ -1,0 +1,88 @@
+{
+  "version": "96.6.11.1",
+  "mode": "whitelist",
+  "default_enabled": false,
+  "sources": [
+    {
+      "id": "thu_official",
+      "name": "東海大學活動報名系統",
+      "scope": "campus",
+      "priority": 1,
+      "domain_allowlist": [
+        "thu.edu.tw"
+      ],
+      "enabled": true,
+      "start_urls": [
+        "https://tevent.thu.edu.tw/tEvent_front/index.php"
+      ],
+      "fetch_type": "html",
+      "trust_level": "official",
+      "notes": "V96.6.11.1.1 東海大學 tEvent 專用結構化 adapter。"
+    },
+    {
+      "id": "taichung_job",
+      "name": "臺中市就業服務一鍵Catch",
+      "scope": "city",
+      "priority": 2,
+      "domain_allowlist": [
+        "1catchjob.taichung.gov.tw"
+      ],
+      "enabled": true,
+      "start_urls": [
+        "https://1catchjob.taichung.gov.tw/more.aspx?cat=new"
+      ],
+      "fetch_type": "html",
+      "trust_level": "official",
+      "notes": "V96.6.11.1.1 臺中市就業服務處活動專用結構化 adapter；排除明確中高齡/銀髮與雇主專屬項目。"
+    },
+    {
+      "id": "pathfinder_official",
+      "name": "青年百億海外圓夢基金計畫",
+      "scope": "overseas",
+      "priority": 4,
+      "domain_allowlist": [
+        "twpathfinder.yda.gov.tw"
+      ],
+      "enabled": true,
+      "start_urls": [
+        "https://twpathfinder.yda.gov.tw/downloads",
+        "https://twpathfinder.yda.gov.tw/overview1830"
+      ],
+      "fetch_type": "html",
+      "trust_level": "official",
+      "notes": "V96.6.11.1.1 海外翱翔組官方申請窗口 adapter。"
+    },
+    {
+      "id": "mofa_working_holiday",
+      "name": "外交部青年度假打工",
+      "scope": "overseas",
+      "priority": 4,
+      "domain_allowlist": [
+        "youthtaiwan.mofa.gov.tw"
+      ],
+      "enabled": true,
+      "start_urls": [
+        "https://youthtaiwan.mofa.gov.tw/WorkingHoliday/"
+      ],
+      "fetch_type": "html",
+      "trust_level": "official",
+      "notes": "V96.6.11.1.1 外交部青年度假打工常設官方入口。"
+    },
+    {
+      "id": "yda_official",
+      "name": "教育部青年發展署",
+      "scope": "national",
+      "priority": 3,
+      "domain_allowlist": [
+        "yda.gov.tw"
+      ],
+      "enabled": true,
+      "start_urls": [
+        "https://www.yda.gov.tw/EventList.aspx?pid=56&uid=101"
+      ],
+      "fetch_type": "html",
+      "trust_level": "official",
+      "notes": "V96.6.11.1.1 青年署專用結構化 adapter。"
+    }
+  ]
+}

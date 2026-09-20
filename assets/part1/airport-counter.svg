@@ -1,0 +1,8 @@
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 520'>
+<rect width='800' height='520' fill='#edf4f7'/><rect x='72' y='86' width='656' height='348' rx='28' fill='#fff' stroke='#cad7dd' stroke-width='4'/>
+<rect x='164' y='232' width='236' height='110' rx='12' fill='#dbe7ed'/><rect x='164' y='210' width='236' height='28' rx='10' fill='#8db1c1'/>
+<circle cx='294' cy='184' r='32' fill='#f0c49d'/><rect x='264' y='214' width='60' height='82' rx='20' fill='#7ca2b5'/>
+<circle cx='470' cy='212' r='32' fill='#f0c49d'/><rect x='440' y='242' width='60' height='82' rx='20' fill='#94b9ca'/>
+<path d='M438 276l-74 54 16 20 80-50z' fill='#f0c49d'/><rect x='356' y='316' width='68' height='44' rx='8' fill='#7e8f9a'/>
+<text x='400' y='470' font-size='28' font-family='sans-serif' text-anchor='middle' fill='#4d6571'>Airport counter</text>
+</svg>

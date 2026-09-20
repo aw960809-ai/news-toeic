@@ -1,0 +1,35 @@
+{
+  "updatedAt": "2026-09-18T00:00:00Z",
+  "articles": [
+    {
+      "id": "seed-business-delivery",
+      "category": "Business",
+      "source": "Practice News Feed",
+      "title": "Retail Service Expands Regional Delivery Options",
+      "url": "",
+      "publishedAt": "2026-09-18T00:00:00Z",
+      "summary": "Seed topic used until the scheduled GitHub news refresh runs.",
+      "toeicScore": 82
+    },
+    {
+      "id": "seed-travel-schedule",
+      "category": "Travel",
+      "source": "Practice News Feed",
+      "title": "Travel Operator Adjusts Weekend Schedule",
+      "url": "",
+      "publishedAt": "2026-09-18T00:00:00Z",
+      "summary": "Seed topic used until the scheduled GitHub news refresh runs.",
+      "toeicScore": 79
+    },
+    {
+      "id": "seed-tech-training",
+      "category": "Technology",
+      "source": "Practice News Feed",
+      "title": "Software Provider Adds Customer Training",
+      "url": "",
+      "publishedAt": "2026-09-18T00:00:00Z",
+      "summary": "Seed topic used until the scheduled GitHub news refresh runs.",
+      "toeicScore": 80
+    }
+  ]
+}

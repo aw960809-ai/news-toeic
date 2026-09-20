@@ -1,0 +1,17 @@
+{
+  "version": "96.8.2",
+  "sourceId": "thu_scholarship_official",
+  "base": "https://tscholarship.thu.edu.tw/wwwstud/frontend/Scholarship.php",
+  "categories": {
+    "external": "校外單位",
+    "government": "政府預算",
+    "department": "校內各系",
+    "campus": "校內其他單位"
+  },
+  "policy": {
+    "failClosedUndated": true,
+    "preservePreviousOnFailure": true,
+    "preservePreviousOnUntrustedStructure": true,
+    "atomicWrite": true
+  }
+}

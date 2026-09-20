@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "updatedAt": "2026-09-18T00:00:00Z",
+  "packs": {
+    "US": {},
+    "UK": {},
+    "CA": {},
+    "AU-NZ": {}
+  },
+  "notes": "If a clip path is added here later, the TOEIC app will play the recorded file first and fall back to SpeechSynthesis when no file is present."
+}

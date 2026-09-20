@@ -1,0 +1,917 @@
+/* V97.9.4 THU Goal Manager Visual System */
+
+:root{
+  --ui-green:#0B6249;
+  --ui-green-deep:#084C3A;
+  --ui-green-soft:#EDF5F1;
+  --ui-gold:#C7A55B;
+  --ui-gold-soft:#F7F1E3;
+  --ui-ink:#243A33;
+  --ui-muted:#718079;
+  --ui-bg:#F5F7F5;
+  --ui-surface:#FFFFFF;
+  --ui-soft:#F0F4F2;
+  --ui-line:#DDE5E1;
+  --ui-shadow:0 6px 18px rgba(28,58,49,.055);
+  --ui-shadow-strong:0 10px 28px rgba(28,58,49,.08);
+}
+
+html,body{
+  background:var(--ui-bg)!important;
+}
+
+body,
+button,
+input,
+select,
+textarea{
+  font-family:-apple-system,BlinkMacSystemFont,"Noto Sans TC","PingFang TC","Microsoft JhengHei","Segoe UI",sans-serif!important;
+}
+
+body{
+  color:var(--ui-ink)!important;
+  font-size:14px!important;
+  font-weight:400;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+  background:
+    radial-gradient(circle at 8% 0,rgba(11,98,73,.04),transparent 24rem),
+    linear-gradient(180deg,#F8FAF8 0%,#F5F7F5 50%,#F3F6F4 100%)!important;
+}
+
+/* Type scale */
+.overview-head h2,
+.stats-hero h2,
+.goalnav-head h2,
+.calendar-hero h2{
+  color:var(--ui-green)!important;
+  font-size:24px!important;
+  line-height:1.2!important;
+  font-weight:700!important;
+  letter-spacing:-.025em!important;
+}
+
+.section-title h2,
+.panel>h2,
+.settings-head h2{
+  font-size:20px!important;
+  line-height:1.3!important;
+  font-weight:700!important;
+  letter-spacing:-.02em!important;
+}
+
+.panel h3,
+.activity-card h3,
+.scholarship-card .title,
+.direction h3{
+  font-size:16px!important;
+  line-height:1.42!important;
+  font-weight:600!important;
+  letter-spacing:-.012em!important;
+}
+
+.big{
+  color:var(--ui-green)!important;
+  font-size:32px!important;
+  font-weight:700!important;
+  letter-spacing:-.035em!important;
+}
+
+.muted,
+.card small,
+.panel small,
+.activity-card .muted,
+.scholarship-card .meta{
+  color:var(--ui-muted)!important;
+}
+
+.badge,
+.tier-chip,
+.activity-chip,
+.pill{
+  font-size:11px!important;
+  font-weight:600!important;
+}
+
+/* Surfaces */
+.panel,
+.card,
+.activity-card,
+.scholarship-card,
+.goal-tree-panel,
+.calendar-month-grid,
+.direction{
+  border-color:var(--ui-line)!important;
+  background:var(--ui-surface)!important;
+  box-shadow:var(--ui-shadow)!important;
+}
+
+.panel{
+  border-radius:20px!important;
+}
+
+.card,
+.activity-card,
+.scholarship-card,
+.direction{
+  border-radius:16px!important;
+}
+
+#dash .panel,
+#stats .panel{
+  box-shadow:0 3px 12px rgba(28,58,49,.04)!important;
+}
+
+/* Controls */
+.btn,
+.softbtn,
+.dangerbtn,
+.calendar-nav button,
+.settings-close{
+  min-height:44px!important;
+  border-radius:12px!important;
+  font-size:14px!important;
+  font-weight:600!important;
+}
+
+.btn.primary{
+  color:#fff!important;
+  background:var(--ui-green)!important;
+  border-color:var(--ui-green)!important;
+  box-shadow:0 5px 14px rgba(11,98,73,.14)!important;
+}
+
+.btn.primary:hover{
+  background:var(--ui-green-deep)!important;
+}
+
+.btn.gold{
+  color:#463814!important;
+  background:var(--ui-gold)!important;
+  border-color:#B9974D!important;
+  box-shadow:none!important;
+}
+
+input,
+select,
+textarea{
+  border-radius:12px!important;
+}
+
+/* Dashboard */
+#dash .cards{
+  gap:9px!important;
+  margin-bottom:10px!important;
+}
+
+#dash .cards .card{
+  min-height:88px!important;
+  padding:14px!important;
+}
+
+#dash .cards .card::after{
+  height:2px!important;
+  background:linear-gradient(90deg,var(--ui-green),var(--ui-gold))!important;
+  opacity:.68!important;
+}
+
+#dash .overview-main{
+  gap:10px!important;
+  margin-top:10px!important;
+}
+
+#dash .panel{
+  padding:15px!important;
+}
+
+#dash .dash-exec{
+  padding:10px 11px!important;
+  border-radius:13px!important;
+}
+
+#dash .dash-exec b{
+  font-size:16px!important;
+  font-weight:600!important;
+}
+
+#dash .dash-exec small{
+  font-size:12px!important;
+  line-height:1.45!important;
+}
+
+#dash .dash-exec .btn.gold{
+  color:#fff!important;
+  background:var(--ui-green)!important;
+  border-color:var(--ui-green)!important;
+}
+
+/* Goal map */
+#goals .goal-tree-panel{
+  padding:15px!important;
+  background:#fff!important;
+}
+
+#goals .goal-search{
+  min-height:46px!important;
+  border-color:var(--ui-line)!important;
+  border-radius:14px!important;
+  background:#F8FAF9!important;
+}
+
+#goals .goal-map-tools select{
+  min-height:44px!important;
+  font-size:14px!important;
+  background:#fff!important;
+}
+
+#goals .goal-crud-toolbar{
+  gap:7px!important;
+}
+
+#goals .task,
+#goals .direction{
+  box-shadow:none!important;
+}
+
+/* Execution */
+#today>.panel{
+  padding:14px!important;
+}
+
+#today #todayList{
+  gap:8px!important;
+}
+
+#today #todayList .listitem{
+  padding:10px 11px!important;
+  border-radius:14px!important;
+  box-shadow:none!important;
+}
+
+#today #todayList .listitem b{
+  font-size:16px!important;
+  line-height:1.35!important;
+  font-weight:600!important;
+}
+
+#today #todayList .listitem small{
+  display:-webkit-box!important;
+  -webkit-box-orient:vertical!important;
+  -webkit-line-clamp:2!important;
+  overflow:hidden!important;
+  margin-top:3px!important;
+  font-size:12px!important;
+  line-height:1.45!important;
+}
+
+#today .today-select-icon{
+  width:30px!important;
+  height:30px!important;
+  flex:0 0 30px!important;
+}
+
+#today .today-actions{
+  gap:7px!important;
+}
+
+#today .today-actions .btn{
+  min-height:44px!important;
+}
+
+#today .today-actions .btn:not(.gold){
+  color:var(--ui-ink)!important;
+  background:#fff!important;
+  border-color:var(--ui-line)!important;
+}
+
+#today .today-actions .btn.gold{
+  color:#fff!important;
+  background:var(--ui-green)!important;
+  border-color:var(--ui-green)!important;
+}
+
+#today .timer{
+  color:var(--ui-green)!important;
+  font-size:34px!important;
+  font-weight:700!important;
+}
+
+#today .timerbtns .btn:first-child{
+  color:#fff!important;
+  background:var(--ui-green)!important;
+  border-color:var(--ui-green)!important;
+}
+
+/* Activity Radar */
+#activity>.panel{
+  padding:14px!important;
+}
+
+#activity .activity-searchbox{
+  min-height:50px!important;
+  border-radius:14px!important;
+  box-shadow:none!important;
+}
+
+#activity .activity-searchbox input{
+  height:48px!important;
+  font-size:14px!important;
+}
+
+#activity .search-submit{
+  min-width:80px!important;
+  height:44px!important;
+  color:#fff!important;
+  background:var(--ui-green)!important;
+  box-shadow:none!important;
+}
+
+#activity .visual-filters{
+  display:grid!important;
+  grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  gap:7px!important;
+}
+
+#activity .visual-filters .filter-control{
+  min-height:70px!important;
+  padding:8px 9px!important;
+  border-color:var(--ui-line)!important;
+  border-radius:14px!important;
+  box-shadow:none!important;
+}
+
+#activity .visual-filters .filter-control>span{
+  font-size:10px!important;
+  margin-bottom:4px!important;
+}
+
+#activity .visual-filters .filter-control select{
+  min-height:28px!important;
+  font-size:13px!important;
+}
+
+#activity .activity-radar-guide{
+  gap:6px!important;
+  margin-top:8px!important;
+}
+
+#activity .radar-ring{
+  min-height:54px!important;
+  padding:7px 8px!important;
+  border-radius:12px!important;
+}
+
+#activity .activity-card{
+  padding:13px!important;
+  box-shadow:none!important;
+  border-left-width:3px!important;
+}
+
+#activity .activity-head{
+  gap:9px!important;
+  align-items:flex-start!important;
+}
+
+#activity .activity-title-block h3{
+  display:-webkit-box!important;
+  -webkit-box-orient:vertical!important;
+  -webkit-line-clamp:2!important;
+  overflow:hidden!important;
+  margin:4px 0!important;
+  font-size:17px!important;
+  line-height:1.4!important;
+}
+
+#activity .activity-eyebrow{
+  font-size:10px!important;
+}
+
+#activity .activity-score-block{
+  min-width:52px!important;
+  padding:6px 7px!important;
+  border-radius:12px!important;
+  box-shadow:none!important;
+}
+
+#activity .activity-score-block .activity-score{
+  font-size:23px!important;
+  font-weight:700!important;
+}
+
+#activity .activity-meta{
+  gap:5px!important;
+  margin:8px 0!important;
+}
+
+#activity .activity-chip{
+  min-height:24px!important;
+  padding:4px 7px!important;
+  border-radius:999px!important;
+}
+
+#activity .activity-decision-grid{
+  gap:6px!important;
+  margin-top:7px!important;
+}
+
+#activity .activity-decision-grid>div{
+  min-height:0!important;
+  padding:9px 10px!important;
+  border-radius:12px!important;
+  background:var(--ui-soft)!important;
+}
+
+#activity .activity-decision-grid small{
+  font-size:10px!important;
+}
+
+#activity .activity-decision-grid b{
+  font-size:13px!important;
+  line-height:1.4!important;
+}
+
+#activity .activity-goals{
+  gap:4px!important;
+}
+
+#activity .activity-goal-chip{
+  padding:3px 6px!important;
+  font-size:10px!important;
+}
+
+#activity .activity-goal-bridge-card{
+  margin-top:7px!important;
+  padding:9px 10px!important;
+  border-radius:12px!important;
+  background:#F7FAF8!important;
+  border-color:var(--ui-line)!important;
+}
+
+#activity .activity-goal-bridge-card button{
+  min-height:32px!important;
+  font-size:13px!important;
+}
+
+#activity .activity-goal-bridge-card>small{
+  display:-webkit-box!important;
+  -webkit-box-orient:vertical!important;
+  -webkit-line-clamp:1!important;
+  overflow:hidden!important;
+  margin-top:3px!important;
+  font-size:10px!important;
+}
+
+#activity .activity-concrete-evidence{
+  display:flex!important;
+  gap:5px!important;
+  align-items:center!important;
+  overflow:hidden!important;
+  margin-top:5px!important;
+  white-space:nowrap!important;
+}
+
+#activity .activity-concrete-evidence em{
+  flex:0 0 auto!important;
+  font-size:10px!important;
+}
+
+#activity .activity-concrete-evidence span{
+  overflow:hidden!important;
+  text-overflow:ellipsis!important;
+  font-size:10px!important;
+}
+
+#activity .activity-reasons{
+  margin-top:7px!important;
+  border-top:1px dashed var(--ui-line)!important;
+}
+
+#activity .activity-reasons summary{
+  min-height:42px!important;
+  padding:10px 0!important;
+  color:var(--ui-green)!important;
+  font-size:13px!important;
+  font-weight:600!important;
+}
+
+#activity .activity-reasons ul{
+  margin:4px 0 8px 18px!important;
+  font-size:12px!important;
+  line-height:1.5!important;
+}
+
+#activity .activity-actions{
+  display:grid!important;
+  grid-template-columns:repeat(3,minmax(0,1fr))!important;
+  gap:6px!important;
+  margin-top:8px!important;
+}
+
+#activity .activity-actions .btn{
+  min-width:0!important;
+  min-height:44px!important;
+  padding:8px 7px!important;
+  font-size:12px!important;
+}
+
+#activity .activity-actions .btn.gold{
+  color:#463814!important;
+  background:var(--ui-gold)!important;
+  border-color:#B9974D!important;
+}
+
+#activity .activity-references{
+  margin-top:14px!important;
+}
+
+#activity .activity-reference-card{
+  padding:12px!important;
+  border-radius:14px!important;
+  box-shadow:none!important;
+}
+
+/* Scholarship */
+#scholarship>.panel{
+  padding:14px!important;
+}
+
+#scholarship .scholarship-card{
+  min-height:68px!important;
+  padding:12px 13px!important;
+  box-shadow:none!important;
+}
+
+#scholarship .scholarship-card .title{
+  font-size:16px!important;
+}
+
+#scholarship .notice{
+  font-size:12px!important;
+  line-height:1.5!important;
+  background:var(--ui-gold-soft)!important;
+}
+
+/* Calendar */
+#calendar .calendar-shell{
+  border-color:var(--ui-line)!important;
+  box-shadow:var(--ui-shadow)!important;
+}
+
+#calendar .calendar-cell{
+  font-size:12px!important;
+}
+
+/* Analysis */
+#stats .stat-kpi{
+  min-height:86px!important;
+  padding:13px!important;
+}
+
+#stats .stat-kpi .big{
+  font-size:30px!important;
+}
+
+/* Settings */
+.settings-box{
+  background:var(--ui-bg)!important;
+  border-radius:22px!important;
+}
+
+.settings-head{
+  background:#fff!important;
+}
+
+.settings-section{
+  margin-bottom:10px!important;
+  padding:14px!important;
+  border-color:var(--ui-line)!important;
+  border-radius:16px!important;
+  box-shadow:none!important;
+}
+
+.settings-section-head h3{
+  color:var(--ui-green)!important;
+  font-size:18px!important;
+  font-weight:700!important;
+}
+
+.settings-section-head p{
+  margin-top:3px!important;
+  color:var(--ui-muted)!important;
+  font-size:12px!important;
+  line-height:1.45!important;
+}
+
+.settings-row{
+  padding-top:9px!important;
+  padding-bottom:9px!important;
+}
+
+.settings-row b{
+  font-size:14px!important;
+  font-weight:600!important;
+}
+
+.settings-row small{
+  font-size:11px!important;
+}
+
+.settings-row select,
+.settings-row input{
+  min-height:44px!important;
+  border-color:var(--ui-line)!important;
+  background:#F8FAF9!important;
+}
+
+.settings-action-grid{
+  gap:7px!important;
+}
+
+body .gm-toeic-sync{
+  padding:14px!important;
+  border-radius:16px!important;
+  box-shadow:none!important;
+}
+
+body .gm-toeic-head h3{
+  color:var(--ui-green)!important;
+  font-size:18px!important;
+}
+
+body .gm-toeic-head .ok,
+body .gm-toeic-head .warn{
+  white-space:nowrap!important;
+  flex-shrink:0!important;
+}
+
+/* Bottom navigation */
+.bottom-nav{
+  height:calc(76px + env(safe-area-inset-bottom))!important;
+  padding:4px 4px calc(5px + env(safe-area-inset-bottom))!important;
+  border-top-color:rgba(11,98,73,.10)!important;
+  background:rgba(255,255,255,.96)!important;
+  box-shadow:0 -6px 18px rgba(28,58,49,.07)!important;
+}
+
+.bottom-nav button{
+  min-height:58px!important;
+  border-radius:12px!important;
+  font-size:10px!important;
+  font-weight:600!important;
+}
+
+.bottom-nav button .bn-icon{
+  font-size:20px!important;
+}
+
+.bottom-nav button.active{
+  color:var(--ui-green)!important;
+  background:var(--ui-green-soft)!important;
+}
+
+.bottom-nav button.active .bn-icon{
+  color:var(--ui-gold)!important;
+}
+
+.settings-trigger{
+  color:var(--ui-green)!important;
+  background:rgba(255,255,255,.96)!important;
+  box-shadow:0 5px 16px rgba(28,58,49,.07)!important;
+}
+
+/* Mobile density */
+@media(max-width:700px){
+  .app{
+    padding-top:6px!important;
+  }
+
+  .view>.panel,
+  .view>.calendar-shell{
+    margin-left:10px!important;
+    margin-right:10px!important;
+    margin-bottom:9px!important;
+  }
+
+  .overview-head,
+  .stats-hero{
+    margin-bottom:11px!important;
+  }
+
+  .overview-head h2,
+  .stats-hero h2{
+    font-size:24px!important;
+  }
+
+  #dash .cards .card{
+    min-height:82px!important;
+    padding:12px!important;
+  }
+
+  #today .today-actions{
+    display:grid!important;
+    grid-template-columns:.8fr 1.2fr!important;
+    width:100%!important;
+    margin-top:6px!important;
+  }
+
+  #activity .visual-filters{
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  }
+
+  #activity .activity-actions{
+    grid-template-columns:1fr 1fr 1.08fr!important;
+  }
+
+  .settings-section{
+    padding:13px!important;
+  }
+}
+
+@media(prefers-reduced-motion:reduce){
+  *{
+    transition:none!important;
+    animation-duration:.01ms!important;
+  }
+}
+
+/* ===== V97.9.4.1 Layout Consistency ===== */
+
+/* Dashboard upcoming timeline: uniform card geometry */
+#dash #deadlines{
+  gap:8px!important;
+}
+
+#dash #deadlines .listitem{
+  display:grid!important;
+  grid-template-columns:minmax(0,1fr) 92px!important;
+  align-items:center!important;
+  gap:10px!important;
+  min-height:92px!important;
+  height:92px!important;
+  padding:12px 14px!important;
+  border-radius:14px!important;
+  overflow:hidden!important;
+}
+
+/* left content */
+#dash #deadlines .listitem>div:first-child{
+  min-width:0!important;
+  align-self:center!important;
+}
+
+#dash #deadlines .listitem b{
+  display:-webkit-box!important;
+  -webkit-box-orient:vertical!important;
+  -webkit-line-clamp:2!important;
+  overflow:hidden!important;
+  margin:0!important;
+  font-size:16px!important;
+  line-height:1.35!important;
+  font-weight:600!important;
+}
+
+#dash #deadlines .listitem small{
+  display:block!important;
+  overflow:hidden!important;
+  margin-top:4px!important;
+  color:var(--ui-muted)!important;
+  font-size:12px!important;
+  line-height:1.3!important;
+  text-overflow:ellipsis!important;
+  white-space:nowrap!important;
+}
+
+/* date / right column */
+#dash #deadlines .listitem>div:last-child,
+#dash #deadlines .listitem>span:last-child{
+  width:92px!important;
+  min-width:92px!important;
+  text-align:right!important;
+  white-space:nowrap!important;
+  word-break:keep-all!important;
+  font-size:12px!important;
+  line-height:1.3!important;
+  color:var(--ui-muted)!important;
+}
+
+/* Decision cards: keep the three recommendation rows equal too */
+#dash .decision-list{
+  gap:8px!important;
+}
+
+#dash .decision-list>*{
+  min-height:104px!important;
+}
+
+@media(max-width:700px){
+  #dash #deadlines .listitem{
+    grid-template-columns:minmax(0,1fr) 88px!important;
+    min-height:88px!important;
+    height:88px!important;
+    padding:11px 12px!important;
+  }
+
+  #dash #deadlines .listitem>div:last-child,
+  #dash #deadlines .listitem>span:last-child{
+    width:88px!important;
+    min-width:88px!important;
+    font-size:11px!important;
+  }
+
+  #dash #deadlines .listitem b{
+    font-size:15px!important;
+  }
+
+  #dash .decision-list>*{
+    min-height:100px!important;
+  }
+}
+
+/* ===== V97.9.4.1 Dashboard Border Alignment ===== */
+
+@media(max-width:700px){
+
+  /* Dashboard uses one authoritative horizontal gutter */
+  #dash{
+    padding-left:10px!important;
+    padding-right:10px!important;
+  }
+
+  /* Direct dashboard panels must not add a second margin */
+  #dash>.panel{
+    margin-left:0!important;
+    margin-right:0!important;
+    width:100%!important;
+  }
+
+  /* Nested overview panels follow exactly the same outer boundary */
+  #dash .overview-main{
+    width:100%!important;
+    margin-left:0!important;
+    margin-right:0!important;
+  }
+
+  #dash .overview-main>.panel{
+    width:100%!important;
+    margin-left:0!important;
+    margin-right:0!important;
+  }
+
+  /* All major dashboard frames share one border system */
+  #dash .overview-main>.panel,
+  #dash>.decision-panel,
+  #dash>.panel{
+    border:1px solid var(--ui-line)!important;
+    border-radius:20px!important;
+  }
+}
+
+/* ===== V97.9.4.2 Analysis Border Alignment ===== */
+
+@media(max-width:700px){
+
+  /* Analysis page has one authoritative horizontal gutter */
+  #stats{
+    box-sizing:border-box!important;
+    padding-left:10px!important;
+    padding-right:10px!important;
+  }
+
+  /* Remove mixed legacy margins */
+  #stats>.panel,
+  #stats>.stats-grid,
+  #stats>.stats-progress-panel,
+  #stats>.stats-progress-grid{
+    width:100%!important;
+    max-width:100%!important;
+    margin-left:0!important;
+    margin-right:0!important;
+    box-sizing:border-box!important;
+  }
+
+  /* Nested major panels must align to the same outer edge */
+  #stats .stats-grid>.panel,
+  #stats .stats-progress-panel>.panel,
+  #stats .stats-progress-grid>.panel{
+    width:100%!important;
+    max-width:100%!important;
+    margin-left:0!important;
+    margin-right:0!important;
+    box-sizing:border-box!important;
+  }
+
+  /* One consistent frame system */
+  #stats .panel{
+    border:1px solid var(--ui-line)!important;
+    border-radius:20px!important;
+    box-sizing:border-box!important;
+  }
+
+  /* KPI grid stays inside the same gutter */
+  #stats .stats-kpi{
+    width:100%!important;
+    margin-left:0!important;
+    margin-right:0!important;
+    box-sizing:border-box!important;
+  }
+}

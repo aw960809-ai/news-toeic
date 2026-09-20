@@ -1,0 +1,9 @@
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 520'>
+<rect width='800' height='520' fill='#edf2f0'/><rect x='60' y='78' width='680' height='364' rx='26' fill='#ffffff' stroke='#cfdad6' stroke-width='4'/>
+<rect x='124' y='132' width='146' height='268' fill='#f0f4f2'/><rect x='512' y='132' width='146' height='268' fill='#f7f9f8'/>
+<rect x='288' y='300' width='118' height='88' fill='#cea56a'/><rect x='406' y='300' width='118' height='88' fill='#d9b176'/>
+<rect x='344' y='226' width='118' height='74' fill='#e2bf8b'/><rect x='314' y='388' width='180' height='24' fill='#909f98'/>
+<path d='M288 300l118-74 118 74' fill='none' stroke='#b2864d' stroke-width='4'/>
+<path d='M344 226l118-56 62 38-118 66' fill='#e8c99a' stroke='#b88e57' stroke-width='4'/>
+<text x='400' y='470' font-size='28' font-family='sans-serif' text-anchor='middle' fill='#496257'>Warehouse boxes</text>
+</svg>

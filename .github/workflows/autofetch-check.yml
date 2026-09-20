@@ -1,0 +1,44 @@
+name: THU Goal Manager AutoFetch Safe Check
+on:
+  push:
+    branches: [main]
+    paths:
+      - "tools/autofetch/**"
+      - "data/activities.json"
+      - "data/scholarships.json"
+      - ".github/workflows/autofetch-check.yml"
+      - ".github/workflows/autofetch.yml"
+      - ".github/workflows/scholarship-autofetch.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: thu-autofetch-safe-check
+  cancel-in-progress: true
+jobs:
+  safe-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Validate
+        run: |
+          python -m py_compile tools/autofetch/autofetch.py tools/autofetch/scholarship_autofetch.py tools/autofetch/lifecycle_archive.py
+          python -m json.tool tools/autofetch/sources.json >/dev/null
+          python -m json.tool tools/autofetch/scholarship-sources.json >/dev/null
+          python -m json.tool data/activities.json >/dev/null
+          python -m json.tool data/scholarships.json >/dev/null
+          python -m json.tool data/activity-archive.json >/dev/null
+          python -m json.tool data/scholarship-archive.json >/dev/null
+      - name: Activity safe check
+        run: python tools/autofetch/autofetch.py --check --limit 12
+      - name: Scholarship safe check
+        run: python tools/autofetch/scholarship_autofetch.py --repo . --check
+      - name: Static QA
+        run: python qa_static.py
+      - name: Confirm no data writes
+        run: |
+          git diff --exit-code -- data/activities.json data/scholarships.json data/activity-archive.json data/scholarship-archive.json
+          echo "THU_AUTOFETCH_SAFE_CHECK_OK"

@@ -1,0 +1,8 @@
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 520'>
+<rect width='800' height='520' fill='#eef4f1'/><rect x='76' y='86' width='648' height='348' rx='28' fill='#fff' stroke='#cedbd4' stroke-width='4'/>
+<ellipse cx='400' cy='292' rx='172' ry='58' fill='#d5e3dd'/><ellipse cx='400' cy='296' rx='152' ry='42' fill='#f7fbf9'/>
+<circle cx='278' cy='212' r='34' fill='#f0c49d'/><path d='M246 202c8-32 52-36 68-8' fill='#658975'/><rect x='244' y='246' width='70' height='82' rx='24' fill='#7ca894'/>
+<circle cx='524' cy='212' r='34' fill='#efc29c'/><path d='M492 202c10-28 54-34 68-6' fill='#4f7061'/><rect x='490' y='246' width='70' height='82' rx='24' fill='#698e7b'/>
+<rect x='366' y='258' width='68' height='34' rx='6' fill='#fff0bf' stroke='#ccb06a'/><rect x='354' y='306' width='94' height='10' rx='5' fill='#9fb4aa'/>
+<text x='400' y='470' font-size='28' font-family='sans-serif' text-anchor='middle' fill='#496257'>Meeting table</text>
+</svg>

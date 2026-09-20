@@ -1,0 +1,215 @@
+name: THU Goal Manager Zero-Config AutoFetch
+on:
+  schedule:
+    - cron: "17 1 * * *"
+    - cron: "47 2 * * *"
+  workflow_dispatch:
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+concurrency:
+  group: thu-goal-manager-autofetch-production
+  cancel-in-progress: false
+jobs:
+  refresh-build-deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - name: Confirm production branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          DEFAULT_BRANCH="${{ github.event.repository.default_branch }}"
+          test "$GITHUB_REF_NAME" = "$DEFAULT_BRANCH"
+      - name: Scheduled freshness gate
+        id: freshness
+        shell: bash
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json, os
+          from datetime import datetime
+          from pathlib import Path
+          from zoneinfo import ZoneInfo
+
+          if os.environ.get("EVENT_NAME") != "schedule":
+              with open(os.environ["GITHUB_OUTPUT"], "a", encoding="utf-8") as f:
+                  f.write("skip=false\n")
+              print("MANUAL_OR_NON_SCHEDULE skip=false")
+              raise SystemExit(0)
+
+          tz = ZoneInfo("Asia/Taipei")
+          today = datetime.now(tz).date()
+
+          def meta_date(path):
+              try:
+                  obj = json.loads(Path(path).read_text(encoding="utf-8"))
+                  raw = str((obj.get("meta") or {}).get("updatedAt") or "").strip()
+                  if not raw:
+                      return None
+                  dt = datetime.fromisoformat(raw.replace("Z", "+00:00"))
+                  if dt.tzinfo is None:
+                      dt = dt.replace(tzinfo=tz)
+                  return dt.astimezone(tz).date()
+              except Exception:
+                  return None
+
+          a = meta_date("data/activities.json")
+          s = meta_date("data/scholarships.json")
+          fresh = (a == today and s == today)
+
+          with open(os.environ["GITHUB_OUTPUT"], "a", encoding="utf-8") as f:
+              f.write(f"skip={'true' if fresh else 'false'}\n")
+
+          print(f"TAIPEI_TODAY={today} activity={a} scholarship={s} skip={fresh}")
+          PY
+      - name: Validate engines and production data
+        if: steps.freshness.outputs.skip != 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m py_compile tools/autofetch/autofetch.py tools/autofetch/scholarship_autofetch.py tools/autofetch/public_source_registry_bridge.py tools/autofetch/lifecycle_archive.py
+          python -m json.tool tools/autofetch/sources.json >/dev/null
+          python -m json.tool tools/autofetch/scholarship-sources.json >/dev/null
+          python -m json.tool data/activities.json >/dev/null
+          python -m json.tool data/scholarships.json >/dev/null
+          python -m json.tool data/activity-archive.json >/dev/null
+          python -m json.tool data/scholarship-archive.json >/dev/null
+      - name: Snapshot production data
+        if: steps.freshness.outputs.skip != 'true'
+        shell: bash
+        run: |
+          cp data/activities.json "$RUNNER_TEMP/activities-before.json"
+          cp data/scholarships.json "$RUNNER_TEMP/scholarships-before.json"
+      - name: Refresh scholarships
+        if: steps.freshness.outputs.skip != 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+          python tools/autofetch/scholarship_autofetch.py --repo .
+          python -m json.tool data/scholarships.json >/dev/null
+          python -m json.tool data/activity-archive.json >/dev/null
+          python -m json.tool data/scholarship-archive.json >/dev/null
+      - name: Refresh activity radar
+        if: steps.freshness.outputs.skip != 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+          python tools/autofetch/autofetch.py --apply --limit 30
+          python tools/autofetch/public_source_registry_bridge.py --apply
+          python -m json.tool data/activities.json >/dev/null
+      - name: Production integrity guard
+        if: steps.freshness.outputs.skip != 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json, os
+          from pathlib import Path
+          tmp=Path(os.environ["RUNNER_TEMP"])
+          before_a=json.loads((tmp/"activities-before.json").read_text(encoding="utf-8"))
+          after_a=json.loads(Path("data/activities.json").read_text(encoding="utf-8"))
+          old_a=before_a.get("events",[]); new_a=after_a.get("events",[])
+          if not isinstance(old_a,list) or not isinstance(new_a,list): raise SystemExit("INTEGRITY_FAIL activity shape")
+          ids=[str(x.get("id","")) for x in new_a]
+          if any(not x for x in ids) or len(ids)!=len(set(ids)): raise SystemExit("INTEGRITY_FAIL activity ids")
+          mb={str(x.get("id","")):x for x in old_a if not str(x.get("id","")).startswith("auto-")}
+          ma={str(x.get("id","")):x for x in new_a if not str(x.get("id","")).startswith("auto-")}
+          if mb!=ma: raise SystemExit("INTEGRITY_FAIL manual activities changed")
+          removed=max(0,len(old_a)-len(new_a))
+          if len(old_a)>=20 and removed>=10 and len(new_a)<len(old_a)*0.40:
+              raise SystemExit("INTEGRITY_FAIL destructive activity shrink")
+
+          before_s=json.loads((tmp/"scholarships-before.json").read_text(encoding="utf-8"))
+          after_s=json.loads(Path("data/scholarships.json").read_text(encoding="utf-8"))
+          def rows(x):
+              if isinstance(x,list): return x
+              if isinstance(x,dict):
+                  for k in ("scholarships","items","events"):
+                      if isinstance(x.get(k),list): return x[k]
+              return []
+          old_s,new_s=rows(before_s),rows(after_s)
+          sids=[str(x.get("id","")) for x in new_s]
+          if any(not x for x in sids) or len(sids)!=len(set(sids)): raise SystemExit("INTEGRITY_FAIL scholarship ids")
+          def auto(x): return x.get("sourceId")=="thu_scholarship_official" and x.get("auto") is True
+          mb={str(x.get("id","")):x for x in old_s if not auto(x)}
+          ma={str(x.get("id","")):x for x in new_s if not auto(x)}
+          if mb!=ma: raise SystemExit("INTEGRITY_FAIL manual scholarships changed")
+          print(f"INTEGRITY_OK activities={len(new_a)} scholarships={len(new_s)}")
+          PY
+      - name: Existing QA
+        if: steps.freshness.outputs.skip != 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+          python qa_static.py
+          git diff --check
+      - name: Detect data changes
+        if: steps.freshness.outputs.skip != 'true'
+        id: data_change
+        shell: bash
+        run: |
+          if git diff --quiet -- data/activities.json data/scholarships.json data/activity-archive.json data/scholarship-archive.json; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+      - name: Persist refreshed catalog data
+        if: steps.freshness.outputs.skip != 'true' && (steps.data_change.outputs.changed == 'true')
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "thu-goal-manager-autofetch[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/activities.json data/scholarships.json data/activity-archive.json data/scholarship-archive.json
+          git commit -m "chore(data): zero-config autofetch ${GITHUB_RUN_ID} [skip ci]"
+          git push origin "HEAD:${GITHUB_REF_NAME}"
+      - name: Assemble site
+        if: steps.freshness.outputs.skip != 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -rf _site
+          mkdir -p _site
+          cp index.html 404.html manifest.webmanifest sw.js icon.svg README.md _site/
+          cp -r css js config data _site/
+          cp -r apps _site/
+          test -f _site/data/activities.json
+          test -f _site/data/scholarships.json
+      - name: Configure GitHub Pages
+        if: steps.freshness.outputs.skip != 'true'
+        uses: actions/configure-pages@v5
+      - name: Upload Pages artifact
+        if: steps.freshness.outputs.skip != 'true'
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: _site
+      - name: Deploy GitHub Pages
+        if: steps.freshness.outputs.skip != 'true'
+        id: deployment
+        uses: actions/deploy-pages@v4
+      - name: Verify deployed site
+        if: steps.freshness.outputs.skip != 'true'
+        shell: bash
+        env:
+          PAGE_URL: ${{ steps.deployment.outputs.page_url }}
+        run: |
+          set -euo pipefail
+          curl -fL --retry 6 --retry-delay 5 --retry-all-errors --max-time 30 "$PAGE_URL" >/dev/null
+          curl -fL --retry 4 --retry-delay 3 --retry-all-errors --max-time 30 "${PAGE_URL%/}/data/activities.json" >/dev/null
+          curl -fL --retry 4 --retry-delay 3 --retry-all-errors --max-time 30 "${PAGE_URL%/}/data/scholarships.json" >/dev/null
+          echo "ZERO_CONFIG_AUTOFETCH_DEPLOY_OK"

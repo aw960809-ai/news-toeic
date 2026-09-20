@@ -1,0 +1,18 @@
+{
+  "id": "./",
+  "name": "News × TOEIC",
+  "short_name": "TOEIC",
+  "start_url": "/news-toeic/",
+  "scope": "/news-toeic/",
+  "display": "standalone",
+  "background_color": "#f4f7f5",
+  "theme_color": "#0b5d45",
+  "icons": [
+    {
+      "src": "./icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

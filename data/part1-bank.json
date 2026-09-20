@@ -1,0 +1,94 @@
+{
+  "version": 1,
+  "updatedAt": "2026-09-18T00:00:00Z",
+  "scenes": [
+    {
+      "id": "office-notes",
+      "image": "./assets/part1/office-notes.svg",
+      "correct": "A woman is writing notes at a desk.",
+      "options": [
+        "A woman is writing notes at a desk.",
+        "Two people are loading a truck.",
+        "Several boxes are stacked near a wall.",
+        "A man is opening a window."
+      ]
+    },
+    {
+      "id": "warehouse-boxes",
+      "image": "./assets/part1/warehouse-boxes.svg",
+      "correct": "Several boxes are stacked near a wall.",
+      "options": [
+        "Several boxes are stacked near a wall.",
+        "A woman is driving a bus.",
+        "People are swimming outside.",
+        "A computer is hanging from the ceiling."
+      ]
+    },
+    {
+      "id": "meeting-table",
+      "image": "./assets/part1/meeting-table.svg",
+      "correct": "Two people are seated at a table.",
+      "options": [
+        "Two people are seated at a table.",
+        "A man is carrying a bicycle upstairs.",
+        "A shelf is empty.",
+        "A truck is parked in a kitchen."
+      ]
+    },
+    {
+      "id": "delivery-box",
+      "image": "./assets/part1/delivery-box.svg",
+      "correct": "A man is carrying a box.",
+      "options": [
+        "A man is carrying a box.",
+        "A woman is painting a road.",
+        "All chairs are upside down.",
+        "A train is inside an office."
+      ]
+    },
+    {
+      "id": "airport-counter",
+      "image": "./assets/part1/airport-counter.svg",
+      "correct": "A passenger is speaking with an agent at a counter.",
+      "options": [
+        "A passenger is speaking with an agent at a counter.",
+        "Several people are planting trees.",
+        "A pilot is repairing a truck.",
+        "The floor is being painted outdoors."
+      ]
+    },
+    {
+      "id": "store-display",
+      "image": "./assets/part1/store-display.svg",
+      "correct": "A customer is examining items on a shelf.",
+      "options": [
+        "A customer is examining items on a shelf.",
+        "Workers are climbing onto a roof.",
+        "A bicycle is being washed on a street.",
+        "Passengers are boarding a ship."
+      ]
+    },
+    {
+      "id": "conference-presentation",
+      "image": "./assets/part1/conference-presentation.svg",
+      "correct": "A presenter is standing beside a screen.",
+      "options": [
+        "A presenter is standing beside a screen.",
+        "Several plants are being watered.",
+        "A chef is serving food outdoors.",
+        "The windows are being replaced."
+      ]
+    },
+    {
+      "id": "train-platform",
+      "image": "./assets/part1/train-platform.svg",
+      "correct": "A traveler is pulling a suitcase on a platform.",
+      "options": [
+        "A traveler is pulling a suitcase on a platform.",
+        "Boxes are floating in a pool.",
+        "A mechanic is lifting a bicycle.",
+        "Employees are meeting on a rooftop."
+      ]
+    }
+  ]
+}

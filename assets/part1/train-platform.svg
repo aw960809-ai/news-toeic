@@ -1,0 +1,7 @@
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 520'>
+<rect width='800' height='520' fill='#edf2f5'/><rect x='70' y='84' width='660' height='352' rx='28' fill='#fff' stroke='#d0dae0' stroke-width='4'/>
+<rect x='120' y='148' width='480' height='128' rx='14' fill='#dbe7ef'/><rect x='128' y='174' width='116' height='64' rx='10' fill='#b6cbd8'/><rect x='264' y='174' width='116' height='64' rx='10' fill='#b6cbd8'/><rect x='400' y='174' width='116' height='64' rx='10' fill='#b6cbd8'/>
+<rect x='612' y='138' width='20' height='190' fill='#93a3aa'/><circle cx='300' cy='206' r='34' fill='#f0c49d'/><path d='M270 192c14-30 60-36 76-6' fill='#55736d'/><rect x='266' y='242' width='72' height='106' rx='24' fill='#7599ad'/>
+<path d='M336 294l60 28-10 22-68-24z' fill='#f0c49d'/><rect x='398' y='300' width='42' height='58' rx='6' fill='#798a95'/><rect x='390' y='358' width='58' height='8' rx='4' fill='#8ca2ae'/><line x1='120' y1='374' x2='660' y2='374' stroke='#8fa1ab' stroke-width='10'/>
+<text x='400' y='470' font-size='28' font-family='sans-serif' text-anchor='middle' fill='#50636e'>Train platform</text>
+</svg>

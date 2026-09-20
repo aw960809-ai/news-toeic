@@ -1,0 +1,15 @@
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 520'>
+<rect width='800' height='520' fill='#eef5f2'/>
+<rect x='84' y='76' width='632' height='368' rx='28' fill='#ffffff' stroke='#cadad2' stroke-width='4'/>
+<rect x='126' y='128' width='240' height='180' rx='16' fill='#e8f0ec'/>
+<rect x='448' y='138' width='170' height='24' rx='12' fill='#c9d8d2'/>
+<rect x='448' y='184' width='138' height='24' rx='12' fill='#dce8e3'/>
+<rect x='210' y='338' width='302' height='22' rx='11' fill='#96aa9f'/>
+<rect x='236' y='356' width='28' height='68' fill='#7a8f84'/><rect x='456' y='356' width='28' height='68' fill='#7a8f84'/>
+<circle cx='326' cy='218' r='38' fill='#f0c49d'/><path d='M286 200c18-36 68-40 92-6' fill='#587969'/>
+<rect x='290' y='256' width='76' height='92' rx='26' fill='#709d88'/>
+<path d='M362 290l46 16-12 22-48-18z' fill='#f0c49d'/><path d='M278 290l-34 28 16 18 36-26z' fill='#f0c49d'/>
+<rect x='376' y='288' width='74' height='12' rx='6' fill='#fff7cf' stroke='#d6c48a'/>
+<line x1='384' y1='294' x2='438' y2='294' stroke='#c6a74d' stroke-width='2'/>
+<text x='400' y='474' font-size='28' font-family='sans-serif' text-anchor='middle' fill='#496257'>Office notes</text>
+</svg>
