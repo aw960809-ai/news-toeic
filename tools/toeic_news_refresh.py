@@ -7,7 +7,7 @@ from pathlib import Path
 from xml.etree import ElementTree as ET
 
 ROOT=Path(__file__).resolve().parents[1]
-OUT=ROOT/"apps"/"toeic"/"data"/"news.json"
+OUT=ROOT/"data"/"news.json"
 FEEDS=[
  ("Business","company business employee customer service retail delivery logistics"),
  ("Travel","airline airport hotel reservation travel passenger rail schedule"),

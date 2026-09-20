@@ -1,4 +1,4 @@
-const CACHE='news-toeic-github-v2.0.0';
+const CACHE='news-toeic-github-v2.0.1-standalone';
 const SHELL=['./','./index.html','./app.js','./styles.css','./manifest.webmanifest','./icon.svg','./data/news.json'];
 self.addEventListener('install',e=>{self.skipWaiting();e.waitUntil(caches.open(CACHE).then(c=>c.addAll(SHELL)))});
 self.addEventListener('activate',e=>e.waitUntil(Promise.all([caches.keys().then(ks=>Promise.all(ks.filter(k=>k!==CACHE).map(k=>caches.delete(k)))),self.clients.claim()])));
