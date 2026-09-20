@@ -1,7 +1,7 @@
 {
   "id": "/news-toeic/",
   "name": "News × TOEIC",
-  "short_name": "TOEIC",
+  "short_name": "News×TOEIC",
   "start_url": "/news-toeic/",
   "scope": "/news-toeic/",
   "display": "standalone",
