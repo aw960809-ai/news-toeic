@@ -1,6 +1,6 @@
 'use strict';
 
-const VERSION='2.2.0-github';
+const VERSION='2.2.1-github';
 const KEYS={
  generated:'generated',sessions:'sessions',mistakes:'mistakes',settings:'settings',
  daily:'dailyMainAssignment',dailyHistory:'dailyMainHistory',dailyPool:'dailyMainCandidatePool',
@@ -203,7 +203,7 @@ function bind(){
  document.querySelectorAll('.make-lesson').forEach(b=>b.onclick=()=>{const n=news.find(x=>String(x.id)===String(b.dataset.id));if(!n)return;const lesson=buildNewsLesson(n),rows=generated().filter(x=>x.id!==lesson.id);rows.push(lesson);save(KEYS.generated,rows.slice(-60));save(KEYS.daily,{date:dayKey(),articleId:lesson.id,completed:false,selectedByUser:true});toast('已建立本機原創教材');openLesson(lesson.id)});
  document.querySelectorAll('[data-part]').forEach(b=>b.onclick=()=>startPractice(Number(b.dataset.part),practiceCount(Number(b.dataset.part))));
  document.querySelector('#startMock')?.addEventListener('click',startFullMock);
- document.querySelectorAll('.review-mark').forEach(b=>b.onclick=()=>markReview(b.dataset.kind,b.dataset.id));
+ document.querySelectorAll('.retry-review').forEach(b=>b.onclick=()=>appdeployRetryReview(b.dataset.kind,b.dataset.id));
  document.querySelector('#saveSettings')?.addEventListener('click',()=>{settings.currentLevel=Number(document.querySelector('#cur').value)||600;settings.targetScore=Number(document.querySelector('#goal').value)||750;settings.dailyMinutes=Number(document.querySelector('#mins').value)||30;save(KEYS.settings,settings);toast('設定已儲存');render()});
  document.querySelector('#exportBackup')?.addEventListener('click',exportBackup);
  document.querySelector('#importBackup')?.addEventListener('click',()=>{const f=document.querySelector('#importFile').files?.[0];if(!f)return toast('請先選擇 JSON');importBackup(f)});
@@ -455,16 +455,123 @@ function practicePage(){
     ${family('Listening · 聽力',parts.filter(x=>x.family==='Listening'))}
     ${family('Reading · 閱讀',parts.filter(x=>x.family==='Reading'))}`;
 }
+function appdeployReviewStatus(m){
+  return m.status==='reviewing'?'複習中':m.status==='confirming'?'待確認':m.status==='mastered'?'已掌握':'未掌握';
+}
+function appdeployReviewDue(m){
+  return m.status!=='mastered'&&(!m.nextReviewAt||Date.parse(m.nextReviewAt)<=Date.now());
+}
+function appdeployReviewDate(m){
+  return m.nextReviewAt?new Date(m.nextReviewAt).toLocaleDateString('zh-TW',{month:'numeric',day:'numeric'}):'現在';
+}
+function appdeployReviewContext(kind,m){
+  if(kind==='news'){
+    if(m.question?.part==='Part 5')return'';
+    const a=allLessons().find(x=>x.id===m.sourceId);
+    return a?.text||'';
+  }
+  return m.question?.stimulus||m.stimulus||'';
+}
+function appdeployAdvanceReview(kind,m,correct){
+  const key=kind==='news'?KEYS.mistakes:KEYS.partMistakes;
+  const rows=load(key,[]);
+  const row=rows.find(x=>x.id===m.id);
+  if(!row)return null;
+  const t=now();
+  row.reviewCount=(Number(row.reviewCount)||0)+1;
+  row.lastReviewedAt=t;
+  if(!correct){
+    row.status='unmastered';
+    row.reviewStage=0;
+    row.correctStreak=0;
+    row.lastWrongAt=t;
+    row.nextReviewAt=new Date(Date.now()+86400000).toISOString();
+    delete row.masteredAt;
+  }else{
+    const stage=Number(row.reviewStage)||0;
+    row.correctStreak=(Number(row.correctStreak)||0)+1;
+    if(stage>=2){
+      row.status='mastered';
+      row.reviewStage=3;
+      row.masteredAt=t;
+      delete row.nextReviewAt;
+    }else{
+      const nextStage=stage+1;
+      row.reviewStage=nextStage;
+      row.status=nextStage===1?'reviewing':'confirming';
+      row.nextReviewAt=new Date(Date.now()+(nextStage===1?3:7)*86400000).toISOString();
+    }
+  }
+  save(key,rows);
+  return row;
+}
+function appdeployRetryReview(kind,id){
+  const rows=kind==='news'?newsMistakes():partMistakes();
+  const m=rows.find(x=>x.id===id);
+  if(!m||m.status==='mastered')return;
+  if(!appdeployReviewDue(m)){toast(`尚未到複習時間：${appdeployReviewDate(m)}`);return;}
+  const q=m.question||{};
+  const context=appdeployReviewContext(kind,m);
+  dialogTitle.textContent='間隔錯題重測';
+  body.innerHTML=`<section class="lesson-step">
+    <div class="article-meta">
+      <span class="badge">${esc(q.part||`Part ${Number(m.part)||''}`)}</span>
+      <span class="badge">${esc(q.skill||'Review')}</span>
+      <span class="badge">${appdeployReviewStatus(m)}</span>
+      ${context?'<span class="badge review-context-badge">文章語境</span>':''}
+    </div>
+    ${context?`<div class="card review-context"><div class="review-context-head"><strong>作答語境</strong><span>作答前不提供解析或答案</span></div><p class="review-context-text" style="white-space:pre-line">${esc(context)}</p></div>`:''}
+    <h3>${esc(q.q||'錯題')}</h3>
+    <div class="option-grid">${(q.options||[]).map((o,i)=>`<button class="option retry-answer" data-i="${i}">${String.fromCharCode(65+i)}. ${esc(o)}</button>`).join('')}</div>
+    <div id="reviewFeedback"></div>
+  </section>`;
+  dialog.showModal();
+  document.querySelectorAll('.retry-answer').forEach(btn=>btn.onclick=()=>{
+    const choice=Number(btn.dataset.i);
+    const correct=choice===Number(q.answer);
+    document.querySelectorAll('.retry-answer').forEach((x,i)=>{
+      x.disabled=true;
+      if(i===Number(q.answer))x.classList.add('correct');
+      else if(i===choice)x.classList.add('wrong');
+    });
+    const updated=appdeployAdvanceReview(kind,m,correct);
+    const message=!correct?'仍未掌握；1 天後重新測驗'
+      :updated?.status==='mastered'?'連續跨期答對，已移入「已掌握」歷史'
+      :updated?.status==='reviewing'?'第一次確認成功；3 天後再測'
+      :'第二次確認成功；7 天後最後確認';
+    document.querySelector('#reviewFeedback').innerHTML=`<div class="card">
+      <strong>${message}</strong>
+      <p>正確答案：${esc((q.options||[])[Number(q.answer)]||'')}</p>
+      <p class="muted">${esc(q.explain||'')}</p>
+      <button class="primary" id="doneReview">完成</button>
+    </div>`;
+    document.querySelector('#doneReview').onclick=()=>{dialog.close();render()};
+  });
+}
 function reviewPage(){
   const nm=newsMistakes(),pm=partMistakes();
   const activeNews=nm.filter(x=>x.status!=='mastered');
   const activePart=pm.filter(x=>x.status!=='mastered');
+  const masteredNews=nm.filter(x=>x.status==='mastered');
+  const masteredPart=pm.filter(x=>x.status==='mastered');
   const total=activeNews.length+activePart.length;
+  const card=(kind,m)=>{const q=m.question||{};const context=appdeployReviewContext(kind,m);return`<div class="card">
+    <div class="article-meta">
+      <span class="badge">${esc(q.part||`Part ${Number(m.part)||''}`)}</span>
+      <span class="badge">${esc(q.skill||'Review')}</span>
+      <span class="badge">${appdeployReviewStatus(m)}</span>
+      ${context?'<span class="badge review-context-badge">文章語境</span>':''}
+    </div>
+    <h3>${esc(q.q||'錯題')}</h3>
+    <p class="muted">上次答案：${esc((q.options||[])[Number(m.choice)]||'—')}${context?'<br>重測時會附上原始作答語境；正解在作答後才顯示。':''}</p>
+    ${appdeployReviewDue(m)?`<button class="secondary retry-review" data-kind="${kind}" data-id="${esc(m.id)}">開始間隔重測</button>`:`<button class="secondary" disabled>下次重測 ${appdeployReviewDate(m)}</button>`}
+  </div>`};
   return `<div class="section-head"><h3>錯題與複習</h3><span class="badge">${total} 題待處理</span></div>
-    <div class="card"><strong>間隔複習規則</strong><p class="muted">答錯後 1 天重測 → 答對後 3 天再測 → 再答對後 7 天確認；文章型錯題保留原始教材與解析紀錄。</p></div>
-    ${!total?`<div class="card empty review-empty"><strong>目前沒有待複習錯題</strong><p>已掌握題目仍保留歷史；之後若再次答錯會重新進入複習。</p><button class="primary" id="startFromReview">開始今日訓練</button></div>`:''}
-    ${activeNews.length?`<div class="section-head"><h3>新聞教材錯題</h3><span class="badge">${activeNews.length} 題</span></div><div class="list">${activeNews.map(m=>`<div class="card"><div class="article-meta"><span class="badge">${esc(m.question?.part||'Part 7')}</span><span class="badge">${esc(m.question?.skill||'Review')}</span><span class="badge">${esc(m.status||'unmastered')}</span></div><h3>${esc(m.question?.q||'錯題')}</h3><button class="secondary review-mark" data-kind="news" data-id="${esc(m.id)}">本次已複習並答對</button></div>`).join('')}</div>`:''}
-    ${activePart.length?`<div class="section-head"><h3>Part 1–7 題型錯題</h3><span class="badge">${activePart.length} 題</span></div><div class="list">${activePart.map(m=>`<div class="card"><div class="article-meta"><span class="badge">Part ${Number(m.part)||''}</span><span class="badge">${esc(m.status||'unmastered')}</span></div><h3>${esc(m.question?.q||'錯題')}</h3><button class="secondary review-mark" data-kind="part" data-id="${esc(m.id)}">本次已複習並答對</button></div>`).join('')}</div>`:''}`;
+    <div class="card"><strong>間隔複習規則</strong><p class="muted">答錯後 1 天重測 → 答對後 3 天再測 → 再答對後 7 天確認 → 第三次跨期答對才標示已掌握；文章型錯題會帶回原始作答語境，解析與正解在作答後才開放。</p></div>
+    ${!total?`<div class="card empty review-empty"><strong>目前沒有待複習錯題</strong><p>已掌握的題目不會刪除歷史；之後若再次答錯，會自動重新進入複習循環。</p><button class="primary" id="startFromReview">開始今日訓練</button></div>`:''}
+    ${activeNews.length?`<div class="section-head"><h3>新聞教材錯題</h3><span class="badge">${activeNews.length} 題</span></div><div class="list">${activeNews.map(m=>card('news',m)).join('')}</div>`:''}
+    ${activePart.length?`<div class="section-head"><h3>Part 1–7 題型錯題</h3><span class="badge">${activePart.length} 題</span></div><div class="list">${activePart.map(m=>card('part',m)).join('')}</div>`:''}
+    ${(masteredNews.length+masteredPart.length)?`<details class="card review-archive"><summary><strong>已掌握 · ${masteredNews.length+masteredPart.length} 題</strong></summary><div class="list">${[...masteredNews,...masteredPart].slice(-12).reverse().map(m=>`<div><span class="badge">${esc(m.question?.part||`Part ${Number(m.part)||''}`)}</span> ${esc(m.question?.skill||'Review')} · ${esc(m.question?.q||'錯題')}</div>`).join('')}</div></details>`:''}`;
 }
 function appdeployMockSummary(){
   const rows=mockHistory().slice(-5).reverse();
