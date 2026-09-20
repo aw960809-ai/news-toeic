@@ -4,6 +4,11 @@
   const PART1_BANK_URL = "./data/part1-bank.json";
   const AUDIO_MANIFEST_URL = "./audio/manifest.json";
   const VOICE_KEY = "toeicGithubVoiceSettingsV1";
+  const VOICE_RANDOM_MIGRATION_KEY = "toeicGithubVoiceRandomV1";
+  const ACCENTS = ["US","UK","CA","AU-NZ"];
+  const RANDOM_ACCENT = "RANDOM";
+  const randomAccentByQuestion = new Map();
+  let lastRandomAccent = "";
 
   let part1Bank = [];
   let audioManifest = { packs: { "US": {}, "UK": {}, "CA": {}, "AU-NZ": {} } };
@@ -11,7 +16,7 @@
   function load(key, fallback){ try{ const x = JSON.parse(localStorage.getItem(key) || ""); return x ?? fallback; }catch(_){ return fallback; } }
   function save(key, value){ try{ localStorage.setItem(key, JSON.stringify(value)); }catch(_){} }
   function esc(v){ return String(v ?? "").replace(/[&<>"']/g, c => ({ "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;" }[c])); }
-  function voiceSettings(){ return { accent:"US", rate:0.95, autoPlay:true, ...load(VOICE_KEY, {}) }; }
+  function voiceSettings(){ return { accent:RANDOM_ACCENT, rate:0.95, autoPlay:true, ...load(VOICE_KEY, {}) }; }
   function persistVoiceSettings(next){ save(VOICE_KEY, { ...voiceSettings(), ...next }); }
   function toast(msg){ try{
     const host = document.getElementById("toastHost");
@@ -44,14 +49,32 @@
   }
 
   function normalizeAccent(accent){
-    const a = String(accent || "US").toUpperCase();
+    const a = String(accent || RANDOM_ACCENT).toUpperCase();
+    if(a === "RANDOM" || a === "AUTO") return RANDOM_ACCENT;
     if(a === "UK") return "UK";
     if(a === "CA") return "CA";
     if(a === "AU" || a === "AU-NZ" || a === "NZ") return "AU-NZ";
     return "US";
   }
 
+  function chooseRandomAccent(){
+    const pool = ACCENTS.filter(a => a !== lastRandomAccent);
+    const next = pool[Math.floor(Math.random() * pool.length)] || ACCENTS[0];
+    lastRandomAccent = next;
+    return next;
+  }
+
+  function resolveAccent(accent, key=""){
+    const normalized = normalizeAccent(accent);
+    if(normalized !== RANDOM_ACCENT) return normalized;
+    if(key && randomAccentByQuestion.has(key)) return randomAccentByQuestion.get(key);
+    const picked = chooseRandomAccent();
+    if(key) randomAccentByQuestion.set(key, picked);
+    return picked;
+  }
+
   function voiceCandidates(accent){
+    accent = resolveAccent(accent);
     const map = {
       "US": ["en-US", "english (united states)", "samantha", "google us english"],
       "UK": ["en-GB", "english (united kingdom)", "serena", "daniel", "google uk english"],
@@ -81,11 +104,10 @@
     return item.q || "";
   }
 
-  function fileClipFor(item){
-    const settings = voiceSettings();
-    const accent = normalizeAccent(settings.accent);
+  function fileClipFor(item, resolvedAccent){
+    const accent = resolveAccent(resolvedAccent || voiceSettings().accent, String(item?.id || ""));
     const pack = (audioManifest.packs && audioManifest.packs[accent]) || {};
-    return pack[String(item.id || "")] || "";
+    return pack[String(item?.id || "")] || "";
   }
 
   function playRecordedClip(src){
@@ -103,6 +125,7 @@
   }
 
   function speakWithTTS(text, accent){
+    accent = resolveAccent(accent);
     return new Promise((resolve, reject) => {
       if(!("speechSynthesis" in window)) return reject(new Error("tts unavailable"));
       try{
@@ -126,15 +149,16 @@
   }
 
   async function playQuestionAudio(item){
-    const clip = fileClipFor(item);
+    const settings = voiceSettings();
+    const accent = resolveAccent(settings.accent, String(item?.id || ""));
+    const clip = fileClipFor(item, accent);
     if(clip){
       try{
         await playRecordedClip(clip);
         return;
       }catch(_){}
     }
-    const settings = voiceSettings();
-    await speakWithTTS(questionText(item), settings.accent);
+    await speakWithTTS(questionText(item), accent);
   }
 
   function installSpeechOverride(){
@@ -195,6 +219,7 @@
       <p class="muted">Part 1 現在使用預建圖片題庫；Part 1–4 先播放錄音檔（若未提供）再退回裝置英文 TTS。</p>
       <label class="setting"><span>預設口音</span>
         <select id="toeicVoiceAccent" class="settings-input">
+          <option value="RANDOM">隨機（US / UK / CA / AU-NZ）</option>
           <option value="US">US</option>
           <option value="UK">UK</option>
           <option value="CA">CA</option>
@@ -227,7 +252,9 @@
     };
 
     wrapper.querySelector("#toeicVoiceTest").onclick = () => {
-      speakWithTTS("This is a listening test for your TOEIC GitHub system.", accentInput.value)
+      const testAccent = resolveAccent(accentInput.value);
+      toast(`本次測試口音：${testAccent}`);
+      speakWithTTS("This is a listening test for your TOEIC GitHub system.", testAccent)
         .catch(() => toast("裝置目前無法播放 TTS"));
     };
   }
@@ -283,6 +310,15 @@
   }
 
   (async function init(){
+    try{
+      if(localStorage.getItem(VOICE_RANDOM_MIGRATION_KEY)!=="1"){
+        const current=load(VOICE_KEY,{});
+        if(!current.accent || String(current.accent).toUpperCase()==="US"){
+          save(VOICE_KEY,{...current,accent:RANDOM_ACCENT});
+        }
+        localStorage.setItem(VOICE_RANDOM_MIGRATION_KEY,"1");
+      }
+    }catch(_){}
     await bootAssets();
     if("speechSynthesis" in window){
       try{ speechSynthesis.getVoices(); }catch(_){}
