@@ -1,6 +1,6 @@
 'use strict';
 
-const VERSION='2.2.6-github';
+const VERSION='2.2.7-github';
 const KEYS={
  generated:'generated',sessions:'sessions',mistakes:'mistakes',settings:'settings',
  daily:'dailyMainAssignment',dailyHistory:'dailyMainHistory',dailyPool:'dailyMainCandidatePool',
@@ -292,8 +292,160 @@ function makeQuestion(part,i,seed=0){
   ['Who approved the new schedule?',['Ms. Chen did.','At nine o’clock.','The blue folder.'],0],
   ['Could you send me the revised file?',['Sure, I’ll email it now.','The meeting was revised.','On the third floor.'],0]
  ];const b=bank[(i+seed)%bank.length];return{id:tag,part:2,skill:'Best response',q:b[0],options:b[1],answer:b[2],explain:'Choose the response that directly answers the speaker.'}}
- if(part===3){const loc=['office','hotel','warehouse','airport'];const place=loc[(i+seed)%loc.length];return{id:tag,part:3,skill:'Conversation detail',stimulus:`M: The delivery for the ${place} will arrive at 3 p.m.\nW: Great. I’ll ask the front desk to call us when it arrives.\nM: Please check the item count before signing the form.`,q:'What does the man ask the woman to do?',options:['Check the item count','Change the delivery date','Call a customer','Reserve a hotel'],answer:0,explain:'He asks her to check the item count.'}}
- if(part===4){return{id:tag,part:4,skill:'Announcement purpose',stimulus:`Good morning. This is a reminder that the employee workshop will begin at 10 a.m. in Room ${100+(i%5)}. Please bring your identification card and arrive ten minutes early.`,q:'What is the purpose of the announcement?',options:['To remind employees about a workshop','To advertise a new product','To cancel a reservation','To announce a store closing'],answer:0,explain:'It reminds employees about the workshop.'}}
+ if(part===3){
+  const scenarios=[
+   {
+    stimulus:`M: The delivery truck will arrive at the warehouse at 3 p.m.\nW: Great. I’ll ask receiving to clear the loading area.\nM: Please check the item count before signing the form.`,
+    questions:[
+     ['What does the man ask the woman to do?',['Check the item count','Change the delivery date','Call a customer','Reserve a hotel'],'He asks her to check the item count.','Conversation detail'],
+     ['Where will the delivery arrive?',['At the warehouse','At a restaurant','At a bank','At a train station'],'The man says the truck will arrive at the warehouse.','Conversation detail'],
+     ['What will the woman ask receiving to do?',['Clear the loading area','Prepare a meeting room','Print a receipt','Contact a hotel'],'She will ask receiving to clear the loading area.','Conversation detail'],
+     ['When will the truck arrive?',['At 3 p.m.','At 9 a.m.','At noon','At 6 p.m.'],'The man says the truck will arrive at 3 p.m.','Conversation detail']
+    ]
+   },
+   {
+    stimulus:`W: The client meeting has been moved to Conference Room B.\nM: I’ll update the calendar and bring the sales figures.\nW: Thanks. Please arrive ten minutes early so we can test the projector.`,
+    questions:[
+     ['Why should the man arrive early?',['To test the projector','To meet a delivery driver','To make a hotel reservation','To order lunch'],'The woman wants to test the projector before the meeting.','Conversation purpose'],
+     ['Where will the meeting take place?',['In Conference Room B','In the lobby','At a restaurant','At the airport'],'The meeting was moved to Conference Room B.','Conversation detail'],
+     ['What will the man bring?',['The sales figures','A new projector','A train ticket','A customer survey'],'He says he will bring the sales figures.','Conversation detail'],
+     ['What will the man update?',['The calendar','The company website','The invoice','The room key'],'He says he will update the calendar.','Conversation detail']
+    ]
+   },
+   {
+    stimulus:`M: A guest wants to extend her hotel stay by one night.\nW: Room 508 is available, but the rate changes on Friday.\nM: Okay. Please confirm the new rate with her before updating the reservation.`,
+    questions:[
+     ['What does the man ask the woman to do first?',['Confirm the new rate','Clean Room 508','Call a taxi','Prepare breakfast'],'He asks her to confirm the new rate before changing the reservation.','Conversation sequence'],
+     ['Why does the woman mention Friday?',['The room rate changes then','The hotel closes then','The guest checks in then','The staff meeting is then'],'She says the rate changes on Friday.','Conversation inference'],
+     ['Which room is available?',['Room 508','Room 205','Room 315','Room 701'],'The woman says Room 508 is available.','Conversation detail'],
+     ['What does the guest want to do?',['Stay one more night','Cancel the reservation','Change hotels','Reserve a meeting room'],'The guest wants to extend her stay by one night.','Conversation detail']
+    ]
+   },
+   {
+    stimulus:`W: The airport shuttle leaves from the east entrance every thirty minutes.\nM: Good. My flight boards at 6:20, so I should take the 5 o’clock shuttle.\nW: Yes, and you can buy a ticket from the machine beside the entrance.`,
+    questions:[
+     ['Which shuttle does the man plan to take?',['The 5 o’clock shuttle','The 4 o’clock shuttle','The 6:20 shuttle','The 7 o’clock shuttle'],'He says he should take the 5 o’clock shuttle.','Conversation detail'],
+     ['Where can the man buy a ticket?',['From a machine by the entrance','At the hotel front desk','On the airplane','At a restaurant'],'The woman says a machine is beside the entrance.','Conversation detail'],
+     ['Why is the man concerned about the shuttle time?',['He has a flight to catch','He needs to meet a client downtown','He has a dinner reservation','He is picking up a package'],'He mentions that his flight boards at 6:20.','Conversation inference'],
+     ['How often does the shuttle leave?',['Every thirty minutes','Every ten minutes','Once an hour','Twice a day'],'The woman says it leaves every thirty minutes.','Conversation detail']
+    ]
+   },
+   {
+    stimulus:`M: The accounting software still won’t open on my computer.\nW: Did you install the update that was sent yesterday?\nM: Not yet. I’ll do that now, and if it still fails, I’ll contact technical support.`,
+    questions:[
+     ['What will the man do first?',['Install the update','Buy a new computer','Call a customer','Print the report'],'He says he will install the update now.','Conversation sequence'],
+     ['What problem does the man have?',['The software will not open','The printer is out of paper','The internet bill is late','The office door is locked'],'He says the accounting software will not open.','Conversation detail'],
+     ['When was the update sent?',['Yesterday','This morning','Last week','Next Monday'],'The woman says the update was sent yesterday.','Conversation detail'],
+     ['Who may the man contact later?',['Technical support','A travel agent','A delivery driver','The hotel manager'],'He says he will contact technical support if the update does not solve the problem.','Conversation inference']
+    ]
+   },
+   {
+    stimulus:`W: This invoice is due on the fifteenth, but the purchase order number is missing.\nM: I’ll ask the supplier to send a corrected copy this afternoon.\nW: Great. Once we receive it, I can schedule the payment.`,
+    questions:[
+     ['Why can’t the woman schedule the payment yet?',['The purchase order number is missing','The supplier changed its address','The bank is closed','The invoice total is too low'],'The invoice is missing the purchase order number.','Conversation detail'],
+     ['What will the man ask the supplier to do?',['Send a corrected invoice','Delay the shipment','Cancel the order','Change the payment date'],'He will ask for a corrected copy.','Conversation detail'],
+     ['When is the invoice due?',['On the fifteenth','On the first','At the end of next year','Tomorrow morning'],'The woman says it is due on the fifteenth.','Conversation detail'],
+     ['What will happen after the corrected copy arrives?',['The payment can be scheduled','The order will be canceled','A meeting will begin','The supplier will visit the office'],'The woman says she can schedule the payment once the corrected copy arrives.','Conversation sequence']
+    ]
+   },
+   {
+    stimulus:`M: We have a reservation for six people at 7 p.m., but two more colleagues are joining us.\nW: I’ll call the restaurant and ask whether they can move us to a larger table.\nM: Thanks. Please let everyone know if the time changes.`,
+    questions:[
+     ['Why will the woman call the restaurant?',['To request a larger table','To cancel dinner','To order a taxi','To ask for a refund'],'Two more people are joining the group, so she will request a larger table.','Conversation purpose'],
+     ['How many people were in the original reservation?',['Six','Two','Eight','Ten'],'The man says the reservation is for six people.','Conversation detail'],
+     ['What does the man ask the woman to do if the time changes?',['Notify everyone','Order more food','Call the hotel','Change the meeting room'],'He asks her to let everyone know.','Conversation detail'],
+     ['What time is the current reservation?',['7 p.m.','5 p.m.','6 p.m.','8:30 p.m.'],'The reservation is currently for 7 p.m.','Conversation detail']
+    ]
+   },
+   {
+    stimulus:`W: Tomorrow’s training session will be on the third floor instead of the main auditorium.\nM: Should I send a message to the new employees?\nW: Yes, and remind them to bring their identification badges.`,
+    questions:[
+     ['Where will the training session be held?',['On the third floor','In the main auditorium','At a hotel','In the parking garage'],'The woman says it will be on the third floor.','Conversation detail'],
+     ['Who will the man contact?',['The new employees','The delivery drivers','The customers','The hotel guests'],'He asks whether he should message the new employees.','Conversation detail'],
+     ['What should the employees bring?',['Identification badges','Sales reports','Luggage','Restaurant coupons'],'The woman asks him to remind them to bring identification badges.','Conversation detail'],
+     ['Why does the man need to send a message?',['The training location changed','The training was canceled','The company hired a new manager','The employees need to pay a fee'],'The location changed from the auditorium to the third floor.','Conversation inference']
+    ]
+   },
+   {
+    stimulus:`M: The inventory report shows only twelve monitors, but I counted fifteen in the storage room.\nW: I probably forgot to enter yesterday’s shipment.\nM: Please update the system before the purchasing team places another order.`,
+    questions:[
+     ['What does the man ask the woman to do?',['Update the inventory system','Order more monitors immediately','Move the monitors upstairs','Return the shipment'],'He asks her to update the system.','Conversation detail'],
+     ['How many monitors did the man count?',['Fifteen','Twelve','Twenty','Five'],'He says he counted fifteen monitors.','Conversation detail'],
+     ['Why might the report be incorrect?',['A shipment was not entered','The monitors were damaged','The supplier sent an invoice twice','The storage room was closed'],'The woman says she may have forgotten to enter yesterday’s shipment.','Conversation inference'],
+     ['Who is expected to place another order?',['The purchasing team','The training team','The front desk','The hotel staff'],'The man mentions the purchasing team.','Conversation detail']
+    ]
+   },
+   {
+    stimulus:`W: The client presentation starts at 2 p.m., and the updated charts are in the shared folder.\nM: I’ll download them and print three copies for the conference room.\nW: Perfect. I’ll check the video connection before the client arrives.`,
+    questions:[
+     ['What will the man print?',['Three copies of the charts','New employee badges','Restaurant menus','Shipping labels'],'He says he will print three copies of the updated charts.','Conversation detail'],
+     ['What will the woman check?',['The video connection','The inventory count','The hotel rate','The delivery address'],'She says she will check the video connection.','Conversation detail'],
+     ['When does the presentation begin?',['At 2 p.m.','At 3 p.m.','At noon','At 5 p.m.'],'The woman says it starts at 2 p.m.','Conversation detail'],
+     ['Where are the updated charts?',['In the shared folder','At the front desk','In a delivery box','On the restaurant table'],'The updated charts are in the shared folder.','Conversation detail']
+    ]
+   }
+  ];
+  const n=i+seed, scenario=scenarios[n%scenarios.length], question=scenario.questions[Math.floor(n/scenarios.length)%4];
+  const shift=n%4, baseOptions=question[1], options=baseOptions.slice(4-shift).concat(baseOptions.slice(0,4-shift));
+  return{id:tag,part:3,skill:question[3],stimulus:scenario.stimulus,q:question[0],options,answer:shift,explain:question[2]}
+ }
+ if(part===4){
+  const talks=[
+   [`Good morning. The employee workshop will begin at 10 a.m. in Room 204. Please bring your identification badge and arrive ten minutes early.`,
+    [['What is the purpose of the announcement?',['To remind employees about a workshop','To advertise a product','To cancel a reservation','To announce a store closing'],'It reminds employees about a workshop.'],
+     ['Where will the workshop take place?',['In Room 204','In the lobby','At a hotel','At the airport'],'The announcement says Room 204.'],
+     ['What should employees bring?',['An identification badge','A sales invoice','A train ticket','A restaurant menu'],'Employees should bring their identification badges.'],
+     ['When should employees arrive?',['Ten minutes early','One hour late','At noon','After the workshop'],'They are asked to arrive ten minutes early.']]],
+   [`Attention passengers. The 8:15 train to Lakeside will depart from Platform 6 instead of Platform 4. Please check the display boards for additional updates.`,
+    [['What is the announcement mainly about?',['A platform change','A ticket refund','A restaurant opening','A hotel reservation'],'The train will depart from a different platform.'],
+     ['Which platform should passengers use?',['Platform 6','Platform 4','Platform 2','Platform 8'],'Passengers should use Platform 6.'],
+     ['What time is the train scheduled to leave?',['8:15','7:45','9:30','10:15'],'The announcement refers to the 8:15 train.'],
+     ['What are passengers advised to check?',['The display boards','Their hotel keys','A restaurant menu','An invoice'],'Passengers are asked to check the display boards.']]],
+   [`This is a message for all office staff. The building's west entrance will be closed tomorrow morning for maintenance. Please use the main entrance until noon.`,
+    [['Why will the west entrance be closed?',['For maintenance','For a company party','For a delivery','For employee training'],'The entrance will be closed for maintenance.'],
+     ['Which entrance should staff use?',['The main entrance','The west entrance','The loading dock','The parking exit'],'Staff should use the main entrance.'],
+     ['When will the west entrance be closed?',['Tomorrow morning','This evening','Next week','All month'],'It will be closed tomorrow morning.'],
+     ['Until what time should staff use the main entrance?',['Until noon','Until 8 a.m.','Until 6 p.m.','Until midnight'],'The announcement says to use it until noon.']]],
+   [`Customers are reminded that the service desk will close at 6 p.m. today, one hour earlier than usual. Returns can still be left at the automated kiosk near the exit.`,
+    [['What is the purpose of the message?',['To announce an early closing time','To advertise a new product','To explain a delivery delay','To invite customers to a meeting'],'It announces that the service desk will close early.'],
+     ['When will the service desk close?',['At 6 p.m.','At 5 p.m.','At 7 p.m.','At 8 p.m.'],'It will close at 6 p.m.'],
+     ['Where can customers leave returns?',['At the automated kiosk','At the hotel desk','At a restaurant','At the loading dock'],'Returns can be left at the automated kiosk.'],
+     ['Where is the kiosk located?',['Near the exit','On the roof','Beside the train platform','Inside the conference room'],'The kiosk is near the exit.']]],
+   [`Welcome to the Riverside Hotel. Breakfast is served from 6:30 to 10 a.m. on the second floor. Guests who need an earlier meal can request a breakfast box at the front desk.`,
+    [['What service is being described?',['Breakfast service','Airport transportation','Room cleaning','Conference registration'],'The message explains breakfast service.'],
+     ['Where is breakfast served?',['On the second floor','In the lobby','On the roof','At the airport'],'Breakfast is served on the second floor.'],
+     ['What can guests request at the front desk?',['A breakfast box','A train ticket','A sales report','A shipping label'],'Guests can request a breakfast box.'],
+     ['What time does breakfast begin?',['At 6:30 a.m.','At 5 a.m.','At 8 a.m.','At 10 a.m.'],'Breakfast begins at 6:30 a.m.']]],
+   [`Please note that the software update will begin at 9 p.m. tonight. The customer portal may be unavailable for about thirty minutes. Save your work before the update starts.`,
+    [['Why might the customer portal be unavailable?',['A software update is scheduled','The office is moving','A meeting is in progress','A delivery is late'],'The portal may be unavailable during the software update.'],
+     ['When will the update begin?',['At 9 p.m.','At 7 p.m.','At noon','At 10 a.m.'],'It begins at 9 p.m.'],
+     ['How long may the portal be unavailable?',['About thirty minutes','About two hours','All day','One week'],'The announcement says about thirty minutes.'],
+     ['What should users do before the update?',['Save their work','Print a ticket','Call a restaurant','Reserve a hotel'],'Users should save their work.']]],
+   [`The museum shuttle will leave the visitor center every twenty minutes from 9 a.m. to 5 p.m. Tickets can be purchased online or from the driver.`,
+    [['How often does the shuttle leave?',['Every twenty minutes','Every hour','Twice a day','Every five minutes'],'The shuttle leaves every twenty minutes.'],
+     ['Where does the shuttle depart from?',['The visitor center','The airport terminal','A hotel lobby','The train station'],'It leaves from the visitor center.'],
+     ['Where can tickets be purchased?',['Online or from the driver','Only at a bank','Only at a restaurant','Only by mail'],'Tickets can be bought online or from the driver.'],
+     ['When does shuttle service end?',['At 5 p.m.','At 9 a.m.','At noon','At 8 p.m.'],'Service runs until 5 p.m.']]],
+   [`Attention warehouse staff. Inventory counting will begin at 4 p.m. today. Please finish all outgoing shipments by 3:30 and bring your scanners to Section C.`,
+    [['What will begin at 4 p.m.?',['Inventory counting','Employee training','A customer meeting','A hotel inspection'],'Inventory counting starts at 4 p.m.'],
+     ['By what time should outgoing shipments be finished?',['By 3:30','By 4:30','By noon','By 5 p.m.'],'They should be completed by 3:30.'],
+     ['What should employees bring?',['Their scanners','Their passports','Restaurant coupons','Projectors'],'Staff should bring their scanners.'],
+     ['Where should staff go?',['Section C','Conference Room B','The front desk','Platform 6'],'They should bring scanners to Section C.']]],
+   [`This afternoon's marketing presentation has been moved from 1 p.m. to 2:30 p.m. The location remains Conference Room A. Updated materials are available in the shared drive.`,
+    [['What changed about the presentation?',['The starting time','The location','The presenter','The topic'],'The start time changed.'],
+     ['Where will the presentation take place?',['Conference Room A','The lobby','A hotel ballroom','The warehouse'],'The location remains Conference Room A.'],
+     ['Where are the updated materials?',['In the shared drive','At the front desk','On a train','In the cafeteria'],'They are in the shared drive.'],
+     ['What is the new starting time?',['2:30 p.m.','1 p.m.','3:30 p.m.','Noon'],'The presentation now starts at 2:30 p.m.']]],
+   [`Passengers on Flight 418 should proceed to Gate 12 for boarding. Boarding will begin at 7:05 p.m. Please have your passport and boarding pass ready.`,
+    [['Where should passengers go?',['Gate 12','Gate 4','The baggage office','The hotel lobby'],'Passengers should proceed to Gate 12.'],
+     ['When will boarding begin?',['At 7:05 p.m.','At 6 p.m.','At 8:15 p.m.','At 9 p.m.'],'Boarding begins at 7:05 p.m.'],
+     ['What documents should passengers have ready?',['A passport and boarding pass','A sales report and invoice','A hotel key and receipt','A menu and coupon'],'They should have their passport and boarding pass ready.'],
+     ['Which flight is being discussed?',['Flight 418','Flight 204','Flight 815','Flight 630'],'The announcement is for Flight 418.']]]
+  ];
+  const n=i+seed, talk=talks[n%talks.length], question=talk[1][Math.floor(n/talks.length)%4];
+  const shift=n%4, baseOptions=question[1], options=baseOptions.slice(4-shift).concat(baseOptions.slice(0,4-shift));
+  return{id:tag,part:4,skill:'Announcement comprehension',stimulus:talk[0],q:question[0],options,answer:shift,explain:question[2]}
+ }
  if(part===5){const bank=[
   ['The manager _____ the final report yesterday.',['approve','approved','approving','approval'],1,'Past time marker yesterday requires approved.'],
   ['Please submit the form _____ Friday.',['by','among','during','through'],0,'by Friday means no later than Friday.'],
