@@ -110,65 +110,112 @@
     return pack[String(item?.id || "")] || "";
   }
 
-  function playRecordedClip(src){
-    return new Promise((resolve, reject) => {
-      try{
-        const a = new Audio(src);
-        a.preload = "auto";
-        a.onended = () => resolve(true);
-        a.onerror = () => reject(new Error("audio error"));
-        a.play().catch(reject);
-      }catch(err){
-        reject(err);
+  const playback = {kind:"",key:"",audio:null,utterance:null,button:null,paused:false,resolve:null};
+
+  function rememberButton(button){
+    if(!(button instanceof HTMLButtonElement))return null;
+    if(!button.dataset.audioIdleLabel)button.dataset.audioIdleLabel=button.textContent||"🔊";
+    return button;
+  }
+
+  function setButtonState(button,state){
+    button=rememberButton(button);
+    if(!button)return;
+    button.classList.remove("audio-playing","audio-paused");
+    if(state==="playing"){
+      button.classList.add("audio-playing");
+      button.textContent=button.classList.contains("analysis-sentence-audio")?"⏸":"⏸ 暫停";
+    }else if(state==="paused"){
+      button.classList.add("audio-paused");
+      button.textContent=button.classList.contains("analysis-sentence-audio")?"▶":"▶ 繼續";
+    }else button.textContent=button.dataset.audioIdleLabel||"🔊";
+  }
+
+  function clearPlayback(value=true){
+    const old=playback.button,done=playback.resolve;
+    playback.kind="";playback.key="";playback.audio=null;playback.utterance=null;playback.button=null;playback.paused=false;playback.resolve=null;
+    setButtonState(old,"idle");
+    if(typeof done==="function"){try{done(value)}catch(_){}}
+  }
+
+  function stopPlayback(){
+    try{if(playback.audio){playback.audio.pause();playback.audio.currentTime=0}}catch(_){}
+    try{if("speechSynthesis" in window)speechSynthesis.cancel()}catch(_){}
+    clearPlayback(false);
+  }
+
+  function activeButton(button=null){
+    if(button instanceof HTMLButtonElement)return button;
+    return document.activeElement instanceof HTMLButtonElement?document.activeElement:null;
+  }
+
+  function playRecordedClip(src,key,button=null){
+    key=String(key||src||"recorded");button=activeButton(button);
+    if(playback.kind==="audio"&&playback.key===key&&playback.audio){
+      if(playback.audio.paused){
+        playback.audio.play().catch(()=>{});playback.paused=false;setButtonState(playback.button||button,"playing");return Promise.resolve("resumed");
       }
+      playback.audio.pause();playback.paused=true;setButtonState(playback.button||button,"paused");return Promise.resolve("paused");
+    }
+    stopPlayback();
+    return new Promise((resolve,reject)=>{
+      try{
+        const a=new Audio(src);a.preload="auto";
+        playback.kind="audio";playback.key=key;playback.audio=a;playback.button=rememberButton(button);playback.resolve=resolve;
+        setButtonState(playback.button,"playing");
+        a.onended=()=>clearPlayback(true);
+        a.onerror=()=>{const err=new Error("audio error");clearPlayback(false);reject(err)};
+        a.play().catch(err=>{clearPlayback(false);reject(err)});
+      }catch(err){clearPlayback(false);reject(err)}
     });
   }
 
-  function speakWithTTS(text, accent){
-    accent = resolveAccent(accent);
-    return new Promise((resolve, reject) => {
-      if(!("speechSynthesis" in window)) return reject(new Error("tts unavailable"));
+  function speakWithTTS(text,accent,key="",button=null){
+    text=String(text||"");key=String(key||`tts:${text}`);button=activeButton(button);accent=resolveAccent(accent,key);
+    if(!("speechSynthesis" in window))return Promise.reject(new Error("tts unavailable"));
+    if(playback.kind==="tts"&&playback.key===key){
       try{
-        speechSynthesis.cancel();
-        const u = new SpeechSynthesisUtterance(text);
-        const settings = voiceSettings();
-        u.lang = "en-US";
-        u.rate = Number(settings.rate) || 0.95;
-        const voice = pickVoice(accent);
-        if(voice){
-          u.voice = voice;
-          u.lang = voice.lang || u.lang;
+        if(speechSynthesis.paused||playback.paused){
+          speechSynthesis.resume();playback.paused=false;setButtonState(playback.button||button,"playing");return Promise.resolve("resumed");
         }
-        u.onend = () => resolve(true);
-        u.onerror = err => reject(err.error || err);
+        if(speechSynthesis.speaking){
+          speechSynthesis.pause();playback.paused=true;setButtonState(playback.button||button,"paused");return Promise.resolve("paused");
+        }
+      }catch(_){}
+    }
+    stopPlayback();
+    return new Promise((resolve,reject)=>{
+      try{
+        const u=new SpeechSynthesisUtterance(text),settings=voiceSettings();
+        u.lang="en-US";u.rate=Number(settings.rate)||0.95;
+        const voice=pickVoice(accent);if(voice){u.voice=voice;u.lang=voice.lang||u.lang}
+        playback.kind="tts";playback.key=key;playback.utterance=u;playback.button=rememberButton(button);playback.resolve=resolve;
+        setButtonState(playback.button,"playing");
+        u.onend=()=>clearPlayback(true);
+        u.onerror=err=>{clearPlayback(false);reject(err.error||err)};
         speechSynthesis.speak(u);
-      }catch(err){
-        reject(err);
-      }
+      }catch(err){clearPlayback(false);reject(err)}
     });
   }
 
   async function playQuestionAudio(item){
-    const settings = voiceSettings();
-    const accent = resolveAccent(settings.accent, String(item?.id || ""));
-    const clip = fileClipFor(item, accent);
-    if(clip){
-      try{
-        await playRecordedClip(clip);
-        return;
-      }catch(_){}
-    }
-    await speakWithTTS(questionText(item), accent);
+    const settings=voiceSettings(),key=`question:${String(item?.id||questionText(item))}`;
+    const accent=resolveAccent(settings.accent,key),button=activeButton(document.querySelector("#playQ,#mockAudio,#playFullMockAudio"));
+    const clip=fileClipFor(item,accent);
+    if(clip){try{return await playRecordedClip(clip,key,button)}catch(_){}}
+    return await speakWithTTS(questionText(item),accent,key,button);
   }
 
   function installSpeechOverride(){
-    const original = window.speech;
-    if(typeof original !== "function") return;
-    window.speech = function(text, _lang){
-      return speakWithTTS(String(text || ""), voiceSettings().accent).catch(() => {
-        try{ return original.call(this, text, _lang); }catch(_){}
-      });
-    };
+    const original=window.speech;
+    window.toeicToggleSpeech=(text,key="",button=null,accent="")=>speakWithTTS(String(text||""),accent||voiceSettings().accent,key||`text:${String(text||"")}`,button);
+    window.toeicStopAudio=stopPlayback;
+    if(typeof original==="function"){
+      window.speech=(text,_lang,key="",button=null)=>speakWithTTS(String(text||""),voiceSettings().accent,key||`text:${String(text||"")}`,button)
+        .catch(()=>{try{return original.call(this,text,_lang)}catch(_){}});
+    }
+    document.getElementById("lessonDialog")?.addEventListener("close",stopPlayback);
+    window.addEventListener("pagehide",stopPlayback);
   }
 
   function installQuestionOverrides(){

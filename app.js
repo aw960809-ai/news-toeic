@@ -1,6 +1,6 @@
 'use strict';
 
-const VERSION='2.2.3-github';
+const VERSION='2.2.5-github';
 const KEYS={
  generated:'generated',sessions:'sessions',mistakes:'mistakes',settings:'settings',
  daily:'dailyMainAssignment',dailyHistory:'dailyMainHistory',dailyPool:'dailyMainCandidatePool',
@@ -237,7 +237,8 @@ function openLesson(id){
 }
 function renderLessonIntro(){
  body.innerHTML=`<section class="grid"><div class="card"><p class="eyebrow">READING</p><p style="white-space:pre-line;line-height:1.75">${esc(activeLesson.text)}</p><div class="actions"><button id="speakArticle" class="secondary">🔊 播放全文</button><button id="analysisStep" class="primary">文章英文解構</button></div></div><div class="card"><h3>Vocabulary</h3>${(activeLesson.vocabulary||[]).map(v=>`<p><b>${esc(v[0]||v.word)}</b> · ${esc(v[1]||v.meaning)} <span class="muted">${esc(v[2]||v.collocation)}</span></p>`).join('')}</div></section>`;
- document.querySelector('#speakArticle').onclick=()=>speech(activeLesson.text);
+ const articleAudioButton=document.querySelector('#speakArticle');
+ articleAudioButton.onclick=()=>window.toeicToggleSpeech ? window.toeicToggleSpeech(activeLesson.text,`article:${activeLesson.id}`,articleAudioButton) : speech(activeLesson.text);
  document.querySelector('#analysisStep').onclick=renderAnalysisStep;
 }
 function renderAnalysisStep(){
