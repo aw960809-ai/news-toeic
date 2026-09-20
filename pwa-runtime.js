@@ -95,7 +95,7 @@
 
   function injectSettingsCard(){
     const main=document.getElementById('appMain');
-    if(!main||document.getElementById('pwaSystemCard'))return;
+    if(!main||document.getElementById('pwaSystemCard')||document.getElementById('appdeploySystemUpdateCard'))return;
     const inSettings=!!(main.querySelector('#saveSettings')||main.querySelector('#savePeriod')||main.querySelector('#exportBackup'));
     if(!inSettings)return;
     const section=document.createElement('section');

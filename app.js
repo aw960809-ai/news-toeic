@@ -1,6 +1,6 @@
 'use strict';
 
-const VERSION='2.1.2-github';
+const VERSION='2.2.0-github';
 const KEYS={
  generated:'generated',sessions:'sessions',mistakes:'mistakes',settings:'settings',
  daily:'dailyMainAssignment',dailyHistory:'dailyMainHistory',dailyPool:'dailyMainCandidatePool',
@@ -301,6 +301,262 @@ function startFullMock(){
  show()
 }
 
+/* APPDEPLOY_LAYOUT_PARITY_START */
+var appdeployNewsCategory='All';
+var appdeployNewsPage=1;
+var appdeployPracticeMode=(()=>{
+  const v=localStorage.getItem(KEYS.practiceMode)||'quick';
+  return ['quick','standard','mock'].includes(v)?v:'quick';
+})();
+
+function appdeployTargetLength(){
+  if(settings.lengthMode==='Manual'&&/^\d{2,3}-\d{2,3}$/.test(String(settings.manualLength||'')))return settings.manualLength;
+  return targetWords();
+}
+function appdeployCompletedIds(){
+  return new Set(analyticsSessions().map(x=>String(x.articleId||'')).filter(Boolean));
+}
+function appdeployArticleCard(a,featured=false){
+  const full=!!(a?.text&&a?.questions?.length);
+  const live=!full;
+  const summary=String(a?.summary||'').trim();
+  return `<article class="card article-card">
+    <div class="article-meta">
+      <span class="badge">${live?'Live News':esc(a.articleType||'Main Article')}</span>
+      <span class="badge">${esc(a.category||'Business')}</span>
+      ${full?`<span class="badge">${wordCount(a.text)} words</span>`:''}
+      <span class="badge score">TOEIC ${Number(a.toeicScore||75)}</span>
+    </div>
+    <h3>${esc(a.title||'TOEIC practice')}</h3>
+    ${summary?`<p class="article-summary">${esc(summary)}</p>`:''}
+    ${live?`<p class="muted">來源：${esc(a.source||'News source')} · ${a.publishedAt?new Date(a.publishedAt).toLocaleDateString('zh-TW'):''}</p>`:`<p class="muted">${esc(a.source||'Offline Practice')}</p>`}
+    <div class="actions">
+      <button class="primary ${live?'make-lesson':'library-start'}" data-id="${esc(a.id)}">${live?'生成 TOEIC 教材':featured?'開始主文章訓練':'開始學習'}</button>
+      ${a.url?`<a class="ghost source-link" href="${esc(a.url)}" target="_blank" rel="noopener">原新聞</a>`:''}
+    </div>
+  </article>`;
+}
+function appdeployTodayCandidates(){
+  const completed=appdeployCompletedIds();
+  const live=news.filter(a=>!completed.has(`lesson-${String(a.id||'').replace(/[^a-zA-Z0-9-]/g,'-')}`)).slice(0,3);
+  if(live.length)return live.map(a=>appdeployArticleCard(a,false)).join('');
+  return appdeployArticleCard(allLessons()[0],true);
+}
+function todayPage(){
+  const rows=analyticsSessions();
+  const todayDone=rows.some(x=>x.date===dayKey());
+  const assigned=load(KEYS.daily,null);
+  const assignedLesson=assigned?.articleId?allLessons().find(x=>x.id===assigned.articleId):null;
+  const mainBlock=todayDone
+    ? `<div class="card empty"><strong>今日主文章已完成 ✓</strong><p>今天的主文章已收起，WPM、正確率與錯題紀錄都已保存。明天會重新提供候選。</p></div>`
+    : assignedLesson
+      ? appdeployArticleCard(assignedLesson,true)
+      : `<div class="list">${appdeployTodayCandidates()}</div>`;
+  return `<section class="hero">
+      <div class="hero-kicker"><p class="eyebrow">TODAY</p><span class="hero-chip">${appdeployTargetLength()} words</span></div>
+      <h2>新聞閱讀＋Part 1–7。</h2>
+      <p>每天先完成主文章，再依錯題與題型表現安排 Part 1–7 練習；完成後不重複計入。</p>
+    </section>
+    <section class="grid stats">
+      <div class="card stat"><small>完成篇數</small><strong>${rows.length}</strong></div>
+      <div class="card stat"><small>平均 WPM</small><strong>${avgWpm()||'—'}</strong></div>
+      <div class="card stat"><small>平均正確率</small><strong>${accuracy()}%</strong></div>
+    </section>
+    <div class="section-head"><h3>${assignedLesson?'今日主文章':'今日主文章候選'}</h3><span class="badge">${assignedLesson?'15–25 分鐘':'3 選 1'}</span></div>
+    ${mainBlock}`;
+}
+function appdeployCompletedArchive(){
+  const completed=appdeployCompletedIds();
+  const rows=allLessons().filter(a=>completed.has(a.id));
+  if(!rows.length)return'';
+  return `<details class="card review-archive completed-library-archive">
+    <summary><strong>已完成教材 · ${rows.length} 篇</strong></summary>
+    <p class="muted">完成後會從待學習教材庫移出，但文章、錯題與學習紀錄都保留。</p>
+    <div class="list">${rows.slice(-12).reverse().map(a=>`<div class="card"><div class="article-meta"><span class="badge">已完成</span><span class="badge">${esc(a.category||'Business')}</span></div><strong>${esc(a.title)}</strong><button class="secondary library-start" data-id="${esc(a.id)}">查看已完成教材</button></div>`).join('')}</div>
+  </details>`;
+}
+function newsPage(){
+  const completed=appdeployCompletedIds();
+  const generatedActive=allLessons().filter(a=>!completed.has(a.id));
+  const liveActive=news.filter(a=>!completed.has(`lesson-${String(a.id||'').replace(/[^a-zA-Z0-9-]/g,'-')}`));
+  const all=[...liveActive,...generatedActive];
+  const cats=[['All','All'],['Business','Business'],['Travel','Travel'],['Technology','Tech'],['Daily Life','Life']];
+  let list=appdeployNewsCategory==='All'?all:all.filter(a=>(a.category||'Business')===appdeployNewsCategory);
+  const pages=Math.max(1,Math.ceil(list.length/10));
+  appdeployNewsPage=Math.min(appdeployNewsPage,pages);
+  list=list.slice((appdeployNewsPage-1)*10,appdeployNewsPage*10);
+  const categoryCount=c=>all.filter(a=>(a.category||'Business')===c).length;
+  return `<div class="section-head"><h3>新聞教材庫</h3><span class="badge">${all.length} 篇待學習</span></div>
+    <div class="card sync-box">
+      <div><strong><span class="live-dot"></span>Live News Radar</strong>
+      <div class="sync-status">${liveActive.length} 則未完成即時候選 · GitHub Actions 每日更新</div></div>
+      <button class="secondary" id="reloadNews">更新新聞</button>
+    </div>
+    <div class="library-summary">
+      ${['Business','Travel','Technology','Daily Life'].map(c=>`<div><strong>${categoryCount(c)}</strong><span>${c==='Technology'?'Tech':c==='Daily Life'?'Life':c}</span></div>`).join('')}
+    </div>
+    <div class="filters">${cats.map(([value,label])=>`<button class="ghost filter ${appdeployNewsCategory===value?'active':''}" data-cat="${value}">${label}</button>`).join('')}</div>
+    <div class="list">${list.map(a=>appdeployArticleCard(a,false)).join('')||'<div class="card empty">此分類暫無待學習文章。</div>'}</div>
+    <div class="pager"><button class="ghost" id="prevNews" ${appdeployNewsPage<=1?'disabled':''}>上一頁</button><span>${appdeployNewsPage} / ${pages}</span><button class="ghost" id="nextNews" ${appdeployNewsPage>=pages?'disabled':''}>下一頁</button></div>
+    ${appdeployCompletedArchive()}`;
+}
+
+function appdeployModeInfo(mode){
+  return {
+    quick:{label:'快速練習',short:'快速',description:'3–8 分鐘短回合，適合每天暖身。'},
+    standard:{label:'標準練習',short:'標準',description:'每個 Part 約 8–10 題，聽力依題組完整出題。'},
+    mock:{label:'單 Part 模擬考',short:'單 Part',description:'單獨練指定 Part，題數採正式 TOEIC 配比。'}
+  }[mode]||{label:'快速練習',short:'快速',description:''};
+}
+function appdeployPartCount(part,mode=appdeployPracticeMode){
+  const table={
+    quick:{1:1,2:1,3:3,4:3,5:4,6:4,7:4},
+    standard:{1:3,2:10,3:9,4:9,5:10,6:8,7:10},
+    mock:{1:6,2:25,3:39,4:30,5:30,6:16,7:54}
+  };
+  return table[mode][part];
+}
+function appdeployPartAccuracy(part){
+  const rows=partSessions().filter(x=>Number(x.part)===Number(part));
+  const total=rows.reduce((s,x)=>s+(Number(x.total)||0),0);
+  const correct=rows.reduce((s,x)=>s+(Number(x.correct)||0),0);
+  return total?Math.round(correct/total*100):null;
+}
+function appdeployFullMockPanel(){
+  const rows=mockHistory().slice(-3).reverse();
+  const history=rows.length?`<div class="full-mock-recent"><div class="section-head"><h3>最近完整模考</h3><span class="badge">${rows.length}</span></div>${rows.map(r=>`<article class="card full-mock-result"><div class="article-meta"><span class="badge">${esc(r.mode||'training')}</span><span class="badge">${esc(r.date||'')}</span></div><strong>${Number(r.correct||0)}/200</strong><p>Listening ${Number(r.listeningCorrect||0)}/100 · Reading ${Number(r.readingCorrect||0)}/100</p><p class="muted">預估 TOEIC ${Number(r.estimatedMin||0)}–${Number(r.estimatedMax||0)} · ${Number(r.durationMinutes||0)} 分鐘</p></article>`).join('')}</div>`:'';
+  return `<section id="fullMockPanel" class="card full-mock-card">
+    <div class="full-mock-head"><div><span class="part-number">FULL MOCK · 200 QUESTIONS</span><h3>完整 TOEIC-style 模考</h3></div><span class="badge">P1–P7</span></div>
+    <p>Listening 100 題＋Reading 100 題。GitHub 版保留完整 200 題本機作答與歷史紀錄。</p>
+    <div class="full-mock-spec"><span>Listening 100 題</span><span>Reading 100 題</span><span>共 200 題</span></div>
+    <div class="full-mock-mode-grid">
+      <button class="primary full-mock-start" id="startFullMockStrict"><strong>開始全真模式</strong><span>完整 200 題流程</span></button>
+      <button class="secondary full-mock-start" id="startFullMockTraining"><strong>開始訓練模考</strong><span>完整 200 題 · 可做訓練追蹤</span></button>
+    </div>
+    <p class="muted full-mock-note">分數為訓練估算，不是 ETS 官方換算成績。</p>
+  </section>${history}`;
+}
+function practicePage(){
+  const parts=[
+    {part:1,family:'Listening',name:'照片描述',description:'看圖後聆聽四個敘述，選出最符合圖片者。',skills:'人物動作 · 物品位置 · 場景'},
+    {part:2,family:'Listening',name:'應答問題',description:'聆聽問題或陳述，從三個回應中選出最佳答案。',skills:'WH · Yes/No · 間接回應'},
+    {part:3,family:'Listening',name:'簡短對話',description:'聆聽雙人或多人對話，回答目的、細節與推論。',skills:'目的 · 細節 · 推論 · 資訊整合'},
+    {part:4,family:'Listening',name:'簡短獨白',description:'聆聽公告、電話、廣告或簡報，回答理解題。',skills:'主旨 · 細節 · 下一步 · 資訊整合'},
+    {part:5,family:'Reading',name:'句子填空',description:'從四個選項中完成句子，訓練字彙與文法。',skills:'詞性 · 時態 · 介系詞 · 字彙'},
+    {part:6,family:'Reading',name:'段落填空',description:'完成電子郵件、通知或文章段落。',skills:'文法 · 語意 · 連貫 · 句子插入'},
+    {part:7,family:'Reading',name:'閱讀理解',description:'閱讀單篇、雙篇或多篇文本並回答理解題。',skills:'細節 · 推論 · 目的 · 多文本整合'}
+  ];
+  const family=(title,items)=>`<section class="practice-family"><div class="section-head"><h3>${title}</h3><span class="badge">${items.length} Parts</span></div><div class="practice-grid">${items.map(item=>{const acc=appdeployPartAccuracy(item.part);return`<article class="card practice-part-card"><div class="practice-part-head"><span class="part-number">Part ${item.part}</span><span class="badge">${item.family}</span></div><h3>${item.name}</h3><p>${item.description}</p><small>${item.skills}</small><div class="practice-count">${appdeployModeInfo(appdeployPracticeMode).short} · ${appdeployPartCount(item.part)} 題</div><div class="practice-part-foot"><span>${acc===null?'尚無紀錄':`正確率 ${acc}%`}</span><button class="primary part-start" data-part="${item.part}">開始練習</button></div></article>`}).join('')}</div></section>`;
+  return `<section class="hero practice-hero"><div class="hero-kicker"><p class="eyebrow">TOEIC PARTS 1–7</p><span class="hero-chip">全題型</span></div><h2>七大題型完整訓練。</h2><p>保留 Part 1–7 完整題型、錯題追蹤與模考紀錄；題目為原創 TOEIC-style 訓練題。</p></section>
+    ${appdeployFullMockPanel()}
+    <section class="card quality-system-card"><div><span class="part-number">QUALITY GATE</span><h3>TOEIC-style 題型結構</h3></div><p>維持各 Part 的職場情境、唯一答案、干擾項與閱讀／聽力題型結構。</p></section>
+    <section class="card accent-engine-card"><div><span class="part-number">ACCENT ENGINE</span><h3>四區英語口音</h3></div><p>Part 1–4 可使用 US、UK、Canada、AU/NZ；隨機模式會在不同題目間切換，同一題重播維持同一口音。</p><div class="voice-status">裝置 voice 不支援指定地區時會退回可用英文 TTS。</div></section>
+    <section class="card practice-mode-card"><div class="practice-mode-head"><div><span class="part-number">QUESTION VOLUME</span><h3>選擇本次練習量</h3></div><span class="badge">${appdeployModeInfo(appdeployPracticeMode).label}</span></div><div class="practice-mode-grid">${['quick','standard','mock'].map(mode=>{const info=appdeployModeInfo(mode);return`<button class="practice-mode-btn ${appdeployPracticeMode===mode?'active':''}" data-practice-mode="${mode}"><strong>${info.label}</strong><span>${info.description}</span></button>`}).join('')}</div><p class="practice-mode-counts">P1 ${appdeployPartCount(1)} · P2 ${appdeployPartCount(2)} · P3 ${appdeployPartCount(3)} · P4 ${appdeployPartCount(4)} · P5 ${appdeployPartCount(5)} · P6 ${appdeployPartCount(6)} · P7 ${appdeployPartCount(7)}</p><p class="muted">正式配比：P1 6、P2 25、P3 39、P4 30、P5 30、P6 16、P7 54。</p></section>
+    ${family('Listening · 聽力',parts.filter(x=>x.family==='Listening'))}
+    ${family('Reading · 閱讀',parts.filter(x=>x.family==='Reading'))}`;
+}
+function reviewPage(){
+  const nm=newsMistakes(),pm=partMistakes();
+  const activeNews=nm.filter(x=>x.status!=='mastered');
+  const activePart=pm.filter(x=>x.status!=='mastered');
+  const total=activeNews.length+activePart.length;
+  return `<div class="section-head"><h3>錯題與複習</h3><span class="badge">${total} 題待處理</span></div>
+    <div class="card"><strong>間隔複習規則</strong><p class="muted">答錯後 1 天重測 → 答對後 3 天再測 → 再答對後 7 天確認；文章型錯題保留原始教材與解析紀錄。</p></div>
+    ${!total?`<div class="card empty review-empty"><strong>目前沒有待複習錯題</strong><p>已掌握題目仍保留歷史；之後若再次答錯會重新進入複習。</p><button class="primary" id="startFromReview">開始今日訓練</button></div>`:''}
+    ${activeNews.length?`<div class="section-head"><h3>新聞教材錯題</h3><span class="badge">${activeNews.length} 題</span></div><div class="list">${activeNews.map(m=>`<div class="card"><div class="article-meta"><span class="badge">${esc(m.question?.part||'Part 7')}</span><span class="badge">${esc(m.question?.skill||'Review')}</span><span class="badge">${esc(m.status||'unmastered')}</span></div><h3>${esc(m.question?.q||'錯題')}</h3><button class="secondary review-mark" data-kind="news" data-id="${esc(m.id)}">本次已複習並答對</button></div>`).join('')}</div>`:''}
+    ${activePart.length?`<div class="section-head"><h3>Part 1–7 題型錯題</h3><span class="badge">${activePart.length} 題</span></div><div class="list">${activePart.map(m=>`<div class="card"><div class="article-meta"><span class="badge">Part ${Number(m.part)||''}</span><span class="badge">${esc(m.status||'unmastered')}</span></div><h3>${esc(m.question?.q||'錯題')}</h3><button class="secondary review-mark" data-kind="part" data-id="${esc(m.id)}">本次已複習並答對</button></div>`).join('')}</div>`:''}`;
+}
+function appdeployMockSummary(){
+  const rows=mockHistory().slice(-5).reverse();
+  if(!rows.length)return'';
+  const r=rows[0];
+  return `<div class="section-head"><h3>完整模考紀錄</h3><span class="badge">${mockHistory().length} 次</span></div>
+    <div class="card full-mock-summary"><div><small>最近答對</small><strong>${Number(r.correct||0)}/200</strong></div><div><small>最近預估</small><strong>${Number(r.estimatedMin||0)}–${Number(r.estimatedMax||0)}</strong></div><div><small>Listening</small><strong>${Number(r.listeningCorrect||0)}/100</strong></div><div><small>Reading</small><strong>${Number(r.readingCorrect||0)}/100</strong></div></div>`;
+}
+function progressPage(){
+  const ps=partSessions();
+  return `<section class="hero"><p class="eyebrow">PROGRESS</p><h2>${settings.currentLevel} → ${settings.targetScore}</h2><p>平均閱讀速度 <strong>${avgWpm()||'尚無資料'}${avgWpm()?' WPM':''}</strong>，下一篇建議 ${appdeployTargetLength()} 字。</p></section>
+    ${appdeployMockSummary()}
+    <div class="section-head"><h3>Part 1–7 題型表現</h3><span class="badge">${ps.length} 次</span></div>
+    <div class="practice-performance-grid">${[1,2,3,4,5,6,7].map(part=>{const acc=appdeployPartAccuracy(part);const count=ps.filter(x=>Number(x.part)===part).length;return`<div class="card practice-performance"><small>Part ${part}</small><strong>${acc===null?'—':`${acc}%`}</strong><span>${count} 次</span></div>`}).join('')}</div>
+    <div class="section-head"><h3>最近新聞閱讀</h3></div>
+    <div class="list">${analyticsSessions().length?analyticsSessions().slice(-5).reverse().map(s=>`<div class="card"><div class="article-meta"><span class="badge">${displayWpm(s.wpm)}</span><span class="badge">${Number(s.correct||0)}/${Number(s.total||0)}</span></div><strong>${esc(s.title||'訓練')}</strong><p class="muted">${esc(s.date||'')}</p></div>`).join(''):'<div class="card empty progress-empty"><strong>尚無新聞閱讀紀錄</strong><p>完成主文章後，這裡會建立 WPM、正確率與近期閱讀趨勢。</p><button class="primary" id="startFromProgress">開始今日訓練</button></div>'}</div>`;
+}
+function settingsPage(){
+  settings.lengthMode=settings.lengthMode||'Auto';
+  settings.manualLength=settings.manualLength||'250-400';
+  return `<div class="settings-page">
+    <div class="section-head"><h3>個人學習設定</h3></div>
+    <div class="card settings-card">
+      <div class="setting"><label>目前 TOEIC 基準</label><input id="cur" type="number" value="${Number(settings.currentLevel)||600}"></div>
+      <div class="setting"><label>目標分數</label><input id="goal" type="number" value="${Number(settings.targetScore)||750}"></div>
+      <div class="setting"><label>每日分鐘</label><input id="mins" type="number" value="${Number(settings.dailyMinutes)||30}"></div>
+      <div class="setting"><label>內容偏好</label><select id="cat">${['Balanced','Business','Travel','Technology','Daily Life'].map(v=>`<option ${settings.category===v?'selected':''}>${v}</option>`).join('')}</select></div>
+      <div class="setting"><label>文章長度</label><select id="mode"><option ${settings.lengthMode==='Auto'?'selected':''}>Auto</option><option ${settings.lengthMode==='Manual'?'selected':''}>Manual</option></select></div>
+      <div id="manualLengthWrap" class="setting manual-length-setting ${settings.lengthMode==='Manual'?'':'is-hidden'}"><label>手動範圍（words）</label><input id="manualLength" inputmode="numeric" value="${esc(settings.manualLength)}"></div>
+      <button class="primary" id="saveSettings">儲存設定</button>
+    </div>
+    <div class="section-head"><h3>目標系統連動</h3><span class="badge">Goal Sync</span></div>
+    <div class="card goal-sync-card">
+      <div class="article-meta"><span class="badge">已啟用</span><span class="badge">GitHub 直連</span></div>
+      <p class="muted">完成教材、Part 練習或模考後，學習分鐘、正確率與 Part 表現寫入同一 GitHub 網域同步中心。</p>
+      <div class="sync-state">狀態：${esc(load(KEYS.goalStatus,'GitHub 直連已啟用'))}</div>
+      <div class="actions"><button class="primary" id="flushQueue">搬移舊待傳紀錄</button></div>
+    </div>
+    <div class="section-head"><h3>系統更新</h3></div>
+    <div class="card system-card" id="appdeploySystemUpdateCard">
+      <div class="article-meta"><span class="badge">目前 v${VERSION}</span><span class="badge">自動更新 已啟用</span></div>
+      <p class="muted" id="pwaRuntimeStatus">啟動、每 30 分鐘、回到前景與網路恢復時自動檢查；訓練進行中不強制重載。</p>
+      <button class="secondary" id="pwaRuntimeCheck">立即檢查更新</button>
+    </div>
+    <div class="section-head"><h3>遷移備份</h3><span class="badge">本機</span></div>
+    <div class="card system-card"><p class="muted">匯出／匯入會保留目前 GitHub TOEIC 本機資料；匯入前先保存快照。</p><div class="actions"><button id="exportBackup" class="primary">匯出 GitHub 備份</button></div><input id="importFile" class="file-input" type="file" accept=".json,application/json"><button id="importBackup" class="secondary wide">匯入 AppDeploy／GitHub 備份</button></div>
+    <div class="section-head"><h3>線上服務</h3></div>
+    <div class="card system-card"><p class="muted">新聞題材由 GitHub Actions 更新；教材、題型、解析、語音與複習在本機運作，不依賴 AppDeploy 額度。</p></div>
+  </div>`;
+}
+function render(){
+  main.innerHTML=({today:todayPage,news:newsPage,practice:practicePage,review:reviewPage,progress:progressPage,settings:settingsPage})[route]();
+  bind();
+}
+function bind(){
+  document.querySelectorAll('.library-start').forEach(b=>b.onclick=()=>openLesson(b.dataset.id));
+  document.querySelectorAll('.make-lesson').forEach(b=>b.onclick=()=>{const n=news.find(x=>String(x.id)===String(b.dataset.id));if(!n)return;const lesson=buildNewsLesson(n),rows=generated().filter(x=>x.id!==lesson.id);rows.push(lesson);save(KEYS.generated,rows.slice(-60));save(KEYS.daily,{date:dayKey(),articleId:lesson.id,completed:false,selectedByUser:true});toast('已建立本機原創教材');openLesson(lesson.id)});
+  document.querySelector('#reloadNews')?.addEventListener('click',()=>void loadNews());
+  document.querySelectorAll('.filter').forEach(b=>b.onclick=()=>{appdeployNewsCategory=b.dataset.cat||'All';appdeployNewsPage=1;render()});
+  document.querySelector('#prevNews')?.addEventListener('click',()=>{appdeployNewsPage=Math.max(1,appdeployNewsPage-1);render();window.scrollTo(0,0)});
+  document.querySelector('#nextNews')?.addEventListener('click',()=>{appdeployNewsPage++;render();window.scrollTo(0,0)});
+  document.querySelectorAll('[data-practice-mode]').forEach(b=>b.onclick=()=>{appdeployPracticeMode=b.dataset.practiceMode;localStorage.setItem(KEYS.practiceMode,appdeployPracticeMode);render()});
+  document.querySelectorAll('.part-start').forEach(b=>b.onclick=()=>startPractice(Number(b.dataset.part),appdeployPartCount(Number(b.dataset.part))));
+  document.querySelector('#startFullMockStrict')?.addEventListener('click',()=>{toast('開始完整 200 題模考');startFullMock()});
+  document.querySelector('#startFullMockTraining')?.addEventListener('click',startFullMock);
+  document.querySelectorAll('.review-mark').forEach(b=>b.onclick=()=>markReview(b.dataset.kind,b.dataset.id));
+  document.querySelector('#startFromProgress')?.addEventListener('click',()=>switchRoute('today'));
+  document.querySelector('#startFromReview')?.addEventListener('click',()=>switchRoute('today'));
+  document.querySelector('#mode')?.addEventListener('change',e=>document.querySelector('#manualLengthWrap')?.classList.toggle('is-hidden',e.target.value!=='Manual'));
+  document.querySelector('#saveSettings')?.addEventListener('click',()=>{
+    settings.currentLevel=Number(document.querySelector('#cur').value)||600;
+    settings.targetScore=Number(document.querySelector('#goal').value)||750;
+    settings.dailyMinutes=Number(document.querySelector('#mins').value)||30;
+    settings.category=document.querySelector('#cat').value;
+    settings.lengthMode=document.querySelector('#mode').value;
+    const manual=document.querySelector('#manualLength')?.value.trim()||'250-400';
+    if(settings.lengthMode==='Manual'&&!/^\d{2,3}-\d{2,3}$/.test(manual))return toast('手動範圍請使用 250-400 格式');
+    settings.manualLength=manual;
+    save(KEYS.settings,settings);toast('設定已儲存');render();
+  });
+  document.querySelector('#exportBackup')?.addEventListener('click',exportBackup);
+  document.querySelector('#importBackup')?.addEventListener('click',()=>{const f=document.querySelector('#importFile').files?.[0];if(!f)return toast('請先選擇 JSON');importBackup(f)});
+  document.querySelector('#flushQueue')?.addEventListener('click',()=>{migrateQueuedGoalEvents();toast('舊待傳紀錄已搬到 GitHub 直連同步中心');render()});
+  document.querySelector('#pwaRuntimeCheck')?.addEventListener('click',()=>window.AppPWA?.check(true));
+}
+function switchRoute(next){
+  route=next;
+  document.querySelectorAll('.nav-btn').forEach(x=>x.classList.toggle('active',x.dataset.route===next));
+  render();
+  window.scrollTo({top:0,left:0,behavior:'instant'});
+}
+/* APPDEPLOY_LAYOUT_PARITY_END */
 document.querySelector('#dialogClose').onclick=()=>dialog.close();
 document.querySelectorAll('.nav-btn').forEach(b=>b.onclick=()=>switchRoute(b.dataset.route));
 migrateQueuedGoalEvents();
