@@ -210,3 +210,8 @@ button:disabled{opacity:.45;cursor:default;transform:none!important;filter:none!
 .analysis-sentence-audio{position:absolute;top:11px;right:11px;display:grid;place-items:center;width:32px;height:32px;padding:0;color:#44665d;border:1px solid #dbe6e2;border-radius:999px;background:#f7faf9;font-size:.82rem}.analysis-sentence-audio.audio-playing{color:#fff;border-color:#4f8b7c;background:#4f8b7c}.analysis-sentence-audio.audio-paused{color:#735f2e;border-color:#d9c58e;background:#faf3df}
 @media(max-width:520px){.article-analysis-step{display:grid;gap:12px}.analysis-overview{padding:13px}.analysis-sentences{gap:0;overflow:hidden;border:1px solid #e2e9e6;border-radius:14px;background:#fff}.analysis-sentence-card{padding:14px 43px 14px 36px;border:0;border-bottom:1px solid #e8eeeb;border-radius:0}.analysis-sentence-number{top:17px;left:7px}.analysis-sentence-audio{top:11px;right:7px}.analysis-sentence-text{font-size:1rem;line-height:1.72!important}.analysis-legend{flex-wrap:nowrap;overflow-x:auto}.analysis-detail{position:fixed;left:50%;bottom:max(9px,env(safe-area-inset-bottom));width:min(520px,calc(100% - 18px));max-height:72dvh;overflow-y:auto;transform:translateX(-50%)}.analysis-detail-grid{grid-template-columns:1fr}}
 /* APPDEPLOY_ANALYSIS_PARITY_END */
+
+/* v2.2.6 TOEIC listening parity */
+.practice-transcript{margin-top:10px;padding:12px;border:1px solid var(--line);border-radius:12px;background:#f7faf8}
+.practice-transcript strong{display:block;margin-bottom:6px;color:#315c53}
+.practice-transcript p{margin:0!important;color:#53655f!important;line-height:1.65!important}
