@@ -1,18 +1,31 @@
 {
-  "updatedAt": "2026-09-20T18:12:40.223847+00:00",
+  "updatedAt": "2026-09-20T23:15:58.480455+00:00",
   "articles": [
     {
       "id": "rss-department-stores-online-shopping-drive-rebound-uk-retail-sales",
       "origin": "live",
       "articleType": "Live News",
       "category": "Business",
-      "source": "The Independent",
-      "sourceUrl": "https://www.independent.co.uk",
+      "source": "uk.finance.yahoo.com",
+      "sourceUrl": "https://uk.finance.yahoo.com",
       "title": "Department stores and online shopping drive rebound in UK retail sales",
-      "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxPTVRycUtRZ2hDREpadEpMcTRWbWh1THFpUU1GSFdrOVhJaGZGMlRuRGhDRVg5Y21CaWNMdTM5em5McG1VQllBY3M1a1ZsRXg1SkdJaWhLUmYyQzVTU29zUDNHV1ZTMDI0WHh1WjBtendhdXZMZWlHWGlzY3NTQUxXYU5FNlRNcFd6bGwydHp1ekJ2OUdadXFhOGZB?oc=5",
-      "publishedAt": "2026-09-18T09:48:00+00:00",
-      "summary": "Department stores and online shopping drive rebound in UK retail sales The Independent",
+      "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxPNUp2MS1UMEVCM05RVURCZWN3QXVGWUJsZ0hLdV9ZSnRyRl82VnRaVjY5WnZVa3B6S2F1NXo5U3dqd0x2Q0xSU0J6MWowT3o0bjZISmxkZ2JmWWszR1NjdkFMWGgzVGI2SlJFejZodXM2ekcwU2JlTlYxUkdKMVR4LUlxUlAyekthQ1hwb1FBZms1cHc?oc=5",
+      "publishedAt": "2026-09-18T08:51:40+00:00",
+      "summary": "Department stores and online shopping drive rebound in UK retail sales uk.finance.yahoo.com",
       "toeicScore": 70
+    },
+    {
+      "id": "rss-expertise-ai-raises-3-2-million-seed-round-expand-ai",
+      "origin": "live",
+      "articleType": "Live News",
+      "category": "Business",
+      "source": "Pulse 2.0",
+      "sourceUrl": "https://pulse2.com",
+      "title": "Expertise AI Raises $3.2 Million Seed Round To Expand AI Sales And Customer Support Agents For Traditional Industries",
+      "url": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxNc2JVRUxMa3gtdHdwV05RdzdKZElfejAyQnV4ZHdxZjFoaE15NFpFa0o2Z3h4X2U0NlotaGhiN2dsQ2VaVnFpcHVZajdKNWk4YUswdXM5VzJxS2ctT0NiQTRRVVp4cjlWSG9Ya1VoRTFac1ZsaV92Vmc0SVJlNG1fYURxUGR4VkdlaWhMLTBmUkVfRlBnSmw3czJERE9zX3NURzhxNFJQMHUycU5ULUJZSW52Z3lIUkRpdGZNVXRlUEQ3Mzh5YkJzMUwzSVpQel9SU1HSAdcBQVVfeXFMUHBTa1VINVdCS1dqMWxjZGtlZjBhN3oxazNJVzVaMVJyQXNySTI0WlVDdElTeGtrS09qYWhaVWRrdTE5dFZzcUtzZ3dzVWhaaWFxYXFmcmZSdW4yRmkwRDFUaUluN0cwOEg0YXl6NzExU3BnWmpDd1Y1U1JkeXZCTWdhajRNNFlPd3Q1SW0xOTJYY0FfT2xrQ3VlT25DNUhoWlFGUzc5dnpUUnY4dENOZ3F6Uy1rMFh2eDNwcGpYSGhQTGF0N2wySC1PVnFwU0pzMUVFcjBYSXc?oc=5",
+      "publishedAt": "2026-09-20T20:26:25+00:00",
+      "summary": "Expertise AI Raises $3.2 Million Seed Round To Expand AI Sales And Customer Support Agents For Traditional Industries Pulse 2.0",
+      "toeicScore": 66
     },
     {
       "id": "rss-oracle-ceo-tells-employees-ai-has-not-sped-up-product",
@@ -32,25 +45,12 @@
       "origin": "live",
       "articleType": "Live News",
       "category": "Business",
-      "source": "Gasgoo",
+      "source": "autonews.gasgoo.com",
       "sourceUrl": "https://autonews.gasgoo.com",
       "title": "How Strong is 'Golden September'? September Passenger Car Retail Sales Expected at 1.69 Million Units",
       "url": "https://news.google.com/rss/articles/CBMi8AFBVV95cUxPZ1JpWjhNOWRJdXFJMWFQVW5LUTJCb2YzazMtX183TWNwaGt4Y2VHWmtxclUwQWxIWWFxbDBfc3JoOUtjdmVNRGJKbWkydW10VUR3THh4eEdZVGFsOTI1Uk5Pczc3dksyRFR1QUo0azIxZThRNk1TeGpxUkdXTm5OSWNaNEdwb0VIYjA1WWN0YkRONzIyQTBpNkdLTWFULXFQVThmWEhTYjVqZjVWQjJTNVpQa2Q0SDl2bFFkbTZ2dEtfYnR3LXJ5UGZ1YldQWEt4Q3FSNGstSnJyQnBNUWc1dVFIRDFzNWNScTEwZmRZZng?oc=5",
       "publishedAt": "2026-09-19T05:33:24+00:00",
-      "summary": "How Strong is 'Golden September'? September Passenger Car Retail Sales Expected at 1.69 Million Units Gasgoo",
-      "toeicScore": 66
-    },
-    {
-      "id": "rss-uk-retail-sales-bounce-back-0-5-gain-august",
-      "origin": "live",
-      "articleType": "Live News",
-      "category": "Business",
-      "source": "The Business of Fashion",
-      "sourceUrl": "https://www.businessoffashion.com",
-      "title": "UK Retail Sales Bounce Back With 0.5% Gain in August",
-      "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxPNnhvQjNXMzNENXpnWFE1MFpXTUZRTTlhakdEVXlwelRWRURtSk9RdDNkLTlpX3c5dF9JNVFodVlvajMzU1ZFVU1KbmtGdkZycGR6amhGUHBheW5QazdDUVJWeUQtWi1jLWNGdEhiVVdzTEhxRHZwWWwyMXFXdUZLWHV1MFNjcE9LX3Z3Q3JyNlFLTEFFbm5jaG9ET3d6dw?oc=5",
-      "publishedAt": "2026-09-18T10:15:48+00:00",
-      "summary": "UK Retail Sales Bounce Back With 0.5% Gain in August The Business of Fashion",
+      "summary": "How Strong is 'Golden September'? September Passenger Car Retail Sales Expected at 1.69 Million Units autonews.gasgoo.com",
       "toeicScore": 66
     },
     {
@@ -64,6 +64,19 @@
       "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxQMk9Lc2ptYURPMGI0VEs5SVo3TFd0RHN2OXFXbi1pUGFhOEhLczloQkpCV1FlUE4zRWFOeXc0WTlyTDViYmJfWWI5ekJUcUpNMGw4eHp1UUM5RUJhVE0zM0hFaC0ybGRwblQ2SFJmOEFGSV84a1dRaXZUTUM5UDVSejJnbFA4cF9tX2FNelo4N0lPTDc5aEx0ZTJLcjJmV0RGaVRN?oc=5",
       "publishedAt": "2026-09-19T12:30:00+00:00",
       "summary": "Amid persistent utility bill woes, city officials expand customer service hours Richmond Times-Dispatch",
+      "toeicScore": 66
+    },
+    {
+      "id": "rss-uk-retail-sales-bounce-back-0-5-gain-august",
+      "origin": "live",
+      "articleType": "Live News",
+      "category": "Business",
+      "source": "businessoffashion.com",
+      "sourceUrl": "https://www.businessoffashion.com",
+      "title": "UK Retail Sales Bounce Back With 0.5% Gain in August",
+      "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxPNnhvQjNXMzNENXpnWFE1MFpXTUZRTTlhakdEVXlwelRWRURtSk9RdDNkLTlpX3c5dF9JNVFodVlvajMzU1ZFVU1KbmtGdkZycGR6amhGUHBheW5QazdDUVJWeUQtWi1jLWNGdEhiVVdzTEhxRHZwWWwyMXFXdUZLWHV1MFNjcE9LX3Z3Q3JyNlFLTEFFbm5jaG9ET3d6dw?oc=5",
+      "publishedAt": "2026-09-18T10:15:48+00:00",
+      "summary": "UK Retail Sales Bounce Back With 0.5% Gain in August businessoffashion.com",
       "toeicScore": 66
     },
     {
@@ -119,19 +132,6 @@
       "toeicScore": 66
     },
     {
-      "id": "rss-uk-retail-sales-unexpectedly-rise-august-backed-recovery-department-stores",
-      "origin": "live",
-      "articleType": "Live News",
-      "category": "Business",
-      "source": "investingLive",
-      "sourceUrl": "https://investinglive.com",
-      "title": "UK retail sales unexpectedly rise in August, backed by recovery in department stores, non-store retailers",
-      "url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxPeTdYODl1YWVZdlNGemdFT1Fackt6ZzZaWmtPQUR6OFhJbFFFcDJRcXE2T2lfTVdOcE9UUEM0TWVaTkMwcnRHaHlQa2w2b1lXYzFuVzFiMS1YRzVLdGhMZjNGcXJBN01xa3ZJbWt5bm9hNGMwUXlQbkJTTlFva3g3b0d4VV9EVV8yUFRDdEF0MVktTTVXVkdpV0RyUXFJNGdCdDVBUGtwYk8xekJKUzM1M0xKbjNzVUdMWW95QlNDLXFTbUd0eGVBME1qckkzVXdl?oc=5",
-      "publishedAt": "2026-09-18T06:00:00+00:00",
-      "summary": "UK retail sales unexpectedly rise in August, backed by recovery in department stores, non-store retailers investingLive",
-      "toeicScore": 66
-    },
-    {
       "id": "rss-human-behind-machine-salesforce-s-vision-ai-powered-customer-service",
       "origin": "live",
       "articleType": "Live News",
@@ -145,16 +145,16 @@
       "toeicScore": 66
     },
     {
-      "id": "rss-shares-fall-despite-stronger-uk-retail-sales",
+      "id": "rss-uk-retail-sales-unexpectedly-rise-august-backed-recovery-department-stores",
       "origin": "live",
       "articleType": "Live News",
       "category": "Business",
-      "source": "marketscreener.com",
-      "sourceUrl": "https://www.marketscreener.com",
-      "title": "Shares fall despite stronger UK retail sales",
-      "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxOQ09OcmhlWFZzalZ1LWVMTWlVRW5PaTJBekNJbUdVMDA4V2ZoS0RmNGF1MmtKZUNGRURtMHdCZy03Y00tZlpnRV9hakJnOGJrdzNkeG5yU251Si1LYWxXajZJSjRKY0dwMElIb2tYVkx5eXdYcUloVnlwa05INUs2X3pDXzVaOXFjc2F1RW9DT01SMThSUkt6bXhrem9Tdw?oc=5",
-      "publishedAt": "2026-09-18T08:30:33+00:00",
-      "summary": "Shares fall despite stronger UK retail sales marketscreener.com",
+      "source": "investingLive",
+      "sourceUrl": "https://investinglive.com",
+      "title": "UK retail sales unexpectedly rise in August, backed by recovery in department stores, non-store retailers",
+      "url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxPeTdYODl1YWVZdlNGemdFT1Fackt6ZzZaWmtPQUR6OFhJbFFFcDJRcXE2T2lfTVdOcE9UUEM0TWVaTkMwcnRHaHlQa2w2b1lXYzFuVzFiMS1YRzVLdGhMZjNGcXJBN01xa3ZJbWt5bm9hNGMwUXlQbkJTTlFva3g3b0d4VV9EVV8yUFRDdEF0MVktTTVXVkdpV0RyUXFJNGdCdDVBUGtwYk8xekJKUzM1M0xKbjNzVUdMWW95QlNDLXFTbUd0eGVBME1qckkzVXdl?oc=5",
+      "publishedAt": "2026-09-18T06:00:00+00:00",
+      "summary": "UK retail sales unexpectedly rise in August, backed by recovery in department stores, non-store retailers investingLive",
       "toeicScore": 66
     },
     {
@@ -181,6 +181,32 @@
       "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxQUFpJNHA5cHRmcndaVWo3RGlSeWpsVmRQT0xfcHVsMHhiMFBVbWk2NmpKVHRyWlhMLUtEbDVrVk40RXNwV0JNZDdWM21kYzhmclhyVWp0N29NQ1JJeVg5eU03bEM4OFk2NlhUU3ZhVEhkbGU1LXJDTy1JZkJ5Q2lwVTA1UlUycmc5cFBKNlRBUXBZaC1uQXkw?oc=5",
       "publishedAt": "2026-09-19T01:44:28+00:00",
       "summary": "BoJ tightens; UK retail sales strengthen; US diesel prices hit record high equiti.com",
+      "toeicScore": 66
+    },
+    {
+      "id": "rss-uk-retail-sales-ex-fuel-beat-forecast-august-boosting-sterling",
+      "origin": "live",
+      "articleType": "Live News",
+      "category": "Business",
+      "source": "VT Markets",
+      "sourceUrl": "https://www.vtmarkets.com",
+      "title": "UK Retail Sales Ex-Fuel Beat Forecast in August, Boosting Sterling and Rate Expectations",
+      "url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxNd1pia2lCd3VJUkY4d2I4NXV4VGdXY21DN25jMW1IWGR1VFRWY214bEk1Z1RCSnVQNUc0Mk1RLWJoTjIyYWZxQjRGNWJPUXVjVkhjbVR4alRwM3F3Vjg4cHVETGhzMEZva3NwRWJmeHpPaXIxekNoeXFGeDhhNGJFbTFqWlBLSDMzRHliUzdSRWVETXFpVkNVbXpuOGM1UVFldnNBc3llNVlMTGZCd1A3M3ZlUUpERmhHeXdRS1AyOHJpWkdVWkx2dkYyRlREU2JN?oc=5",
+      "publishedAt": "2026-09-18T11:53:23+00:00",
+      "summary": "UK Retail Sales Ex-Fuel Beat Forecast in August, Boosting Sterling and Rate Expectations VT Markets",
+      "toeicScore": 66
+    },
+    {
+      "id": "rss-consumers-tightening-purse-despite-subsidies-as-retail-sales-growth-slows",
+      "origin": "live",
+      "articleType": "Live News",
+      "category": "Business",
+      "source": "BusinessToday Malaysia",
+      "sourceUrl": "https://www.businesstoday.com.my",
+      "title": "Consumers Tightening Purse Despite Subsidies, As Retail Sales Growth Slows In 2Q26",
+      "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxQdlZzMmdxcW5XVUxYdGtveU16TF9LVXB6TEJwV2VRQW5zbmh1SkxCMWVqR2M3M3YxUzBCQTRENVlQQ0R4TDVNbDFPR3ZBTzJiWUhwSllRWHRObXZOdjY4QjZ6OWFsU2k3cGFyVXpMX3AwdFF5d1ExYkxVTUJYc3NVd016TnhaV2tta1VRMEZFM3VGNFBnaWJTeGJHcG9aeWxmYjdhdXhyb0dUbFJqemNjTkY5RG9YV3prQW5SZWdjS2E0Uk5s?oc=5",
+      "publishedAt": "2026-09-19T04:54:56+00:00",
+      "summary": "Consumers Tightening Purse Despite Subsidies, As Retail Sales Growth Slows In 2Q26 BusinessToday Malaysia",
       "toeicScore": 66
     },
     {
@@ -223,32 +249,6 @@
       "toeicScore": 63
     },
     {
-      "id": "rss-china-retail-shifts-services-as-gadgets-surge",
-      "origin": "live",
-      "articleType": "Live News",
-      "category": "Business",
-      "source": "Briefs Finance",
-      "sourceUrl": "https://www.briefs.co",
-      "title": "China retail shifts to services as gadgets surge",
-      "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxNNkZiVGE2WDlTU21mZk5rZFhCQmprMFZncFdUVWNkaktHNkJqRFE5bV9waUd3QlRTVDg2NWduRTFOdWFYT3FxS0lINW9rTFM2RjloM0dJQXRWelh2eWVhVU9Ebk95U3hqUWI5UFZ4MkEzTVBudmZrUjRTWVlYa2daWFVzUHhEbUNkZi1hNkxFeFFXUQ?oc=5",
-      "publishedAt": "2026-09-20T15:42:28+00:00",
-      "summary": "China retail shifts to services as gadgets surge Briefs Finance",
-      "toeicScore": 63
-    },
-    {
-      "id": "rss-please-hold-no-longer-than-fifteen-minutes-new-customer-service",
-      "origin": "live",
-      "articleType": "Live News",
-      "category": "Business",
-      "source": "Quarles",
-      "sourceUrl": "https://www.quarles.com",
-      "title": "Please Hold (For No Longer Than Fifteen Minutes): New Customer Service Requirements for AI Chatbots",
-      "url": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxOZUtVQTFVemp1WVRaNmlhR1Q3QUltLXNSN2Y0S1NvUDRITFVnbVdDZDRQa0JDNV8xOVZaNHctd1pCenh4WVJqVUtDVEE0WDBFTjUtdlhZeTFpUl93dW9PWk9WNU5YZG1XSk1sYm0wVEdQbGlMd0dVbVFFY3lTQm1SaS1sVXJDaGlXU0IzZlZJaDVIWEpwRWliVm9wN2NYZVNrMVZmQ2NZRnJ3VkdoeXlobVlFQUM0VVlXWXdFVkRRR1JHQUE0UnVvSktkQzNsVzJQaDdHWG5sT3FmZw?oc=5",
-      "publishedAt": "2026-09-17T22:05:05+00:00",
-      "summary": "Please Hold (For No Longer Than Fifteen Minutes): New Customer Service Requirements for AI Chatbots Quarles",
-      "toeicScore": 63
-    },
-    {
       "id": "rss-retail-sales-bounce-back-great-britain-amid-brighter-signs-economy",
       "origin": "live",
       "articleType": "Live News",
@@ -262,6 +262,32 @@
       "toeicScore": 63
     },
     {
+      "id": "rss-american-airlines-launches-14-new-routes-world-s-busiest-airport",
+      "origin": "live",
+      "articleType": "Live News",
+      "category": "Travel",
+      "source": "Simple Flying",
+      "sourceUrl": "https://simpleflying.com",
+      "title": "American Airlines Launches 14 New Routes From World's Busiest Airport: See Full List",
+      "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxQV0dzVEV5QzloZzF2RkhoaFBpUlZLeTY5ejlXWUZVellBanBFX3U4dTFKNVNlTm5pVHJfZjFpTWRwaGpiZ1BDRTdrWHdZV0IteENRU1pkRnJEMHlvdmg1ZXNLNjhtX0xQSkZBNDhqOHdvOEdqVDhxUEJYd1dYc21sQUY2V2F1Q3pIajdUd0ZoeVdhVEFSaXZMUFd3?oc=5",
+      "publishedAt": "2026-09-20T16:00:15+00:00",
+      "summary": "American Airlines Launches 14 New Routes From World's Busiest Airport: See Full List Simple Flying",
+      "toeicScore": 70
+    },
+    {
+      "id": "rss-alaska-airlines-plans-drop-two-santa-rosa-routes-as-delta",
+      "origin": "live",
+      "articleType": "Live News",
+      "category": "Travel",
+      "source": "The Press Democrat",
+      "sourceUrl": "https://www.pressdemocrat.com",
+      "title": "Alaska Airlines plans to drop two Santa Rosa routes as Delta preps to start local service",
+      "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxQajUyY25teVR2SHk3dVpHNjV4OVZSRU9wdm9MN0lVYmNHaDRBc1JJdXg4ZDBma1ZOQkRLVU52aUlFcmc4ei1kVllwZm05Nzl2YUd4M1FPYWJZNm5qU1hJWUNNVVpvT05ZSnBSQXI0OFoweEpST29OT0k2bWFtOE9IQUZnamctZ1FGWmFkZWRBVDN2RE03dzdfLVFfT24?oc=5",
+      "publishedAt": "2026-09-20T20:31:54+00:00",
+      "summary": "Alaska Airlines plans to drop two Santa Rosa routes as Delta preps to start local service The Press Democrat",
+      "toeicScore": 66
+    },
+    {
       "id": "rss-hotel-convenience-store-plans-northwest-arkansas-national-airport-hold-after",
       "origin": "live",
       "articleType": "Live News",
@@ -273,6 +299,45 @@
       "publishedAt": "2026-09-20T06:00:00+00:00",
       "summary": "Hotel, convenience store plans at Northwest Arkansas National Airport on hold after developers show little interest Northwest Arkansas Democrat-Gazette",
       "toeicScore": 66
+    },
+    {
+      "id": "rss-las-vegas-airport-allowing-those-without-tickets-access-terminals",
+      "origin": "live",
+      "articleType": "Live News",
+      "category": "Travel",
+      "source": "KLAS 8 News Now",
+      "sourceUrl": "https://www.8newsnow.com",
+      "title": "Las Vegas airport allowing those without tickets access to terminals",
+      "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxNYWhfMzZUMWMtTm04QklrT0p5bDc3MVZtbTlkSXdGTnNnSFNBcndaS3ZsNjRGLWNmcWY0Q0FaNG5oNGR3a3pCZ2RMRWJoOUZKcGRVV01TSElwMS1xUEszNTVWRW1lM3lXeVpYU1ZKa0x5QVVqQV8xTjR0VW5oeTRxTjVqNmE5alhGbHhLdGpjdV9XQWNBTW1FTUFwZTBKUnBhT2lxX0U2MDJ3bmFkVzVn0gG0AUFVX3lxTE5TOU4zdFctWWNEU3NVQVVCN2RZWTFwcFhpT1ppd1laWi1sSXYzQ3dLYjlod1ppRC1TbHBRelRWNUJOdlFRMjFvSk03UWpZSjFVeU9fdlZkZ1BYbk9Gd0wybUR1dm55djgwT1hzZkxNWXdacVcyNDdTemg3ejk5WmlhX3ltaVlQbnU3LTVFZk0tZlkxcWlEUmtjbEhCT09BS0gtakI5SGVfSTJVVXZzUlVRd1J5QQ?oc=5",
+      "publishedAt": "2026-09-20T19:47:44+00:00",
+      "summary": "Las Vegas airport allowing those without tickets access to terminals KLAS 8 News Now",
+      "toeicScore": 63
+    },
+    {
+      "id": "rss-aspen-airport-ground-transportation-center-could-be-delayed",
+      "origin": "live",
+      "articleType": "Live News",
+      "category": "Travel",
+      "source": "AspenTimes.com",
+      "sourceUrl": "https://www.aspentimes.com",
+      "title": "Aspen Airport ground transportation center could be delayed",
+      "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxNMVBSck5nV0QwclF6YjdpWDdRbDhlTFRFMHlzdC0yWUlRMGVTV1ZEbnZ2LXFZZ1JBb0t5Q0VjdlZ3SWk5U1o4X1h5Q21uWW9XZkU3T2R6VGc5dzVmNFYwbnl5SUdkNEc1d2hRVmNMS1lMamFmd3dYSnh5RWUxWXlvek9BVXl0NmViRnNGWjA5S3M0YmRhN3J3?oc=5",
+      "publishedAt": "2026-09-20T23:00:00+00:00",
+      "summary": "Aspen Airport ground transportation center could be delayed AspenTimes.com",
+      "toeicScore": 63
+    },
+    {
+      "id": "rss-3-dead-rare-airport-malaria-outbreak-linked-one-world-s",
+      "origin": "live",
+      "articleType": "Live News",
+      "category": "Travel",
+      "source": "FOX Weather",
+      "sourceUrl": "https://www.foxweather.com",
+      "title": "3 dead in rare ‘airport malaria’ outbreak linked to one of world’s busiest travel hubs",
+      "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxOS2Z1cHF4LWp5d3dOUXFYbW1mMFFFLWZ6R0R2ZzhCNjlyRlZINlZCQWpVejRYZWp3VUlEQ3AycjB6RWVmX1NDRWY5M0dfNS1US000MGJzV0ZjRUl2VlVMXzUyOXlLNk4zM0t6Z1ZfSlhReWxlUnA3djItWjRWRDFiVk01LVpwYlJMM0NXU1hjdWRuaVBhaXp3b9IBngFBVV95cUxQN3k3dTd1cm1xMUZiMHhSRGQydElDYV9TS0dMZWdGcUw3TXRrU3NoaUpCUnNTLUI3aW9SMXhkYTg0Ny1PNG0zbUl3cjVmTWg0blRJQzFNLWJ3bVU4S0dfWmduelpQQ2hvRkxwdmIyMEhIMklrRkY5RWpqZUhBdUJCMWdJT3dPMUNlVXVDVm5fTzR5Qmw0MjBoclBqN2Iwdw?oc=5",
+      "publishedAt": "2026-09-20T19:20:00+00:00",
+      "summary": "3 dead in rare ‘airport malaria’ outbreak linked to one of world’s busiest travel hubs FOX Weather",
+      "toeicScore": 63
     },
     {
       "id": "rss-i-stayed-chicago-hotel-that-was-once-gilded-age-men",
@@ -314,42 +379,29 @@
       "toeicScore": 63
     },
     {
-      "id": "rss-faroe-islands-now-has-high-end-hotel-here-s-how",
+      "id": "rss-fidelity-hotel-brings-stylish-rooms-must-try-restaurant-downtown-cincinnati",
       "origin": "live",
       "articleType": "Live News",
       "category": "Travel",
-      "source": "Travel + Leisure",
-      "sourceUrl": "https://www.travelandleisure.com",
-      "title": "The Faroe Islands Now Has a High-end Hotel—Here’s How It’s Changing the Remote Archipelago",
-      "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxQMVNQS203WHNsbWZwODJyYVg4ajc3RUVySjZpRU9XQU91S1g2bGVNZkhXU2E0SU5oMHRVVnltaE9WRVRqUXpJRk54c0hNTTNaY1JOS2E5UEN3cU9VeGVucHJwQmdrWVkzZGRMaVM3STZZQTZRc09PeHFha0VuM09Ta29MME1QSEJiRmZCZDM1MTNIVnZ4bGhNakNxcw?oc=5",
-      "publishedAt": "2026-09-20T12:14:00+00:00",
-      "summary": "The Faroe Islands Now Has a High-end Hotel—Here’s How It’s Changing the Remote Archipelago Travel + Leisure",
+      "source": "The Manual",
+      "sourceUrl": "https://www.themanual.com",
+      "title": "Fidelity Hotel brings stylish rooms and a must-try restaurant to downtown Cincinnati",
+      "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTFBsTF9PTTA3UTR2OTlJU2hfd29kdy0wM01lSUxGVUFPejU3UGx4NFNyNUktRGN4aHpuZ2tZTEUzd0tQMGpwd3RaZ2hDWVNNZXAxbXQ1MHctVzNNVG9DclkzRjZiUW02VzFycExRczFSM2QxYjFC?oc=5",
+      "publishedAt": "2026-09-20T19:00:00+00:00",
+      "summary": "Fidelity Hotel brings stylish rooms and a must-try restaurant to downtown Cincinnati The Manual",
       "toeicScore": 63
     },
     {
-      "id": "rss-airport-commission-meeting-planned",
+      "id": "rss-airport-capital-projects-linked-higher-passenger-satisfaction-2026-jd-power",
       "origin": "live",
       "articleType": "Live News",
       "category": "Travel",
-      "source": "Brainerd Dispatch",
-      "sourceUrl": "https://www.brainerddispatch.com",
-      "title": "Airport Commission meeting planned",
-      "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxPcWJRdkdaMk1Yc2hsNkYyTlVhNDB1TmZSR2M2TU9hZmdMejh6ZXRnOS05enRhTVhBM0dOX2gzOGxLUWJoMEdVMnZfVS1TbTBzR19TVE8wQnhxUGotQWhDNkdvUG9KMkZkTkNtZU5BR2l5OU96UjJxUHRCdU1rbWlkeERQLUx1eVk?oc=5",
-      "publishedAt": "2026-09-20T16:00:38+00:00",
-      "summary": "Airport Commission meeting planned Brainerd Dispatch",
-      "toeicScore": 63
-    },
-    {
-      "id": "rss-slc-hotel-manager-sentenced-prostitution-money-laundering-after-jury-returns",
-      "origin": "live",
-      "articleType": "Live News",
-      "category": "Travel",
-      "source": "KSL News",
-      "sourceUrl": "https://www.ksl.com",
-      "title": "SLC hotel manager sentenced for prostitution, money laundering after jury returns mixed verdict",
-      "url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxQVV9jSzdxc28ySnk1dGpIWFJVd012MWZXX2ttUzktRGdFM3p4NHV3S2tNcGRGdVRpTjJFOFczSUoyOUplYkFITlRnRVVyR0Fxc2UyV3d5cWhTQzdROGx4dl92cE9QeUFVVy03NlptdXl0SXlYYTYydUwyLUN4TGJUdHJ6VW9YYzFPeTRMUmtWaFJnZllMM3ozNndzTVFDNFlIVnBZRjAwRk8tWm0yanNlN05kYldUa2trMC02aGlER0JsMWlhQ3Fwa3BWdw?oc=5",
-      "publishedAt": "2026-09-20T13:16:29+00:00",
-      "summary": "SLC hotel manager sentenced for prostitution, money laundering after jury returns mixed verdict KSL News",
+      "source": "constructionowners.com",
+      "sourceUrl": "https://www.constructionowners.com",
+      "title": "Airport Capital Projects Linked to Higher Passenger Satisfaction in 2026 JD Power Study",
+      "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxPN255RmFzOF9idnlLT0xQYmNzSnFPMTNmdU01NG5UQ0p5VldJYVg1WnI1eHlhNjhQU0NXNEZ2LU9kMXFRSXZRb0xmZllsUHVEV3otVXlldGhJNEZUWGJ2OHZJaHhsejlvcUFUWVFmTnR5R0MyUXMya2h5T05wRHdjbDhEdEl2cFZIaE00RVNkeWhSUUxfWkx6OXdoMm9WZWE0azdMRWJ2RGtMUEZ2SnpzWHZDTnNLeWFLQzN3blItSXpsS2wxTXc?oc=5",
+      "publishedAt": "2026-09-20T22:04:07+00:00",
+      "summary": "Airport Capital Projects Linked to Higher Passenger Satisfaction in 2026 JD Power Study constructionowners.com",
       "toeicScore": 63
     },
     {
@@ -366,17 +418,17 @@
       "toeicScore": 63
     },
     {
-      "id": "rss-lakeshore-businesses-prepare-drop-sales-after-summer-tourism-season",
+      "id": "rss-20-companies-that-hire-remote-customer-service-jobs",
       "origin": "live",
       "articleType": "Live News",
-      "category": "Travel",
-      "source": "WWMT",
-      "sourceUrl": "https://wwmt.com",
-      "title": "Lakeshore businesses prepare for drop in sales after summer tourism season",
-      "url": "https://news.google.com/rss/articles/CBMi8wFBVV95cUxQNnFkNTBUWm5vVW5OSVFmYTF2RjFKSk5jX3FmRlFLVVdBamlRc3E3QjR1T0N2WmhTdXIwZ1lhVl96V3JBZ18tbGVmNmlONzdhdUI5eEhoZTFIb1BPOGJrQ1YzZG5ZMmsxbU9vMFdobGZtUjM5UV9NcmdJN3QyQzBPbWdSTlA2S2ZvX3haY3VvbXlmZjNhbEpYam9GZ1pqblpQTEstMVdnUlItdGp3WHBWSzJvMW8xcWNTS2tRbWFHd19ZdXpHal9mZVJ4dllHNUZDeHVQOG5veHVrd1lJTkpJU0JhOXgwY21ERHlhRjBQUEptbzg?oc=5",
-      "publishedAt": "2026-09-20T04:05:15+00:00",
-      "summary": "Lakeshore businesses prepare for drop in sales after summer tourism season WWMT",
-      "toeicScore": 63
+      "category": "Technology",
+      "source": "moneytalksnews.com",
+      "sourceUrl": "https://www.moneytalksnews.com",
+      "title": "20 Companies That Hire for Remote Customer Service Jobs",
+      "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNQkluSUkwdXNSOGlVRVBQX0V5TjhqRzJ4ajdRa0huZXJCYURheGlNTWdTMWx4cEprNzJFb2hfY2RxeHhfRzZSN1BHTXVtTnNhMFNvdXlFSmowTFpLZHpoS3dFYVFiSDRETFFDUTQtVFdMRzVyWmpaSW1ycW5CTU5RbVJrcU04ZDlIV2NrQWdVb2tVVk5XdDRCbXl5MA?oc=5",
+      "publishedAt": "2026-09-18T09:30:37+00:00",
+      "summary": "20 Companies That Hire for Remote Customer Service Jobs moneytalksnews.com",
+      "toeicScore": 66
     },
     {
       "id": "rss-payment-technology-firms-partner-retail-access-dangote-refinery-ipo",
@@ -413,7 +465,7 @@
       "sourceUrl": "https://mashable.com",
       "title": "Musk's Starlink partners with comms company for phone service in rural locales",
       "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE5ZTmdFQS0tdXZyT3J3QU0xZGNUWHVrYWZPS3MyQXo5bmc3Q19VUmFLdm1Dckt0blV3N01KZERUdUc5MGU5enBiaFZDZFZGQ1Fhekx5czFudXlMZlNhRW1rTjRNQ1A0emp4?oc=5",
-      "publishedAt": "2026-09-20T05:28:50+00:00",
+      "publishedAt": "2026-09-20T17:14:29+00:00",
       "summary": "Musk's Starlink partners with comms company for phone service in rural locales Mashable",
       "toeicScore": 63
     },
@@ -422,12 +474,12 @@
       "origin": "live",
       "articleType": "Live News",
       "category": "Technology",
-      "source": "pulse2.com",
+      "source": "Pulse 2.0",
       "sourceUrl": "https://pulse2.com",
       "title": "Zeal Raises $10 Million To Bring Loyalty And Customer Intelligence To More Than 4 Million Payment Terminals",
       "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxNeWV3eENuMDkyckxwYm5zbkdjX1NjRGpOVHlXRzRlYWxIdUkxYTk1cHdlSFl2WXFaTU1Tb1FRRE1PZl9tSlN1WDZ1TG9GQ0h3SDcwVHVEcmpUUllHNUc0QUZXV3JYVjNlRjFpZ2ZsOWJvc280ZV80RndyUU1yYkxidTdVSVhCZkZkeHc4aG9QNDl3MGduMENiVlJIdlRfUmNiNGVYck0ydzhVMGNjOVRUbDZpUS03QTBfRGFuZDBDUGwycjZoN19fXzdB0gHKAUFVX3lxTE15ZXd4Q24wOTJyTHBibnNuR2NfU2NEak5UeVdHNGVhbEh1STFhOTVwd2VIWXZZcVpNTVNvUVFETU9mX21KU3VYNnVMb0ZDSHdINzBUdURyalRSWUc1RzRBRldXclhWM2VGMWlnZmw5Ym9zbzRlXzRGd3JRTXJiTGJ1N1VJWEJmRmR4dzhob1A0OXcwZ24wQ2JWUkh2VF9SY2I0ZVhyTTJ3OFUwY2M5VFRsNmlRLTdBMF9EYW5kMENQbDJyNmg3X19fN0E?oc=5",
       "publishedAt": "2026-09-18T15:00:38+00:00",
-      "summary": "Zeal Raises $10 Million To Bring Loyalty And Customer Intelligence To More Than 4 Million Payment Terminals pulse2.com",
+      "summary": "Zeal Raises $10 Million To Bring Loyalty And Customer Intelligence To More Than 4 Million Payment Terminals Pulse 2.0",
       "toeicScore": 63
     },
     {
@@ -444,6 +496,19 @@
       "toeicScore": 63
     },
     {
+      "id": "rss-medical-care-technologies-inc-otcid-mdce-prepares-first-strainscan-pro",
+      "origin": "live",
+      "articleType": "Live News",
+      "category": "Technology",
+      "source": "newswire.com",
+      "sourceUrl": "https://www.newswire.com",
+      "title": "Medical Care Technologies Inc. (OTCID:MDCE) Prepares First StrainScan Pro Demonstration for Restaurant Service",
+      "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxNejZzNHVRYlo1NldhZVBOZ2p2NGYyaGZfTkx2Zi1qemZjM3RCeG9SWXZDTFBLTEZTYnJybXo0b0hjNVRlYXBVZVM2NndGX01GQTVJNk15aVFiSmNIT0lVQnJVcTN3eldTa3hKdTZTNTFVaTh6dHltN3h4S2JldWdFbjZ6bmY3dHFHdjlIN3pvOV93SFhjd2lyTlJvSXVielNmSGc?oc=5",
+      "publishedAt": "2026-09-18T13:17:00+00:00",
+      "summary": "Medical Care Technologies Inc. (OTCID:MDCE) Prepares First StrainScan Pro Demonstration for Restaurant Service newswire.com",
+      "toeicScore": 63
+    },
+    {
       "id": "rss-us-foods-prudent-investments-service-technology-support-its-scale-based",
       "origin": "live",
       "articleType": "Live News",
@@ -457,19 +522,6 @@
       "toeicScore": 63
     },
     {
-      "id": "rss-medical-care-technologies-inc-otcid-mdce-prepares-first-strainscan-pro",
-      "origin": "live",
-      "articleType": "Live News",
-      "category": "Technology",
-      "source": "Newswire.com",
-      "sourceUrl": "https://www.newswire.com",
-      "title": "Medical Care Technologies Inc. (OTCID:MDCE) Prepares First StrainScan Pro Demonstration for Restaurant Service",
-      "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxNejZzNHVRYlo1NldhZVBOZ2p2NGYyaGZfTkx2Zi1qemZjM3RCeG9SWXZDTFBLTEZTYnJybXo0b0hjNVRlYXBVZVM2NndGX01GQTVJNk15aVFiSmNIT0lVQnJVcTN3eldTa3hKdTZTNTFVaTh6dHltN3h4S2JldWdFbjZ6bmY3dHFHdjlIN3pvOV93SFhjd2lyTlJvSXVielNmSGc?oc=5",
-      "publishedAt": "2026-09-18T13:17:00+00:00",
-      "summary": "Medical Care Technologies Inc. (OTCID:MDCE) Prepares First StrainScan Pro Demonstration for Restaurant Service Newswire.com",
-      "toeicScore": 63
-    },
-    {
       "id": "rss-us-firm-waymo-launch-robotaxi-service-singapore-2028",
       "origin": "live",
       "articleType": "Live News",
@@ -480,6 +532,19 @@
       "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxORGY5ckh2OFMtTVkxMTVsR1JPelMwZ1pkWHJLdkJRdkpFTTIxb09JSHprQmZyeXFuM3ZLVi03TTNHSVhRX2V6R1lleDFNWFVncXl1ZncyeDR5STdYeFkySGI1ZWxWLVdtZDJfQ1BSaUE4a25KbW84alJZY19QdmlONTh0QThTUmJOZTBRbUpWNzJyc1gySE13WE5EXzAxaU80MEFDajl4cWV3bDVud0HSAa4BQVVfeXFMTVZfam56dEJLeTZ6emJEdEI4VWE5cnd5YTlCTnMzVVpDRkoxc0JYeC1hZWFoU2hEOGNlLWpEM2VFdGVGTjRwNmdXNnBaRG00UlZKMk4xZ0YxMnVubkNDdWp0MlJQYTRxdGNjbk5vNThaVi15amY3ZF9ibnRIc21TQ3RUa0FEUXprd3VrbHVFSGZZRzlRYWpXdjM0N2JfSmJVaVZfMjI3dkM2bGZ2QWtB?oc=5",
       "publishedAt": "2026-09-18T02:01:04+00:00",
       "summary": "US firm Waymo to launch robotaxi service in Singapore in 2028 South China Morning Post",
+      "toeicScore": 63
+    },
+    {
+      "id": "rss-shuidichou-fee-hike-is-online-fundraising-still-viable-business-opportunity",
+      "origin": "live",
+      "articleType": "Live News",
+      "category": "Technology",
+      "source": "eu.36kr.com",
+      "sourceUrl": "https://eu.36kr.com",
+      "title": "Shuidichou Fee Hike: Is Online Fundraising Still a Viable Business Opportunity in 2025?",
+      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTFB5eHNMU2JJS0xmWEJIeV84djEtWVZVaGFKeDBjcXpZY0s2aEsxS1RyNGo4YjB6WmhRR2tiWmVEWFJiWFN3Mm4zR0l2djEza0h6a3lr?oc=5",
+      "publishedAt": "2026-09-20T15:24:05+00:00",
+      "summary": "Shuidichou Fee Hike: Is Online Fundraising Still a Viable Business Opportunity in 2025? eu.36kr.com",
       "toeicScore": 63
     },
     {
@@ -509,19 +574,6 @@
       "toeicScore": 63
     },
     {
-      "id": "rss-new-online-casino-canada-2026-beginner-s-guide-exploring-safe",
-      "origin": "live",
-      "articleType": "Live News",
-      "category": "Technology",
-      "source": "becommon.co",
-      "sourceUrl": "https://becommon.co",
-      "title": "New Online Casino Canada 2026 beginner’s guide: Exploring safe payment options",
-      "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxOZTY2V1UzZ0tPVnl3blM0c3QzMXdyU2g5bzU2RFhTVzAydGRtbW9aRzRCdnFFTnl2SjRPc3FkVzR5cFF3TWpoeEpYbFkxR3FOZXZ6UUIxNzlwV2NpWUhtQnlmb0stMjdCWmVsamR1X0VXX0hGRUxOSnlrNUpIcDU4X18zU05POGdMaVRPTzVnQjlKSFBGMVUwMm1zY0trVlE?oc=5",
-      "publishedAt": "2026-09-17T22:47:19+00:00",
-      "summary": "New Online Casino Canada 2026 beginner’s guide: Exploring safe payment options becommon.co",
-      "toeicScore": 63
-    },
-    {
       "id": "rss-jacobi-selected-aberdeen-portfolio-solutions-limited-as-technology-vendor-accelerate",
       "origin": "live",
       "articleType": "Live News",
@@ -532,19 +584,6 @@
       "url": "https://news.google.com/rss/articles/CBMirAJBVV95cUxOWklqcnBJNlM5c0U2UnNhUk5QTFB3alRaNnZtUU45bEdsSElaLTdPRWx0b3pGVm5KcGJLWmQyMmdWWXBvbmVFUnZuSkRDbExReGl1ZFRoWGgyd2lSNVZXREtuM2k3V1N0dmI0Y09TOWxPNUQ5cnNSZnpFOHBJN2RUeHVZSTJMVmFDRXY5ZVJ4QXRqQm5kelV3eTc5c3pOZ0VGb3V4RW9NY1IzOEh2U282ZUowUS10eGV1Vkd0ZXd5dmlLZ01sRDRpaXI1UHd5UTVUNDA1T2ZDcDVSakhfeFp5czdVWk9PRWxyRjZzZzFyYU1QcmZBZUpINTRLTmtFUGlHSHZadExkbEtXM0hBZFNTVG5Za2FHWXhzZEhYVkJGcFJ6NTJIS3R3ckwwZ1TSAbICQVVfeXFMTl95VkdjY2RYRzlRUnRKZE0zX3NYdUZNUmw0QmJLQ2xUR09Dc1UxWTJtaHFGdXFtbkdwYkx2WWZUdVRYSklvOGtzdUhhSzQ2Y0xndUloOFdWMEtiRGFzRHI2Y1JCX3N6dG1EUlB2X1o1ZWxObmE4UWFvRTJ5LWZfalZoenNMTG9iYUVuLXFVazNkaXVlOVpSZWtEOUxKeHlHRmNqcTBENm1GQmZfYUU3V0pGajB4MWd3a0tRUFdfRGlfZ25QUmJhNXRudEI4bWpjMUd6RWZRQ3NPUFlVRm12b0wwVnBVUm1NckhyaDgtZGt5bTZ3R1czTEJsRjhXaGV1c3JSZ20xZDNTU285cUVxYnAxVjJxOTUxYTBYV3F1X0pfUGtUbnp4RG4zTllXc1NsR3Nn?oc=5",
       "publishedAt": "2026-09-18T08:46:27+00:00",
       "summary": "Jacobi selected by Aberdeen Portfolio Solutions Limited as a technology vendor to accelerate growth of its managed portfolio service The Manila Times",
-      "toeicScore": 63
-    },
-    {
-      "id": "rss-socar-parking-app-launches-korea-s-first-ai-voice-booking",
-      "origin": "live",
-      "articleType": "Live News",
-      "category": "Technology",
-      "source": "en.sedaily.com",
-      "sourceUrl": "https://en.sedaily.com",
-      "title": "Socar Parking App Launches Korea's First AI Voice Booking Service",
-      "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxQZWNlSXdrdnM3dFY5V3hMZFF3aUdEbWgxUDktVVRSWkl4ZnJRU2V0VThCSHAtYU9MYmdfclh3UzNOaHZMOFdnWU9hVV9PZjVhbmY1WGxDcDRfTzVpa2hwY1NWLTZPMGFIeVRtVnRjbVB6SzgyMUVqZjg1dGFWTHBLc0NrcGlMM1RzelNXWVh6TnRndmt4eGdfLVRrc1htX1V6bmRr?oc=5",
-      "publishedAt": "2026-09-17T21:59:05+00:00",
-      "summary": "Socar Parking App Launches Korea's First AI Voice Booking Service en.sedaily.com",
       "toeicScore": 63
     },
     {
@@ -574,32 +613,6 @@
       "toeicScore": 63
     },
     {
-      "id": "rss-sendik-s-expands-its-offerings-as-new-whitefish-bay-store",
-      "origin": "live",
-      "articleType": "Live News",
-      "category": "Daily Life",
-      "source": "The Business Journals",
-      "sourceUrl": "https://www.bizjournals.com",
-      "title": "Sendik's expands its offerings as new Whitefish Bay store debuts",
-      "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxNT3BEb1ByVUJVTEpTYno0SDdCNEwyQm9GT09mb25udG9rMVZCWWFqWjFCTWVLdDU5d0VMTWhWR202cnpoMHBYdFNyc3BTVGN1ejRCc2toaUo0SHp5RW9lVWk0OVBPRFVWa3V4ZVZ5ajV2YjNLUV9wNG4xRkNMWmdwYTRnaERDeGpXc2lRQTl2QmlZdFpLZG1WeE5rV3QwT2Rr?oc=5",
-      "publishedAt": "2026-09-20T16:57:00+00:00",
-      "summary": "Sendik's expands its offerings as new Whitefish Bay store debuts The Business Journals",
-      "toeicScore": 66
-    },
-    {
-      "id": "rss-lexington-park-restaurant-store-fined-over-minors-sales",
-      "origin": "live",
-      "articleType": "Live News",
-      "category": "Daily Life",
-      "source": "southernmarylandchronicle.com",
-      "sourceUrl": "https://southernmarylandchronicle.com",
-      "title": "Lexington Park Restaurant, Store Fined Over Minors Sales",
-      "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxOT1ZhQ1dkb1Nwci1ydGJ5anJieDlsQXhwaWhGUUI4clFBZFk1UXpLWWo0RFpPVmNnM0VXOF8xZnlyV2RMbENIYmIwNWRra19pMGQyd1RfeE1qMW5ZUGJaenJ2QllYTDdoYzE5Wll6RUpkWTdfTFI3NmVCemc5RXJKblNDYm93OHcxVkZDSVBNbWVrRGowNms3VzUwcFRJMXF4OEpTbDQ5YVU?oc=5",
-      "publishedAt": "2026-09-18T01:40:23+00:00",
-      "summary": "Lexington Park Restaurant, Store Fined Over Minors Sales southernmarylandchronicle.com",
-      "toeicScore": 66
-    },
-    {
       "id": "rss-public-service-commission-ask-treasury-r435m-more-as-mandate-expands",
       "origin": "live",
       "articleType": "Live News",
@@ -623,6 +636,19 @@
       "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxNRWZoS0hGaDZkYXpHNDg3X0hrazI3RUlUN2d5ZnpHd05SQXJ3NHl5Nzh4S3VuWFd5dzY0b0l6Qm9EN1pFblczR2x3anY1Zks2ZmpwVENRX0RHR19mTDVsb3c2VFFibG9jNFd4bEEtY3h2ektwTExhUnZwVm85YTlJdC0tbUhVWkZiZnRwX2hoMkZicF9kRWxIVmdlZlZIdmFwMVdQczVycHM0QzhvSndxXzVn?oc=5",
       "publishedAt": "2026-09-20T16:00:16+00:00",
       "summary": "Maui County-run ferry service aims to launch for Lāna‘i next year, Moloka‘i in 2029 Maui Now",
+      "toeicScore": 63
+    },
+    {
+      "id": "rss-sendik-s-expands-its-offerings-as-new-whitefish-bay-store",
+      "origin": "live",
+      "articleType": "Live News",
+      "category": "Daily Life",
+      "source": "bizjournals.com",
+      "sourceUrl": "https://www.bizjournals.com",
+      "title": "Sendik's expands its offerings as new Whitefish Bay store debuts",
+      "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxNT3BEb1ByVUJVTEpTYno0SDdCNEwyQm9GT09mb25udG9rMVZCWWFqWjFCTWVLdDU5d0VMTWhWR202cnpoMHBYdFNyc3BTVGN1ejRCc2toaUo0SHp5RW9lVWk0OVBPRFVWa3V4ZVZ5ajV2YjNLUV9wNG4xRkNMWmdwYTRnaERDeGpXc2lRQTl2QmlZdFpLZG1WeE5rV3QwT2Rr?oc=5",
+      "publishedAt": "2026-09-20T16:57:00+00:00",
+      "summary": "Sendik's expands its offerings as new Whitefish Bay store debuts bizjournals.com",
       "toeicScore": 63
     },
     {
@@ -656,12 +682,12 @@
       "origin": "live",
       "articleType": "Live News",
       "category": "Daily Life",
-      "source": "People.com",
+      "source": "people.com",
       "sourceUrl": "https://people.com",
       "title": "4-Year-Old Restaurant Host in China Stuns the Internet with Service Skills in Adorable Viral Video: ‘I’ll Take Care of You’",
       "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxQTXJJV2VpUXMwWEdZc1VqSTZBM3NOUWxQdUR2MjZQXzZad0tSbDBIMl81QzEyOFBxUmdrcG95UjdpTGZIb3pyODBJYllIOWRTQmFMMV9QVWg0NGhOVmVaeXZNSXh0SG9BNlBObjg4NGM0RnpsOWY0Z2wyVkdCTUNvekRrTzNIcC1aNVZna01wZ0FFeW0zY1hleA?oc=5",
       "publishedAt": "2026-09-18T20:33:19+00:00",
-      "summary": "4-Year-Old Restaurant Host in China Stuns the Internet with Service Skills in Adorable Viral Video: ‘I’ll Take Care of You’ People.com",
+      "summary": "4-Year-Old Restaurant Host in China Stuns the Internet with Service Skills in Adorable Viral Video: ‘I’ll Take Care of You’ people.com",
       "toeicScore": 63
     },
     {
@@ -695,12 +721,25 @@
       "origin": "live",
       "articleType": "Live News",
       "category": "Daily Life",
-      "source": "ksdk.com",
+      "source": "KSDK",
       "sourceUrl": "https://www.ksdk.com",
       "title": "Thai restaurant in the Grove to close after 7 years as owner shifts focus to grocery business",
       "url": "https://news.google.com/rss/articles/CBMimgJBVV95cUxPSlFwa05KOVdya2wxdUtJbko2aHBPNFBkQ0xJYm9lWXZ4bEsyZmd5VjFNck55MnFDaXc1YkdUZV85cWJacnRVbVAyZWlkSlEwRFd4T1hlNG1FNEtBQTljMTFKNUxIVVJYZUg4UzV0QkhVNDd0bVlWbG1ZWHB6TXRyZjdLYTUzMzBBcGF4UXRiUmlnajJsSmhrTFUwT0Jscml1TFlreGFoNE5lVHZsNDZhOFI3Q1VaRFBjWG90OXRrRmhrbXJTRk1nSDYyc3Jxd1g5alZFVWtVcG5vZXVCQy1JUnNBRXVKRFhlczVPSDFYbnNRZ1BobllrYXY3Y2dhY1JONWQzR19abG9hSVZXVEt2RlJpTFIzVkFzX3c?oc=5",
       "publishedAt": "2026-09-19T10:08:00+00:00",
-      "summary": "Thai restaurant in the Grove to close after 7 years as owner shifts focus to grocery business ksdk.com",
+      "summary": "Thai restaurant in the Grove to close after 7 years as owner shifts focus to grocery business KSDK",
+      "toeicScore": 63
+    },
+    {
+      "id": "rss-public-service-enterprise-group-inc-stock-underperforms-friday-when-compared",
+      "origin": "live",
+      "articleType": "Live News",
+      "category": "Daily Life",
+      "source": "MarketWatch",
+      "sourceUrl": "https://www.marketwatch.com",
+      "title": "Public Service Enterprise Group Inc. stock underperforms Friday when compared to competitors",
+      "url": "https://news.google.com/rss/articles/CBMi_gFBVV95cUxNZjdQd1Y3SVpqeE8yOGFaRGdoZVdQSEV6UkpjakphN2NaM0VJalZ3Yk1WVVdGOVlfaXR3YmpyeWxkSWxiMlpIVnJ0aU5naThXVzFrVTV5MThUazRMM0NXQjk4c2liYXhlcmg0clFkdW5DRHdPM1h4ZzJlU1BPWnpDaURGcHd6RjdZTDMxeHJlclFSRDd0eFRUSkxEclVtWjlqa3hhcHB6SDl5UXFzaHhYakN0UHhUajlremdIdHI4TlVtUm00RHlPZHVmQk9WUllYZmhQVTZuN2x5VWxaNWg1TTN0SVFzaWs1d3U5aGotdEFzV2lSYWNjNmpFWWZwQQ?oc=5",
+      "publishedAt": "2026-09-18T20:53:00+00:00",
+      "summary": "Public Service Enterprise Group Inc. stock underperforms Friday when compared to competitors MarketWatch",
       "toeicScore": 63
     },
     {
@@ -740,45 +779,6 @@
       "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxOcFlqaHVIZmkzcEpvVEhDWmNLQm51Nmc3bjBUOHVSY0lvbGtsa1J4ZGlyWUN4cFBiSzUxWEYzTV94OVJsaEgzc0huWFRFbEhWVmhweWdzSndUWTNzcmowb09jbDlRMkU2RXdPYXdvTW1lLXVkWG94LWV2SEhPYU9LNWZGdzhSMEU?oc=5",
       "publishedAt": "2026-09-18T07:00:00+00:00",
       "summary": "How gig delivery apps became retail infrastructure qz.com",
-      "toeicScore": 63
-    },
-    {
-      "id": "rss-how-customer-service-skills-help-hospitality-workers-build-long-term",
-      "origin": "live",
-      "articleType": "Live News",
-      "category": "Business",
-      "source": "PorchDrinking",
-      "sourceUrl": "https://porchdrinking.com",
-      "title": "How Customer Service Skills Help Hospitality Workers Build Long-Term Careers",
-      "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTE56ODJrZG9VdW1UWlZjY0pGb3VaOEowY3JleHlRUkN6MVJBNHp0QlNyMDZoTzJuOGhGN2JOU0l5VFh3SWxNUXJZREZIUFYzSEVMZms3Y2ZYV2JNQS1DaWcyUF9KSG00T05tcXpvMlJwcWpxdmZyamdidDJn?oc=5",
-      "publishedAt": "2026-09-19T15:05:48+00:00",
-      "summary": "How Customer Service Skills Help Hospitality Workers Build Long-Term Careers PorchDrinking",
-      "toeicScore": 63
-    },
-    {
-      "id": "rss-pullman-retail-sales-saw-near-9-drop",
-      "origin": "live",
-      "articleType": "Live News",
-      "category": "Business",
-      "source": "Moscow-Pullman Daily News",
-      "sourceUrl": "https://www.dnews.com",
-      "title": "Pullman retail sales saw near 9% drop",
-      "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxNTFVtWlJlcHd5Y3duc0Y5Um1FSURTdWQxb3hsSThpZWpDNm1mS3BVUERUai0xbm51S3kwQ2tic3BBNFo3LU1YTTRyQmlsQVIzZ2JXNUFIamhsbGFZWjRqel9WQ1lORVBMUVI1UzFxWGJSdXkxNFFhT29UY3pZY015b0xISUk?oc=5",
-      "publishedAt": "2026-09-19T07:06:48+00:00",
-      "summary": "Pullman retail sales saw near 9% drop Moscow-Pullman Daily News",
-      "toeicScore": 63
-    },
-    {
-      "id": "rss-1-retail-sales-tax-school-construction-ballot",
-      "origin": "live",
-      "articleType": "Live News",
-      "category": "Business",
-      "source": "WAVY.com",
-      "sourceUrl": "https://www.wavy.com",
-      "title": "1% retail sales tax for school construction on ballot",
-      "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxOYVVNQ19HTkt0al9YUDFVMnRDRjdFaWd5Z056SXBjMVY0c0d3LXREQlRMYTdHbXY1Vng5U3lSRDZNLUd1NExzVTJ2TDBwZXhVMDJ0SWVqeHlTdm1La1NleFg4ODA3clo0YW4xYWZtY09ERmNSX1RqYU9GbE10LWJSU05tMjFnUHhSQUxHM2VZRHhJa2c?oc=5",
-      "publishedAt": "2026-09-19T00:37:01+00:00",
-      "summary": "1% retail sales tax for school construction on ballot WAVY.com",
       "toeicScore": 63
     }
   ]
