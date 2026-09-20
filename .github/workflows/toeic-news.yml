@@ -1,7 +1,7 @@
 name: TOEIC GitHub News Refresh
 on:
   schedule:
-    - cron: "20 21 * * *"
+    - cron: "20 21,3,9,15 * * *"
   workflow_dispatch:
 permissions:
   contents: write
@@ -35,5 +35,5 @@ jobs:
           git config user.name "toeic-news-refresh[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add data/news.json
-          git commit -m "chore(toeic): refresh news topics ${GITHUB_RUN_ID} [skip ci]"
+          git commit -m "chore(toeic): refresh news topics ${GITHUB_RUN_ID}"
           git push origin "HEAD:${GITHUB_REF_NAME}"

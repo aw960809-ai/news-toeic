@@ -1,35 +1,325 @@
 {
-  "updatedAt": "2026-09-18T00:00:00Z",
+  "updatedAt": "2026-09-20T11:04:34.129664+00:00",
   "articles": [
     {
-      "id": "seed-business-delivery",
+      "id": "rss-business-f70e36f26f79efef39c0",
       "category": "Business",
-      "source": "Practice News Feed",
-      "title": "Retail Service Expands Regional Delivery Options",
-      "url": "",
-      "publishedAt": "2026-09-18T00:00:00Z",
-      "summary": "Seed topic used until the scheduled GitHub news refresh runs.",
-      "toeicScore": 82
+      "source": "Phenomenal World",
+      "title": "Home Depot’s New Last Mile - Phenomenal World",
+      "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE9kR09URjNnVTRuLVpzcFdxUEZQV3YwVWdyclNWUy1LVzQyWVp5bVBCTkRKQjc0dVlsSDJFMnNzd192RkFyX0lQVHQ5MUlJa2gxMDRBOWlISm02WEtDUDhzenBnLXAzOV9hWEh4aFVZeUc?oc=5",
+      "publishedAt": "2026-06-02T00:09:40+00:00",
+      "summary": "Home Depot’s New Last Mile Phenomenal World",
+      "toeicScore": 78
     },
     {
-      "id": "seed-travel-schedule",
+      "id": "rss-business-e3952b05e5a28d32e70a",
+      "category": "Business",
+      "source": "About Amazon",
+      "title": "Introducing Amazon Supply Chain Services: Amazon’s logistics network, now open to every business - About Amazon",
+      "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxNY19LUk5xYzhtVTZucWktS3V5QUxHd3djYkV5eHRrSFY4ZTFEZUNoNWxOS1piWGhHVDdQS3ZMRWRTQ04xMjBFNTVGTkhJcGNNWVJSMjBJb3pKUFlkbmZpZjRwOUJlQjRHRFUtU0I2QlhtMmdUN19IYTV5SXBBaUdYdkJJSHJQZEpk?oc=5",
+      "publishedAt": "2026-05-04T07:00:00+00:00",
+      "summary": "Introducing Amazon Supply Chain Services: Amazon’s logistics network, now open to every business About Amazon",
+      "toeicScore": 77
+    },
+    {
+      "id": "rss-business-1224cbc0580db78b2384",
+      "category": "Business",
+      "source": "UPS",
+      "title": "Proof Over Promises: UPS's Bold AI Initiatives Enhance Products, Services and Customer Experience - UPS",
+      "url": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxOT2JxdW9qNGNOVlZPcGZNRVVmZVNRNnhuNWV0bk1ucXJHX3k1djI1WFM1a29OR2ZYcUM3OHFGNS0wdEVrWG15SEdGVjViZUVuS3Ywd1djNmVzZG1oaTg2ZFdYMkVQaEw5MjU0aGthZmtwcExFYjRnQ1pVd25VYVhZNC1jVm5oYUhDNHpzUGVlempYOW5qZjdMZDZfZTJzak1kaW1hRFFNd1QyaTNkNHdneTBsOVkySkQ1MEl1c0tEcjhiV2o4U3VYSE91NGNpQnB0SWxyZUtB?oc=5",
+      "publishedAt": "2026-06-18T07:00:00+00:00",
+      "summary": "Proof Over Promises: UPS's Bold AI Initiatives Enhance Products, Services and Customer Experience UPS",
+      "toeicScore": 76
+    },
+    {
+      "id": "rss-business-c5b4128ea846f5aa6da6",
+      "category": "Business",
+      "source": "Reuters",
+      "title": "Amazon opens up logistics network to other businesses in challenge to UPS, FedEx - Reuters",
+      "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxPOElORlNQSDNFLU5xTFlrRHMwcTVDVWx4ZVN1UGg2OEZyMWsweWptWTRjbTRZTlUydmE2ZHBXenhvOE45UUw4SExuWkQyVUoxLVpDd1RKdktDdmpzOFdlOVdQZ3JkNjZZcU5DNThKY0xoSGEyS3lGekg1ckZRVlVabFItaGhGSk5HMFN5YkJMWDJvZFVkT1h4ZXhKWkFfakd6UjlTbzVXa0V0WW5YMlctLXE5VWgtZw?oc=5",
+      "publishedAt": "2026-05-05T07:00:00+00:00",
+      "summary": "Amazon opens up logistics network to other businesses in challenge to UPS, FedEx Reuters",
+      "toeicScore": 75
+    },
+    {
+      "id": "rss-business-52982cb3f92c61987b85",
+      "category": "Business",
+      "source": "Supply Chain Dive",
+      "title": "Is Amazon Supply Chain Services already a logistics heavyweight? - Supply Chain Dive",
+      "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxPWTlyVkF4X25HbHM1VTdoeGVQR2xHVjVjcEJqaFBvWjJKVFNKX2ExTW5MUEhYd19JazJxWktQNE5IbVRGbzhaWlZzMFBreFU3UEJRTWYwbVk0U1FLbDIyVkZOYTRmejVOWVFEelB1SnVzdmFONFpEMFdHb0x3VGxMM1F5SEY1UFdOaF9kVnduRlVwanZYRDZCeFVBNVc1MW00RTFXWm93bDB2emts?oc=5",
+      "publishedAt": "2026-05-07T07:00:00+00:00",
+      "summary": "Is Amazon Supply Chain Services already a logistics heavyweight? Supply Chain Dive",
+      "toeicScore": 74
+    },
+    {
+      "id": "rss-business-994e67f7ae7d1de36b76",
+      "category": "Business",
+      "source": "New York Post",
+      "title": "NYC Mayor Mamdani backs Amazon delivery worker bill despite risk of higher costs for customers - New York Post",
+      "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxNcUwtMVp0bkRsYkFHU05zTmY5ZG53eG9SV0pwTk1oQkVfd2NmY1djLVZjQU5feUJsTFoycHJXMFlFWW5FYXl6b2ZVLWd4SnBxNjhJVmp6SzVsSkJlM3JuU0V1a1h3anhRTlJVM09RXzMySU9ZWC1rVTJvS19MbVUtWVU3TnVqWVZRazFhZDV1eXl4dU1ObmMxWGsxcDJERE1kUlZzSXhWbW5wZGk0YThlb1hhOTJXVEduTDd3SW1PRUdpVWhu?oc=5",
+      "publishedAt": "2026-08-10T07:00:00+00:00",
+      "summary": "NYC Mayor Mamdani backs Amazon delivery worker bill despite risk of higher costs for customers New York Post",
+      "toeicScore": 78
+    },
+    {
+      "id": "rss-business-e68924b217a124946dfa",
+      "category": "Business",
+      "source": "businessinsider.com",
+      "title": "Amazon cuts more jobs months after mass layoffs - businessinsider.com",
+      "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE9KdHh0YzF5dW9nSndYQ0tjUTMwQ0FNYW5ORjVERVFuZW9tVUE0RlVSelhqRkJibjh5cG8wNVlvM0gxV1NSM1VEcDN3MDdURG54RFp3QnpWZ3pIWVdtSzVoVmdkV3liWWYwMGhfdzVhTkhNajlpVl9rUU5qRGtnVWc?oc=5",
+      "publishedAt": "2026-05-13T07:00:00+00:00",
+      "summary": "Amazon cuts more jobs months after mass layoffs businessinsider.com",
+      "toeicScore": 77
+    },
+    {
+      "id": "rss-business-d9a663e02f76ece9f087",
+      "category": "Business",
+      "source": "FreightWaves",
+      "title": "American Eagle, Office Depot pull plug on third-party logistics services - FreightWaves",
+      "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxPMzFFbi1jTWZLTHJyeFNHa3BacVg0NGxwT0lMRmM0dEdxMFk4RmE1bkowWGZtWm5NcEt4UWRlX1MtckY5Wnc0SGZib2t5OVdWQ1MzdHI5bFZaXzZOQlBGMzBjTkVZamc0d0FEM3RJd2xZQ3ZicFlRbEJpLXpUbXZhc3dOQXZBNkpBbDFmbm5tTzhmWHA0QVNoV0t1cEFTTERaLS1mVDZGcVA?oc=5",
+      "publishedAt": "2026-01-27T08:00:00+00:00",
+      "summary": "American Eagle, Office Depot pull plug on third-party logistics services FreightWaves",
+      "toeicScore": 76
+    },
+    {
+      "id": "rss-business-a7b0c56b5590a15cc2f4",
+      "category": "Business",
+      "source": "ingka.com",
+      "title": "Creating a simpler, more resilient IKEA for the future - ingka.com",
+      "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxQdlpWRldvZEx5MmFiVkQxc0tMNkVaZ0F6di1zYm1rczdaU0hZb3pXckFkaXZEa0gyZGEwTUU5Q1Y3ckNWd2hCOE90ZjBreXJBRHo5Y3JnMWlTbFVsTWFKTTRBUFcxVU93Tkw5ODFpRGc5cGdFS1lJaWhNOWRmc3NHRERlN1dFS3ZLZFliWDZn?oc=5",
+      "publishedAt": "2026-03-19T07:00:00+00:00",
+      "summary": "Creating a simpler, more resilient IKEA for the future ingka.com",
+      "toeicScore": 75
+    },
+    {
+      "id": "rss-business-e0599207e2fd0a9f9d0f",
+      "category": "Business",
+      "source": "CNBC",
+      "title": "Read the memo: Amazon's grocery boss details restructuring, says more 'deliberate' strategy needed - CNBC",
+      "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxQNTRCYlhNMjB4eU5oWnZiTWR4TmJKWjVCckN4VFBURWFzM3Q4eGdJWHNnQ2RzQWR0eEk2OWx4YXl2cmN6d3laR0c1OHpMMTJZdXY2ZGI0dUJSbWRycmd6VzJKdHdYMk1Sd2ZYTGwzWkY1LTRHc2ZVZ082SVdHUVlMd2ZkWDJURWRPOUM3NFZ6bVVqeWRCU012YWhxZWlkQ0U0TmlHUtIBqgFBVV95cUxPdXVTVDVOTjlxWDZkZzRyYmp4YXliOWdONUNPYzZIUWhyN2tVN1M1cUFVamFqZlZsYlRxMnlqYTFmQ3ZzaV9rbzZ4MXNWY1hocE5NeWxVcXlCZWczNFM3ZjhRRmZKMTBYNW9KQ2NlckQxeTIySlBIYmlrbmxnbGRtZEZnZ0VXYXllOGF1TVJvN0twem00bk5SLURaSVZSQnZZejNPWEZOa1RfQQ?oc=5",
+      "publishedAt": "2026-01-27T08:00:00+00:00",
+      "summary": "Read the memo: Amazon's grocery boss details restructuring, says more 'deliberate' strategy needed CNBC",
+      "toeicScore": 74
+    },
+    {
+      "id": "rss-travel-46ad38d1a5b55b012051",
       "category": "Travel",
-      "source": "Practice News Feed",
-      "title": "Travel Operator Adjusts Weekend Schedule",
-      "url": "",
-      "publishedAt": "2026-09-18T00:00:00Z",
-      "summary": "Seed topic used until the scheduled GitHub news refresh runs.",
-      "toeicScore": 79
+      "source": "The Times",
+      "title": "UK airport chaos: what are your rights if a flight is delayed or cancelled? - The Times",
+      "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxNUlh4WmZYTHZnZjdKWnEwY1ozU19weUE4eWwyYWhPNlM5T2JZeEpiTThQR3F1M3h5WFN6NGl0Y01XclNRVjBhdmM0M0FuWW56QUtCck1KTk1HY0lhdl9YNzg2bS15UFBPVVY0RmN4Z0czUHE2cmJJTkRUWk9xLU02VmkySW9EVTRzaXI0U0ViRUlxakRBQ1dlNFFOS0pmNjhpMU5FazBWRUF2OWdQX1lsQk9JU09vVjdP?oc=5",
+      "publishedAt": "2026-09-09T07:00:00+00:00",
+      "summary": "UK airport chaos: what are your rights if a flight is delayed or cancelled? The Times",
+      "toeicScore": 78
     },
     {
-      "id": "seed-tech-training",
+      "id": "rss-travel-b5f888d60056362111c0",
+      "category": "Travel",
+      "source": "upgradedpoints.com",
+      "title": "Chicago O’Hare International Airport [ORD]: Ultimate Terminal Guide - upgradedpoints.com",
+      "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE45NEwtdE5hY2JzMXdocFFJcm9XTC0yUW42ZVJxTHVzSzRJVDB4d0wzZ2FuUnpxUEFfcWl3a2x0RTZla2JHZlkwcTE0bl9WTGNKLUgwMnl2cGI4YVYzcElWZHdySTBVLWloSGw5Y3Z2TXBYcW95dEIwSw?oc=5",
+      "publishedAt": "2026-09-07T07:00:00+00:00",
+      "summary": "Chicago O’Hare International Airport [ORD]: Ultimate Terminal Guide upgradedpoints.com",
+      "toeicScore": 77
+    },
+    {
+      "id": "rss-travel-c3898f9f61f088a7207b",
+      "category": "Travel",
+      "source": "ttgasia.com",
+      "title": "Hong Kong hotels stay resilient as Typhoon Noul disrupts travel - ttgasia.com",
+      "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxQdzlKZEpCYWdyOWY3ZnJjNjY4SC1xVzhjOHVJTjVwTVUyOHcwWlNCT2N0anpjdzRzSnNvVzlGWURIMmJIYjU2NFJldEc5TVVDOGdZT1htck1YX05BMHlWZkFGRWhYRTRDM0JYRkJrU2JpazZkaUhZN0IxM0R2ZnpxdWR6ZVh3aDZOXzJVbHBLWGJuWHR0bzVCRG91NW1JWDRm?oc=5",
+      "publishedAt": "2026-07-28T07:00:00+00:00",
+      "summary": "Hong Kong hotels stay resilient as Typhoon Noul disrupts travel ttgasia.com",
+      "toeicScore": 76
+    },
+    {
+      "id": "rss-travel-bb5aadd32f6bc6eb0e50",
+      "category": "Travel",
+      "source": "OAG Aviation",
+      "title": "Travel 2045: a 20-year outlook for the AI era - OAG Aviation",
+      "url": "https://news.google.com/rss/articles/CBMiRkFVX3lxTE1RUThhZFBPMHk5WDg4MUt5MmREVWQxU3l4dWZUTkdsT2NacnUzdGxZX1RrVFFObnVWU0Y0bGw2dlZnbFdhcnc?oc=5",
+      "publishedAt": "2026-01-08T12:50:39+00:00",
+      "summary": "Travel 2045: a 20-year outlook for the AI era OAG Aviation",
+      "toeicScore": 75
+    },
+    {
+      "id": "rss-travel-1a66067a6fce1004f4c5",
+      "category": "Travel",
+      "source": "TravelPirates",
+      "title": "Portugal Strike Today: 500+ Flights Cancelled, What Travelers Need To Know - TravelPirates",
+      "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxPanN1bm1XNjlHRHROcmxuMkdzWmw0N05hSjhfZ0RiTlV6QmtRd25OTkRLN1U1cVQ2YWZJNnROOFAxNWdfS3VsNlIzWVpRNERXaXNrdzVxWGdLc2NFa09ORUhnSXVwMGpjQkIxa0N3Vm5LOThDNW8zRkk0dXh0Y0VibkQ3MmlJdWxzT2VjS19ES2wzRWhSejRhWTZuelp6VFk?oc=5",
+      "publishedAt": "2026-06-03T07:00:00+00:00",
+      "summary": "Portugal Strike Today: 500+ Flights Cancelled, What Travelers Need To Know TravelPirates",
+      "toeicScore": 74
+    },
+    {
+      "id": "rss-travel-bc4d02b0e32fddf0e78d",
+      "category": "Travel",
+      "source": "ABC7 Bay Area",
+      "title": "What to do if your flight is delayed or canceled during the US government shutdown - ABC7 Bay Area",
+      "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxQUGF6QmRhdHUzYVF2MEN5Tlo2Vzk5WjU4Y0FNTXVfN0wtUWh4TFFaMEhtNm96VXJaeU9xZi1pTjh1SVRPOU1SVWV0d0hmVXpFQzJYZmtmeVZ2ODIzSmY0WUwyWkFWM2VacEV4RTVTUTJVd2llV2Z4R2UzNU10NkJ6YVk5UGs4RW1LdktKT0NxbkVkLW4yZFFPa3BkQ3NFZUdzZ0HSAacBQVVfeXFMT08zUURLclZ5Z1FmTEZYVkhiUFBxekRtU2Zya2c5VWhEQi1QbzJ4TVEwLVA0U2pfa2JHME1nTUllX0tTMjhsSzBPVnlRLU5NVEZHYTZMLURJbXF0bzVralRaNUJiN0NGSEF2emZuRk8wSlZHM1dXOUxGRk84RXFxeW5uVy1SZGdqY3UxRzMyYlZxbXhzUEJmWFl5Rk4wTXY4V2prUkNWeTA?oc=5",
+      "publishedAt": "2025-11-04T08:00:00+00:00",
+      "summary": "What to do if your flight is delayed or canceled during the US government shutdown ABC7 Bay Area",
+      "toeicScore": 78
+    },
+    {
+      "id": "rss-travel-21c0ff8825c726ca23f7",
+      "category": "Travel",
+      "source": "Air Traveler Club",
+      "title": "Airline Stopover Programs [ 2026, Full List ] - Air Traveler Club",
+      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE01eUd1RmZISVZmQ0s4ZEZBenNqMEk3U3N2NmQyMlNuTHlpRTV0Zk5pWkthNkU5RTc5WkVGZWtyNWVCSGMwdDcwcmw4Q3o4WTFaeURXdTZoZmhiSnRqTEhPWGhNSU4wV0ZOcXZUWQ?oc=5",
+      "publishedAt": "2026-01-20T08:00:00+00:00",
+      "summary": "Airline Stopover Programs [ 2026, Full List ] Air Traveler Club",
+      "toeicScore": 77
+    },
+    {
+      "id": "rss-travel-8cf1400bd4b6c8fdba7d",
+      "category": "Travel",
+      "source": "upgradedpoints.com",
+      "title": "John F. Kennedy International Airport [JFK]: Ultimate Terminal Guide - upgradedpoints.com",
+      "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTFB2VUZmWGNrY09aSDNLaFpfTVFVUzRycldha3RVa1g3czQtQWVrN1d2N29uLWMyd2pxVVdGM1IybFBhYWpSWFRDLXJXZmxBV0E0S3pTVnk2WmppOE02V19SQTJNdlQ3Ym5MQ0VTN3JoTDk3Q09Pa3h5MGhR?oc=5",
+      "publishedAt": "2026-09-03T07:00:00+00:00",
+      "summary": "John F. Kennedy International Airport [JFK]: Ultimate Terminal Guide upgradedpoints.com",
+      "toeicScore": 76
+    },
+    {
+      "id": "rss-travel-323805b12f16f883d384",
+      "category": "Travel",
+      "source": "The New York Times",
+      "title": "What Travelers Need to Know About the Flight Cuts Tied to the Shutdown - The New York Times",
+      "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxQYW9iRjNxcjlRV2ZvQWRIOV9pQ2VHZm9QTHVGcWo5WTdSN1VZSVhaaXVYZ3ZBTjdxeVY5UjhuTU93QjJ6SGNrV3FGeDdzdVh3RWFqZjlIRWNqaVNYeU5PZ3JKdnk1RFRNVGFtV3NPMWNoSER5VmR6ZVFlSlk3bEllRlVtUQ?oc=5",
+      "publishedAt": "2025-11-11T08:00:00+00:00",
+      "summary": "What Travelers Need to Know About the Flight Cuts Tied to the Shutdown The New York Times",
+      "toeicScore": 75
+    },
+    {
+      "id": "rss-travel-d8dd24dcc4596c16ca40",
+      "category": "Travel",
+      "source": "The Times of India",
+      "title": "All expenses paid: UAE covers accommodation, meals, flights for 20000+ stranded travellers in emirates am - The Times of India",
+      "url": "https://news.google.com/rss/articles/CBMipwJBVV95cUxORnJPcUhmcmRSeGdqdEE4MFh3QkpCZHdmVWFNZG5mQllTUjl1d3NjRE91eklZU3V4VTVOYUdEeXVFNW9Gdm1WeHRwZXFveE9uX0tzYWpjZWlQaWJiQzFYbFJBNmJFdU5WekVMVjdwN2VlejByeHNFSDhVU2NXYkxSaFBSVHVUTGgzV2c4R3R5OHQ4OUdKcENLYzM5NFc4eWFpZGlpdXEwUEdWNUF1SUc2bWFpT1FrV1c1MW1ldTZUWkQ3bkg3V0I2cFg3c1BvaXpPS1p6LVB1UXFid1RGVzNVT1djaHB1WUpQRmVtVm0xRXpaNjdxUVNwSjRKakFWdkpfQzhTSnZUSHEzZkljVm9oaUNLN1JIREw4UWlyX3dWajRLeXRZZG130gGsAkFVX3lxTE1mX01VeE1Pd0lGclMyTWZhZi0zMVR2UE45UXBUQk9lQ0lhY3VHQVMwaFJjeTZIYjYzU2xZS1VGS0dhXzJtaU01TndXNzlvWUJONUNjNGJReVotRGhqbmF4THMtMDlsVWFYY3AwRml5VGt6V3poeEJtNTMwanBuLUprWW9YcTJFMzEwV0xocGtrblZIRGJUd1ZoVlF6MkJrNUt5Q1UwTlh0NF9TZFFJcTM1VTB2dzRaTGwzZC0xWUFfRk51OGxpVmJrT1p3bUIxODY5ZDdxTndsZVNnMURhbEp5TWZwdmctSnowcGcwZVNidUxnbmhBX29Qakh3Wk5veVNuN2tCNTI5SHBGYUZyTTBRcmJWdDFBSjY0SGtDZGN6UkFJeDlCem82NVlWTQ?oc=5",
+      "publishedAt": "2026-03-02T08:00:00+00:00",
+      "summary": "All expenses paid: UAE covers accommodation, meals, flights for 20000+ stranded travellers in emirates am The Times of India",
+      "toeicScore": 74
+    },
+    {
+      "id": "rss-technology-3408de623feadef76fd8",
       "category": "Technology",
-      "source": "Practice News Feed",
-      "title": "Software Provider Adds Customer Training",
-      "url": "",
-      "publishedAt": "2026-09-18T00:00:00Z",
-      "summary": "Seed topic used until the scheduled GitHub news refresh runs.",
-      "toeicScore": 80
+      "source": "Business of Apps",
+      "title": "Restaurant App Developers (2026) - Business of Apps",
+      "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTFAzVUxoU2dUY2NVSG5fUkNkb0l4R2t0ZVJLTklTTnFpRHRQTk5sWmRfMnBxOEVwaGR5Wm9TSm03UnFaeWFWM3lNaWgyN0RGZjl5aklpbTk4a1UzSVU4SE9HOXRObWQ1ZWpx?oc=5",
+      "publishedAt": "2026-09-08T07:00:00+00:00",
+      "summary": "Restaurant App Developers (2026) Business of Apps",
+      "toeicScore": 78
+    },
+    {
+      "id": "rss-technology-6419718c510034d63bc7",
+      "category": "Technology",
+      "source": "Business.com",
+      "title": "Why the Cash-Only Model Doesn’t Work - Business.com",
+      "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxPTnFqaVBVVDFFSVR2a0NQUWN6NlVsQnZpV0JzeFhmUnpDak1ubk84UEFfWlFIOHFVTnZxQnlMVUpsX0dnT0RkNU9WbzlSdmY1WmxROFFPQ3VVSEdSa2tEa3RiLUJmWkdaQXEwUGRpZUJpVVNWMjI4VzUwTVc1MEpzVTduN21UQS1TOVNTVw?oc=5",
+      "publishedAt": "2026-09-04T07:00:00+00:00",
+      "summary": "Why the Cash-Only Model Doesn’t Work Business.com",
+      "toeicScore": 77
+    },
+    {
+      "id": "rss-technology-554b1415648f10bcaa99",
+      "category": "Technology",
+      "source": "Forbes",
+      "title": "Best Payroll Software And Services For Small Business (2026) - Forbes",
+      "url": "https://news.google.com/rss/articles/CBMie0FVX3lxTFBTMGFiaTRlZ1hBSW53UHcyMkdXUEcyb1BLdXhWaWhmbHRZaFhGd1hpTGNjb2JXZVpWM1NUZDFYWkpLYmRPSzBkdmkyajJQWklRUTAwMUYtTTh2VHRfd25CT1lJZU50MUNlOExKaWhaU3ZKSFQ2N09CT296QQ?oc=5",
+      "publishedAt": "2026-09-09T07:00:00+00:00",
+      "summary": "Best Payroll Software And Services For Small Business (2026) Forbes",
+      "toeicScore": 76
+    },
+    {
+      "id": "rss-technology-0e5a004d7bce966f92fd",
+      "category": "Technology",
+      "source": "Built In",
+      "title": "25 Top Payment Processing Companies 2026 - Built In",
+      "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE5Pa2JiOEZwYTRPbHdkMUQ0YjBMa1RYTE1TTW1OdTJRUnl6ZUV0WUdlR2haeHNmQWJMTEJIRjhwNm1CQzYySE5Oei1UaWZRc2l6NkVBY2pSTy1qekIyVXd1UVQ1M0VXV0xyOVdYVnVxWUdmQQ?oc=5",
+      "publishedAt": "2026-06-30T07:00:00+00:00",
+      "summary": "25 Top Payment Processing Companies 2026 Built In",
+      "toeicScore": 75
+    },
+    {
+      "id": "rss-technology-6a546e072fec374204d1",
+      "category": "Technology",
+      "source": "tech.co",
+      "title": "Best Small Business Accounting Software: Top 5 Reviewed - tech.co",
+      "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxQeFZLM0wyVkVCRFBRZEFvQ2xkVVY3U3RXTjBPZWxrMEhzTGg1ZUVnTXNtWVkyVEN4aVpad0w3bWVMZV9nREJnblAwaE1QS2ZjY1RhaENOTlNJbjNUSWtLVkJFX1ZzUDJLVjUxWHhvQ0s2VnlSSVR1eTJaSWwwcFFUdQ?oc=5",
+      "publishedAt": "2026-07-14T07:00:00+00:00",
+      "summary": "Best Small Business Accounting Software: Top 5 Reviewed tech.co",
+      "toeicScore": 74
+    },
+    {
+      "id": "rss-technology-11a6166975b031b5b294",
+      "category": "Technology",
+      "source": "CNBC",
+      "title": "5 best accounting software services for small businesses - CNBC",
+      "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE1iek8tYVp1VjdYcHlwcWgyWG5WUTFXdjB5MFhmOHVqcHJSVEJLR3dSX0R5bzBSTkNJQkpaUkJRS3hRQ2tKeUpOZUJOVjlUc2FQRC1NVjdoVm01RFVIZXc5ZEhoc1FMRF9pTTNfeFZBR0Z3eWIweFVfZFBfVWItcm_SAYQBQVVfeXFMTjNucVE1SUNVeXhtOTlVdjIxX29MNnNOb1VhY0QyZ0kwU0h1Z0RDSFI2VlpJVHMyX0EwWm1PRXlBM29jRHY5dGZYaVJKSlg1SHoyTDhtVTBWdGJ6bGpoWXU4c1o3SVpPbG1hNzZaOXdjV2FoX05MSVNfQ0dlN0dNWndtR2pD?oc=5",
+      "publishedAt": "2026-05-04T07:00:00+00:00",
+      "summary": "5 best accounting software services for small businesses CNBC",
+      "toeicScore": 78
+    },
+    {
+      "id": "rss-technology-c24830c183b4cb4ce511",
+      "category": "Technology",
+      "source": "businessinsider.com",
+      "title": "Inside Big Software's fight for its life - businessinsider.com",
+      "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxQWU9rUTJuTUU1X21EVUhEb0xwSUktaFIxZ1QweDVyNVlKRV96NUVybHBQd3kzRWpWc0F2aHhLTXE4MmdHaXRIQm5zSGRlcjBwNzBDbHJsengtOEZtRy1pb0hlUXdJR29PaVVPc1RwV1loZmZMeTdIN3JmeTM2UnNMbE45VEk4b0ZxWnI5RWIxYW52aDdHOWpONDFJOXpNd19yTjM2a2lPUzQ?oc=5",
+      "publishedAt": "2026-04-07T07:00:00+00:00",
+      "summary": "Inside Big Software's fight for its life businessinsider.com",
+      "toeicScore": 77
+    },
+    {
+      "id": "rss-technology-d5740caea0796d901701",
+      "category": "Technology",
+      "source": "AIMultiple",
+      "title": "eCommerce Technologies Use Cases & Examples - AIMultiple",
+      "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE5qNkNrcTJjWUJWczJhamhpZmlRcXlKcEVzbi1yTmZZcXRHcllDblBzaVNpWmZMYkZGbVJORkZRZUNzcFczMHVZZXJZcmNCTVpjZVd1UkZn?oc=5",
+      "publishedAt": "2026-05-18T07:00:00+00:00",
+      "summary": "eCommerce Technologies Use Cases & Examples AIMultiple",
+      "toeicScore": 76
+    },
+    {
+      "id": "rss-technology-f50fa2cd0dddb74c4987",
+      "category": "Technology",
+      "source": "BBC",
+      "title": "Lloyds bank reveals IT glitch affected almost half a million customers - BBC",
+      "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE1lbElha1pfM0Q1bmxTbEFVaUhlZExqLTdla0NWb19vZEVERkRYMGZ2NnZoa3pNRDgxT0V5aVdWTEhFR2lrc0RsZzNHN1FRNUxpdWNjWEdTcjJNdw?oc=5",
+      "publishedAt": "2026-03-27T07:00:00+00:00",
+      "summary": "Lloyds bank reveals IT glitch affected almost half a million customers BBC",
+      "toeicScore": 75
+    },
+    {
+      "id": "rss-technology-7a57b4fcf3f7e136016e",
+      "category": "Technology",
+      "source": "Forbes",
+      "title": "Square Vs. Stripe (2026 Comparison) - Forbes",
+      "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE54N25fTkFsQkxidmNUT2pRZGdLcUI2Ri1DcWl5N3E4VTY2S0UzZm5IeG93Smt2N0ptWTliRXN1YzNoUGpMcDRUb3RJbGxFb05fVEc5M1ZkejZDUVZhS0JhWVRmZTRfZTlsZURSenNZeFAyZjE5?oc=5",
+      "publishedAt": "2026-07-30T07:00:00+00:00",
+      "summary": "Square Vs. Stripe (2026 Comparison) Forbes",
+      "toeicScore": 74
+    },
+    {
+      "id": "rss-daily-life-bc8281dd42dc798df853",
+      "category": "Daily Life",
+      "source": "CNBC",
+      "title": "Why Walmart is moving in on DoorDash, Uber Eats delivery action, starting with donuts, coffee and sandwiches - CNBC",
+      "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxNenNvT2xaSjVjWG1QMzk2UFI2X2xfX0pQU0NyOVQ2Nk5Ccm1BRXVuWDVYQ3pERVk0eTZkdW5TMEV0aXcxRFF2dW0xY2d6X2ltWmxwVDh3ODNLbUZpWmk0Nk9XRWVCaUIySFpOMVczWlJaU3liUmJmcW9lUTZnNGlUSkQ1alN1TUNTdFRfTUgtZ9IBlAFBVV95cUxPR21DOTRJRHFUUjk3SnA3S3VqZllLZDBVLXFMcWM0Q2I3STZCOHp1Qm0ySGRUR3lQSzh4RmVlSXhwSU5YOTc5U2F5MlVsQUsxNDZwZGRHZjY5dHdLcGxDdGtGdlUyVnNZX1R3VmJJZGhPS3IybWxvZFd2OWtySms5QXlTM0FEdUkyVjNUYV9ZX0lPclZu?oc=5",
+      "publishedAt": "2026-09-05T07:00:00+00:00",
+      "summary": "Why Walmart is moving in on DoorDash, Uber Eats delivery action, starting with donuts, coffee and sandwiches CNBC",
+      "toeicScore": 78
+    },
+    {
+      "id": "rss-daily-life-d77f6c8d8f94d1ce7463",
+      "category": "Daily Life",
+      "source": "Grocery Dive",
+      "title": "Walmart launches restaurant delivery - Grocery Dive",
+      "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE9TaXQyMXVFN1VWT2UxTVFzTmhCRG1pdGtpLXl6b3h5NG5HUWsxSTZSSWdKRlVXeU5HcjNJYmNGY2xOX2JpN20tODhVX0p6cjlhb2pyb01rejVwNnJmd2ZvM2Q5RloyM1lHTUwxVFNZcjl0RUM4RVdranpta0w?oc=5",
+      "publishedAt": "2026-06-08T07:00:00+00:00",
+      "summary": "Walmart launches restaurant delivery Grocery Dive",
+      "toeicScore": 77
     }
   ]
 }
