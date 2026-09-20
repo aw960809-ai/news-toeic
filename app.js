@@ -1,6 +1,6 @@
 'use strict';
 
-const VERSION='2.2.1-github';
+const VERSION='2.2.2-github';
 const KEYS={
  generated:'generated',sessions:'sessions',mistakes:'mistakes',settings:'settings',
  daily:'dailyMainAssignment',dailyHistory:'dailyMainHistory',dailyPool:'dailyMainCandidatePool',
@@ -16,7 +16,7 @@ const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&
 const dayKey=(d=new Date())=>`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
 const now=()=>new Date().toISOString();
 const main=document.getElementById('appMain'),dialog=document.getElementById('lessonDialog'),dialogTitle=document.getElementById('lessonTitle'),body=document.getElementById('lessonBody');
-let route='today',news=[],activeLesson=null,lessonStarted=0,readingStarted=0,answers=[],qIndex=0;
+let route='today',news=[],newsUpdatedAt='',activeLesson=null,lessonStarted=0,readingStarted=0,answers=[],qIndex=0;
 let settings={currentLevel:600,targetScore:750,dailyMinutes:30,category:'Balanced',...load(KEYS.settings,{})};
 
 const offlineLesson={
@@ -61,13 +61,32 @@ function accuracy(){const ss=analyticsSessions(),t=ss.reduce((n,s)=>n+(Number(s.
 function avgWpm(){const v=analyticsSessions().map(s=>Number(s.wpm)).filter(x=>x>=40&&x<=450);return v.length?Math.round(v.reduce((a,b)=>a+b,0)/v.length):0}
 function targetWords(){const a=accuracy(),w=avgWpm();if(!w)return'250–400';if(w<95||a<65)return'180–250';if(w<120||a<75)return'250–350';if(w<140||a<85)return'300–450';return'450–650'}
 
-async function loadNews(){
+async function loadNews(manual=false){
+ const button=manual?document.querySelector('#reloadNews'):null;
+ const beforeStamp=newsUpdatedAt;
+ const beforeCount=news.length;
+ if(button){
+  button.disabled=true;
+  button.textContent='讀取中…';
+ }
  try{
   const r=await fetch(`./data/news.json?ts=${Date.now()}`,{cache:'no-store'});
-  if(!r.ok)throw new Error();
+  if(!r.ok)throw new Error(`HTTP ${r.status}`);
   const d=await r.json();
-  news=Array.isArray(d.articles)?d.articles:[];
- }catch{news=[]}
+  if(!Array.isArray(d.articles))throw new Error('news.json articles 格式錯誤');
+  news=d.articles;
+  newsUpdatedAt=String(d.updatedAt||'');
+  localStorage.setItem('toeicGithubNewsUpdatedAt',newsUpdatedAt);
+  localStorage.setItem('toeicGithubNewsLastLoadedAt',new Date().toISOString());
+  if(manual){
+   const changed=Boolean(newsUpdatedAt&&newsUpdatedAt!==beforeStamp)||news.length!==beforeCount;
+   const when=newsUpdatedAt?new Date(newsUpdatedAt).toLocaleString('zh-TW',{month:'numeric',day:'numeric',hour:'2-digit',minute:'2-digit'}):'未知時間';
+   toast(changed?`已載入最新新聞 · ${news.length} 篇 · ${when}`:`目前已是最新新聞 · ${news.length} 篇`);
+  }
+ }catch(error){
+  console.error('News reload failed',error);
+  if(manual)toast('新聞讀取失敗；已保留目前新聞，稍後會再自動嘗試');
+ }
  render();
 }
 
@@ -199,7 +218,7 @@ function render(){
 function bind(){
  document.querySelector('#startDaily')?.addEventListener('click',e=>openLesson(e.currentTarget.dataset.id));
  document.querySelector('#chooseNews')?.addEventListener('click',()=>switchRoute('news'));
- document.querySelector('#reloadNews')?.addEventListener('click',()=>void loadNews());
+ document.querySelector('#reloadNews')?.addEventListener('click',()=>void loadNews(true));
  document.querySelectorAll('.make-lesson').forEach(b=>b.onclick=()=>{const n=news.find(x=>String(x.id)===String(b.dataset.id));if(!n)return;const lesson=buildNewsLesson(n),rows=generated().filter(x=>x.id!==lesson.id);rows.push(lesson);save(KEYS.generated,rows.slice(-60));save(KEYS.daily,{date:dayKey(),articleId:lesson.id,completed:false,selectedByUser:true});toast('已建立本機原創教材');openLesson(lesson.id)});
  document.querySelectorAll('[data-part]').forEach(b=>b.onclick=()=>startPractice(Number(b.dataset.part),practiceCount(Number(b.dataset.part))));
  document.querySelector('#startMock')?.addEventListener('click',startFullMock);
@@ -389,8 +408,8 @@ function newsPage(){
   return `<div class="section-head"><h3>新聞教材庫</h3><span class="badge">${all.length} 篇待學習</span></div>
     <div class="card sync-box">
       <div><strong><span class="live-dot"></span>Live News Radar</strong>
-      <div class="sync-status">${liveActive.length} 則未完成即時候選 · GitHub Actions 每日更新</div></div>
-      <button class="secondary" id="reloadNews">更新新聞</button>
+      <div class="sync-status">${liveActive.length} 則未完成即時候選 · ${newsUpdatedAt?`資料發布 ${new Date(newsUpdatedAt).toLocaleString('zh-TW',{month:'numeric',day:'numeric',hour:'2-digit',minute:'2-digit'})}`:'等待新聞資料'}</div></div>
+      <button class="secondary" id="reloadNews">檢查最新新聞</button>
     </div>
     <div class="library-summary">
       ${['Business','Travel','Technology','Daily Life'].map(c=>`<div><strong>${categoryCount(c)}</strong><span>${c==='Technology'?'Tech':c==='Daily Life'?'Life':c}</span></div>`).join('')}
@@ -629,7 +648,7 @@ function render(){
 function bind(){
   document.querySelectorAll('.library-start').forEach(b=>b.onclick=()=>openLesson(b.dataset.id));
   document.querySelectorAll('.make-lesson').forEach(b=>b.onclick=()=>{const n=news.find(x=>String(x.id)===String(b.dataset.id));if(!n)return;const lesson=buildNewsLesson(n),rows=generated().filter(x=>x.id!==lesson.id);rows.push(lesson);save(KEYS.generated,rows.slice(-60));save(KEYS.daily,{date:dayKey(),articleId:lesson.id,completed:false,selectedByUser:true});toast('已建立本機原創教材');openLesson(lesson.id)});
-  document.querySelector('#reloadNews')?.addEventListener('click',()=>void loadNews());
+  document.querySelector('#reloadNews')?.addEventListener('click',()=>void loadNews(true));
   document.querySelectorAll('.filter').forEach(b=>b.onclick=()=>{appdeployNewsCategory=b.dataset.cat||'All';appdeployNewsPage=1;render()});
   document.querySelector('#prevNews')?.addEventListener('click',()=>{appdeployNewsPage=Math.max(1,appdeployNewsPage-1);render();window.scrollTo(0,0)});
   document.querySelector('#nextNews')?.addEventListener('click',()=>{appdeployNewsPage++;render();window.scrollTo(0,0)});
@@ -668,4 +687,4 @@ document.querySelector('#dialogClose').onclick=()=>dialog.close();
 document.querySelectorAll('.nav-btn').forEach(b=>b.onclick=()=>switchRoute(b.dataset.route));
 migrateQueuedGoalEvents();
 render();
-void loadNews();
+void loadNews(false);

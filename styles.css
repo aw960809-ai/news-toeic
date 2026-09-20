@@ -190,3 +190,7 @@ button:disabled{opacity:.45;cursor:default;transform:none!important;filter:none!
 .review-archive{margin-top:18px}
 .review-archive summary{cursor:pointer;list-style:none}
 .review-archive summary::-webkit-details-marker{display:none}
+
+/* v2.2.2 news reload feedback */
+#reloadNews:disabled{opacity:.65;cursor:wait}
+.sync-status{min-height:1.2em}
