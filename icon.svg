@@ -1,7 +1,18 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-<rect width="512" height="512" rx="108" fill="#e9f4f0"/>
-<rect x="92" y="80" width="328" height="352" rx="48" fill="#fff"/>
-<path d="M142 154h228M142 216h180M142 278h228M142 340h154" stroke="#0b5d45" stroke-width="24" stroke-linecap="round"/>
-<circle cx="360" cy="348" r="66" fill="#b7954f"/>
-<path d="M332 347l20 20 39-47" fill="none" stroke="#fff" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="News × TOEIC">
+  <defs>
+    <linearGradient id="navy" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#174f94"/><stop offset="1" stop-color="#052b57"/></linearGradient>
+    <linearGradient id="paper" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#e7f0fb"/></linearGradient>
+    <linearGradient id="cyan" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#25cbd5"/><stop offset="1" stop-color="#0aa9b4"/></linearGradient>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="14" stdDeviation="16" flood-color="#001b38" flood-opacity=".28"/></filter>
+  </defs>
+  <rect width="512" height="512" rx="108" fill="url(#navy)"/>
+  <rect x="116" y="118" width="301" height="273" rx="42" fill="url(#paper)" filter="url(#shadow)"/>
+  <rect x="89" y="151" width="42" height="217" rx="21" fill="#d8e5f4"/>
+  <rect x="145" y="146" width="137" height="94" rx="18" fill="url(#cyan)"/>
+  <path d="M150 229l44-43 35 34 23-23 30 32z" fill="#a9f4f3"/>
+  <circle cx="244" cy="170" r="13" fill="#c9ffff"/>
+  <g fill="#93accb"><rect x="307" y="157" width="74" height="14" rx="7"/><rect x="307" y="187" width="74" height="14" rx="7"/><rect x="145" y="265" width="236" height="15" rx="8"/><rect x="145" y="297" width="183" height="15" rx="8"/><rect x="145" y="329" width="132" height="15" rx="8"/></g>
+  <circle cx="372" cy="356" r="67" fill="url(#cyan)" filter="url(#shadow)"/>
+  <text x="372" y="383" text-anchor="middle" font-family="system-ui, sans-serif" font-size="91" font-weight="800" fill="#ffffff">A</text>
+  <g stroke="#75f0d2" stroke-width="9" stroke-linecap="round"><path d="M427 294l9-22"/><path d="M451 309l18-13"/></g>
 </svg>
