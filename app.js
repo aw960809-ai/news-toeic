@@ -1,6 +1,6 @@
 'use strict';
 
-const VERSION='2.2.2-github';
+const VERSION='2.2.3-github';
 const KEYS={
  generated:'generated',sessions:'sessions',mistakes:'mistakes',settings:'settings',
  daily:'dailyMainAssignment',dailyHistory:'dailyMainHistory',dailyPool:'dailyMainCandidatePool',
@@ -171,7 +171,7 @@ function todayPage(){
  if(!lesson)lesson=allLessons()[0];
  return`<section class="hero"><p class="eyebrow">TODAY</p><h2>${done?'今日主訓練已完成':'今日主訓練'}</h2><p>目前 ${settings.currentLevel} → 目標 ${settings.targetScore}。建議文章長度 ${targetWords()} 字；GitHub 版即使 AI 服務不可用仍可完整開啟、複習與模考。</p></section><div class="section-head"><h3>主文章</h3><span class="badge">${done?'已完成':'待完成'}</span></div><section class="card"><h3>${esc(lesson.title)}</h3><p class="muted">${esc(lesson.source)} · ${lesson.category}</p><div class="actions"><button class="primary" id="startDaily" data-id="${esc(lesson.id)}">開始訓練</button><button class="secondary" id="chooseNews">從新聞池挑題材</button></div></section><div class="section-head"><h3>今天的狀態</h3></div><section class="grid2"><div class="card kpi"><span class="muted">閱讀平均</span><strong>${avgWpm()||'—'}</strong><small>WPM</small></div><div class="card kpi"><span class="muted">新聞正確率</span><strong>${accuracy()||'—'}${accuracy()?'%':''}</strong></div></section>`}
 function newsPage(){
- return`<section class="hero"><p class="eyebrow">LIVE TOPICS</p><h2>新聞教材池</h2><p>GitHub Actions 每日更新新聞標題與來源。按「建立教材」會在手機本機建立原創 TOEIC 練習改寫，不把新聞全文複製進系統。</p></section><div class="section-head"><h3>目前題材</h3><button id="reloadNews" class="secondary">重新讀取</button></div><section class="grid">${news.length?news.map(n=>`<article class="card news-card"><div class="news-meta"><span class="badge">${esc(n.category||'Business')}</span><span class="badge">${esc(n.source||'News')}</span></div><h3>${esc(n.title)}</h3><p class="muted">${esc(n.summary||'')}</p><div class="actions"><button class="primary make-lesson" data-id="${esc(n.id)}">建立原創 TOEIC 教材</button>${n.url?`<a class="secondary" href="${esc(n.url)}" target="_blank" rel="noopener">來源</a>`:''}</div></article>`).join(''):'<div class="card"><p class="muted">新聞池暫無資料；離線文章與題型訓練仍可使用。</p></div>'}</section>`}
+ return`<section class="hero"><p class="eyebrow">LIVE TOPICS</p><h2>新聞教材池</h2><p>GitHub Actions 每 6 小時更新新聞標題與來源。按「建立教材」會在手機本機建立原創 TOEIC 練習改寫，不把新聞全文複製進系統。</p></section><div class="section-head"><h3>目前題材</h3><button id="reloadNews" class="secondary">重新讀取</button></div><section class="grid">${news.length?news.map(n=>`<article class="card news-card"><div class="news-meta"><span class="badge">${esc(n.category||'Business')}</span><span class="badge">${esc(n.source||'News')}</span></div><h3>${esc(n.title)}</h3><p class="muted">${esc(n.summary||'')}</p><div class="actions"><button class="primary make-lesson" data-id="${esc(n.id)}">建立原創 TOEIC 教材</button>${n.url?`<a class="secondary" href="${esc(n.url)}" target="_blank" rel="noopener">來源</a>`:''}</div></article>`).join(''):'<div class="card"><p class="muted">新聞池暫無資料；離線文章與題型訓練仍可使用。</p></div>'}</section>`}
 
 const PART_INFO={
  1:['照片描述','Listening'],2:['應答問題','Listening'],3:['簡短對話','Listening'],4:['簡短獨白','Listening'],
