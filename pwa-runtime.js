@@ -9,7 +9,9 @@
 
   const safeToReload=()=>{
     const openDialog=[...document.querySelectorAll('dialog')].some(d=>d.open);
-    return !openDialog;
+    let activeMock=false;
+    try{ activeMock=Boolean(localStorage.getItem('toeicFullMockActive')); }catch(_){}
+    return !openDialog && !activeMock;
   };
   const statusText=message=>{
     const el=document.getElementById('pwaRuntimeStatus');

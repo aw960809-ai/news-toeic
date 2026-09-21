@@ -1,7 +1,7 @@
-const VERSION='2.2.7';
+const VERSION='2.3.0';
 const CACHE_PREFIX='news-toeic-github-';
 const CACHE=CACHE_PREFIX+VERSION;
-const SHELL=['./','./index.html','./app.js','./styles.css','./voice-image-upgrade.js','./analysis-appdeploy-parity.js','./ui-feedback.js','./pwa-runtime.js','./manifest-original.webmanifest','./icon-original-192.png','./icon-original-512.png','./apple-touch-original.png','./data/news.json'];
+const SHELL=['./','./index.html','./app.js','./styles.css','./voice-image-upgrade.js','./analysis-appdeploy-parity.js','./appdeploy-parity-runtime.js','./ui-feedback.js','./pwa-runtime.js','./manifest-original.webmanifest','./icon-original-192.png','./icon-original-512.png','./apple-touch-original.png','./data/news.json'];
 self.addEventListener('install',event=>event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(SHELL))));
 self.addEventListener('activate',event=>event.waitUntil((async()=>{const keys=await caches.keys();await Promise.all(keys.filter(k=>k.startsWith(CACHE_PREFIX)&&k!==CACHE).map(k=>caches.delete(k)));await self.clients.claim()})()));
 self.addEventListener('message',event=>{if(event.data?.type==='SKIP_WAITING')self.skipWaiting();if(event.data?.type==='GET_VERSION'&&event.ports?.[0])event.ports[0].postMessage({version:VERSION})});
