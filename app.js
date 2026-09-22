@@ -1,6 +1,6 @@
 'use strict';
 
-const VERSION='2.3.2-github';
+const VERSION='2.3.3-github';
 const KEYS={
  generated:'generated',sessions:'sessions',mistakes:'mistakes',settings:'settings',
  daily:'dailyMainAssignment',dailyHistory:'dailyMainHistory',dailyPool:'dailyMainCandidatePool',
@@ -821,7 +821,7 @@ function bind(){
   document.querySelectorAll('.part-start').forEach(b=>b.onclick=()=>startPractice(Number(b.dataset.part),appdeployPartCount(Number(b.dataset.part))));
   document.querySelector('#startFullMockStrict')?.addEventListener('click',()=>{toast('開始完整 200 題模考');startFullMock()});
   document.querySelector('#startFullMockTraining')?.addEventListener('click',startFullMock);
-  document.querySelectorAll('.review-mark').forEach(b=>b.onclick=()=>markReview(b.dataset.kind,b.dataset.id));
+  document.querySelectorAll('.retry-review').forEach(b=>b.onclick=()=>appdeployRetryReview(b.dataset.kind,b.dataset.id));
   document.querySelector('#startFromProgress')?.addEventListener('click',()=>switchRoute('today'));
   document.querySelector('#startFromReview')?.addEventListener('click',()=>switchRoute('today'));
   document.querySelector('#mode')?.addEventListener('change',e=>document.querySelector('#manualLengthWrap')?.classList.toggle('is-hidden',e.target.value!=='Manual'));

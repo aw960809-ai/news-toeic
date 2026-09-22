@@ -1,4 +1,4 @@
-const VERSION='2.3.2';
+const VERSION='2.3.3';
 const CACHE_PREFIX='news-toeic-github-';
 const CACHE=CACHE_PREFIX+VERSION;
 const SHELL=['./','./index.html','./app.js','./styles.css','./voice-image-upgrade.js','./analysis-appdeploy-parity.js','./appdeploy-parity-runtime.js','./headline-lesson-generator.js','./ui-feedback.js','./pwa-runtime.js','./manifest-original.webmanifest','./icon-original-192.png','./icon-original-512.png','./apple-touch-original.png','./data/news.json'];

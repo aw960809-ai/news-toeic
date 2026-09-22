@@ -19,6 +19,7 @@ checks = [
  ("wpm_guard", "wpm>=40&&wpm<=450" in app or ">=40&&x<=450" in app),
  ("article_context_snapshot", "saveReviewSnapshot" in parity and "toeicArticleReviewSnapshotsV1" in app),
  ("review_1_3_7", all(x in app for x in ["86400000","3:7"])),
+ ("review_retry_button_bound", "retry-review" in app and "appdeployRetryReview" in app),
  ("analysis_six_categories", all(x in analysis for x in ["Core Meaning","Sentence Structure","Chunk / Collocation","Logic / Connection","Reference / Context","Key Expression"])),
  ("analysis_audio_toggle", "toeicToggleSpeech" in analysis and "speechSynthesis.pause" in voice and "speechSynthesis.resume" in voice),
  ("practice_modes", all(x in parity for x in ["quick:{1:1","standard:{1:3","mock:{1:6"])),
