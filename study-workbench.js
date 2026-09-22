@@ -136,7 +136,7 @@
   }
 
   function vocabPage(){
-    const s=studyStats();
+    const s=studyStats(),latest=window.ToeicVocabSync?.records()[0];
     const dueRows=vocabRows().filter(due).sort((a,b)=>Date.parse(a.dueAt||0)-Date.parse(b.dueAt||0));
     return `<div class="section-head"><h3>單字主動複習</h3><span class="badge">${s.vocabDue} 個到期</span></div>
       <section class="study-kpis">
@@ -153,6 +153,8 @@
           <button class="secondary" id="harvestStudyBank">重新掃描教材</button>
         </div>
       </section>
+      <section class="card"><h3>單字 Goal Sync</h3><p class="muted">完成一輪後，按有效練習秒數累積分鐘，不把答對率當成目標完成率。</p>
+        ${latest?`<p>${latest.correct}/${latest.total} · ${window.ToeicVocabSync.duration(latest.durationSeconds)}</p><p>${esc(window.ToeicVocabSync.status(latest))}</p>`:'<p class="muted">更新後完成一輪，即可在這裡查看同步狀態；不補造舊紀錄的學習時間。</p>'}</section>
       <div class="section-head"><h3>待複習</h3><span class="badge">${dueRows.length}</span></div>
       <div class="list">${dueRows.length?dueRows.slice(0,20).map(v=>`<div class="card study-list-row">
         <div><strong>${esc(v.word)}</strong><p class="muted">${esc(v.meaning)} · ${esc(v.collocation||"")}</p><details><summary>來源與例句（${sourceRows(v).length}）</summary>${sourceRows(v).map(x=>`<p class="muted">${esc(x.title)} · ${x.verbatim?"原文例句":"教材參考例句"}</p><blockquote>${esc(x.example||"此教材未附原例句")}</blockquote>`).join("")}</details></div>
@@ -217,50 +219,84 @@
     return re.test(c)?c.replace(re,"_____"):c;
   }
 
-  function startVocabQuiz(mode="meaning"){
-    let quiz=read(QUIZ_KEY,null);
-    if(!quiz?.set?.length){
-      const pool=vocabRows().filter(due).filter(row=>mode!=="context"||row.example&&new RegExp(`\\b${escapeRegExp(row.word)}\\b`,"i").test(row.example));
-      const set=window.ToeicRandomEngine.shuffle(pool,window.ToeicRandomEngine.rng(window.ToeicRandomEngine.nonce())).slice(0,10);
-      if(!set.length)return toast(mode==="context"?"目前沒有附完整例句的到期單字":"目前沒有到期單字");
-      quiz={id:window.ToeicRandomEngine.nonce(),mode,set,index:0,answers:[]};write(QUIZ_KEY,quiz);
-    }
-    const set=quiz.set;let i=quiz.index||0;
-    dialogTitle.textContent="單字主動複習";if(!dialog.open)dialog.showModal();
-    const show=()=>{
-      if(i>=set.length)return finish();
-      window.toeicStopAudio?.();const row=set[i],saved=quiz.answers[i];
-      const gap=row.example?.replace(new RegExp(`\\b${escapeRegExp(row.word)}\\b`,"ig"),"_____");
-      body.innerHTML=`<section class="lesson-step vocab-quiz">
-        <div class="section-head"><span class="badge">${quiz.mode==="context"?"CONTEXT RECALL":"VOCAB ACTIVE RECALL"}</span><span class="badge">${i+1}/${set.length}</span></div>
-        <div class="card vocab-prompt"><small>中文意思</small><h3>${esc(row.meaning||"請回想這個單字")}</h3>
-        ${quiz.mode==="context"?`<blockquote>${esc(gap)}</blockquote>`:`<p class="muted">搭配提示：${esc(blankCollocation(row))}</p>`}</div>
-        <label class="setting"><span>輸入英文單字</span><input id="vocabAnswer" class="settings-input" autocomplete="off" autocapitalize="none" spellcheck="false"></label>
-        <button class="primary wide" id="checkVocab">檢查答案</button><div id="vocabFeedback"></div></section>`;
-      resetDialog();const input=document.querySelector("#vocabAnswer");let submitted=!!saved;
-      const feedback=result=>{
-        input.value=result.text;input.disabled=true;document.querySelector("#checkVocab").disabled=true;
-        document.querySelector("#vocabFeedback").innerHTML=`<div class="card ${result.ok?"study-correct":"study-wrong"}"><strong>${result.ok?"答對":"答案是 "+esc(row.word)}</strong><p>${esc(row.word)} · ${esc(row.meaning)}</p>
-          <p class="muted">${esc(row.collocation||"")}</p>${row.example?`<blockquote>${esc(row.example)}</blockquote>`:""}
-          <div class="actions"><button class="secondary" id="speakVocab">單字發音</button>${row.example?'<button class="secondary" id="speakVocabExample">例句發音</button>':""}<button class="primary" id="nextVocab">${i+1===set.length?"完成":"下一題"}</button></div></div>`;
-        document.querySelector("#speakVocab").onclick=()=>window.toeicToggleSpeech?.(row.word,`vocab:${row.id}`,document.querySelector("#speakVocab"));
-        document.querySelector("#speakVocabExample")?.addEventListener("click",()=>window.toeicToggleSpeech?.(row.example,`example:${row.id}`,document.querySelector("#speakVocabExample")));
-        document.querySelector("#nextVocab").onclick=()=>{i++;quiz.index=i;write(QUIZ_KEY,quiz);show()};
-      };
-      const check=()=>{
-        if(submitted)return;const text=input.value.trim();if(!text)return;
-        const result={text,ok:norm(text)===norm(row.word)};
-        try{advance(VOCAB_KEY,row.id,result.ok,false,`${quiz.id}:${i}`);quiz.answers[i]=result;write(QUIZ_KEY,quiz);submitted=true;feedback(result)}catch(e){toast("無法保存複習：請先匯出備份，勿清除網站資料");console.error(e)}
-      };
-      document.querySelector("#checkVocab").onclick=check;input.addEventListener("keydown",e=>{if(e.key==="Enter"){e.preventDefault();check()}});
-      if(saved)feedback(saved);else input.focus();
+  async function startVocabQuiz(mode="meaning"){
+    const sync=window.ToeicVocabSync;
+    if(!sync)return toast("單字同步模組尚未載入，請先檢查更新");
+    let lease=null,clock=null,heartbeat=null,quiz=null,closed=false;
+    const handleError=e=>{console.error(e);toast(e.message||"無法保存單字訓練；請先匯出備份，勿清除資料")};
+    const persist=()=>{const saved=read(QUIZ_KEY,null);if(saved&&saved.id!==quiz.id)throw Error("其他分頁已變更此輪訓練，請重新開啟");write(QUIZ_KEY,quiz)};
+    const touch=()=>{try{clock?.interact()}catch(e){handleError(e)}};
+    const visibility=()=>{try{clock?.visibility()}catch(e){handleError(e)}};
+    const cleanup=()=>{
+      if(closed)return;closed=true;
+      try{clock?.stop()}catch(e){handleError(e)}
+      clearInterval(heartbeat);lease?.release();window.toeicStopAudio?.();
+      body.removeEventListener("pointerdown",touch);body.removeEventListener("keydown",touch);body.removeEventListener("input",touch);
+      document.removeEventListener("visibilitychange",visibility);window.removeEventListener("pagehide",cleanup);dialog.removeEventListener("close",cleanup);
     };
-    const finish=()=>{
-      const correctCount=quiz.answers.filter(x=>x?.ok).length;
-      body.innerHTML=`<section class="hero"><p class="eyebrow">VOCAB COMPLETE</p><h2>${correctCount}/${set.length}</h2><p>答錯單字明天重新出現；答對依 1 → 3 → 7 → 14 → 30 日推進。</p><button class="primary wide" id="doneVocab">完成</button></section>`;
-      document.querySelector("#doneVocab").onclick=()=>{localStorage.removeItem(QUIZ_KEY);dialog.close();render()};resetDialog();
-    };
-    show();
+    try{
+      lease=await sync.acquire();quiz=read(QUIZ_KEY,null);
+      if(!quiz?.set?.length){
+        const pool=vocabRows().filter(due).filter(row=>mode!=="context"||row.example&&new RegExp(`\\b${escapeRegExp(row.word)}\\b`,"i").test(row.example));
+        const set=window.ToeicRandomEngine.shuffle(pool,window.ToeicRandomEngine.rng(window.ToeicRandomEngine.nonce())).slice(0,10);
+        if(!set.length){lease.release();return toast(mode==="context"?"目前沒有附完整例句的到期單字":"目前沒有到期單字")}
+        quiz={id:window.ToeicRandomEngine.nonce(),mode,set,index:0,answers:[]};write(QUIZ_KEY,quiz);
+      }
+      const set=quiz.set;let i=quiz.index||0;
+      dialogTitle.textContent="單字主動複習";if(!dialog.open)dialog.showModal();
+      if(i<set.length&&!quiz.completedAt){
+        clock=sync.createClock(quiz,persist,{visible:()=>document.visibilityState==="visible"&&dialog.open,owner:lease.valid});
+        heartbeat=setInterval(()=>{try{clock.tick()}catch(e){clearInterval(heartbeat);handleError(e)}},1000);
+      }
+      body.addEventListener("pointerdown",touch);body.addEventListener("keydown",touch);body.addEventListener("input",touch);
+      document.addEventListener("visibilitychange",visibility);window.addEventListener("pagehide",cleanup);dialog.addEventListener("close",cleanup);
+      const finish=()=>{
+        try{
+          lease.assert();clock?.stop();clearInterval(heartbeat);
+          const result=sync.complete(quiz,persist),record=result.record;
+          body.innerHTML=`<section class="hero"><p class="eyebrow">VOCAB COMPLETE</p><h2>${record.correct}/${record.total}</h2>
+            <p>有效練習 ${sync.duration(record.durationSeconds)} · 正確率 ${Math.round(record.correct/record.total*100)}%</p>
+            <p id="vocabGoalSyncStatus">${esc(sync.status(record))}</p>
+            ${record.legacyPartial?'<p class="muted">這輪從舊版接續，僅計入更新後可核對的練習時間。</p>':""}
+            ${result.error?`<p class="muted">${esc(result.error)}；本輪已另存獨立同步紀錄，請先匯出備份。</p>`:""}
+            <p>答錯單字明天重新出現；答對依 1 → 3 → 7 → 14 → 30 日推進。</p><button class="primary wide" id="doneVocab">完成</button></section>`;
+          document.querySelector("#doneVocab").onclick=()=>{try{const current=read(QUIZ_KEY,null);if(current?.id===quiz.id)localStorage.removeItem(QUIZ_KEY);cleanup();dialog.close();render()}catch(e){handleError(e)}};resetDialog();
+        }catch(e){
+          handleError(e);body.innerHTML='<section class="card"><h3>作答已暫存，完成紀錄尚未保存</h3><p>請勿清除網站資料。釋出空間或匯出備份後，可重新嘗試。</p><button class="primary" id="retryVocabComplete">重試保存</button></section>';
+          document.querySelector("#retryVocabComplete").onclick=finish;
+        }
+      };
+      const show=()=>{
+        if(i>=set.length||quiz.completedAt)return finish();
+        window.toeicStopAudio?.();const row=set[i],saved=quiz.answers[i];
+        const gap=row.example?.replace(new RegExp(`\\b${escapeRegExp(row.word)}\\b`,"ig"),"_____");
+        body.innerHTML=`<section class="lesson-step vocab-quiz">
+          <div class="section-head"><span class="badge">${quiz.mode==="context"?"CONTEXT RECALL":"VOCAB ACTIVE RECALL"}</span><span class="badge">${i+1}/${set.length}</span></div>
+          <p class="muted">整輪完成才同步；切至背景、關閉練習或閒置超過 2 分鐘暫停計時。</p>
+          <div class="card vocab-prompt"><small>中文意思</small><h3>${esc(row.meaning||"請回想這個單字")}</h3>
+          ${quiz.mode==="context"?`<blockquote>${esc(gap)}</blockquote>`:`<p class="muted">搭配提示：${esc(blankCollocation(row))}</p>`}</div>
+          <label class="setting"><span>輸入英文單字</span><input id="vocabAnswer" class="settings-input" autocomplete="off" autocapitalize="none" spellcheck="false"></label>
+          <button class="primary wide" id="checkVocab">檢查答案</button><div id="vocabFeedback"></div></section>`;
+        resetDialog();const input=document.querySelector("#vocabAnswer");let submitted=!!saved;
+        const feedback=result=>{
+          input.value=result.text;input.disabled=true;document.querySelector("#checkVocab").disabled=true;
+          document.querySelector("#vocabFeedback").innerHTML=`<div class="card ${result.ok?"study-correct":"study-wrong"}"><strong>${result.ok?"答對":"答案是 "+esc(row.word)}</strong><p>${esc(row.word)} · ${esc(row.meaning)}</p>
+            <p class="muted">${esc(row.collocation||"")}</p>${row.example?`<blockquote>${esc(row.example)}</blockquote>`:""}
+            <div class="actions"><button class="secondary" id="speakVocab">單字發音</button>${row.example?'<button class="secondary" id="speakVocabExample">例句發音</button>':""}<button class="primary" id="nextVocab">${i+1===set.length?"完成":"下一題"}</button></div></div>`;
+          document.querySelector("#speakVocab").onclick=()=>window.toeicToggleSpeech?.(row.word,`vocab:${row.id}`,document.querySelector("#speakVocab"));
+          document.querySelector("#speakVocabExample")?.addEventListener("click",()=>window.toeicToggleSpeech?.(row.example,`example:${row.id}`,document.querySelector("#speakVocabExample")));
+          document.querySelector("#nextVocab").onclick=()=>{try{lease.assert();quiz.index=i+1;persist();i=quiz.index;show()}catch(e){quiz.index=i;handleError(e)}};
+        };
+        const check=()=>{
+          if(submitted)return;const text=input.value.trim();if(!text)return;
+          const result={text,ok:norm(text)===norm(row.word),at:now(),date:sync.dateKey(Date.now())};
+          try{lease.assert();clock?.tick(true);advance(VOCAB_KEY,row.id,result.ok,false,`${quiz.id}:${i}`);quiz.answers[i]=result;persist();submitted=true;feedback(result)}catch(e){handleError(e)}
+        };
+        document.querySelector("#checkVocab").onclick=check;input.addEventListener("keydown",e=>{if(e.key==="Enter"){e.preventDefault();check()}});
+        if(saved)feedback(saved);else input.focus();
+      };
+      show();
+    }catch(e){cleanup();handleError(e)}
   }
 
   function resetDialog(){

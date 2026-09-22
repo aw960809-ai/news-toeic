@@ -8,7 +8,7 @@ def must(test,msg):
 h=(R/'index.html').read_text()
 refs=re.findall(r'<script[^>]+src=[\"\']\./([^\"\']+)',h)
 must(len(refs)==len(set(refs)), 'no duplicate script loads')
-expected=['app.js','toeic-random-engine.js','voice-image-upgrade.js','analysis-appdeploy-parity.js','appdeploy-parity-runtime.js','headline-lesson-generator.js','lesson-flow-parity.js','study-workbench.js','ui-feedback.js','pwa-runtime.js']
+expected=['app.js','toeic-random-engine.js','voice-image-upgrade.js','analysis-appdeploy-parity.js','appdeploy-parity-runtime.js','headline-lesson-generator.js','lesson-flow-parity.js','vocab-goal-sync.js','study-workbench.js','ui-feedback.js','pwa-runtime.js']
 must(refs==expected,'verified module load order')
 for f in refs+['sw.js']:
  must((R/f).exists(),f+' exists');subprocess.run(['node','--check',str(R/f)],check=True,stdout=subprocess.DEVNULL)
@@ -16,7 +16,7 @@ for f in ['manifest-original.webmanifest','data/part1-bank.json','audio/manifest
  json.loads((R/f).read_text());print('PASS JSON',f)
 for f in (R/'tools').glob('*.py'):compile(f.read_text(),str(f),'exec')
 versions=[re.search(r"const VERSION='([^']+)'",(R/f).read_text()).group(1).replace('-github','') for f in ['app.js','sw.js']]
-must(versions[0]==versions[1]=='2.6.1','application/service-worker version match')
+must(versions[0]==versions[1]=='2.6.2','application/service-worker version match')
 shell=json.loads(re.search(r'const SHELL=(\[.*?\]);',(R/'sw.js').read_text()).group(1))
 for f in shell:
  if f=='./':continue

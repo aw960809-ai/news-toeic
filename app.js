@@ -1,6 +1,6 @@
 'use strict';
 
-const VERSION='2.6.1-github';
+const VERSION='2.6.2-github';
 const KEYS={
  generated:'generated',sessions:'sessions',mistakes:'mistakes',settings:'settings',
  daily:'dailyMainAssignment',dailyHistory:'dailyMainHistory',dailyPool:'dailyMainCandidatePool',
@@ -781,7 +781,7 @@ function settingsPage(){
     <div class="section-head"><h3>目標系統連動</h3><span class="badge">Goal Sync</span></div>
     <div class="card goal-sync-card">
       <div class="article-meta"><span class="badge">已啟用</span><span class="badge">GitHub 直連</span></div>
-      <p class="muted">完成教材、Part 練習或模考後，學習分鐘、正確率與 Part 表現寫入同一 GitHub 網域同步中心。</p>
+      <p class="muted">完成教材、Part 練習、模考或整輪單字訓練後，寫入同一 GitHub 網域同步中心。單字以有效練習秒數換算分鐘，正確率另存。</p>
       <div class="sync-state">狀態：${esc(load(KEYS.goalStatus,'GitHub 直連已啟用'))}</div>
       <div class="actions"><button class="primary" id="flushQueue">搬移舊待傳紀錄</button></div>
     </div>
