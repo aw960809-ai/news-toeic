@@ -240,53 +240,52 @@
       const b=P5_BANK[(index+seed)%P5_BANK.length];
       return rotateOptions({id:`p5-${seed}-${index}`,part:5,skill:'Grammar/Vocabulary',q:b[0],options:[...b[1]],answer:b[2],explain:b[3]},(index+seed)%4);
     }
-    if(part===6){
-      const subjects=['inventory','training schedule','reservation process','delivery procedure','expense policy','customer survey'];
-      const x=subjects[seed%subjects.length];
-      const stimulus=`To: All Staff\nSubject: ${x} update\n\nPlease review the updated ${x} information before tomorrow’s meeting. The document was revised this morning, so everyone should use the newest version. If you have questions, contact the operations team before 4 p.m.`;
-      const qs=[
-        ['Why should employees use the newest version?',['The document was revised','The meeting was cancelled','The office moved','The team is on vacation'],0,'The message says the document was revised this morning.','Detail'],
-        ['When should employees contact the operations team?',['Before 4 p.m.','After midnight','Next month','During lunch only'],0,'Questions should be sent before 4 p.m.','Detail'],
-        ['What is the main purpose of the message?',['To explain updated information','To advertise a hotel','To cancel a shipment','To announce a new director'],0,'The message asks staff to review updated information.','Main idea'],
-        ['Who should review the updated information?',['All staff','Only customers','Hotel guests','Delivery drivers only'],0,'The message is addressed to all staff.','Audience']
-      ];
-      const q=qs[index%qs.length];
-      return rotateOptions({id:`p6-${seed}-${index}`,part:6,skill:q[4],stimulus,q:q[0],options:q[1],answer:q[2],explain:q[3]},(index+seed)%4);
+    if(part===6||part===7){
+      if(!window.ToeicReadingBank)throw new Error('閱讀題庫未載入，請完成更新。');
+      return window.ToeicReadingBank.previewQuestion(part,index,seed);
     }
-    const topics=['delivery service','training program','reservation system','customer survey','mobile ordering','hotel check-in','rail schedule','payment system','support center','inventory process','airport shuttle','software rollout'];
-    const t=topics[seed%topics.length];
-    const stimulus=`NOTICE\n\nThe company will test a new ${t} next month. Employees at two locations will participate first. Managers will collect feedback for four weeks before deciding whether to expand the program. Training materials will be sent to participating employees before the trial begins.`;
-    const qs=[
-      ['What will managers do before expanding the program?',['Collect feedback','Close both locations','Cancel the test','Hire a new director'],0,'Managers will collect feedback for four weeks.','Detail'],
-      ['How long will managers collect feedback?',['Four weeks','Two days','Six months','One year'],0,'The notice specifies four weeks.','Detail'],
-      ['Who will participate first?',['Employees at two locations','All customers','Only suppliers','Hotel guests'],0,'Employees at two locations will participate first.','Detail'],
-      ['What will employees receive before the trial?',['Training materials','Refund checks','Hotel keys','Shipping labels'],0,'Training materials will be sent before the trial.','Detail'],
-      ['What is suggested about future expansion?',['It depends on the trial results','It has already been cancelled','It will happen tomorrow','It is limited to customers'],0,'Managers will decide after collecting feedback.','Inference']
-    ];
-    const q=qs[index%qs.length];
-    return rotateOptions({id:`p7-${seed}-${index}`,part:7,skill:q[4],stimulus,q:q[0],options:q[1],answer:q[2],explain:q[3]},(index+seed)%4);
+    throw new Error('Unsupported Part');
   }
 
-  function makeValidatedBlock(part,count,seed,mode,blockNumber=0,answerTargets=null){
+  function passageHtml(q){
+    const escaped=esc(q.stimulus||'');
+    if(q.part!==6||!q.contentVersion)return escaped;
+    return escaped.replace(/\[([1-4])\] _____/g,(_,n)=>`<span class="reading-gap ${Number(n)===q.gapNumber?'current-gap':''}" ${Number(n)===q.gapNumber?'aria-current="step"':''}>[${n}] _____</span>`);
+  }
+  function qualityNote(set,mock=false){
+    if(!set.contentVersion)return `<p class="quality-note">✓ 題數與選項格式檢查通過 · ${mock?'模考作答中不顯示正解與解析':'未做 AI 語意驗題'} · 非 ETS 官方題</p>`;
+    return `<p class="quality-note">原創練習題 · 題型、選項及文本對應檢查通過；未經獨立命題審校。${mock?'模考作答中不顯示解析。':''}</p>`;
+  }
+  function readingNote(set){
+    if(!set.novelty)return '';
+    const n=set.novelty;
+    return `<div class="reading-bank-note" data-reading-bank="2.6.3"><strong>${esc(set.contextTitle)}</strong><span>Part ${set.part} 題庫 ${n.total} 組 · 本裝置已抽 ${n.seen} 組</span><span>${n.repeat?'已開始輪替先前抽過的題組；本次練習內仍不重複文章。':'本裝置尚未抽過的題組。'}${set.part===6?'同一題組四題共用一篇文章，依序完成 [1]–[4]。':'同題組共用文章，題目各自對應不同內容。'}</span></div>`;
+  }
+  function makeValidatedBlock(part,count,seed,mode,blockNumber=0,answerTargets=null,excludedContexts=[]){
     const E=window.ToeicRandomEngine,questions=[],key=`${part}|${mode}|${seed}|${blockNumber}`;
     const select=(size,n,kind)=>E.drawPool(`part:${part}:${kind}`,size,n);
-    // Sample complete contexts, not disconnected questions from different recordings.
-    if(part===3||part===4){
+    let reading=null;
+    if(part===6||part===7){
+      if(!window.ToeicReadingBank)throw new Error('閱讀題庫未載入；未使用舊重複模板替代。');
+      reading=window.ToeicReadingBank.draw(part,count,`${mode}|${seed}`,blockNumber,excludedContexts);
+      questions.push(...reading.questions);
+    }else if(part===3||part===4){
       const scenario=select(10,1,'scenarios')[0];
       for(const j of E.sampleIndices(4,count,key))questions.push(parityQuestion(part,j*10,scenario));
-    }else if(part===6||part===7){
-      const context=select(part===6?6:12,1,'passages')[0];
-      for(const j of E.sampleIndices(part===6?4:5,count,key))questions.push(parityQuestion(part,j,context));
     }else{
       const size=part===2?P2_BANK.length:part===5?P5_BANK.length:window.ToeicAssets?.scenes?.length||4;
       for(const j of select(size,count,'items'))questions.push(parityQuestion(part,j,0));
     }
     const balanced=E.balanceAnswers(questions,key,answerTargets);
     const validation=localValidation(part,balanced);
+    if(reading){
+      const issues=window.ToeicReadingBank.validate(part,balanced);
+      if(issues.length)throw new Error(issues.join('；'));
+      validation.typeChecked=true;validation.semanticReview='not-independently-reviewed';
+    }
     if(validation.score<QUALITY_THRESHOLD)throw new Error(`Local structure check ${validation.score}/100`);
     const first=balanced[0]||{};
-    const set={id:`set-${E.hashSeed(key+'|'+balanced.map(q=>q.id).join('|'))}`,part,mode,title:`Part ${part} · ${PART_NAMES[part]}`,skill:first.skill||'TOEIC-style',instructions:part<=4?'請先聆聽，再依題目作答。':'閱讀內容後選出最佳答案。',displayText:part>=5?(first.stimulus||''):'',audioText:part<=4?(first.stimulus||first.q||''):'',imageData:part===1?first.image:'',imageMimeType:'',validation,questions:balanced};
-    return set;
+    return {id:`set-${E.hashSeed(key+'|'+balanced.map(q=>q.id).join('|'))}`,part,mode,title:`Part ${part} · ${PART_NAMES[part]}`,skill:first.skill||'TOEIC-style',instructions:part<=4?'請先聆聽，再依題目作答。':part===6?'依序選出填入 [1]–[4] 的字詞或句子。':'閱讀內容後選出最佳答案。',displayText:part>=5?(first.stimulus||''):'',audioText:part<=4?(first.stimulus||first.q||''):'',imageData:part===1?first.image:'',imageMimeType:'',validation,questions:balanced,...(reading?{contextTitle:reading.title,contentVersion:window.ToeicReadingBank.VERSION,novelty:reading.novelty}:{})};
   }
   window.ToeicPracticeBlocks={makeValidatedBlock,counts:FULL_COUNTS};
 
@@ -329,14 +328,14 @@
       if(remaining<=0)return finish();
       const n=Math.min(BLOCK_SIZE[part],remaining);
       try{
-        state.set=makeValidatedBlock(part,n,state.seed,mode,state.block++,state.answerPlan.slice(state.answers.length,state.answers.length+n));
+        state.set=makeValidatedBlock(part,n,state.seed,mode,state.block++,state.answerPlan.slice(state.answers.length,state.answers.length+n),state.answers.map(x=>x.item?.contextFingerprint).filter(Boolean));
         state.index=0;state.plays=0;state.accents=[];state.voiceResults=[];state.scores.push(state.set.validation.score);
         show();
       }catch(e){
         console.error(e);
-        body.innerHTML=`<section class="lesson-step"><p class="eyebrow">GENERATION FAILED</p><h3>題型練習未通過生成／驗題</h3><div class="card"><p class="muted">已完成的 ${state.answers.length} 題會保留，可重新產生下一題組。</p></div><div class="actions"><button class="primary" id="practiceRetryBlock">重新產生</button><button class="secondary" id="practiceCloseError">結束本次</button></div></section>`;
+        body.innerHTML=`<section class="lesson-step"><p class="eyebrow">GENERATION FAILED</p><h3>題型練習未通過生成／驗題</h3><div class="card"><p class="muted">${esc(e.message||'題組建立失敗')} 已作答 ${state.answers.length} 題，可按「結束本次」儲存目前結果。</p></div><div class="actions"><button class="primary" id="practiceRetryBlock">重新產生</button><button class="secondary" id="practiceCloseError">結束本次</button></div></section>`;
         document.querySelector('#practiceRetryBlock').onclick=()=>{state.block=Math.max(0,state.block-1);loadBlock()};
-        document.querySelector('#practiceCloseError').onclick=()=>dialog.close();
+        document.querySelector('#practiceCloseError').onclick=()=>{if(state.answers.length)finish();else dialog.close()};
       }
     };
 
@@ -356,9 +355,9 @@
       const set=state.set,q=set.questions[state.index],listening=part<=4,lettersOnly=part<=2;
       const global=state.answers.length+1;
       const visual=part===1&&q.image?`<img class="practice-photo" src="${q.image}" alt="已驗證的 Part 1 題庫圖片">`:'';
-      const passage=part>=5&&q.stimulus?`<div class="practice-passage">${esc(q.stimulus)}</div>`:'';
-      body.innerHTML=`<section class="lesson-step practice-session"><div class="practice-session-head"><div><p class="eyebrow">PART ${part} · ${appdeployModeInfo(mode).label}</p><h3>${esc(set.title)}</h3></div><div class="practice-head-badges"><span class="badge quality-badge">結構檢查 ${set.validation.score}</span>${part===1?`<span class="badge">預建插圖 · 未獨立驗圖</span>`:''}<span class="badge">${global} / ${state.target}</span></div></div>
-      <p class="quality-note">✓ 題數與選項格式檢查通過；未做 AI 語意驗題 · 非 ETS 官方題</p>${visual}
+      const passage=part>=5&&q.stimulus?`<div class="practice-passage">${passageHtml(q)}</div>`:'';
+      body.innerHTML=`<section class="lesson-step practice-session"><div class="practice-session-head"><div><p class="eyebrow">PART ${part} · ${appdeployModeInfo(mode).label}</p><h3>${esc(set.title)}</h3></div><div class="practice-head-badges"><span class="badge quality-badge">${set.contentVersion?'題型結構通過':`結構檢查 ${set.validation.score}`}</span>${part===1?`<span class="badge">預建插圖 · 未獨立驗圖</span>`:''}<span class="badge">${global} / ${state.target}</span></div></div>
+      ${qualityNote(set)}${readingNote(set)}${visual}
       ${listening?`<div class="listen-controls"><button class="secondary" id="playPracticeAudio">播放音檔（${state.plays}/2）</button><small>${part<=2?'每題':'每題組'}最多播放 2 次 · 四區口音平衡</small></div>`:''}
       ${passage}<h3>${lettersOnly?'請先聆聽題目，再選擇答案。':esc(q.q)}</h3>
       <div class="practice-options ${lettersOnly?'letter-grid':''}">${q.options.map((o,i)=>`<button class="option practice-answer ${lettersOnly?'letter-only':''}" data-i="${i}">${lettersOnly?String.fromCharCode(65+i):`${String.fromCharCode(65+i)}. ${esc(o)}`}</button>`).join('')}</div><div id="practiceFeedback"></div></section>`;
@@ -434,10 +433,10 @@
     window.toeicStopAudio?.();mockPendingChoice=null;mockVoiceResults=[];
     const listening=set.part<=4,lettersOnly=set.part<=2,maxPlays=a.mode==='strict'?1:2,audioRequired=listening&&!a.audioComplete;
     const rem=remainingReading(a),timer=set.part>=5&&a.mode==='strict'?`<span class="badge mock-timer">Reading <strong id="fullMockTimer">${fmt(rem||0)}</strong></span>`:`<span class="badge">${set.part<=4?'Listening':'Reading'}</span>`;
-    body.innerHTML=`<section class="lesson-step practice-session full-mock-session"><div class="practice-session-head"><div><p class="eyebrow">FULL MOCK · PART ${set.part}</p><h3>${esc(PART_NAMES[set.part])}</h3></div><div class="practice-head-badges">${timer}<span class="badge">${a.answers.length+1} / 200</span></div></div><div class="full-mock-section-progress"><span>Part ${set.part}: ${partAnswered(a,set.part)+1} / ${FULL_COUNTS[set.part]}</span><span>結構檢查 ${set.validation.score}</span></div><p class="quality-note">✓ 題數與選項格式檢查通過 · 模考作答中不顯示正解與解析 · 非 ETS 官方題</p>
+    body.innerHTML=`<section class="lesson-step practice-session full-mock-session"><div class="practice-session-head"><div><p class="eyebrow">FULL MOCK · PART ${set.part}</p><h3>${esc(PART_NAMES[set.part])}</h3></div><div class="practice-head-badges">${timer}<span class="badge">${a.answers.length+1} / 200</span></div></div><div class="full-mock-section-progress"><span>Part ${set.part}: ${partAnswered(a,set.part)+1} / ${FULL_COUNTS[set.part]}</span><span>結構檢查 ${set.validation.score}</span></div>${qualityNote(set,true)}${readingNote(set)}
     ${set.part===1&&q.image?`<img class="practice-photo" src="${q.image}" alt="Part 1 情境圖片">`:''}
     ${listening?`<div class="listen-controls"><button class="secondary" id="playFullMockAudio" ${a.plays>=maxPlays&&a.audioComplete?'disabled':''}>${a.audioComplete?'音檔已播放':'播放正式音檔'}（${a.plays}/${maxPlays}）</button><small>${a.mode==='strict'?'全真模式：每題／題組 1 次':'訓練模考：最多 2 次'}${audioRequired?' · 播放完畢後才能作答':''}</small></div>`:''}
-    ${set.part>=5&&q.stimulus?`<div class="practice-passage">${esc(q.stimulus)}</div>`:''}<h3>${lettersOnly?'請依音檔內容選擇答案。':esc(q.q)}</h3>
+    ${set.part>=5&&q.stimulus?`<div class="practice-passage">${passageHtml(q)}</div>`:''}<h3>${lettersOnly?'請依音檔內容選擇答案。':esc(q.q)}</h3>
     <div class="practice-options ${lettersOnly?'letter-grid':''}">${q.options.map((o,i)=>`<button class="option full-mock-answer ${lettersOnly?'letter-only':''}" data-i="${i}" ${audioRequired?'disabled':''}>${lettersOnly?String.fromCharCode(65+i):`${String.fromCharCode(65+i)}. ${esc(o)}`}</button>`).join('')}</div>
     <div class="full-mock-confirm"><span class="muted">選擇後仍可更改，按確認才送出本題。</span><button class="primary" id="confirmFullMockAnswer" disabled>確認答案 →</button></div></section>`;
     document.querySelector('#playFullMockAudio')?.addEventListener('click',()=>playMockAudio());
@@ -492,10 +491,10 @@
     }
     const blockNumber=(a.blockNumbers?.[String(part)]||0)+1,count=Math.min(BLOCK_SIZE[part],FULL_COUNTS[part]-answered);
     try{
-      const set=makeValidatedBlock(part,count,a.seed||a.id,'mock',blockNumber,mockAnswerTargets(a,part,count));
+      const set=makeValidatedBlock(part,count,a.id||a.seed,'mock',blockNumber,mockAnswerTargets(a,part,count),a.answers.map(x=>(x.q||x.question)?.contextFingerprint).filter(Boolean));
       a.currentSet=set;a.currentIndex=0;a.blockNumbers[String(part)]=blockNumber;a.validationScores[String(part)]=[...(a.validationScores[String(part)]||[]),set.validation.score];a.plays=0;a.audioComplete=part>4;persistMock(a);renderMockQuestion(a);
     }catch(e){
-      console.error(e);body.innerHTML=`<section class="lesson-step"><p class="eyebrow">FULL MOCK · GENERATION FAILED</p><h3>Part ${part} 第 ${blockNumber} 題組未通過驗題</h3><div class="card"><p class="muted">已完成的 ${a.answers.length}/200 題仍保留。</p></div><div class="actions"><button class="primary" id="fullMockRetry">重新產生題組</button><button class="secondary" id="fullMockExit">先退出，保留進度</button></div></section>`;document.querySelector('#fullMockRetry').onclick=loadMockBlock;document.querySelector('#fullMockExit').onclick=()=>dialog.close();
+      console.error(e);body.innerHTML=`<section class="lesson-step"><p class="eyebrow">FULL MOCK · GENERATION FAILED</p><h3>Part ${part} 第 ${blockNumber} 題組未通過驗題</h3><div class="card"><p class="muted">${esc(e.message||'題組建立失敗')} 已完成的 ${a.answers.length}/200 題仍保留。</p></div><div class="actions"><button class="primary" id="fullMockRetry">重新產生題組</button><button class="secondary" id="fullMockExit">先退出，保留進度</button></div></section>`;document.querySelector('#fullMockRetry').onclick=loadMockBlock;document.querySelector('#fullMockExit').onclick=()=>dialog.close();
     }
   }
 

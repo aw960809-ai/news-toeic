@@ -1,6 +1,6 @@
 {
-  "version": "2.6.2",
-  "bundleId": "toeic-vocab-goal-sync-20260922-r1",
+  "version": "2.6.3",
+  "bundleId": "toeic-reading-content-20260922-r1",
   "sourceBaseline": "2e4572d564ba043764e5b731a9f1ed5d7368cd36",
   "scope": "News × TOEIC standalone",
   "modules": [
@@ -16,24 +16,40 @@
     "news",
     "PWA",
     "Goal-Sync",
-    "vocabulary-goal-sync"
+    "vocabulary-goal-sync",
+    "reading-content-bank",
+    "part6-text-completion",
+    "reading-context-deduplication"
   ],
   "sourceDataPolicy": "Existing articles, review history, writing, goals and periods remain unchanged. New measured vocabulary rounds are saved in a separate same-origin journal and imported once per practice date.",
   "runtimeSha256": {
-    "app.js": "7c53ef7b92275169e78fc675e1f8e0f833485e337c25fcbf7956110ee34e5b9f",
+    "app.js": "65f6607b30e5242ad4d4d2f54381bdbd6b2d724ebb195412a0a017b1bf08dcfb",
     "toeic-random-engine.js": "ec59a0595b97275d783094c9cc085102a9d3f3377b73548dff4ea9f25298f820",
     "voice-image-upgrade.js": "d2f87d6be42ecd715430adab3e1adc6260d0c4fa5eed0cbbd9163aedf27916fe",
     "analysis-appdeploy-parity.js": "363dc25d5753e9f024dd35cf004b031818d42d53ab3e925dfcf5b7a16c41b4d6",
-    "appdeploy-parity-runtime.js": "5cf46a0945d1a91e8d261070fada189db449a409db9910100c8b99921afc7eac",
+    "appdeploy-parity-runtime.js": "44c1be4769746cf34e8041e37b31c4280001ea6ecbccb25aaf2dccd5b7f9f442",
     "headline-lesson-generator.js": "6862c5463c1163e76f5e11ac1a5c7ca1046819fc5bb9134273dcb615749f5790",
     "lesson-flow-parity.js": "1eaf0dc493f8376da9a2d6350850bc8e6326ade478af63c5963c47f2a3b9f47d",
     "study-workbench.js": "c033a642342f0eb773c569f55cc37a1beb02b23954cf413d1b65c14d30279c2d",
     "ui-feedback.js": "c99bc70a3e329c3e48a7b8cef0d00a10850f4a51fe4ea29a8af50b7714993968",
     "pwa-runtime.js": "eff6f9372f077d015aa11e16f8a8f79c52c2236f9f68b29a918de7abf777715f",
-    "index.html": "2eff9e6a8a7cd4a1ca82b140583a718948caf6a4d9031aec7febdf89fd4dddb1",
-    "styles.css": "3805d5cc0cfb31df72f7d8b238572853a742e30a806779a04ebe2e6fa74d0450",
-    "sw.js": "ce9c1de5a72116405c7f58fd698ee7dde35030bb5df7c0b7d8c4587437b96b17",
+    "index.html": "99b4942850d6742a77280cd468c874d5c4ace401c22203c43bee85c876fa0627",
+    "styles.css": "5b0b61ab706c1c489a2ef180dc2b1b20a6ff04e6f385133f2e094ba36acb1ad0",
+    "sw.js": "eac088ff2601af0ec73243111c35486f44de125f60060940609d4e83a0f34ca3",
     "manifest-original.webmanifest": "432a293b504b78a70f36ae095d4cdd9a9b87ce21cfb7b7386ddd15307247cf09",
-    "vocab-goal-sync.js": "2b3d01e41e14a73813e7324ee84eb8d656370fd0916c1ec358ee2bc45f973518"
+    "vocab-goal-sync.js": "2b3d01e41e14a73813e7324ee84eb8d656370fd0916c1ec358ee2bc45f973518",
+    "reading-question-bank.js": "dd59c7e3af1b6bd1010114272012819898b6ebac41f4c5ad36324599baa44e1d"
+  },
+  "readingQuestionBank": {
+    "part6": {
+      "contexts": 20,
+      "questions": 80
+    },
+    "part7": {
+      "contexts": 20,
+      "questions": 100
+    },
+    "originalPracticeNotOfficial": true,
+    "independentSemanticReview": false
   }
 }

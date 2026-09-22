@@ -33,6 +33,7 @@ jobs:
         run: |
           python tools/unified_check.py
           node qa/unified_tests.cjs
+          node qa/reading_bank_tests.cjs
           node qa/vocab_sync_tests.cjs
       - name: Assemble standalone site
         run: python tools/assemble_site.py

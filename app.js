@@ -1,6 +1,6 @@
 'use strict';
 
-const VERSION='2.6.2-github';
+const VERSION='2.6.3-github';
 const KEYS={
  generated:'generated',sessions:'sessions',mistakes:'mistakes',settings:'settings',
  daily:'dailyMainAssignment',dailyHistory:'dailyMainHistory',dailyPool:'dailyMainCandidatePool',
@@ -452,8 +452,8 @@ function makeQuestion(part,i,seed=0){
   ['The new software is easy to use and highly _____.',['rely','reliable','reliably','reliance'],1,'An adjective is needed after highly.'],
   ['Employees are asked _____ their badges at all times.',['wear','to wear','wore','wearing'],1,'ask + object + to-infinitive.']
  ];const b=bank[(i+seed)%bank.length];return{id:tag,part:5,skill:'Grammar/Vocabulary',q:b[0],options:b[1],answer:b[2],explain:b[3]}}
- if(part===6){const names=['inventory','training','schedule','reservation'];const x=names[(i+seed)%names.length];return{id:tag,part:6,skill:'Text completion',stimulus:`To: All Staff\nSubject: ${x} update\n\nPlease review the updated ${x} information before tomorrow’s meeting. The document was revised this morning, so everyone should use the newest version. If you have questions, contact the operations team before 4 p.m.`,q:'Why should employees use the newest version?',options:['The document was revised','The meeting was cancelled','The office moved','The team is on vacation'],answer:0,explain:'The message says the document was revised this morning.'}}
- const topics=['delivery service','training program','reservation system','customer survey'];const t=topics[(i+seed)%topics.length];return{id:tag,part:7,skill:'Reading detail',stimulus:`NOTICE\n\nThe company will test a new ${t} next month. Employees at two locations will participate first. Managers will collect feedback for four weeks before deciding whether to expand the program.`,q:'What will managers do before expanding the program?',options:['Collect feedback','Close both locations','Cancel the test','Hire a new director'],answer:0,explain:'Managers will collect feedback for four weeks.'}
+ if(part===6||part===7){if(!window.ToeicReadingBank)throw new Error('閱讀題庫未載入，請完成更新。');return window.ToeicReadingBank.previewQuestion(part,i,seed)}
+ throw new Error('Unsupported Part');
 }
 function makeSet(part,count,seed=Date.now()%1000){return Array.from({length:count},(_,i)=>makeQuestion(part,i,seed))}
 function listeningTranscriptHtml(item){

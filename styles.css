@@ -256,3 +256,10 @@ button:disabled{opacity:.45;cursor:default;transform:none!important;filter:none!
 .study-tabs{position:relative}.study-list-row{overflow-wrap:anywhere}.study-kpis small{color:var(--muted)}
 button{touch-action:manipulation}button:disabled{cursor:not-allowed}button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px solid #77b8ad;outline-offset:2px}
 @media (max-width:520px){.lesson-dialog{width:calc(100% - 8px);border-radius:18px 18px 0 0}.lesson-dialog[open]{margin:auto 4px 0;max-height:94dvh}.word{display:grid}.word .badge{max-width:100%}.analysis-detail{max-height:64dvh}}
+
+/* Reading bank: preserve passage layout and highlight only the current gap. */
+.reading-gap{white-space:nowrap;font-weight:650;border-bottom:1px solid currentColor;padding:0 .15em}
+.reading-gap.current-gap{outline:2px solid currentColor;outline-offset:3px;border-radius:3px}
+.reading-bank-note{display:grid;gap:.4rem;padding:.85rem 1rem;margin:0 0 1rem;border:1px solid currentColor;border-radius:12px;font-size:.85rem;line-height:1.5;overflow-wrap:anywhere}
+.reading-bank-note span{display:block;opacity:.85}
+.practice-passage{overflow-wrap:anywhere}
