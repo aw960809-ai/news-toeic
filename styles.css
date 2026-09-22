@@ -215,3 +215,44 @@ button:disabled{opacity:.45;cursor:default;transform:none!important;filter:none!
 .practice-transcript{margin-top:10px;padding:12px;border:1px solid var(--line);border-radius:12px;background:#f7faf8}
 .practice-transcript strong{display:block;margin-bottom:6px;color:#315c53}
 .practice-transcript p{margin:0!important;color:#53655f!important;line-height:1.65!important}
+
+
+/* v2.4.0 vocabulary + sentence/writing workbench */
+.study-tabs{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin:4px 0 18px}
+.study-tab{min-height:42px;border:1px solid var(--line);border-radius:12px;color:#5f716b;background:#fff;font-weight:700}
+.study-tab.active{color:#24564b;border-color:#9bcfc1;background:#e6f4ef}
+.study-kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:12px}
+.study-kpis .card{display:grid;gap:5px;min-height:88px}.study-kpis strong{font-size:1.3rem;color:#28564b}
+.study-list-row{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.writing-mode-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:12px}
+.vocab-prompt h3{margin:5px 0 9px;font-size:1.3rem}
+.vocab-quiz blockquote{margin:9px 0;padding:9px 11px;border-left:3px solid #9ecdc0;background:#f5faf7;color:#496158}
+.study-correct{border-color:#9bcdb8;background:#f0f8f4}.study-wrong{border-color:#dec1ad;background:#fff8f2}
+.writing-session{display:grid;gap:12px}.target-chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:9px}
+.writing-textarea{width:100%;min-height:130px;padding:12px;border:1px solid var(--line);border-radius:13px;color:var(--text);background:#fff;resize:vertical;font:inherit;line-height:1.65}
+.writing-counter{display:flex;justify-content:flex-end;color:var(--muted);font-size:.75rem}
+.writing-checks{margin:8px 0;padding-left:20px;color:#40564f;line-height:1.7}
+@media(max-width:520px){
+ .study-kpis{grid-template-columns:1fr 1fr}.study-kpis .card:last-child{grid-column:1/-1}
+ .writing-mode-grid{grid-template-columns:1fr}
+}
+
+/* Unified 2.6.0 layout fixes. */
+.lesson-dialog[open]{display:flex;flex-direction:column;max-height:94dvh;margin:auto;overflow:hidden}
+.lesson-dialog .dialog-head{position:relative;flex:0 0 auto;padding:12px;align-items:flex-start}
+.lesson-dialog .dialog-head>div{min-width:0}.lesson-dialog .dialog-head h2{font-size:1rem;line-height:1.4;overflow-wrap:anywhere}
+.lesson-dialog .lesson-body{flex:1 1 auto;min-height:0;overflow-y:auto;overscroll-behavior:contain;padding:16px 14px 28px}
+.lesson-step{display:grid;gap:12px}.lesson-step h3{margin:4px 0;font-size:1.05rem;line-height:1.5}
+.quote,.practice-passage{white-space:pre-line;padding:15px;border:1px solid var(--line);border-radius:14px;background:#fff;line-height:1.8;overflow-wrap:anywhere}
+.word{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid var(--line)}.word:last-child{border:0}.word .badge{max-width:55%;white-space:normal}
+.practice-head-badges,.practice-session-head{display:flex;align-items:center;justify-content:space-between;gap:7px;flex-wrap:wrap}
+.practice-options{display:grid;gap:8px}.letter-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.letter-only{min-height:52px;text-align:center}
+.listen-controls{display:grid;gap:6px;margin:10px 0}.listen-controls small,.quality-note{font-size:.75rem;color:var(--muted)}
+.full-mock-confirm{display:grid;gap:8px}.full-mock-answer.selected{border-color:#328c79;background:#e4f4ee;box-shadow:inset 0 0 0 1px #328c79}
+.audio-playing{border-color:#388e7b!important;background:#e4f4ee!important}.audio-paused{border-color:#c6a654!important;background:#fcf5dc!important}
+.analysis-sentence-audio{min-width:32px!important;min-height:32px!important;max-width:32px!important;max-height:32px!important}
+.analysis-detail{z-index:20}.analysis-mark:focus-visible{outline:2px solid currentColor;outline-offset:2px}
+.analysis-detail-grid span{font-size:.64rem;font-weight:800;letter-spacing:.04em}.analysis-produce,.analysis-backup{margin-top:8px}
+.study-tabs{position:relative}.study-list-row{overflow-wrap:anywhere}.study-kpis small{color:var(--muted)}
+button{touch-action:manipulation}button:disabled{cursor:not-allowed}button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px solid #77b8ad;outline-offset:2px}
+@media (max-width:520px){.lesson-dialog{width:calc(100% - 8px);border-radius:18px 18px 0 0}.lesson-dialog[open]{margin:auto 4px 0;max-height:94dvh}.word{display:grid}.word .badge{max-width:100%}.analysis-detail{max-height:64dvh}}

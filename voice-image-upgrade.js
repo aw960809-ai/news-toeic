@@ -1,376 +1,113 @@
-(function(){
-  "use strict";
-
-  const PART1_BANK_URL = "./data/part1-bank.json";
-  const AUDIO_MANIFEST_URL = "./audio/manifest.json";
-  const VOICE_KEY = "toeicGithubVoiceSettingsV1";
-  const VOICE_RANDOM_MIGRATION_KEY = "toeicGithubVoiceRandomV1";
-  const ACCENTS = ["US","UK","CA","AU-NZ"];
-  const RANDOM_ACCENT = "RANDOM";
-  const randomAccentByQuestion = new Map();
-  let lastRandomAccent = "";
-
-  let part1Bank = [];
-  let audioManifest = { packs: { "US": {}, "UK": {}, "CA": {}, "AU-NZ": {} } };
-
-  function load(key, fallback){ try{ const x = JSON.parse(localStorage.getItem(key) || ""); return x ?? fallback; }catch(_){ return fallback; } }
-  function save(key, value){ try{ localStorage.setItem(key, JSON.stringify(value)); }catch(_){} }
-  function esc(v){ return String(v ?? "").replace(/[&<>"']/g, c => ({ "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;" }[c])); }
-  function voiceSettings(){ return { accent:RANDOM_ACCENT, rate:0.95, autoPlay:true, ...load(VOICE_KEY, {}) }; }
-  function persistVoiceSettings(next){ save(VOICE_KEY, { ...voiceSettings(), ...next }); }
-  function toast(msg){ try{
-    const host = document.getElementById("toastHost");
-    if(!host) return;
-    const e = document.createElement("div");
-    e.className = "toast";
-    e.textContent = msg;
-    host.appendChild(e);
-    setTimeout(()=>e.remove(),2200);
-  }catch(_){}
+(() => {
+  'use strict';
+  const KEY='toeicGithubVoiceSettingsV1',TAGS={US:['en-US'],UK:['en-GB'],CA:['en-CA'],'AU-NZ':['en-AU','en-NZ']};
+  const assignments=new Map();let previousAccent='';
+  const get=()=>{try{return {accent:'RANDOM',rate:.95,autoPlay:false,...JSON.parse(localStorage.getItem(KEY)||'{}')}}catch{return {accent:'RANDOM',rate:.95,autoPlay:false}}};
+  const normalize=a=>a==='AU_NZ'||a==='AU'||a==='NZ'?'AU-NZ':Object.hasOwn(TAGS,a)?a:'RANDOM';
+  function accents(key,count=1,mode=get().accent){
+    const fixed=normalize(mode);if(fixed!=='RANDOM')return Array(count).fill(fixed);
+    const mapKey=`${key}|${count}`;if(assignments.has(mapKey))return [...assignments.get(mapKey)];
+    const E=window.ToeicRandomEngine;let bag=E.shuffle(Object.keys(TAGS),E.rng(E.nonce()));
+    if(bag[0]===previousAccent)[bag[0],bag[1]]=[bag[1],bag[0]];
+    const result=Array.from({length:count},(_,i)=>bag[i%bag.length]);previousAccent=result[0];assignments.set(mapKey,result);
+    if(assignments.size>400)assignments.delete(assignments.keys().next().value);
+    return result;
   }
-
-  async function fetchJSON(url, fallback){
-    try{
-      const r = await fetch(url, { cache:"no-store" });
-      if(!r.ok) throw new Error(String(r.status));
-      return await r.json();
-    }catch(_){
-      return fallback;
-    }
+  function choose(accent,used){
+    const available=window.speechSynthesis?.getVoices()||[],english=available.filter(v=>/^en[-_]/i.test(v.lang));
+    const exact=english.filter(v=>TAGS[accent]?.some(t=>t.toLowerCase()===v.lang.toLowerCase()));
+    const voice=exact.find(v=>!used.has(v.voiceURI))||exact[0]||english.find(v=>!used.has(v.voiceURI))||english[0];
+    if(voice)used.add(voice.voiceURI);
+    return {voice,info:{target:accent,actualLang:voice?.lang||'device-default',actualName:voice?.name||'裝置預設',fallback:!voice||!exact.includes(voice)}};
   }
-
-  async function bootAssets(){
-    const [bank, manifest] = await Promise.all([
-      fetchJSON(PART1_BANK_URL, { scenes: [] }),
-      fetchJSON(AUDIO_MANIFEST_URL, { packs: { "US": {}, "UK": {}, "CA": {}, "AU-NZ": {} } })
-    ]);
-    part1Bank = Array.isArray(bank.scenes) ? bank.scenes : [];
-    audioManifest = manifest && manifest.packs ? manifest : { packs: { "US": {}, "UK": {}, "CA": {}, "AU-NZ": {} } };
+  let current=null,generation=0;
+  function paint(s,phase){
+    if(!s?.button?.isConnected)return;const b=s.button;
+    if(!b.dataset.audioIdleLabel)b.dataset.audioIdleLabel=b.textContent;
+    b.classList.toggle('audio-playing',phase==='playing');b.classList.toggle('audio-paused',phase==='paused');
+    const compact=b.classList.contains('analysis-sentence-audio');
+    b.textContent=phase==='playing'?(compact?'⏸':'⏸ 暫停'):phase==='paused'?(compact?'▶':s.resumeFallback?'▶ 接續句子':'▶ 繼續'):b.dataset.audioIdleLabel;
+    b.setAttribute('aria-label',phase==='playing'?'暫停語音':phase==='paused'?'繼續語音':'播放語音');
   }
-
-  function normalizeAccent(accent){
-    const a = String(accent || RANDOM_ACCENT).toUpperCase();
-    if(a === "RANDOM" || a === "AUTO") return RANDOM_ACCENT;
-    if(a === "UK") return "UK";
-    if(a === "CA") return "CA";
-    if(a === "AU" || a === "AU-NZ" || a === "NZ") return "AU-NZ";
-    return "US";
+  function end(s,status,error){
+    if(current!==s)return;
+    generation++;current=null;clearTimeout(s.pauseTimer);clearTimeout(s.startTimer);paint(s,'idle');
+    s.resolve({status,error,results:s.results});
+    try{s.onEnd?.({status,error,results:s.results})}catch(e){console.warn(e)}
   }
-
-  function chooseRandomAccent(){
-    const pool = ACCENTS.filter(a => a !== lastRandomAccent);
-    const next = pool[Math.floor(Math.random() * pool.length)] || ACCENTS[0];
-    lastRandomAccent = next;
-    return next;
+  function stop(){
+    const old=current;generation++;
+    if(old){clearTimeout(old.pauseTimer);clearTimeout(old.startTimer);try{old.audio?.pause()}catch{}}
+    try{window.speechSynthesis?.cancel()}catch{}
+    if(old)end(old,'stopped');
   }
-
-  function resolveAccent(accent, key=""){
-    const normalized = normalizeAccent(accent);
-    if(normalized !== RANDOM_ACCENT) return normalized;
-    if(key && randomAccentByQuestion.has(key)) return randomAccentByQuestion.get(key);
-    const picked = chooseRandomAccent();
-    if(key) randomAccentByQuestion.set(key, picked);
-    return picked;
+  function speakCurrent(s){
+    if(current!==s)return;
+    if(s.index>=s.segments.length){end(s,'ended');return}
+    const segment=s.segments[s.index],selection=s.voices.get(segment.speaker);
+    const token=++generation,u=new SpeechSynthesisUtterance(segment.text.slice(s.offset||0));s.utterance=u;s.started=false;
+    if(selection?.voice)u.voice=selection.voice;u.lang=selection?.voice?.lang||TAGS[segment.accent]?.[0]||'en-US';u.rate=Math.max(.7,Math.min(1.1,Number(get().rate)||.95));
+    const live=()=>current===s&&token===generation;
+    const originalOffset=s.offset||0;
+    u.onstart=()=>{if(live()){s.started=true;clearTimeout(s.startTimer)}};
+    u.onboundary=e=>{if(live()&&Number.isInteger(e.charIndex))s.offset=originalOffset+e.charIndex};
+    u.onpause=()=>{if(live()){s.nativePaused=true;clearTimeout(s.pauseTimer)}};
+    u.onend=()=>{if(!live()||s.paused)return;s.index++;s.offset=0;speakCurrent(s)};
+    u.onerror=e=>{if(!live())return;end(s,'error',String(e.error||'speech error'))};
+    s.startTimer=setTimeout(()=>{if(live()&&!s.started&&!s.paused){try{speechSynthesis.cancel()}catch{}end(s,'error','語音未啟動，請確認裝置英文語音設定')}},8000);
+    speechSynthesis.speak(u);
   }
-
-  function voiceCandidates(accent){
-    accent = resolveAccent(accent);
-    const map = {
-      "US": ["en-US", "english (united states)", "samantha", "google us english"],
-      "UK": ["en-GB", "english (united kingdom)", "serena", "daniel", "google uk english"],
-      "CA": ["en-CA", "english (canada)"],
-      "AU-NZ": ["en-AU", "en-NZ", "english (australia)", "english (new zealand)", "karen", "google australian english"]
-    };
-    return map[normalizeAccent(accent)] || map.US;
-  }
-
-  function pickVoice(accent){
-    if(!("speechSynthesis" in window)) return null;
-    const voices = speechSynthesis.getVoices() || [];
-    const candidates = voiceCandidates(accent);
-    const lower = x => String(x || "").toLowerCase();
-    for(const c of candidates){
-      const found = voices.find(v => lower(v.lang) === lower(c) || lower(v.name).includes(lower(c)));
-      if(found) return found;
-    }
-    return voices.find(v => lower(v.lang).startsWith("en")) || null;
-  }
-
-  function questionText(item){
-    if(!item) return "";
-    if(item.part === 1) return (item.options || []).join(". ");
-    if(item.part === 2) return `${item.q}. ${(item.options || []).join(". ")}`;
-    if(item.stimulus) return item.stimulus;
-    return item.q || "";
-  }
-
-  function fileClipFor(item, resolvedAccent){
-    const accent = resolveAccent(resolvedAccent || voiceSettings().accent, String(item?.id || ""));
-    const pack = (audioManifest.packs && audioManifest.packs[accent]) || {};
-    return pack[String(item?.id || "")] || "";
-  }
-
-  const playback = {kind:"",key:"",audio:null,utterance:null,button:null,paused:false,resolve:null};
-
-  function rememberButton(button){
-    if(!(button instanceof HTMLButtonElement))return null;
-    if(!button.dataset.audioIdleLabel)button.dataset.audioIdleLabel=button.textContent||"🔊";
-    return button;
-  }
-
-  function setButtonState(button,state){
-    button=rememberButton(button);
-    if(!button)return;
-    button.classList.remove("audio-playing","audio-paused");
-    if(state==="playing"){
-      button.classList.add("audio-playing");
-      button.textContent=button.classList.contains("analysis-sentence-audio")?"⏸":"⏸ 暫停";
-    }else if(state==="paused"){
-      button.classList.add("audio-paused");
-      button.textContent=button.classList.contains("analysis-sentence-audio")?"▶":"▶ 繼續";
-    }else button.textContent=button.dataset.audioIdleLabel||"🔊";
-  }
-
-  function clearPlayback(value=true){
-    const old=playback.button,done=playback.resolve;
-    playback.kind="";playback.key="";playback.audio=null;playback.utterance=null;playback.button=null;playback.paused=false;playback.resolve=null;
-    setButtonState(old,"idle");
-    if(typeof done==="function"){try{done(value)}catch(_){}}
-  }
-
-  function stopPlayback(){
-    try{if(playback.audio){playback.audio.pause();playback.audio.currentTime=0}}catch(_){}
-    try{if("speechSynthesis" in window)speechSynthesis.cancel()}catch(_){}
-    clearPlayback(false);
-  }
-
-  function activeButton(button=null){
-    if(button instanceof HTMLButtonElement)return button;
-    return document.activeElement instanceof HTMLButtonElement?document.activeElement:null;
-  }
-
-  function playRecordedClip(src,key,button=null){
-    key=String(key||src||"recorded");button=activeButton(button);
-    if(playback.kind==="audio"&&playback.key===key&&playback.audio){
-      if(playback.audio.paused){
-        playback.audio.play().catch(()=>{});playback.paused=false;setButtonState(playback.button||button,"playing");return Promise.resolve("resumed");
+  function toggle(segments,key,button,opts={}){
+    if(current?.key===key){
+      const s=current;if(button)s.button=button;
+      if(!s.paused){
+        s.paused=true;s.nativePaused=false;paint(s,'paused');
+        if(s.audio){s.audio.pause();return {action:'paused',promise:s.promise,results:s.results}}
+        try{speechSynthesis.pause()}catch{}
+        s.pauseTimer=setTimeout(()=>{if(current!==s||!s.paused||s.nativePaused)return;generation++;s.resumeFallback=true;try{speechSynthesis.cancel()}catch{}paint(s,'paused')},220);
+        return {action:'paused',promise:s.promise,results:s.results};
       }
-      playback.audio.pause();playback.paused=true;setButtonState(playback.button||button,"paused");return Promise.resolve("paused");
+      s.paused=false;clearTimeout(s.pauseTimer);paint(s,'playing');
+      if(s.audio){s.audio.play().catch(e=>end(s,'error',e.message))}
+      else if(s.resumeFallback){speakCurrent(s)}else{try{speechSynthesis.resume()}catch(e){end(s,'error',e.message)}}
+      return {action:'resumed',promise:s.promise,results:s.results};
     }
-    stopPlayback();
-    return new Promise((resolve,reject)=>{
-      try{
-        const a=new Audio(src);a.preload="auto";
-        playback.kind="audio";playback.key=key;playback.audio=a;playback.button=rememberButton(button);playback.resolve=resolve;
-        setButtonState(playback.button,"playing");
-        a.onended=()=>clearPlayback(true);
-        a.onerror=()=>{const err=new Error("audio error");clearPlayback(false);reject(err)};
-        a.play().catch(err=>{clearPlayback(false);reject(err)});
-      }catch(err){clearPlayback(false);reject(err)}
-    });
+    if(!opts.src&&(!window.speechSynthesis||typeof SpeechSynthesisUtterance==='undefined'))return {action:'error',results:[],promise:Promise.resolve({status:'error',error:'裝置未提供語音'})};
+    const clean=segments.filter(x=>String(x.text||'').trim()).map(x=>({...x,text:String(x.text),speaker:x.speaker||'Narrator'}));
+    if(!clean.length&&!opts.src)return {action:'error',results:[],promise:Promise.resolve({status:'error',error:'沒有可播放文字'})};
+    stop();
+    const s={key,button,segments:clean,index:0,offset:0,paused:false,resumeFallback:false,voices:new Map(),results:[],onEnd:opts.onEnd};
+    const used=new Set();for(const x of clean)if(!s.voices.has(x.speaker))s.voices.set(x.speaker,choose(x.accent||'US',used));s.results=[...s.voices.values()].map(x=>x.info);
+    s.promise=new Promise(resolve=>s.resolve=resolve);current=s;paint(s,'playing');
+    if(opts.src){const audio=new Audio(opts.src);s.audio=audio;audio.onended=()=>end(s,'ended');audio.onerror=()=>end(s,'error','錄音讀取失敗');audio.play().catch(e=>end(s,'error',e.message))}else{speakCurrent(s)}
+    return {action:'started',promise:s.promise,results:s.results};
   }
-
-  function speakWithTTS(text,accent,key="",button=null){
-    text=String(text||"");key=String(key||`tts:${text}`);button=activeButton(button);accent=resolveAccent(accent,key);
-    if(!("speechSynthesis" in window))return Promise.reject(new Error("tts unavailable"));
-    if(playback.kind==="tts"&&playback.key===key){
-      try{
-        if(speechSynthesis.paused||playback.paused){
-          speechSynthesis.resume();playback.paused=false;setButtonState(playback.button||button,"playing");return Promise.resolve("resumed");
-        }
-        if(speechSynthesis.speaking){
-          speechSynthesis.pause();playback.paused=true;setButtonState(playback.button||button,"paused");return Promise.resolve("paused");
-        }
-      }catch(_){}
-    }
-    stopPlayback();
-    return new Promise((resolve,reject)=>{
-      try{
-        const u=new SpeechSynthesisUtterance(text),settings=voiceSettings();
-        u.lang="en-US";u.rate=Number(settings.rate)||0.95;
-        const voice=pickVoice(accent);if(voice){u.voice=voice;u.lang=voice.lang||u.lang}
-        playback.kind="tts";playback.key=key;playback.utterance=u;playback.button=rememberButton(button);playback.resolve=resolve;
-        setButtonState(playback.button,"playing");
-        u.onend=()=>clearPlayback(true);
-        u.onerror=err=>{clearPlayback(false);reject(err.error||err)};
-        speechSynthesis.speak(u);
-      }catch(err){clearPlayback(false);reject(err)}
-    });
+  function textSegments(text,accent){const E=typeof Intl.Segmenter==='function'?new Intl.Segmenter('en',{granularity:'sentence'}):null;return (E?[...E.segment(text)].map(x=>x.segment):[text]).map(t=>({text:t,accent,speaker:'Narrator'}))}
+  window.toeicAudio={toggle,stop,accents,getSettings:get,state:()=>current?{key:current.key,paused:current.paused}:null};
+  window.toeicStopAudio=stop;
+  window.toeicToggleSpeech=(text,key=`text:${text}`,button=null,accent='')=>{
+    const a=accents(key,1,accent||get().accent)[0];const r=toggle(textSegments(String(text||''),a),key,button);
+    r.promise.then(x=>{if(x.status==='error')toast(x.error||'無法播放語音')});return r.promise;
+  };
+  window.speech=(text,_lang,key,button)=>window.toeicToggleSpeech(text,key||`text:${text}`,button||document.activeElement);
+  window.ToeicAssets={scenes:[],manifest:{packs:{}},ready:null};
+  const safeFetch=async(url,fallback)=>{try{const r=await fetch(url);if(!r.ok)throw Error(r.status);return await r.json()}catch{return fallback}};
+  window.ToeicAssets.ready=Promise.all([safeFetch('./data/part1-bank.json',{scenes:[]}),safeFetch('./audio/manifest.json',{packs:{}})]).then(([bank,manifest])=>{window.ToeicAssets.scenes=bank.scenes||[];window.ToeicAssets.manifest=manifest});
+  const oldMake=window.makeQuestion;
+  window.makeQuestion=function(part,i,seed=0){
+    const bank=window.ToeicAssets.scenes;
+    if(Number(part)===1&&bank.length){const s=bank[((i+seed)%bank.length+bank.length)%bank.length];return {id:`part1-${s.id}-${seed}-${i}`,sceneId:s.id,part:1,skill:'Photo description',q:'Choose the statement that best describes the picture.',options:[...s.options],answer:Math.max(0,s.options.indexOf(s.correct)),explain:`The supported description is: ${s.correct}`,image:s.image,source:'github-part1-bank'}}
+    return oldMake.apply(this,arguments);
+  };
+  function settingsCard(){
+    const host=document.querySelector('#appMain');if(!host?.querySelector('#saveSettings')||host.querySelector('#toeicVoiceImageCard'))return;
+    const s=get(),card=document.createElement('section');card.className='card';card.id='toeicVoiceImageCard';
+    card.innerHTML=`<h3>聽力與圖片</h3><p class="muted">預建 Part 1 插圖；裝置英文語音。缺少地區語音時顯示替代語音，不將它冒稱為該口音。</p><label class="setting"><span>口音</span><select id="toeicVoiceAccent">${['RANDOM',...Object.keys(TAGS)].map(a=>`<option value="${a}">${a==='RANDOM'?'隨機（US / UK / CA / AU-NZ）':a}</option>`).join('')}</select></label><label class="setting"><span>語速</span><input id="toeicVoiceRate" type="number" min=".7" max="1.1" step=".05"></label><div class="actions"><button class="primary" id="toeicVoiceSave">儲存聽力設定</button><button class="secondary" id="toeicVoiceTest">測試播放</button><button class="ghost" id="toeicVoiceStop">停止語音</button></div><p class="muted">TTS 暫停若裝置不支援，改為中止並從句內最近位置或本句重新接續；錄音檔使用原生暫停。錄音庫保留於 audio/manifest.json。</p>`;
+    host.append(card);card.querySelector('#toeicVoiceAccent').value=normalize(s.accent);card.querySelector('#toeicVoiceRate').value=s.rate;
+    card.querySelector('#toeicVoiceSave').onclick=()=>{localStorage.setItem(KEY,JSON.stringify({...get(),accent:normalize(card.querySelector('#toeicVoiceAccent').value),rate:Math.max(.7,Math.min(1.1,Number(card.querySelector('#toeicVoiceRate').value)||.95))}));toast('聽力設定已儲存')};
+    card.querySelector('#toeicVoiceTest').onclick=e=>window.toeicToggleSpeech('This is a listening test. You can pause and continue this recording.', 'settings:test',e.currentTarget,card.querySelector('#toeicVoiceAccent').value);
+    card.querySelector('#toeicVoiceStop').onclick=stop;
   }
-
-  async function playQuestionAudio(item){
-    const settings=voiceSettings(),key=`question:${String(item?.id||questionText(item))}`;
-    const accent=resolveAccent(settings.accent,key),button=activeButton(document.querySelector("#playQ,#mockAudio,#playFullMockAudio"));
-    const clip=fileClipFor(item,accent);
-    if(clip){try{return await playRecordedClip(clip,key,button)}catch(_){}}
-    return await speakWithTTS(questionText(item),accent,key,button);
-  }
-
-  function installSpeechOverride(){
-    const original=window.speech;
-    window.toeicToggleSpeech=(text,key="",button=null,accent="")=>speakWithTTS(String(text||""),accent||voiceSettings().accent,key||`text:${String(text||"")}`,button);
-    window.toeicStopAudio=stopPlayback;
-    if(typeof original==="function"){
-      window.speech=(text,_lang,key="",button=null)=>speakWithTTS(String(text||""),voiceSettings().accent,key||`text:${String(text||"")}`,button)
-        .catch(()=>{try{return original.call(this,text,_lang)}catch(_){}});
-    }
-    document.getElementById("lessonDialog")?.addEventListener("close",stopPlayback);
-    window.addEventListener("pagehide",stopPlayback);
-  }
-
-  function installQuestionOverrides(){
-    const originalMakeQuestion = window.makeQuestion;
-    const originalSpeakQuestion = window.speakQuestion;
-
-    if(typeof originalMakeQuestion === "function"){
-      window.makeQuestion = function(part, i, seed = 0){
-        if(Number(part) === 1 && Array.isArray(part1Bank) && part1Bank.length){
-          const scene = part1Bank[(Number(i) + Number(seed || 0)) % part1Bank.length];
-          return {
-            id: `part1-${scene.id}-${seed}-${i}`,
-            part: 1,
-            skill: "Photo description",
-            q: "Choose the statement that best describes the picture.",
-            options: scene.options.slice(),
-            answer: 0,
-            explain: `The first statement best matches the image: ${scene.correct}`,
-            image: scene.image,
-            source: "github-part1-bank"
-          };
-        }
-        return originalMakeQuestion.apply(this, arguments);
-      };
-    }
-
-    if(typeof originalSpeakQuestion === "function"){
-      window.speakQuestion = function(item){
-        return playQuestionAudio(item).catch(() => originalSpeakQuestion.call(this, item));
-      };
-    }
-  }
-
-  function injectSettingCard(){
-    const host = document.querySelector("#appMain");
-    if(!host || !host.querySelector) return;
-    const settingsHeading = Array.from(host.querySelectorAll("h2,h3")).find(el => /設定/.test(el.textContent || ""));
-    const firstCard = settingsHeading ? settingsHeading.closest("div,section") : null;
-    const cardHost = host.querySelector(".card:last-of-type") || firstCard || host;
-    if(!cardHost || document.getElementById("toeicVoiceImageCard")) return;
-
-    const state = voiceSettings();
-    const wrapper = document.createElement("section");
-    wrapper.className = "card";
-    wrapper.id = "toeicVoiceImageCard";
-    wrapper.innerHTML = `
-      <h3>聽力與圖片強化</h3>
-      <p class="muted">Part 1 現在使用預建圖片題庫；Part 1–4 先播放錄音檔（若未提供）再退回裝置英文 TTS。</p>
-      <label class="setting"><span>預設口音</span>
-        <select id="toeicVoiceAccent" class="settings-input">
-          <option value="RANDOM">隨機（US / UK / CA / AU-NZ）</option>
-          <option value="US">US</option>
-          <option value="UK">UK</option>
-          <option value="CA">CA</option>
-          <option value="AU-NZ">AU / NZ</option>
-        </select>
-      </label>
-      <label class="setting"><span>播放語速</span>
-        <input id="toeicVoiceRate" class="settings-input" type="number" min="0.7" max="1.1" step="0.05" value="${esc(state.rate)}">
-      </label>
-      <div class="actions">
-        <button id="toeicVoiceSave" class="primary">儲存聽力設定</button>
-        <button id="toeicVoiceTest" class="secondary">測試播放</button>
-      </div>
-      <small class="muted">若未來把錄音檔加入 <code>audio/</code> 並在 audio/manifest.json 登錄，系統會自動優先播放錄音。</small>
-    `;
-    host.appendChild(wrapper);
-
-    const accentInput = wrapper.querySelector("#toeicVoiceAccent");
-    const rateInput = wrapper.querySelector("#toeicVoiceRate");
-    accentInput.value = normalizeAccent(state.accent);
-    rateInput.value = String(state.rate);
-
-    wrapper.querySelector("#toeicVoiceSave").onclick = () => {
-      const next = {
-        accent: normalizeAccent(accentInput.value),
-        rate: Math.max(0.7, Math.min(1.1, Number(rateInput.value) || 0.95))
-      };
-      persistVoiceSettings(next);
-      toast("聽力設定已儲存");
-    };
-
-    wrapper.querySelector("#toeicVoiceTest").onclick = () => {
-      const testAccent = resolveAccent(accentInput.value);
-      toast(`本次測試口音：${testAccent}`);
-      speakWithTTS("This is a listening test for your TOEIC GitHub system.", testAccent)
-        .catch(() => toast("裝置目前無法播放 TTS"));
-    };
-  }
-
-  function patchRender(){
-    if(typeof window.render !== "function" || window.render.__voiceImagePatched) return;
-    const original = window.render;
-    const wrapped = function(){
-      const out = original.apply(this, arguments);
-      try{
-        const settingsNav = document.querySelector('.nav-btn.active[data-route="settings"]');
-        if(settingsNav) setTimeout(injectSettingCard, 0);
-      }catch(_){}
-      return out;
-    };
-    wrapped.__voiceImagePatched = true;
-    window.render = wrapped;
-  }
-
-  function patchDialogAutoplay(){
-    const originalOpenLesson = window.openLesson;
-    if(typeof originalOpenLesson !== "function" || originalOpenLesson.__voiceImagePatched) return;
-    const wrapped = function(){
-      const res = originalOpenLesson.apply(this, arguments);
-      const settings = voiceSettings();
-      if(settings.autoPlay){
-        setTimeout(() => {
-          const btn = document.getElementById("speakArticle");
-          if(btn) btn.click();
-        }, 180);
-      }
-      return res;
-    };
-    wrapped.__voiceImagePatched = true;
-    window.openLesson = wrapped;
-  }
-
-  function waitForBaseApp(){
-    let tries = 0;
-    const timer = setInterval(() => {
-      tries++;
-      if(typeof window.render === "function" && typeof window.makeQuestion === "function" && typeof window.speakQuestion === "function"){
-        clearInterval(timer);
-        installSpeechOverride();
-        installQuestionOverrides();
-        patchRender();
-        patchDialogAutoplay();
-        try{ window.render(); }catch(_){}
-      }else if(tries > 120){
-        clearInterval(timer);
-      }
-    }, 100);
-  }
-
-  (async function init(){
-    try{
-      if(localStorage.getItem(VOICE_RANDOM_MIGRATION_KEY)!=="1"){
-        const current=load(VOICE_KEY,{});
-        if(!current.accent || String(current.accent).toUpperCase()==="US"){
-          save(VOICE_KEY,{...current,accent:RANDOM_ACCENT});
-        }
-        localStorage.setItem(VOICE_RANDOM_MIGRATION_KEY,"1");
-      }
-    }catch(_){}
-    await bootAssets();
-    if("speechSynthesis" in window){
-      try{ speechSynthesis.getVoices(); }catch(_){}
-      window.speechSynthesis.addEventListener?.("voiceschanged", () => {});
-    }
-    waitForBaseApp();
-  })();
+  const oldRender=window.render;window.render=function(){const result=oldRender.apply(this,arguments);settingsCard();return result};
+  document.getElementById('lessonDialog')?.addEventListener('close',stop);window.addEventListener('pagehide',stop);
 })();

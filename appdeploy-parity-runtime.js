@@ -106,7 +106,7 @@
         if(!lesson){
           lesson=buildNewsLesson(source);
           const rows=generated().filter(x=>x.id!==lesson.id);
-          rows.push(lesson); save(KEYS.generated,rows.slice(-60));
+          rows.push(lesson); save(KEYS.generated,rows);
         }
       }
       if(!lesson) throw new Error('Unable to create lesson');
@@ -143,7 +143,7 @@
   const oldLoadNews=loadNews;
   window.loadNews=async function(manual=false){
     await oldLoadNews(manual);
-    if(!candidatePool()&&!currentDailyAssignment()) ensureDailyCandidates();
+    if(!candidatePool()&&!currentDailyAssignment()){ensureDailyCandidates();if(route==='today')render()}
   };
 
   // ---------------------------------------------------------------------------
@@ -154,7 +154,7 @@
     if(!article?.id||!article?.text) return;
     const rows=localLoad(KEYS.articleReviews,[]).filter(x=>x.articleId!==article.id);
     rows.push({articleId:article.id,title:article.title||'',source:article.source||'',text:article.text,paragraphs:paragraphs(article.text),savedAt:new Date().toISOString()});
-    localSave(KEYS.articleReviews,rows.slice(-20));
+    localSave(KEYS.articleReviews,rows);
   }
   const oldRegisterNewsMistake=registerNewsMistake;
   window.registerNewsMistake=function(question,choice,article){
@@ -167,12 +167,7 @@
     if(m.question?.part==='Part 5') return '';
     const snap=localLoad(KEYS.articleReviews,[]).find(x=>x.articleId===m.sourceId);
     if(!snap) return oldReviewContext(kind,m);
-    const qs=String(m.question?.q||'').toLowerCase().match(/[a-z][a-z'-]{2,}/g)||[];
-    const stop=new Set(['the','and','what','which','when','where','why','how','does','did','about','from','with','that','this','have','has']);
-    const tokens=[...new Set(qs.filter(x=>!stop.has(x)))];
-    let best=snap.paragraphs?.[0]||snap.text,bestScore=-1;
-    (snap.paragraphs||[snap.text]).forEach(p=>{const l=p.toLowerCase();const score=tokens.reduce((n,t)=>n+(l.includes(t)?1:0),0);if(score>bestScore){bestScore=score;best=p}});
-    return best;
+    return snap.text || oldReviewContext(kind,m);
   };
 
   // ---------------------------------------------------------------------------
@@ -202,7 +197,7 @@
     }
     if(part===1 && !questions?.[0]?.image){score-=20;issues.push('Missing Part 1 image')}
     score=Math.max(0,Math.min(100,score));
-    return {blueprint:'TOEIC-style',score,attempts:1,imageScore:part===1?(questions?.[0]?.image?96:0):undefined,issues:[...new Set(issues)]};
+    return {blueprint:'TOEIC-style',score,attempts:1,imageScore:undefined, imageStatus:part===1?'prebuilt-unreviewed':undefined,issues:[...new Set(issues)]};
   }
 
   const P2_BANK=[
@@ -272,107 +267,44 @@
     return rotateOptions({id:`p7-${seed}-${index}`,part:7,skill:q[4],stimulus,q:q[0],options:q[1],answer:q[2],explain:q[3]},(index+seed)%4);
   }
 
-  function makeValidatedBlock(part,count,seed,mode,blockNumber=0){
-    let questions=[];
+  function makeValidatedBlock(part,count,seed,mode,blockNumber=0,answerTargets=null){
+    const E=window.ToeicRandomEngine,questions=[],key=`${part}|${mode}|${seed}|${blockNumber}`;
+    const select=(size,n,kind)=>E.drawPool(`part:${part}:${kind}`,size,n);
+    // Sample complete contexts, not disconnected questions from different recordings.
     if(part===3||part===4){
-      const scenarioSeed=(seed+blockNumber)%10;
-      for(let j=0;j<count;j++) questions.push(parityQuestion(part,j*10,scenarioSeed));
-    }else if(part===6){
-      const passageSeed=(seed+blockNumber)%6;
-      for(let j=0;j<count;j++) questions.push(parityQuestion(6,j,passageSeed));
-    }else if(part===7){
-      const passageSeed=(seed+blockNumber)%12;
-      for(let j=0;j<count;j++) questions.push(parityQuestion(7,j,passageSeed));
+      const scenario=select(10,1,'scenarios')[0];
+      for(const j of E.sampleIndices(4,count,key))questions.push(parityQuestion(part,j*10,scenario));
+    }else if(part===6||part===7){
+      const context=select(part===6?6:12,1,'passages')[0];
+      for(const j of E.sampleIndices(part===6?4:5,count,key))questions.push(parityQuestion(part,j,context));
     }else{
-      for(let j=0;j<count;j++) questions.push(parityQuestion(part,j,seed+blockNumber*17));
+      const size=part===2?P2_BANK.length:part===5?P5_BANK.length:window.ToeicAssets?.scenes?.length||4;
+      for(const j of select(size,count,'items'))questions.push(parityQuestion(part,j,0));
     }
-    const validation=localValidation(part,questions);
-    if(validation.score<QUALITY_THRESHOLD) throw new Error(`Local Blueprint ${validation.score}/100`);
-    const first=questions[0]||{};
-    return {
-      part,mode,title:`Part ${part} · ${PART_NAMES[part]}`,skill:first.skill||'TOEIC-style',
-      instructions:part<=4?'請先聆聽，再依題目作答。':'閱讀內容後選出最佳答案。',
-      displayText:part>=5?(first.stimulus||''):'',
-      audioText:part<=4?(first.stimulus||first.q||first.options?.join('. ')||''):'',
-      imageData:part===1?first.image:'',
-      imageMimeType:part===1&&first.image?'image/svg+xml':'',
-      validation,questions
-    };
+    const balanced=E.balanceAnswers(questions,key,answerTargets);
+    const validation=localValidation(part,balanced);
+    if(validation.score<QUALITY_THRESHOLD)throw new Error(`Local structure check ${validation.score}/100`);
+    const first=balanced[0]||{};
+    const set={id:`set-${E.hashSeed(key+'|'+balanced.map(q=>q.id).join('|'))}`,part,mode,title:`Part ${part} · ${PART_NAMES[part]}`,skill:first.skill||'TOEIC-style',instructions:part<=4?'請先聆聽，再依題目作答。':'閱讀內容後選出最佳答案。',displayText:part>=5?(first.stimulus||''):'',audioText:part<=4?(first.stimulus||first.q||''):'',imageData:part===1?first.image:'',imageMimeType:'',validation,questions:balanced};
+    return set;
   }
+  window.ToeicPracticeBlocks={makeValidatedBlock,counts:FULL_COUNTS};
 
   // ---------------------------------------------------------------------------
   // MULTI-ACCENT SEGMENT PLAYER — pause/resume + target/actual tracking
   // ---------------------------------------------------------------------------
-  const segPlayer={key:'',button:null,paused:false,active:false,results:[]};
-  function exactVoices(accent){
-    const tags=(ACCENT_LANGS[accent]||['en-US']).map(x=>x.toLowerCase());
-    return speechSynthesis.getVoices().filter(v=>tags.includes(v.lang.toLowerCase()));
-  }
-  function englishVoices(){ return 'speechSynthesis'in window?speechSynthesis.getVoices().filter(v=>/^en[-_]/i.test(v.lang)):[] }
-  function pickVoice(accent,used){
-    const exact=exactVoices(accent),all=englishVoices();
-    const v=exact.find(x=>!used.has(x.voiceURI))||exact[0]||all.find(x=>!used.has(x.voiceURI))||all[0];
-    if(v) used.add(v.voiceURI);
-    return {voice:v,info:{target:accent,actualLang:v?.lang||ACCENT_LANGS[accent]?.[0]||'en-US',actualName:v?.name||'裝置自動選擇',fallback:!!v&&!exact.includes(v)}};
-  }
-  function setSegButton(state){
-    const b=segPlayer.button;if(!b)return;
-    if(!b.dataset.idleLabel)b.dataset.idleLabel=b.textContent||'播放音檔';
-    if(state==='playing'){b.textContent='⏸ 暫停';b.classList.add('audio-playing');b.classList.remove('audio-paused')}
-    else if(state==='paused'){b.textContent='▶ 繼續';b.classList.add('audio-paused');b.classList.remove('audio-playing')}
-    else{b.textContent=b.dataset.idleLabel;b.classList.remove('audio-playing','audio-paused')}
-  }
-  function stopSegments(){
-    try{speechSynthesis.cancel()}catch(_){}
-    segPlayer.key='';segPlayer.active=false;segPlayer.paused=false;segPlayer.results=[];setSegButton('idle');segPlayer.button=null;
-  }
-  const oldStopAudio=window.toeicStopAudio;
-  window.toeicStopAudio=function(){try{oldStopAudio?.()}catch(_){} stopSegments()};
-
-  function playSegments(segments,key,button){
-    if(!('speechSynthesis'in window)){toast('此裝置目前不支援語音播放');return []}
-    if(segPlayer.key===key&&segPlayer.active){
-      if(speechSynthesis.paused||segPlayer.paused){speechSynthesis.resume();segPlayer.paused=false;setSegButton('playing')}
-      else{speechSynthesis.pause();segPlayer.paused=true;setSegButton('paused')}
-      return segPlayer.results;
-    }
-    window.toeicStopAudio();
-    segPlayer.key=key;segPlayer.button=button;segPlayer.active=true;segPlayer.paused=false;
-    const used=new Set(),speakerVoice=new Map();
-    for(const s of segments) if(!speakerVoice.has(s.speaker)) speakerVoice.set(s.speaker,pickVoice(s.accent,used));
-    segPlayer.results=[...speakerVoice.values()].map(x=>x.info);setSegButton('playing');
-    const utterances=segments.map((s,i)=>{
-      const u=new SpeechSynthesisUtterance(s.text),sel=speakerVoice.get(s.speaker);
-      if(sel?.voice)u.voice=sel.voice;u.lang=sel?.info.actualLang||'en-US';u.rate=.92;u.pitch=1;
-      if(i===segments.length-1)u.onend=()=>{segPlayer.active=false;segPlayer.key='';setSegButton('idle')};
-      return u;
-    });
-    utterances.forEach(u=>speechSynthesis.speak(u));
-    return segPlayer.results;
-  }
-
-  function plannedAccents(unit,count=1){
-    const mode=localLoad('toeicGithubVoiceSettingsV1',{}).accent||'RANDOM';
-    if(mode!=='RANDOM'){
-      const normalized=mode==='AU_NZ'?'AU-NZ':mode;
-      return Array.from({length:count},()=>normalized);
-    }
-    const pool=[...ACCENTS],out=[];
-    let cursor=(Number(localStorage.getItem(KEYS.accent))||0)+unit;
-    for(let i=0;i<count;i++){out.push(pool[(cursor+i)%pool.length])}
-    return out;
-  }
+  function plannedAccents(unit,count=1){return window.toeicAudio.accents(`listening:${unit}`,count)}
   function listeningSegments(set,question,unit){
-    if(set.part===1) return question.options.map((o,i)=>({text:`${String.fromCharCode(65+i)}. ${o}`,accent:plannedAccents(unit,1)[0],speaker:'Narrator'}));
-    if(set.part===2) return [question.q,...question.options.map((o,i)=>`${String.fromCharCode(65+i)}. ${o}`)].map(t=>({text:t,accent:plannedAccents(unit,1)[0],speaker:'Narrator'}));
+    if(set.part===1) return question.options.map((o,i)=>({text:`${String.fromCharCode(65+i)}. ${o}`,accent:plannedAccents(`${set.id||unit}:${question.id}`,1)[0],speaker:'Narrator'}));
+    if(set.part===2) return [question.q,...question.options.map((o,i)=>`${String.fromCharCode(65+i)}. ${o}`)].map(t=>({text:t,accent:plannedAccents(`${set.id||unit}:${question.id}`,1)[0],speaker:'Narrator'}));
     if(set.part===3){
       const lines=String(set.audioText||question.stimulus||'').split(/\n+/).map(x=>x.trim()).filter(Boolean);
       const speakers=[...new Set(lines.map(x=>(x.match(/^([MW]|Speaker\s+[ABC]):/i)||[])[1]).filter(Boolean))];
-      const accents=plannedAccents(unit,Math.max(2,speakers.length||2)),map=new Map();
+      const accents=plannedAccents(`${set.id||unit}`,Math.max(2,speakers.length||2)),map=new Map();
       speakers.forEach((sp,i)=>map.set(sp.toUpperCase(),accents[i%accents.length]));
       return lines.map(line=>{const m=line.match(/^([MW]|Speaker\s+[ABC]):\s*(.+)$/i);return m?{text:m[2],accent:map.get(m[1].toUpperCase())||accents[0],speaker:m[1].toUpperCase()}:{text:line,accent:accents[0],speaker:'Speaker'}});
     }
-    return [{text:set.audioText||question.stimulus||question.q,accent:plannedAccents(unit,1)[0],speaker:'Narrator'}];
+    return [{text:set.audioText||question.stimulus||question.q,accent:plannedAccents(`${set.id||unit}:${question.id}`,1)[0],speaker:'Narrator'}];
   }
 
   function voiceFeedback(results,accents){
@@ -384,10 +316,11 @@
   // ---------------------------------------------------------------------------
   // PART 1–7 PRACTICE — blocks, Blueprint, max 2 plays, accent analytics
   // ---------------------------------------------------------------------------
-  window.startPractice=function(part,count){
+  window.startPractice=async function(part,count){
+    await window.ToeicAssets.ready;
     const mode=window.appdeployPracticeMode||localStorage.getItem(KEYS.practiceMode)||'quick';
     const target=Number(count)||MODE_COUNTS[mode]?.[part]||MODE_COUNTS.quick[part];
-    const state={part,mode,target,answers:[],started:Date.now(),block:0,set:null,index:0,plays:0,accents:[],voiceResults:[],scores:[]};
+    const state={seed:window.ToeicRandomEngine.nonce(),answerPlan:window.ToeicRandomEngine.positions(target,part===2?3:4,window.ToeicRandomEngine.nonce()),part,mode,target,answers:[],started:Date.now(),block:0,set:null,index:0,plays:0,accents:[],voiceResults:[],scores:[]};
     dialogTitle.textContent=`Part ${part} · ${PART_NAMES[part]} · ${appdeployModeInfo(mode).label}`;
     dialog.showModal();
 
@@ -396,7 +329,7 @@
       if(remaining<=0)return finish();
       const n=Math.min(BLOCK_SIZE[part],remaining);
       try{
-        state.set=makeValidatedBlock(part,n,Date.now()%997,mode,state.block++);
+        state.set=makeValidatedBlock(part,n,state.seed,mode,state.block++,state.answerPlan.slice(state.answers.length,state.answers.length+n));
         state.index=0;state.plays=0;state.accents=[];state.voiceResults=[];state.scores.push(state.set.validation.score);
         show();
       }catch(e){
@@ -408,14 +341,14 @@
     };
 
     const play=()=>{
-      const set=state.set,q=set.questions[state.index],max=2;
-      if(state.plays>=max){toast('學習模式每題／題組最多播放 2 次');return}
-      const segments=listeningSegments(set,q,state.answers.length+state.block);
-      const accents=[...new Set(segments.map(x=>x.accent))];
-      const results=playSegments(segments,`practice:${part}:${state.block}:${part<=2?state.index:0}`,document.querySelector('#playPracticeAudio'));
-      if(segPlayer.key.startsWith('practice:')&&!segPlayer.paused)state.plays+=1;
-      state.accents=accents;state.voiceResults=results;
-      const b=document.querySelector('#playPracticeAudio');if(b&&!segPlayer.paused)b.dataset.idleLabel=`播放音檔（${state.plays}/2）`;
+      const set=state.set,q=set.questions[state.index],key=`practice:${state.seed}:${set.id}:${part<=2?state.index:0}`;
+      const currentlyPlaying=window.toeicAudio.state()?.key===key;
+      if(!currentlyPlaying&&state.plays>=2){toast('學習模式每題／題組最多播放 2 次');return}
+      const segments=listeningSegments(set,q,`${state.seed}:${state.block}`);
+      const result=window.toeicAudio.toggle(segments,key,document.querySelector('#playPracticeAudio'));
+      if(result.action==='started')state.plays++;
+      state.accents=[...new Set(segments.map(x=>x.accent))];state.voiceResults=result.results;
+      result.promise.then(r=>{if(r.status==='error'){state.plays=Math.max(0,state.plays-1);toast(r.error||'語音未播放，請重試')}});
     };
 
     const show=()=>{
@@ -424,8 +357,8 @@
       const global=state.answers.length+1;
       const visual=part===1&&q.image?`<img class="practice-photo" src="${q.image}" alt="已驗證的 Part 1 題庫圖片">`:'';
       const passage=part>=5&&q.stimulus?`<div class="practice-passage">${esc(q.stimulus)}</div>`:'';
-      body.innerHTML=`<section class="lesson-step practice-session"><div class="practice-session-head"><div><p class="eyebrow">PART ${part} · ${appdeployModeInfo(mode).label}</p><h3>${esc(set.title)}</h3></div><div class="practice-head-badges"><span class="badge quality-badge">Blueprint ${set.validation.score}</span>${part===1?`<span class="badge">圖像驗證 ${set.validation.imageScore}/100</span>`:''}<span class="badge">${global} / ${state.target}</span></div></div>
-      <p class="quality-note">✓ 結構檢查＋本機獨立規則驗證已通過 · 非 ETS 官方題</p>${visual}
+      body.innerHTML=`<section class="lesson-step practice-session"><div class="practice-session-head"><div><p class="eyebrow">PART ${part} · ${appdeployModeInfo(mode).label}</p><h3>${esc(set.title)}</h3></div><div class="practice-head-badges"><span class="badge quality-badge">結構檢查 ${set.validation.score}</span>${part===1?`<span class="badge">預建插圖 · 未獨立驗圖</span>`:''}<span class="badge">${global} / ${state.target}</span></div></div>
+      <p class="quality-note">✓ 題數與選項格式檢查通過；未做 AI 語意驗題 · 非 ETS 官方題</p>${visual}
       ${listening?`<div class="listen-controls"><button class="secondary" id="playPracticeAudio">播放音檔（${state.plays}/2）</button><small>${part<=2?'每題':'每題組'}最多播放 2 次 · 四區口音平衡</small></div>`:''}
       ${passage}<h3>${lettersOnly?'請先聆聽題目，再選擇答案。':esc(q.q)}</h3>
       <div class="practice-options ${lettersOnly?'letter-grid':''}">${q.options.map((o,i)=>`<button class="option practice-answer ${lettersOnly?'letter-only':''}" data-i="${i}">${lettersOnly?String.fromCharCode(65+i):`${String.fromCharCode(65+i)}. ${esc(o)}`}</button>`).join('')}</div><div id="practiceFeedback"></div></section>`;
@@ -439,7 +372,7 @@
         if(!correct){
           const rows=partMistakes(),t=now();
           rows.push({id:`part-m-${Date.now()}-${Math.random().toString(36).slice(2)}`,part,question:q,choice,audioText:set.audioText,displayText:set.displayText,accents:[...state.accents],validationScore:set.validation.score,source:'practice',status:'unmastered',reviewStage:0,correctStreak:0,reviewCount:0,firstWrongAt:t,lastWrongAt:t,lastReviewedAt:t,nextReviewAt:new Date(Date.now()+DAY_MS).toISOString(),imageData:q.image||'',imageMimeType:q.image?'image/svg+xml':''});
-          save(KEYS.partMistakes,rows.slice(-500));
+          save(KEYS.partMistakes,rows);
         }
         document.querySelector('#practiceFeedback').innerHTML=`<div class="card practice-feedback"><strong>${correct?'答對了':'需要複習'}</strong><p class="muted">${esc(q.explain)}</p>${voiceFeedback(state.voiceResults,state.accents)}${listening?listeningTranscriptHtml(q):''}<button class="primary" id="practiceNext">${state.answers.length>=state.target?'完成本次練習':state.index>=set.questions.length-1?'下一題組':'下一題'}</button></div>`;
         document.querySelector('#practiceNext').onclick=()=>{
@@ -456,10 +389,10 @@
       const exposure=state.answers.flatMap(a=>a.accents.map(accent=>({accent,correct:a.correct})));
       const fallbacks=state.answers.reduce((n,a)=>n+a.voiceFallbacks.length,0),rows=partSessions();
       rows.push({id:`part-${part}-${state.started}`,date:dayKey(),part,mode,title:`${PART_NAMES[part]} · ${appdeployModeInfo(mode).label}`,correct,total,durationMinutes:duration,skills:[...new Set(state.answers.map(a=>a.item.skill))],accentExposure:exposure,blueprintScores:state.scores,voiceFallbacks:fallbacks});
-      save(KEYS.partSessions,rows.slice(-500));
+      save(KEYS.partSessions,rows);
       const extra={};extra[`part${part}Answered`]=total;extra[`part${part}Correct`]=correct;
       publishGoalEvent(makeGoalEvent(`Part ${part} 訓練`,duration,total,correct,state.answers.filter(x=>!x.correct).map(x=>x.item.skill),extra));
-      body.innerHTML=`<section class="hero"><p class="eyebrow">PART ${part} COMPLETE</p><h2>${correct}/${total}</h2><p>${duration} 分鐘 · Blueprint 平均 ${Math.round(state.scores.reduce((a,b)=>a+b,0)/state.scores.length)||'—'}。</p><button id="doneP" class="primary wide">完成</button></section>`;
+      body.innerHTML=`<section class="hero"><p class="eyebrow">PART ${part} COMPLETE</p><h2>${correct}/${total}</h2><p>${duration} 分鐘 · 結構檢查 平均 ${Math.round(state.scores.reduce((a,b)=>a+b,0)/state.scores.length)||'—'}。</p><button id="doneP" class="primary wide">完成</button></section>`;
       document.querySelector('#doneP').onclick=()=>{dialog.close();render()};
     };
 
@@ -492,7 +425,7 @@
       const status=a.currentPart>=5&&a.readingStartedAt?(a.mode==='strict'?`Reading 剩餘 ${fmt(remainingReading(a)||0)}`:'Reading 訓練模式 · 不限時'):'Listening 進行中';
       return `<section id="fullMockPanel" class="card full-mock-card active"><div class="full-mock-head"><div><span class="part-number">FULL MOCK · 200 QUESTIONS</span><h3>完整模考進行中</h3></div><span class="badge">${modeLabel(a.mode)}</span></div><div class="full-mock-progress"><strong>${mockProgress(a)} / 200</strong><span>目前 Part ${a.currentPart} · ${PART_NAMES[a.currentPart]}</span></div><p class="muted">${status}。題目與已作答進度會保留，重新開啟可繼續。</p><div class="actions"><button class="primary" id="resumeFullMock">繼續完整模考</button><button class="danger" id="discardFullMock">放棄本次</button></div></section>${hist}`;
     }
-    return `<section id="fullMockPanel" class="card full-mock-card"><div class="full-mock-head"><div><span class="part-number">FULL MOCK · 200 QUESTIONS</span><h3>完整 TOEIC-style 模考</h3></div><span class="badge">P1–P7</span></div><p>Listening 100 題＋Reading 100 題。各題組沿用 Blueprint 驗證與多口音引擎。</p><div class="full-mock-spec"><span>Listening 約 45 分</span><span>Reading 75 分</span><span>共 200 題</span></div><div class="full-mock-mode-grid"><button class="primary full-mock-start" id="startFullMockStrict"><strong>開始全真模式</strong><span>聽力每題組 1 次 · Reading 75:00 倒數 · 作答中不顯示解析</span></button><button class="secondary full-mock-start" id="startFullMockTraining"><strong>開始訓練模考</strong><span>聽力最多 2 次 · 可退出後繼續 · Reading 不強制倒數</span></button></div><p class="muted full-mock-note">分數為系統依答對題數估算的練習區間，不是 ETS 官方換算成績。</p></section>${hist}`;
+    return `<section id="fullMockPanel" class="card full-mock-card"><div class="full-mock-head"><div><span class="part-number">FULL MOCK · 200 QUESTIONS</span><h3>完整 TOEIC-style 模考</h3></div><span class="badge">P1–P7</span></div><p>Listening 100 題＋Reading 100 題。各題組沿用 結構檢查 驗證與多口音引擎。</p><div class="full-mock-spec"><span>Listening 約 45 分</span><span>Reading 75 分</span><span>共 200 題</span></div><div class="full-mock-mode-grid"><button class="primary full-mock-start" id="startFullMockStrict"><strong>開始全真模式</strong><span>聽力每題組 1 次 · Reading 75:00 倒數 · 作答中不顯示解析</span></button><button class="secondary full-mock-start" id="startFullMockTraining"><strong>開始訓練模考</strong><span>聽力最多 2 次 · 可退出後繼續 · Reading 不強制倒數</span></button></div><p class="muted full-mock-note">分數為系統依答對題數估算的練習區間，不是 ETS 官方換算成績。</p></section>${hist}`;
   };
 
   function renderMockQuestion(a){
@@ -501,7 +434,7 @@
     window.toeicStopAudio?.();mockPendingChoice=null;mockVoiceResults=[];
     const listening=set.part<=4,lettersOnly=set.part<=2,maxPlays=a.mode==='strict'?1:2,audioRequired=listening&&!a.audioComplete;
     const rem=remainingReading(a),timer=set.part>=5&&a.mode==='strict'?`<span class="badge mock-timer">Reading <strong id="fullMockTimer">${fmt(rem||0)}</strong></span>`:`<span class="badge">${set.part<=4?'Listening':'Reading'}</span>`;
-    body.innerHTML=`<section class="lesson-step practice-session full-mock-session"><div class="practice-session-head"><div><p class="eyebrow">FULL MOCK · PART ${set.part}</p><h3>${esc(PART_NAMES[set.part])}</h3></div><div class="practice-head-badges">${timer}<span class="badge">${a.answers.length+1} / 200</span></div></div><div class="full-mock-section-progress"><span>Part ${set.part}: ${partAnswered(a,set.part)+1} / ${FULL_COUNTS[set.part]}</span><span>Blueprint ${set.validation.score}</span></div><p class="quality-note">✓ 已通過驗題 · 模考作答中不顯示正解與解析 · 非 ETS 官方題</p>
+    body.innerHTML=`<section class="lesson-step practice-session full-mock-session"><div class="practice-session-head"><div><p class="eyebrow">FULL MOCK · PART ${set.part}</p><h3>${esc(PART_NAMES[set.part])}</h3></div><div class="practice-head-badges">${timer}<span class="badge">${a.answers.length+1} / 200</span></div></div><div class="full-mock-section-progress"><span>Part ${set.part}: ${partAnswered(a,set.part)+1} / ${FULL_COUNTS[set.part]}</span><span>結構檢查 ${set.validation.score}</span></div><p class="quality-note">✓ 題數與選項格式檢查通過 · 模考作答中不顯示正解與解析 · 非 ETS 官方題</p>
     ${set.part===1&&q.image?`<img class="practice-photo" src="${q.image}" alt="Part 1 情境圖片">`:''}
     ${listening?`<div class="listen-controls"><button class="secondary" id="playFullMockAudio" ${a.plays>=maxPlays&&a.audioComplete?'disabled':''}>${a.audioComplete?'音檔已播放':'播放正式音檔'}（${a.plays}/${maxPlays}）</button><small>${a.mode==='strict'?'全真模式：每題／題組 1 次':'訓練模考：最多 2 次'}${audioRequired?' · 播放完畢後才能作答':''}</small></div>`:''}
     ${set.part>=5&&q.stimulus?`<div class="practice-passage">${esc(q.stimulus)}</div>`:''}<h3>${lettersOnly?'請依音檔內容選擇答案。':esc(q.q)}</h3>
@@ -515,11 +448,19 @@
 
   function playMockAudio(){
     const a=activeMock(),set=a?.currentSet;if(!a||!set||set.part>4)return;
-    const max=a.mode==='strict'?1:2;if(a.plays>=max){toast(a.mode==='strict'?'全真模式音檔只能播放一次':'訓練模考每題組最多播放兩次');return}
-    const q=set.questions[a.currentIndex],segments=listeningSegments(set,q,a.answers.length+(a.blockNumbers?.[String(set.part)]||0));
-    const results=playSegments(segments,`mock:${a.id}:${set.part}:${a.blockNumbers?.[String(set.part)]||0}:${set.part<=2?a.currentIndex:0}`,document.querySelector('#playFullMockAudio'));
-    a.plays+=1;a.audioComplete=true;a.currentAccents=[...new Set(segments.map(x=>x.accent))];a.currentVoiceResults=results;persistMock(a);
-    renderMockQuestion(a);
+    const q=set.questions[a.currentIndex],key=`mock:${a.id}:${set.id||set.part}:${set.part<=2?a.currentIndex:0}`;
+    const ongoing=window.toeicAudio.state()?.key===key,max=a.mode==='strict'?1:2;
+    if(!ongoing&&a.plays>=max){toast(a.mode==='strict'?'本題組已播放一次':'本題組已播放兩次');return}
+    const segments=listeningSegments(set,q,`${a.id}:${set.id}`);
+    const result=window.toeicAudio.toggle(segments,key,document.querySelector('#playFullMockAudio'));
+    if(result.action==='started'){
+      a.plays++;a.audioComplete=false;a.currentAccents=[...new Set(segments.map(x=>x.accent))];a.currentVoiceResults=result.results;persistMock(a);
+      result.promise.then(r=>{
+        const latest=activeMock();if(!latest||latest.id!==a.id||latest.currentSet?.id!==set.id)return;
+        if(r.status==='ended'){latest.audioComplete=true;persistMock(latest);if(dialog.open)renderMockQuestion(latest)}
+        else{latest.audioComplete=false;latest.plays=Math.max(0,latest.plays-1);persistMock(latest);if(r.status==='error')toast(r.error||'語音失敗，次數已還原')}
+      });
+    }
   }
 
   function startMockTimer(){
@@ -533,6 +474,12 @@
     document.querySelector('#beginFullMockReading').onclick=()=>{const x=activeMock();if(!x)return;x.currentPart=5;x.readingStartedAt=Date.now();if(x.mode==='strict')x.readingDeadline=x.readingStartedAt+READING_SECONDS*1000;persistMock(x);loadMockBlock()};
   }
 
+  function mockAnswerTargets(a,part,count){
+    const E=window.ToeicRandomEngine,k=part===2?3:4,total=k===3?25:175;
+    a.answerPlans??={};a.answerPlans[k]??=E.positions(total,k,`${a.id}|options:${k}`);
+    const used=a.answers.filter(x=>((x.q||x.question)?.options?.length||(x.part===2?3:4))===k).length;
+    return a.answerPlans[k].slice(used,used+count);
+  }
   function loadMockBlock(){
     const a=activeMock();if(!a)return;
     if(a.mode==='strict'&&a.readingDeadline&&remainingReading(a)<=0)return finishMock(a,true);
@@ -545,7 +492,7 @@
     }
     const blockNumber=(a.blockNumbers?.[String(part)]||0)+1,count=Math.min(BLOCK_SIZE[part],FULL_COUNTS[part]-answered);
     try{
-      const set=makeValidatedBlock(part,count,Number(a.seed||97)+part*31,'mock',blockNumber);
+      const set=makeValidatedBlock(part,count,a.seed||a.id,'mock',blockNumber,mockAnswerTargets(a,part,count));
       a.currentSet=set;a.currentIndex=0;a.blockNumbers[String(part)]=blockNumber;a.validationScores[String(part)]=[...(a.validationScores[String(part)]||[]),set.validation.score];a.plays=0;a.audioComplete=part>4;persistMock(a);renderMockQuestion(a);
     }catch(e){
       console.error(e);body.innerHTML=`<section class="lesson-step"><p class="eyebrow">FULL MOCK · GENERATION FAILED</p><h3>Part ${part} 第 ${blockNumber} 題組未通過驗題</h3><div class="card"><p class="muted">已完成的 ${a.answers.length}/200 題仍保留。</p></div><div class="actions"><button class="primary" id="fullMockRetry">重新產生題組</button><button class="secondary" id="fullMockExit">先退出，保留進度</button></div></section>`;document.querySelector('#fullMockRetry').onclick=loadMockBlock;document.querySelector('#fullMockExit').onclick=()=>dialog.close();
@@ -558,7 +505,7 @@
     const q=set.questions[a.currentIndex],accents=a.currentAccents||[],fallbacks=(a.currentVoiceResults||[]).filter(x=>x.fallback).map(x=>x.target);
     a.answers.push({part:set.part,q,choice:mockPendingChoice,correct:mockPendingChoice===q.answer,accents,voiceFallbacks:fallbacks,audioText:set.audioText,displayText:set.displayText,validationScore:set.validation.score});
     if(mockPendingChoice!==q.answer){
-      const rows=partMistakes(),t=now();rows.push({id:`part-m-${Date.now()}-${Math.random().toString(36).slice(2)}`,part:set.part,question:q,choice:mockPendingChoice,audioText:set.audioText,displayText:set.displayText,accents,validationScore:set.validation.score,source:'full-mock',status:'unmastered',reviewStage:0,correctStreak:0,reviewCount:0,firstWrongAt:t,lastWrongAt:t,lastReviewedAt:t,nextReviewAt:new Date(Date.now()+DAY_MS).toISOString(),imageData:q.image||'',imageMimeType:q.image?'image/svg+xml':''});save(KEYS.partMistakes,rows.slice(-500));
+      const rows=partMistakes(),t=now();rows.push({id:`part-m-${Date.now()}-${Math.random().toString(36).slice(2)}`,part:set.part,question:q,choice:mockPendingChoice,audioText:set.audioText,displayText:set.displayText,accents,validationScore:set.validation.score,source:'full-mock',status:'unmastered',reviewStage:0,correctStreak:0,reviewCount:0,firstWrongAt:t,lastWrongAt:t,lastReviewedAt:t,nextReviewAt:new Date(Date.now()+DAY_MS).toISOString(),imageData:q.image||'',imageMimeType:q.image?'image/svg+xml':''});save(KEYS.partMistakes,rows);
     }
     mockPendingChoice=null;window.toeicStopAudio?.();
     const last=a.currentIndex>=set.questions.length-1;
@@ -572,37 +519,41 @@
     const correct=a.answers.filter(x=>x.correct),listening=correct.filter(x=>x.part<=4).length,reading=correct.filter(x=>x.part>=5).length,center=estimateSection(listening)+estimateSection(reading),duration=Math.max(1,Math.round((Date.now()-a.startedAt)/60000));
     const scores=Object.values(a.validationScores||{}).flat(),blueprintAverage=scores.length?Math.round(scores.reduce((x,y)=>x+y,0)/scores.length):0;
     const result={id:a.id,date:dayKey(),mode:a.mode,correct:correct.length,listeningCorrect:listening,readingCorrect:reading,durationMinutes:duration,estimatedCenter:center,estimatedMin:Math.max(10,round5(center-30)),estimatedMax:Math.min(990,round5(center+30)),blueprintAverage,timedOut};
-    const h=mockHistory();h.push(result);save(MOCK_HISTORY,h.slice(-50));localStorage.removeItem(MOCK_KEY);
+    const h=mockHistory();if(!h.some(x=>x.id===a.id)){h.push(result);save(MOCK_HISTORY,h);
+    const extra={};for(let p=1;p<=7;p++){const items=a.answers.filter(x=>x.part===p);extra[`part${p}Answered`]=items.length;extra[`part${p}Correct`]=items.filter(x=>x.correct).length}
+    const event=makeGoalEvent(`完整模考 · ${modeLabel(a.mode)}`,duration,a.answers.length,correct.length,[],extra);event.eventId=a.id;publishGoalEvent(event);
+    }localStorage.removeItem(MOCK_KEY);window.dispatchEvent(new Event('toeic-safe-update'));
     body.innerHTML=`<section class="hero"><p class="eyebrow">FULL MOCK COMPLETE</p><h2>${correct.length}/200</h2><p>Listening ${listening}/100 · Reading ${reading}/100 · 預估 ${result.estimatedMin}–${result.estimatedMax}${timedOut?' · 時間到':''}</p><button id="doneMock" class="primary wide">完成</button></section>`;document.querySelector('#doneMock').onclick=()=>{dialog.close();render()};
   }
 
-  window.startFullMock=function(arg){
+  window.startFullMock=async function(arg){
+    await window.ToeicAssets.ready;
     if(activeMock())return resumeFullMock();
-    let mode='training';
+    let mode=arg==='strict'?'strict':'training';
     const id=arg?.currentTarget?.id||document.activeElement?.id||'';
     if(String(id).includes('Strict'))mode='strict';
     if(mode==='strict'&&!confirm('全真模式：Listening 每題／題組只能播放一次；Reading 75 分鐘倒數會持續計時。確定開始？'))return;
     const t=Date.now(),a={id:`full-mock-${t}`,mode,startedAt:t,currentPart:1,currentSet:null,currentIndex:0,blockNumbers:{},answers:[],validationScores:{},plays:0,audioComplete:false,currentAccents:[],currentVoiceResults:[],seed:t%997};persistMock(a);resumeFullMock();
   };
   window.resumeFullMock=function(){
-    const a=activeMock();if(!a)return;window.toeicStopAudio?.();clearMockTimer();dialogTitle.textContent=`完整模考 · ${modeLabel(a.mode)}`;if(!dialog.open)dialog.showModal();
+    const a=activeMock();if(!a)return;if(a.currentPart<=4&&!a.audioComplete){a.plays=0;persistMock(a)}window.toeicStopAudio?.();clearMockTimer();dialogTitle.textContent=`完整模考 · ${modeLabel(a.mode)}`;if(!dialog.open)dialog.showModal();
     if(a.mode==='strict'&&a.readingDeadline&&remainingReading(a)<=0)return finishMock(a,true);
     if(a.currentPart>=5&&!a.readingStartedAt)return showReadingTransition(a);
     if(a.currentSet)renderMockQuestion(a);else loadMockBlock();
   };
   window.discardFullMock=function(){
     const a=activeMock();if(!a||!confirm(`確定放棄目前 ${mockProgress(a)}/200 的完整模考進度？`))return;
-    window.toeicStopAudio?.();clearMockTimer();localStorage.removeItem(MOCK_KEY);if(dialog.open)dialog.close();render();
+    window.toeicStopAudio?.();clearMockTimer();localStorage.removeItem(MOCK_KEY);if(dialog.open)dialog.close();render();window.dispatchEvent(new Event('toeic-safe-update'));
   };
 
   // ---------------------------------------------------------------------------
-  // PROGRESS SUMMARY — Blueprint + accent exposure
+  // PROGRESS SUMMARY — 結構檢查 + accent exposure
   // ---------------------------------------------------------------------------
   const oldProgressPage=progressPage;
   window.progressPage=function(){
     const base=oldProgressPage();
     const rows=partSessions(),scores=rows.flatMap(r=>r.blueprintScores||[]),exposure=rows.flatMap(r=>r.accentExposure||[]);
-    const blueprint=scores.length?`<div class="section-head"><h3>Blueprint 品質</h3><span class="badge">${scores.length} 題組</span></div><div class="card blueprint-summary"><div><small>平均品質</small><strong>${Math.round(scores.reduce((a,b)=>a+b,0)/scores.length)}/100</strong></div><div><small>門檻</small><strong>${QUALITY_THRESHOLD}+</strong></div></div>`:'';
+    const blueprint=scores.length?`<div class="section-head"><h3>結構檢查 品質</h3><span class="badge">${scores.length} 題組</span></div><div class="card blueprint-summary"><div><small>平均品質</small><strong>${Math.round(scores.reduce((a,b)=>a+b,0)/scores.length)}/100</strong></div><div><small>門檻</small><strong>${QUALITY_THRESHOLD}+</strong></div></div>`:'';
     const accents=exposure.length?`<div class="section-head"><h3>Listening 口音接觸表現</h3><span class="badge">${exposure.length} 接觸點</span></div><div class="accent-performance-grid">${ACCENTS.map(a=>{const x=exposure.filter(e=>e.accent===a),pct=x.length?Math.round(x.filter(e=>e.correct).length/x.length*100):null;return `<div class="card accent-performance"><small>${a}</small><strong>${pct===null?'—':`${pct}%`}</strong><span>${x.length} 接觸</span></div>`}).join('')}</div>`:'';
     return base+blueprint+accents;
   };

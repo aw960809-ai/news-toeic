@@ -1,9 +1,17 @@
-const VERSION='2.3.3';
+const VERSION='2.6.1';
 const CACHE_PREFIX='news-toeic-github-';
 const CACHE=CACHE_PREFIX+VERSION;
-const SHELL=['./','./index.html','./app.js','./styles.css','./voice-image-upgrade.js','./analysis-appdeploy-parity.js','./appdeploy-parity-runtime.js','./headline-lesson-generator.js','./ui-feedback.js','./pwa-runtime.js','./manifest-original.webmanifest','./icon-original-192.png','./icon-original-512.png','./apple-touch-original.png','./data/news.json'];
-self.addEventListener('install',event=>event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(SHELL))));
-self.addEventListener('activate',event=>event.waitUntil((async()=>{const keys=await caches.keys();await Promise.all(keys.filter(k=>k.startsWith(CACHE_PREFIX)&&k!==CACHE).map(k=>caches.delete(k)));await self.clients.claim()})()));
-self.addEventListener('message',event=>{if(event.data?.type==='SKIP_WAITING')self.skipWaiting();if(event.data?.type==='GET_VERSION'&&event.ports?.[0])event.ports[0].postMessage({version:VERSION})});
-async function networkFirst(request,fallback){try{const r=await fetch(request,{cache:'no-store'});if(r&&r.ok){const c=await caches.open(CACHE);await c.put(request,r.clone())}return r}catch(_){return await caches.match(request)||await caches.match(fallback)||Response.error()}}
-self.addEventListener('fetch',event=>{const r=event.request;if(r.method!=='GET')return;const u=new URL(r.url);if(u.origin!==self.location.origin)return;if(r.mode==='navigate'){event.respondWith(networkFirst(r,'./index.html'));return}if(/\.(?:js|css|webmanifest)$/.test(u.pathname)||/\/data\/news\.json$/.test(u.pathname)){event.respondWith(networkFirst(r));return}event.respondWith(caches.match(r).then(hit=>hit||fetch(r)))})
+const SHELL=["./", "./index.html", "./app.js", "./styles.css", "./toeic-random-engine.js", "./voice-image-upgrade.js", "./analysis-appdeploy-parity.js", "./appdeploy-parity-runtime.js", "./headline-lesson-generator.js", "./lesson-flow-parity.js", "./study-workbench.js", "./ui-feedback.js", "./pwa-runtime.js", "./manifest-original.webmanifest", "./icon-original-192.png", "./icon-original-512.png", "./apple-touch-original.png", "./data/news.json", "./data/part1-bank.json", "./audio/manifest.json", "./assets/part1/airport-counter.svg", "./assets/part1/conference-presentation.svg", "./assets/part1/train-platform.svg", "./assets/part1/office-notes.svg", "./assets/part1/delivery-box.svg", "./assets/part1/warehouse-boxes.svg", "./assets/part1/meeting-table.svg", "./assets/part1/store-display.svg"];
+const root=new URL('./',self.location.href);
+self.addEventListener('install',e=>e.waitUntil((async()=>{const c=await caches.open(CACHE);await c.addAll(SHELL.map(url=>new Request(new URL(url,root),{cache:'reload'})))})()));
+self.addEventListener('activate',e=>e.waitUntil((async()=>{const keys=await caches.keys();await Promise.all(keys.filter(k=>k.startsWith(CACHE_PREFIX)&&k!==CACHE).map(k=>caches.delete(k)));await self.clients.claim()})()));
+self.addEventListener('message',e=>{if(e.data?.type==='SKIP_WAITING')self.skipWaiting();if(e.data?.type==='GET_VERSION')e.ports?.[0]?.postMessage({version:VERSION})});
+self.addEventListener('fetch',e=>{
+ const r=e.request,u=new URL(r.url);if(r.method!=='GET'||u.origin!==root.origin||!u.pathname.startsWith(root.pathname))return;
+ const rel=u.pathname.slice(root.pathname.length),clean=new Request(new URL(rel||'index.html',root));
+ if(rel==='data/news.json'){
+  e.respondWith((async()=>{const cache=await caches.open(CACHE);try{const response=await fetch(r,{cache:'no-store'});if(!response.ok)throw Error(response.status);await cache.put(clean,response.clone());return response}catch{return await cache.match(clean)||new Response(JSON.stringify({articles:[],offline:true}),{status:503,headers:{'Content-Type':'application/json'}})}})());return;
+ }
+ const key=r.mode==='navigate'?new Request(new URL('index.html',root)):clean;
+ e.respondWith((async()=>{const cache=await caches.open(CACHE);return await cache.match(key)||fetch(r)})());
+});

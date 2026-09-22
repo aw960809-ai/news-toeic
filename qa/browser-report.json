@@ -1,0 +1,76 @@
+{
+  "checks": 13,
+  "browser": "Chromium mobile viewport 390x844",
+  "audio": "simulated SpeechSynthesis events; not physical-device audio",
+  "serviceWorker": "not exercised in DOM test",
+  "storage": "in-memory localStorage-compatible adapter; serialized across simulated page reloads",
+  "network": "local fixture Responses; no online requests",
+  "status": "PASS",
+  "tests": [
+    {
+      "test": "home renders exactly three selectable candidate cards",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "test": "six navigation routes load with no browser exceptions",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "test": "Part 3/4/6/7 keep one shared context and distinct questions",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "test": "due review opens, hides explanation before answering and advances once",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "test": "practice pause/resume does not consume a second play; replay cap is enforced",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "test": "strict mock locks answers until audio ends and requires explicit confirmation",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "test": "reload/resume preserves mock question options and previous answers",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "test": "expired strict Reading deadline submits on resume and retains history",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "test": "full article step flow, analysis, questions and idempotent completion",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "test": "completed article revisits do not add a second learning record",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "test": "vocabulary typing/Enter grades only once and saves SRS stage",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "test": "writing checks and revisions save separately without falsely granting vocabulary mastery",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "test": "other application storage sentinel preserved; no uncaught browser exceptions",
+      "status": "PASS",
+      "details": null
+    }
+  ]
+}

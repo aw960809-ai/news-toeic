@@ -1,0 +1,87 @@
+{
+  "checks": 20,
+  "randomPlans": 6000,
+  "status": "PASS",
+  "report": [
+    {
+      "name": "6000 weighted random plans preserve bounds and maximum streak",
+      "status": "PASS"
+    },
+    {
+      "name": "option permutation keeps correct answer and never mutates inputs",
+      "status": "PASS"
+    },
+    {
+      "name": "three-option and four-option groups stay separate",
+      "status": "PASS"
+    },
+    {
+      "name": "sampling is without replacement until pool exhaustion",
+      "status": "PASS"
+    },
+    {
+      "name": "article generation uses its own sentence examples and grounded questions",
+      "status": "PASS"
+    },
+    {
+      "name": "article plan remains stable when other articles are generated",
+      "status": "PASS"
+    },
+    {
+      "name": "article syntax is varied across sources",
+      "status": "PASS"
+    },
+    {
+      "name": "vocabulary recall intervals are 1,3,7,14,30 days then mastery",
+      "status": "PASS"
+    },
+    {
+      "name": "a wrong recall resets only that target",
+      "status": "PASS"
+    },
+    {
+      "name": "unsupported grammar is not auto-approved",
+      "status": "PASS"
+    },
+    {
+      "name": "supported grammar matches targets only",
+      "status": "PASS"
+    },
+    {
+      "name": "random plans have variable totals rather than a fixed answer quota",
+      "status": "PASS"
+    },
+    {
+      "name": "explanation labels and composed option IDs follow the correct answer",
+      "status": "PASS"
+    },
+    {
+      "name": "pool validation and a cycle boundary never duplicate a question within a small draw",
+      "status": "PASS"
+    },
+    {
+      "name": "different meanings are retained; rescan preserves IDs, review state and all sources",
+      "status": "PASS"
+    },
+    {
+      "name": "the same saved recall event cannot advance a word twice",
+      "status": "PASS"
+    },
+    {
+      "name": "legacy writing draft retains its original targets and text",
+      "status": "PASS"
+    },
+    {
+      "name": "writing history is not trimmed at 500 and save IDs are idempotent",
+      "status": "PASS"
+    },
+    {
+      "name": "new grammar targets use a matching original sentence when the old example is paraphrased",
+      "status": "PASS"
+    },
+    {
+      "name": "damaged review storage is not overwritten during a harvest",
+      "status": "PASS"
+    }
+  ]
+}

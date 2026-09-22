@@ -155,13 +155,13 @@ def fallback_rows() -> list[dict]:
     for i, (category, title, summary) in enumerate(FALLBACK_SEED):
         out.append({
             "id": f"fallback-{i+1}",
-            "origin": "live",
-            "articleType": "Live News",
+            "origin": "practice",
+            "articleType": "Practice Topic",
             "category": category,
             "source": "Practice News Feed",
             "sourceUrl": "",
             "title": title,
-            "url": f"https://example.com/toeic-news-{i+1}",
+            "url": "",
             "publishedAt": now,
             "summary": summary,
             "toeicScore": 82 - (i % 5),
@@ -203,6 +203,9 @@ for row in filtered:
     if row["id"] not in picked:
         balanced.append(row)
         picked.add(row["id"])
+
+if not balanced:
+    raise SystemExit("No eligible RSS articles; existing news.json preserved")
 
 if len(balanced) < 12:
     for row in fallback_rows():

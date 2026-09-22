@@ -1,0 +1,50 @@
+{
+  "status": "PASS",
+  "checks": 8,
+  "browser": "Chromium 360/390/430 px, DOM fixture tests",
+  "storage": "localStorage-compatible adapter; snapshot serialized across newly built page fixtures",
+  "serviceWorker": "not tested; browser policy blocked HTTP/HTTPS navigation",
+  "audio": "not physically tested; simulated SpeechSynthesis",
+  "tests": [
+    {
+      "test": "603 old article results and legacy mock history survive fixture reload byte-for-byte",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "test": "fixture reload restores sentence text and EXACT vocabulary / pattern targets",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "test": "sentence/paragraph drafts remain separate; revision history retains both submissions",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "test": "context quiz resumes same set/options and feedback; reload does not advance SRS twice",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "test": "unfinished article restores paragraph, option order, prior answers, reading time and session ID",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "test": "completion adds one result without a 500-row cap; revisits preserve histories",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "test": "unrelated application localStorage remains unchanged",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "test": "three mobile widths and review tabs have no horizontal page overflow or uncaught exceptions",
+      "status": "PASS",
+      "details": null
+    }
+  ]
+}

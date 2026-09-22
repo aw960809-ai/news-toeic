@@ -1,6 +1,6 @@
 'use strict';
 
-const VERSION='2.3.3-github';
+const VERSION='2.6.1-github';
 const KEYS={
  generated:'generated',sessions:'sessions',mistakes:'mistakes',settings:'settings',
  daily:'dailyMainAssignment',dailyHistory:'dailyMainHistory',dailyPool:'dailyMainCandidatePool',
@@ -16,7 +16,7 @@ const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&
 const dayKey=(d=new Date())=>`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
 const now=()=>new Date().toISOString();
 const main=document.getElementById('appMain'),dialog=document.getElementById('lessonDialog'),dialogTitle=document.getElementById('lessonTitle'),body=document.getElementById('lessonBody');
-let route='today',news=[],newsUpdatedAt='',activeLesson=null,lessonStarted=0,readingStarted=0,answers=[],qIndex=0;
+let route='today',news=load('toeicNewsSnapshotV1',{articles:[]}).articles||[],newsUpdatedAt=load('toeicNewsSnapshotV1',{}).updatedAt||'',activeLesson=null,lessonStarted=0,readingStarted=0,answers=[],qIndex=0;
 let settings={currentLevel:600,targetScore:750,dailyMinutes:30,category:'Balanced',...load(KEYS.settings,{})};
 
 const offlineLesson={
@@ -70,11 +70,11 @@ async function loadNews(manual=false){
   button.textContent='讀取中…';
  }
  try{
-  const r=await fetch(`./data/news.json?ts=${Date.now()}`,{cache:'no-store'});
+  const r=await fetch(`./data/news.json?ts=${Date.now()}`,{cache:'no-store',signal:AbortSignal.timeout(15000)});
   if(!r.ok)throw new Error(`HTTP ${r.status}`);
   const d=await r.json();
   if(!Array.isArray(d.articles))throw new Error('news.json articles 格式錯誤');
-  news=d.articles;
+  news=d.articles;try{localStorage.setItem('toeicNewsSnapshotV1',JSON.stringify(d))}catch{}
   newsUpdatedAt=String(d.updatedAt||'');
   localStorage.setItem('toeicGithubNewsUpdatedAt',newsUpdatedAt);
   localStorage.setItem('toeicGithubNewsLastLoadedAt',new Date().toISOString());
@@ -84,7 +84,7 @@ async function loadNews(manual=false){
    toast(changed?`已載入最新新聞 · ${news.length} 篇 · ${when}`:`目前已是最新新聞 · ${news.length} 篇`);
   }
  }catch(error){
-  console.error('News reload failed',error);
+  console.warn('News reload failed',error);
   if(manual)toast('新聞讀取失敗；已保留目前新聞，稍後會再自動嘗試');
  }
  render();
@@ -138,7 +138,7 @@ function articleAnalysis(text){
 function saveAnalysisCache(article,analysis){
  const rows=load(KEYS.analysis,[]).filter(x=>x.articleId!==article.id);
  rows.push({articleId:article.id,fingerprint:`${article.text.length}:${article.text.slice(0,24)}`,savedAt:now(),analysis});
- save(KEYS.analysis,rows.slice(-20));
+ save(KEYS.analysis,rows);
 }
 function cachedAnalysis(article){
  const fp=`${article.text.length}:${article.text.slice(0,24)}`;
@@ -161,7 +161,7 @@ function migrateQueuedGoalEvents(){
 }
 function makeGoalEvent(title,duration,total,correct,wrongSkills=[],extra={}){
  const end=now(),start=new Date(Date.now()-Math.max(1,duration)*60000).toISOString();
- return{eventId:`toeic-github-${Date.now()}-${Math.random().toString(36).slice(2)}`,channelId:localStorage.getItem(KEYS.goalChannel)||'github-direct',source:'news-toeic',activity:'toeic-news-training',goalKey:'foreign-language-preparation',goalLabels:['語言能力準備'],startedAt:start,endedAt:end,durationMinutes:Math.max(1,Math.round(duration)),articleId:extra.articleId||'',articleTitle:title,category:extra.category||'Practice',articlesCompleted:extra.articlesCompleted||0,wordCount:extra.wordCount||0,questionsAnswered:total,correctAnswers:correct,accuracy:total?Math.round(correct/total*100):0,readingWpm:extra.readingWpm||0,part1Answered:extra.part1Answered||0,part1Correct:extra.part1Correct||0,part2Answered:extra.part2Answered||0,part2Correct:extra.part2Correct||0,part3Answered:extra.part3Answered||0,part3Correct:extra.part3Correct||0,part4Answered:extra.part4Answered||0,part4Correct:extra.part4Correct||0,part5Answered:extra.part5Answered||0,part5Correct:extra.part5Correct||0,part6Answered:extra.part6Answered||0,part6Correct:extra.part6Correct||0,part7Answered:extra.part7Answered||0,part7Correct:extra.part7Correct||0,wrongSkills};
+ return{eventId:`toeic-github-${Date.now()}-${Math.random().toString(36).slice(2)}`,channelId:localStorage.getItem(KEYS.goalChannel)||'github-direct',source:'news-toeic',activity:'toeic-news-training',goalKey:'foreign-language-preparation',goalLabels:['語言能力準備'],startedAt:start,endedAt:end,durationMinutes:Math.max(1,Math.round(duration)),articleId:extra.articleId||'',articleTitle:title,category:extra.category||'Practice',articlesCompleted:extra.articlesCompleted||0,wordCount:extra.wordCount||0,questionsAnswered:total,correctAnswers:correct,accuracy:total?correct/total:0,readingWpm:extra.readingWpm||0,part1Answered:extra.part1Answered||0,part1Correct:extra.part1Correct||0,part2Answered:extra.part2Answered||0,part2Correct:extra.part2Correct||0,part3Answered:extra.part3Answered||0,part3Correct:extra.part3Correct||0,part4Answered:extra.part4Answered||0,part4Correct:extra.part4Correct||0,part5Answered:extra.part5Answered||0,part5Correct:extra.part5Correct||0,part6Answered:extra.part6Answered||0,part6Correct:extra.part6Correct||0,part7Answered:extra.part7Answered||0,part7Correct:extra.part7Correct||0,wrongSkills};
 }
 
 function todayPage(){
@@ -219,9 +219,9 @@ function bind(){
  document.querySelector('#startDaily')?.addEventListener('click',e=>openLesson(e.currentTarget.dataset.id));
  document.querySelector('#chooseNews')?.addEventListener('click',()=>switchRoute('news'));
  document.querySelector('#reloadNews')?.addEventListener('click',()=>void loadNews(true));
- document.querySelectorAll('.make-lesson').forEach(b=>b.onclick=()=>{const n=news.find(x=>String(x.id)===String(b.dataset.id));if(!n)return;const lesson=buildNewsLesson(n),rows=generated().filter(x=>x.id!==lesson.id);rows.push(lesson);save(KEYS.generated,rows.slice(-60));save(KEYS.daily,{date:dayKey(),articleId:lesson.id,completed:false,selectedByUser:true});toast('已建立本機原創教材');openLesson(lesson.id)});
+ document.querySelectorAll('.make-lesson').forEach(b=>b.onclick=()=>{const n=news.find(x=>String(x.id)===String(b.dataset.id));if(!n)return;const lesson=buildNewsLesson(n),rows=generated().filter(x=>x.id!==lesson.id);rows.push(lesson);save(KEYS.generated,rows);save(KEYS.daily,{date:dayKey(),articleId:lesson.id,completed:false,selectedByUser:true});toast('已建立本機原創教材');openLesson(lesson.id)});
  document.querySelectorAll('[data-part]').forEach(b=>b.onclick=()=>startPractice(Number(b.dataset.part),practiceCount(Number(b.dataset.part))));
- document.querySelector('#startMock')?.addEventListener('click',startFullMock);
+ document.querySelector('#startMock')?.addEventListener('click',()=>startFullMock('training'));
  document.querySelectorAll('.retry-review').forEach(b=>b.onclick=()=>appdeployRetryReview(b.dataset.kind,b.dataset.id));
  document.querySelector('#saveSettings')?.addEventListener('click',()=>{settings.currentLevel=Number(document.querySelector('#cur').value)||600;settings.targetScore=Number(document.querySelector('#goal').value)||750;settings.dailyMinutes=Number(document.querySelector('#mins').value)||30;save(KEYS.settings,settings);toast('設定已儲存');render()});
  document.querySelector('#exportBackup')?.addEventListener('click',exportBackup);
@@ -261,7 +261,7 @@ function registerNewsMistake(question,choice,article){
 }
 function finishLesson(){
  const qs=activeLesson.questions||[],correct=answers.filter(x=>x.correct).length,duration=Math.max(1,Math.round((Date.now()-lessonStarted)/60000)),readingMs=Math.max(1000,Date.now()-readingStarted),wpm=Math.round(wordCount(activeLesson.text)/(readingMs/60000));
- const rows=sessions();rows.push({id:`session-${Date.now()}`,articleId:activeLesson.id,date:dayKey(),title:activeLesson.title,startedAt:new Date(lessonStarted).toISOString(),endedAt:now(),durationMinutes:duration,wpm:wpm>=40&&wpm<=450?wpm:0,correct,total:qs.length});save(KEYS.sessions,rows.slice(-500));
+ const rows=sessions();rows.push({id:`session-${Date.now()}`,articleId:activeLesson.id,date:dayKey(),title:activeLesson.title,startedAt:new Date(lessonStarted).toISOString(),endedAt:now(),durationMinutes:duration,wpm:wpm>=40&&wpm<=450?wpm:0,correct,total:qs.length});save(KEYS.sessions,rows);
  const d=load(KEYS.daily,null);if(d?.date===dayKey()&&d.articleId===activeLesson.id)save(KEYS.daily,{...d,completed:true});
  const ev=makeGoalEvent(activeLesson.title,duration,qs.length,correct,answers.filter(x=>!x.correct).map(x=>x.q.skill),{articleId:activeLesson.id,category:activeLesson.category,articlesCompleted:1,wordCount:wordCount(activeLesson.text),readingWpm:wpm>=40&&wpm<=450?wpm:0,part5Answered:qs.filter(x=>x.part==='Part 5').length,part5Correct:answers.filter(x=>x.q.part==='Part 5'&&x.correct).length,part7Answered:qs.filter(x=>x.part==='Part 7').length,part7Correct:answers.filter(x=>x.q.part==='Part 7'&&x.correct).length});publishGoalEvent(ev);
  body.innerHTML=`<section class="hero"><p class="eyebrow">COMPLETE</p><h2>${correct}/${qs.length}</h2><p>本次 ${duration} 分鐘${wpm>=40&&wpm<=450?` · 約 ${wpm} WPM`:''}。已寫入 GitHub 同網域 Goal Sync。</p><button id="lessonDone" class="primary wide">完成</button></section>`;document.querySelector('#lessonDone').onclick=()=>{dialog.close();render()}
@@ -471,17 +471,17 @@ function speakQuestion(item){
 }
 function startPractice(part,count){const set=makeSet(part,count),started=Date.now(),ans=[];let idx=0;dialogTitle.textContent=`Part ${part} · ${PART_INFO[part][0]}`;dialog.showModal();
  const show=()=>{if(idx>=set.length)return finish();if(window.toeicStopAudio)window.toeicStopAudio();const item=set[idx];body.innerHTML=`<section><div class="section-head"><span class="badge">Part ${part}</span><span class="badge">${idx+1}/${set.length}</span></div>${item.image?`<img class="photo" src="${item.image}" alt="Part 1 illustration">`:''}${item.stimulus&&part>=5?`<div class="card"><p style="white-space:pre-line">${esc(item.stimulus)}</p></div>`:''}${part<=4?'<button id="playQ" class="secondary wide">🔊 播放音檔</button>':''}<h3>${part<=2?'請先聆聽，再選擇答案。':esc(item.q)}</h3><div class="option-grid">${item.options.map((o,i)=>`<button class="option p-opt" data-i="${i}">${String.fromCharCode(65+i)}. ${part<=2?'':esc(o)}</button>`).join('')}</div><div id="practiceFeedback"></div></section>`;document.querySelector('#playQ')?.addEventListener('click',()=>speakQuestion(item));document.querySelectorAll('.p-opt').forEach(b=>b.onclick=()=>{const choice=Number(b.dataset.i),correct=choice===item.answer;ans.push({item,choice,correct});if(window.toeicStopAudio)window.toeicStopAudio();if(!correct)registerPartMistake(part,item,choice);document.querySelectorAll('.p-opt').forEach((x,i)=>{x.disabled=true;if(i===item.answer)x.classList.add('correct');else if(i===choice)x.classList.add('wrong')});document.querySelector('#practiceFeedback').innerHTML=`<div class="card practice-feedback"><b>${correct?'答對':'答錯'}</b><p class="muted">${esc(item.explain)}</p>${part<=4?listeningTranscriptHtml(item):''}<button id="nextP" class="primary">${idx+1===set.length?'完成':'下一題'}</button></div>`;document.querySelector('#nextP').onclick=()=>{idx++;show()}})};
- const finish=()=>{const correct=ans.filter(x=>x.correct).length,duration=Math.max(1,Math.round((Date.now()-started)/60000)),rows=partSessions();rows.push({id:`part-${Date.now()}`,date:dayKey(),part,title:`Part ${part}`,correct,total:set.length,durationMinutes:duration,skills:[...new Set(set.map(x=>x.skill))]});save(KEYS.partSessions,rows.slice(-500));const extra={};extra[`part${part}Answered`]=set.length;extra[`part${part}Correct`]=correct;publishGoalEvent(makeGoalEvent(`Part ${part} 訓練`,duration,set.length,correct,ans.filter(x=>!x.correct).map(x=>x.item.skill),extra));body.innerHTML=`<section class="hero"><p class="eyebrow">PART ${part} COMPLETE</p><h2>${correct}/${set.length}</h2><p>${duration} 分鐘 · 已寫入 GitHub Goal Sync。</p><button id="doneP" class="primary wide">完成</button></section>`;document.querySelector('#doneP').onclick=()=>{dialog.close();render()}};
+ const finish=()=>{const correct=ans.filter(x=>x.correct).length,duration=Math.max(1,Math.round((Date.now()-started)/60000)),rows=partSessions();rows.push({id:`part-${Date.now()}`,date:dayKey(),part,title:`Part ${part}`,correct,total:set.length,durationMinutes:duration,skills:[...new Set(set.map(x=>x.skill))]});save(KEYS.partSessions,rows);const extra={};extra[`part${part}Answered`]=set.length;extra[`part${part}Correct`]=correct;publishGoalEvent(makeGoalEvent(`Part ${part} 訓練`,duration,set.length,correct,ans.filter(x=>!x.correct).map(x=>x.item.skill),extra));body.innerHTML=`<section class="hero"><p class="eyebrow">PART ${part} COMPLETE</p><h2>${correct}/${set.length}</h2><p>${duration} 分鐘 · 已寫入 GitHub Goal Sync。</p><button id="doneP" class="primary wide">完成</button></section>`;document.querySelector('#doneP').onclick=()=>{dialog.close();render()}};
  show()
 }
-function registerPartMistake(part,item,choice){const rows=partMistakes(),t=now();let m=rows.find(x=>Number(x.part)===part&&x.question?.q===item.q);if(!m){m={id:`part-m-${Date.now()}-${Math.random().toString(36).slice(2)}`,part,question:item,choice,source:'practice'};rows.push(m)}Object.assign(m,{choice,status:'unmastered',reviewStage:0,correctStreak:0,firstWrongAt:m.firstWrongAt||t,lastWrongAt:t,lastReviewedAt:t,nextReviewAt:new Date(Date.now()+86400000).toISOString(),masteredAt:undefined});save(KEYS.partMistakes,rows.slice(-500))}
+function registerPartMistake(part,item,choice){const rows=partMistakes(),t=now();let m=rows.find(x=>Number(x.part)===part&&x.question?.q===item.q);if(!m){m={id:`part-m-${Date.now()}-${Math.random().toString(36).slice(2)}`,part,question:item,choice,source:'practice'};rows.push(m)}Object.assign(m,{choice,status:'unmastered',reviewStage:0,correctStreak:0,firstWrongAt:m.firstWrongAt||t,lastWrongAt:t,lastReviewedAt:t,nextReviewAt:new Date(Date.now()+86400000).toISOString(),masteredAt:undefined});save(KEYS.partMistakes,rows)}
 function markReview(kind,id){const key=kind==='news'?KEYS.mistakes:KEYS.partMistakes,rows=load(key,[]),m=rows.find(x=>x.id===id);if(!m)return;const stage=Number(m.reviewStage)||0;m.correctStreak=(Number(m.correctStreak)||0)+1;m.lastReviewedAt=now();if(stage>=2){m.status='mastered';m.reviewStage=3;m.masteredAt=now();delete m.nextReviewAt}else{m.reviewStage=stage+1;m.status=m.reviewStage===1?'reviewing':'confirming';m.nextReviewAt=new Date(Date.now()+(m.reviewStage===1?3:7)*86400000).toISOString()}save(key,rows);toast('複習狀態已更新');render()}
 
 function startFullMock(){
  const counts={1:6,2:25,3:39,4:30,5:30,6:16,7:54},items=[];for(let p=1;p<=7;p++)items.push(...makeSet(p,counts[p],p*97));
  const started=Date.now(),result=[],active={id:`mock-${Date.now()}`,mode:'training',startedAt:started,index:0,answers:[]};save(KEYS.mockActive,active);dialogTitle.textContent='完整 TOEIC-style 200 題模考';dialog.showModal();
  const show=()=>{const idx=active.index;if(idx>=items.length)return finish();if(window.toeicStopAudio)window.toeicStopAudio();const item=items[idx],part=item.part;body.innerHTML=`<section><div class="section-head"><span class="badge">Part ${part}</span><span class="badge">${idx+1}/200</span></div><div class="progressbar"><i style="width:${(idx/200*100).toFixed(1)}%"></i></div>${idx===100?'<div class="notice">Reading Section 開始。正式 TOEIC Reading 為 75 分鐘；此 GitHub 訓練版會保留你的作答進度。</div>':''}${item.image?`<img class="photo" src="${item.image}" alt="Part 1 illustration">`:''}${item.stimulus&&part>=5?`<div class="card"><p style="white-space:pre-line">${esc(item.stimulus)}</p></div>`:''}${part<=4?'<button id="mockAudio" class="secondary wide">🔊 播放音檔</button>':''}<h3>${part<=2?'請聆聽後作答':esc(item.q)}</h3><div class="option-grid">${item.options.map((o,i)=>`<button class="option mock-opt" data-i="${i}">${String.fromCharCode(65+i)}. ${part<=2?'':esc(o)}</button>`).join('')}</div></section>`;document.querySelector('#mockAudio')?.addEventListener('click',()=>speakQuestion(item));document.querySelectorAll('.mock-opt').forEach(b=>b.onclick=()=>{const choice=Number(b.dataset.i),correct=choice===item.answer;if(window.toeicStopAudio)window.toeicStopAudio();active.answers.push({part,question:item,choice,correct});if(!correct)registerPartMistake(part,item,choice);active.index++;save(KEYS.mockActive,active);show()})};
- const finish=()=>{const correct=active.answers.filter(x=>x.correct).length,listening=active.answers.filter(x=>x.part<=4&&x.correct).length,reading=active.answers.filter(x=>x.part>=5&&x.correct).length,duration=Math.max(1,Math.round((Date.now()-started)/60000)),history=mockHistory();history.push({id:active.id,date:dayKey(),mode:'training',correct,listeningCorrect:listening,readingCorrect:reading,durationMinutes:duration,estimatedMin:Math.max(10,Math.round(correct/200*990)-40),estimatedMax:Math.min(990,Math.round(correct/200*990)+40),estimatedCenter:Math.round(correct/200*990),timedOut:false});save(KEYS.mockHistory,history.slice(-50));localStorage.removeItem(KEYS.mockActive);const extra={};for(let p=1;p<=7;p++){extra[`part${p}Answered`]=active.answers.filter(x=>x.part===p).length;extra[`part${p}Correct`]=active.answers.filter(x=>x.part===p&&x.correct).length}publishGoalEvent(makeGoalEvent('完整 TOEIC-style 200 題模考',duration,200,correct,active.answers.filter(x=>!x.correct).map(x=>x.question.skill),extra));body.innerHTML=`<section class="hero"><p class="eyebrow">FULL MOCK COMPLETE</p><h2>${correct}/200</h2><p>Listening ${listening}/100 · Reading ${reading}/100 · 約 ${duration} 分鐘</p><button id="doneMock" class="primary wide">完成</button></section>`;document.querySelector('#doneMock').onclick=()=>{dialog.close();render()}};
+ const finish=()=>{const correct=active.answers.filter(x=>x.correct).length,listening=active.answers.filter(x=>x.part<=4&&x.correct).length,reading=active.answers.filter(x=>x.part>=5&&x.correct).length,duration=Math.max(1,Math.round((Date.now()-started)/60000)),history=mockHistory();history.push({id:active.id,date:dayKey(),mode:'training',correct,listeningCorrect:listening,readingCorrect:reading,durationMinutes:duration,estimatedMin:Math.max(10,Math.round(correct/200*990)-40),estimatedMax:Math.min(990,Math.round(correct/200*990)+40),estimatedCenter:Math.round(correct/200*990),timedOut:false});save(KEYS.mockHistory,history);localStorage.removeItem(KEYS.mockActive);const extra={};for(let p=1;p<=7;p++){extra[`part${p}Answered`]=active.answers.filter(x=>x.part===p).length;extra[`part${p}Correct`]=active.answers.filter(x=>x.part===p&&x.correct).length}publishGoalEvent(makeGoalEvent('完整 TOEIC-style 200 題模考',duration,200,correct,active.answers.filter(x=>!x.correct).map(x=>x.question.skill),extra));body.innerHTML=`<section class="hero"><p class="eyebrow">FULL MOCK COMPLETE</p><h2>${correct}/200</h2><p>Listening ${listening}/100 · Reading ${reading}/100 · 約 ${duration} 分鐘</p><button id="doneMock" class="primary wide">完成</button></section>`;document.querySelector('#doneMock').onclick=()=>{dialog.close();render()}};
  show()
 }
 
@@ -646,7 +646,7 @@ function appdeployReviewDue(m){
   return m.status!=='mastered'&&(!m.nextReviewAt||Date.parse(m.nextReviewAt)<=Date.now());
 }
 function appdeployReviewDate(m){
-  return m.nextReviewAt?new Date(m.nextReviewAt).toLocaleDateString('zh-TW',{month:'numeric',day:'numeric'}):'現在';
+  return m.nextReviewAt?new Date(m.nextReviewAt).toLocaleDateString('zh-TW',{month:'numeric',day:'numeric',hour:'2-digit',minute:'2-digit'}):'現在';
 }
 function appdeployReviewContext(kind,m){
   if(kind==='news'){
@@ -656,12 +656,13 @@ function appdeployReviewContext(kind,m){
   }
   return m.question?.stimulus||m.stimulus||'';
 }
-function appdeployAdvanceReview(kind,m,correct){
+function appdeployAdvanceReview(kind,m,correct,choice){
   const key=kind==='news'?KEYS.mistakes:KEYS.partMistakes;
   const rows=load(key,[]);
   const row=rows.find(x=>x.id===m.id);
   if(!row)return null;
   const t=now();
+  if(Number.isInteger(choice))row.choice=choice;
   row.reviewCount=(Number(row.reviewCount)||0)+1;
   row.lastReviewedAt=t;
   if(!correct){
@@ -691,47 +692,37 @@ function appdeployAdvanceReview(kind,m,correct){
 }
 function appdeployRetryReview(kind,id){
   const rows=kind==='news'?newsMistakes():partMistakes();
-  const m=rows.find(x=>x.id===id);
-  if(!m||m.status==='mastered')return;
-  if(!appdeployReviewDue(m)){toast(`尚未到複習時間：${appdeployReviewDate(m)}`);return;}
-  const q=m.question||{};
-  const context=appdeployReviewContext(kind,m);
+  const m=rows.find(x=>String(x.id)===String(id));if(!m||m.status==='mastered')return;
+  if(!appdeployReviewDue(m)){toast(`尚未到複習時間：${appdeployReviewDate(m)}`);return}
+  const q=m.question||{},part=Number(String(q.part||m.part||'').match(/\d+/)?.[0]),listening=kind==='part'&&part<=4;
+  if(!Array.isArray(q.options)||!Number.isInteger(Number(q.answer))||Number(q.answer)<0||Number(q.answer)>=q.options.length){toast('此舊題目缺少有效選項或答案；紀錄已保留，未更動排程。');return}
+  window.toeicStopAudio?.();const context=appdeployReviewContext(kind,m);let answered=false,played=!listening,plays=0;
+  const text=part===1?q.options.map((x,i)=>`${String.fromCharCode(65+i)}. ${x}`).join(' '):part===2?[q.q,...q.options].join('. '):(m.audioText||q.stimulus||m.stimulus||'');
+  let image=q.image||m.imageData||'';if(image&&!/^(?:data:|https?:|\.\/)/.test(image)&&m.imageMimeType)image=`data:${m.imageMimeType};base64,${image}`;
   dialogTitle.textContent='間隔錯題重測';
-  body.innerHTML=`<section class="lesson-step">
-    <div class="article-meta">
-      <span class="badge">${esc(q.part||`Part ${Number(m.part)||''}`)}</span>
-      <span class="badge">${esc(q.skill||'Review')}</span>
-      <span class="badge">${appdeployReviewStatus(m)}</span>
-      ${context?'<span class="badge review-context-badge">文章語境</span>':''}
-    </div>
-    ${context?`<div class="card review-context"><div class="review-context-head"><strong>作答語境</strong><span>作答前不提供解析或答案</span></div><p class="review-context-text" style="white-space:pre-line">${esc(context)}</p></div>`:''}
-    <h3>${esc(q.q||'錯題')}</h3>
-    <div class="option-grid">${(q.options||[]).map((o,i)=>`<button class="option retry-answer" data-i="${i}">${String.fromCharCode(65+i)}. ${esc(o)}</button>`).join('')}</div>
-    <div id="reviewFeedback"></div>
-  </section>`;
-  dialog.showModal();
+  body.innerHTML=`<section class="lesson-step"><div class="article-meta"><span class="badge">${esc(q.part||`Part ${part}`)}</span><span class="badge">${esc(q.skill||'Review')}</span><span class="badge">${appdeployReviewStatus(m)}</span></div>
+  ${part===1&&image?`<img class="practice-photo" src="${esc(image)}" alt="原題插圖">`:''}
+  ${listening?'<div class="listen-controls"><button class="secondary" id="reviewPlayAudio">播放原題音訊</button><small>播放結束後才能作答；最多 2 次。</small></div>':context?`<div class="review-context card"><strong>原作答語境</strong><p style="white-space:pre-line">${esc(context)}</p></div>`:''}
+  <h3>${listening&&part<=2?'請先聆聽，再選擇答案。':esc(q.q)}</h3>
+  <div class="option-grid">${q.options.map((x,i)=>`<button class="option retry-answer" data-i="${i}" ${played?'':'disabled'}>${String.fromCharCode(65+i)}.${listening&&part<=2?'':` ${esc(x)}`}</button>`).join('')}</div><div id="reviewFeedback"></div></section>`;
+  if(!dialog.open)dialog.showModal();body.scrollTop=0;
+  document.querySelector('#reviewPlayAudio')?.addEventListener('click',e=>{
+    const key=`review:${kind}:${m.id}`,ongoing=window.toeicAudio.state()?.key===key;
+    if(!ongoing&&plays>=2){toast('本題最多播放兩次');return}
+    if(!text){toast('舊紀錄未包含原音訊文字，請保留紀錄，回原教材查看。');return}
+    const accent=window.toeicAudio.accents(key,1)[0];const result=window.toeicAudio.toggle([{text,accent,speaker:'Review'}],key,e.currentTarget);
+    if(result.action==='started'){plays++;result.promise.then(r=>{if(answered)return;if(r.status==='ended'){played=true;document.querySelectorAll('.retry-answer').forEach(b=>b.disabled=false)}else{plays=Math.max(0,plays-1);if(r.status==='error')toast(r.error)}})}
+  });
   document.querySelectorAll('.retry-answer').forEach(btn=>btn.onclick=()=>{
-    const choice=Number(btn.dataset.i);
-    const correct=choice===Number(q.answer);
-    document.querySelectorAll('.retry-answer').forEach((x,i)=>{
-      x.disabled=true;
-      if(i===Number(q.answer))x.classList.add('correct');
-      else if(i===choice)x.classList.add('wrong');
-    });
-    const updated=appdeployAdvanceReview(kind,m,correct);
-    const message=!correct?'仍未掌握；1 天後重新測驗'
-      :updated?.status==='mastered'?'連續跨期答對，已移入「已掌握」歷史'
-      :updated?.status==='reviewing'?'第一次確認成功；3 天後再測'
-      :'第二次確認成功；7 天後最後確認';
-    document.querySelector('#reviewFeedback').innerHTML=`<div class="card">
-      <strong>${message}</strong>
-      <p>正確答案：${esc((q.options||[])[Number(q.answer)]||'')}</p>
-      <p class="muted">${esc(q.explain||'')}</p>
-      <button class="primary" id="doneReview">完成</button>
-    </div>`;
+    if(answered||!played)return;answered=true;window.toeicStopAudio?.();const choice=Number(btn.dataset.i),correct=choice===Number(q.answer);
+    document.querySelectorAll('.retry-answer').forEach((x,i)=>{x.disabled=true;if(i===Number(q.answer))x.classList.add('correct');else if(i===choice)x.classList.add('wrong')});
+    const updated=appdeployAdvanceReview(kind,m,correct,choice);
+    const message=!correct?'仍未掌握；1 天後重新測驗':updated?.status==='mastered'?'連續跨期答對，已移入已掌握歷史':updated?.status==='reviewing'?'第一次確認成功；3 天後再測':'第二次確認成功；7 天後最後確認';
+    document.querySelector('#reviewFeedback').innerHTML=`<div class="card"><strong>${message}</strong><p>正確答案：${esc(q.options[Number(q.answer)])}</p><p class="muted">${esc(q.explain||'')}</p>${listening?`<details><summary>聽力文字</summary><p style="white-space:pre-line">${esc(text)}</p></details>`:''}<button class="primary" id="doneReview">完成</button></div>`;
     document.querySelector('#doneReview').onclick=()=>{dialog.close();render()};
   });
 }
+
 function reviewPage(){
   const nm=newsMistakes(),pm=partMistakes();
   const activeNews=nm.filter(x=>x.status!=='mastered');
@@ -750,7 +741,7 @@ function reviewPage(){
     <p class="muted">上次答案：${esc((q.options||[])[Number(m.choice)]||'—')}${context?'<br>重測時會附上原始作答語境；正解在作答後才顯示。':''}</p>
     ${appdeployReviewDue(m)?`<button class="secondary retry-review" data-kind="${kind}" data-id="${esc(m.id)}">開始間隔重測</button>`:`<button class="secondary" disabled>下次重測 ${appdeployReviewDate(m)}</button>`}
   </div>`};
-  return `<div class="section-head"><h3>錯題與複習</h3><span class="badge">${total} 題待處理</span></div>
+  return `<div class="section-head"><h3>錯題與複習</h3><span class="badge">${total} 題待處理 · ${[...activeNews,...activePart].filter(appdeployReviewDue).length} 題到期</span></div>
     <div class="card"><strong>間隔複習規則</strong><p class="muted">答錯後 1 天重測 → 答對後 3 天再測 → 再答對後 7 天確認 → 第三次跨期答對才標示已掌握；文章型錯題會帶回原始作答語境，解析與正解在作答後才開放。</p></div>
     ${!total?`<div class="card empty review-empty"><strong>目前沒有待複習錯題</strong><p>已掌握的題目不會刪除歷史；之後若再次答錯，會自動重新進入複習循環。</p><button class="primary" id="startFromReview">開始今日訓練</button></div>`:''}
     ${activeNews.length?`<div class="section-head"><h3>新聞教材錯題</h3><span class="badge">${activeNews.length} 題</span></div><div class="list">${activeNews.map(m=>card('news',m)).join('')}</div>`:''}
@@ -812,15 +803,15 @@ function render(){
 }
 function bind(){
   document.querySelectorAll('.library-start').forEach(b=>b.onclick=()=>openLesson(b.dataset.id));
-  document.querySelectorAll('.make-lesson').forEach(b=>b.onclick=()=>{const n=news.find(x=>String(x.id)===String(b.dataset.id));if(!n)return;const lesson=buildNewsLesson(n),rows=generated().filter(x=>x.id!==lesson.id);rows.push(lesson);save(KEYS.generated,rows.slice(-60));save(KEYS.daily,{date:dayKey(),articleId:lesson.id,completed:false,selectedByUser:true});toast('已建立本機原創教材');openLesson(lesson.id)});
+  document.querySelectorAll('.make-lesson').forEach(b=>b.onclick=()=>{const n=news.find(x=>String(x.id)===String(b.dataset.id));if(!n)return;const lesson=buildNewsLesson(n),rows=generated().filter(x=>x.id!==lesson.id);rows.push(lesson);save(KEYS.generated,rows);save(KEYS.daily,{date:dayKey(),articleId:lesson.id,completed:false,selectedByUser:true});toast('已建立本機原創教材');openLesson(lesson.id)});
   document.querySelector('#reloadNews')?.addEventListener('click',()=>void loadNews(true));
   document.querySelectorAll('.filter').forEach(b=>b.onclick=()=>{appdeployNewsCategory=b.dataset.cat||'All';appdeployNewsPage=1;render()});
   document.querySelector('#prevNews')?.addEventListener('click',()=>{appdeployNewsPage=Math.max(1,appdeployNewsPage-1);render();window.scrollTo(0,0)});
   document.querySelector('#nextNews')?.addEventListener('click',()=>{appdeployNewsPage++;render();window.scrollTo(0,0)});
   document.querySelectorAll('[data-practice-mode]').forEach(b=>b.onclick=()=>{appdeployPracticeMode=b.dataset.practiceMode;localStorage.setItem(KEYS.practiceMode,appdeployPracticeMode);render()});
   document.querySelectorAll('.part-start').forEach(b=>b.onclick=()=>startPractice(Number(b.dataset.part),appdeployPartCount(Number(b.dataset.part))));
-  document.querySelector('#startFullMockStrict')?.addEventListener('click',()=>{toast('開始完整 200 題模考');startFullMock()});
-  document.querySelector('#startFullMockTraining')?.addEventListener('click',startFullMock);
+  document.querySelector('#startFullMockStrict')?.addEventListener('click',()=>startFullMock('strict'));
+  document.querySelector('#startFullMockTraining')?.addEventListener('click',()=>startFullMock('training'));
   document.querySelectorAll('.retry-review').forEach(b=>b.onclick=()=>appdeployRetryReview(b.dataset.kind,b.dataset.id));
   document.querySelector('#startFromProgress')?.addEventListener('click',()=>switchRoute('today'));
   document.querySelector('#startFromReview')?.addEventListener('click',()=>switchRoute('today'));

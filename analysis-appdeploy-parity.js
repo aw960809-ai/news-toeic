@@ -1,7 +1,7 @@
 (() => {
   "use strict";
 
-  const CACHE_KEY = "toeicArticleAnalysisAppDeployParityV1";
+  const CACHE_KEY = "toeicArticleAnalysisUnifiedV1";
   const CACHE_LIMIT = 12;
   const FILTERS = [
     ["all","全部"],["meaning","意思"],["structure","句構"],
@@ -21,6 +21,7 @@
   }[c]));
 
   function splitSentences(text){
+    if(typeof Intl.Segmenter==='function')return [...new Intl.Segmenter('en',{granularity:'sentence'}).segment(String(text||''))].map(x=>x.segment.trim()).filter(Boolean);
     return (String(text||"").replace(/\n+/g," ").match(/[^.!?]+[.!?]+|[^.!?]+$/g)||[])
       .map(s=>s.trim()).filter(Boolean).slice(0,50);
   }
@@ -33,14 +34,14 @@
   function loadCache(){
     try{
       const raw=localStorage.getItem(CACHE_KEY);
-      return raw?JSON.parse(raw):[];
+      const rows=raw?JSON.parse(raw):[];return Array.isArray(rows)?rows:[];
     }catch(_){return[]}
   }
 
   function saveCache(article,analysis){
     const rows=loadCache().filter(x=>x.articleId!==article.id);
     rows.push({articleId:article.id,fingerprint:fingerprint(article.text),savedAt:new Date().toISOString(),analysis});
-    localStorage.setItem(CACHE_KEY,JSON.stringify(rows.slice(-CACHE_LIMIT)));
+    try{localStorage.setItem(CACHE_KEY,JSON.stringify(rows.slice(-CACHE_LIMIT)))}catch(e){console.warn("Analysis cache full",e)}
   }
 
   function cached(article){
@@ -90,12 +91,12 @@
   function subjectHighlight(sentence){
     const words=sentence.match(/[A-Za-z][A-Za-z'-]*|[0-9]+/g)||[];
     if(!words.length)return null;
-    const phrase=words.slice(0,Math.min(6,words.length)).join(" ");
+    const phrase=words.slice(0,Math.min(3,words.length)).join(" ");
     const idx=sentence.toLowerCase().indexOf(phrase.toLowerCase());
     if(idx<0)return null;
     return {
-      text:sentence.slice(idx,idx+phrase.length),category:"meaning",note:"Core clause anchor",
-      why:"Start here to identify who or what the sentence is mainly about.",
+      text:sentence.slice(idx,idx+phrase.length),category:"meaning",note:"Reading anchor (not a full subject parse)",
+      why:"Use the opening words as a reading anchor; verify the complete subject and verb in the sentence.",
       example:"Identify the main actor first, then connect it to the main action."
     };
   }
@@ -134,21 +135,21 @@
     add(structureHighlight(sentence));
 
     for(const [needle,note,why,example] of LOGIC){
-      if(containsWord(sentence,needle))add({text:needle,category:"logic",note,why,example});
+      if(containsWord(sentence,needle))add({text:(sentence.match(new RegExp(needle,"i"))||[needle])[0],category:"logic",note,why,example});
     }
     for(const [needle,note,why,example] of EXPRESSIONS){
-      if(sentence.toLowerCase().includes(needle))add({text:needle,category:"expression",note,why,example});
+      if(sentence.toLowerCase().includes(needle))add({text:(sentence.match(new RegExp(needle,"i"))||[needle])[0],category:"expression",note,why,example});
     }
     for(const needle of CHUNKS){
       if(sentence.toLowerCase().includes(needle))add({
-        text:needle,category:"chunk",note:"Useful word partnership",
+        text:(sentence.match(new RegExp(needle,"i"))||[needle])[0],category:"chunk",note:"Useful word partnership",
         why:"This group of words works as one useful meaning unit.",
         example:`Reuse “${needle}” as one block instead of translating word by word.`
       });
     }
     for(const needle of REFERENCES){
       if(containsWord(sentence,needle))add({
-        text:needle,category:"reference",note:"Reference word",
+        text:(sentence.match(new RegExp(needle,"i"))||[needle])[0],category:"reference",note:"Reference word",
         why:"This word points back to a person, thing, action, or idea in the surrounding context.",
         example:"Check the previous clause or sentence to identify its referent."
       });
@@ -178,7 +179,7 @@
         : connector
           ? `Write a new sentence using “${connector.text}” to connect two ideas.`
           : "Rewrite the sentence with the same basic structure but a different workplace topic.",
-      sampleAnswer:"The company reviewed the process and added a new service option.",
+      sampleAnswer:expression?expression.example:connector?connector.example:sentence,
       chineseHint:"先找主詞與主要動詞，再判斷後面的資訊是原因、條件、時間、結果或補充細節。",
       highlights
     };
@@ -267,7 +268,7 @@
         <div><p class="eyebrow">STEP 6 · ENGLISH DECONSTRUCTION</p><h3>用英文解構英文</h3></div>
         <span class="badge">English-first</span>
       </div>
-      <p class="muted">顏色代表句子裡不同的工作。先讀英文，再點彩色片段看英文解釋；中文只在你需要時才打開。</p>
+      <p class="muted">顏色代表句子裡不同的工作。先讀英文，再點彩色片段看英文解釋；中文只在你需要時才打開。本機標記屬句型提示，並非完整語法剖析。</p>
       ${overviewHtml(analysis)}
       <div class="analysis-legend">${FILTERS.slice(1).map(([k])=>`<span class="analysis-legend-item analysis-${k}">${escHtml(LABELS[k])}</span>`).join("")}</div>
       <div class="filters analysis-filters">${FILTERS.map(([k,label])=>`<button type="button" class="ghost analysis-filter ${k==="all"?"active":""}" data-filter="${k}">${label}</button>`).join("")}</div>
@@ -300,6 +301,7 @@
     }
 
     function rerender(){
+      window.toeicStopAudio?.();
       root.innerHTML=sentenceHtml(analysis,activeFilter);
       detail.classList.add("analysis-hidden");
       bindSentenceUi();
@@ -313,7 +315,7 @@
 
     document.querySelector("#analysisContinue").onclick=()=>{
       if(window.toeicStopAudio)window.toeicStopAudio();
-      readingStarted=Date.now();
+
       renderLessonQuestion();
     };
     rerender();

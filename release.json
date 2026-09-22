@@ -1,0 +1,37 @@
+{
+  "version": "2.6.1",
+  "bundleId": "toeic-unified-20260922-r3",
+  "sourceBaseline": "b17ddc3e38689138dd52ed796381bdedbe951670",
+  "scope": "News × TOEIC standalone",
+  "modules": [
+    "review",
+    "vocabulary",
+    "sentence-writing",
+    "article-flow",
+    "syntax",
+    "answer-randomization",
+    "audio",
+    "practice",
+    "full-mock",
+    "news",
+    "PWA",
+    "Goal-Sync"
+  ],
+  "sourceDataPolicy": "Existing lesson text/history is not rewritten; new in-progress sessions persist their own snapshot and option order. Browser data is never bundled.",
+  "runtimeSha256": {
+    "app.js": "3b556fad6dfc55f191febee8a54f2140ec5f6398177e1a91f5c502f1fbedd4d3",
+    "toeic-random-engine.js": "ec59a0595b97275d783094c9cc085102a9d3f3377b73548dff4ea9f25298f820",
+    "voice-image-upgrade.js": "d2f87d6be42ecd715430adab3e1adc6260d0c4fa5eed0cbbd9163aedf27916fe",
+    "analysis-appdeploy-parity.js": "363dc25d5753e9f024dd35cf004b031818d42d53ab3e925dfcf5b7a16c41b4d6",
+    "appdeploy-parity-runtime.js": "5cf46a0945d1a91e8d261070fada189db449a409db9910100c8b99921afc7eac",
+    "headline-lesson-generator.js": "6862c5463c1163e76f5e11ac1a5c7ca1046819fc5bb9134273dcb615749f5790",
+    "lesson-flow-parity.js": "1eaf0dc493f8376da9a2d6350850bc8e6326ade478af63c5963c47f2a3b9f47d",
+    "study-workbench.js": "23ee0c3988118e916aecdff2ca2bf61353c19931b906702d527de95ef56f2da4",
+    "ui-feedback.js": "c99bc70a3e329c3e48a7b8cef0d00a10850f4a51fe4ea29a8af50b7714993968",
+    "pwa-runtime.js": "eff6f9372f077d015aa11e16f8a8f79c52c2236f9f68b29a918de7abf777715f",
+    "index.html": "679fdfb09842dd9d87e7e7f4a027d245c931b3ac90a732b137a20ea09882d524",
+    "styles.css": "3805d5cc0cfb31df72f7d8b238572853a742e30a806779a04ebe2e6fa74d0450",
+    "sw.js": "304ae87303103548cede57c4539074141f7f5675ba4f1e0253692e506a75f106",
+    "manifest-original.webmanifest": "432a293b504b78a70f36ae095d4cdd9a9b87ce21cfb7b7386ddd15307247cf09"
+  }
+}
