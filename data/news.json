@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-23T23:44:20.873949+00:00",
+  "updatedAt": "2026-09-24T08:30:13.824902+00:00",
   "articles": [
     {
       "id": "rss-customer-service-week-cx-day-2026",
@@ -25,19 +25,6 @@
       "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxQYlBnNnZLRmIyMXYxWkdNaEI3UlVhY0g3cl9rTElmYURvRllKRmVsYzE2V0xlYkJuNHc2Sm9PaHdGNHU3UjZrVThGRUkycHYycFpLT0wxeURmU1NKMnQyQVIwTmwyeWdEQkFkRnNaMmdPY21sNU16YUlDRUZNR0VjczBZa3l4QU1ZLTRva3Y2OWxSeDRNSmJCR0tHaGxrNV9PUklhNEZiNVRZVk9HSlHSAa4BQVVfeXFMUGJQZzZ2S0ZiMjF2MVpHTWhCN1JVYWNIN3Jfa0xJZmFEb0ZZSkZlbGMxNldMZWJCbjR3NkpvT2h3RjR1N1I2a1U4RkVJMnB2MnBaS09MMXlEZlNTSjJ0MkFSME5sMnlnREJBZEZzWjJnT2NtbDVNemFJQ0VGTUdFY3MwWWt5eEFNWS00b2t2NjlsUng0TUpiQkdLR2hsazVfT1JJYTRGYjVUWVZPR0pR?oc=5",
       "publishedAt": "2026-09-23T17:36:00+00:00",
       "summary": "McDonald’s to spend $8.5B on revamping restaurants and staff training to boost sales Fox Business",
-      "toeicScore": 70
-    },
-    {
-      "id": "rss-80-retailers-plan-expand-self-service-technology",
-      "origin": "live",
-      "articleType": "Live News",
-      "category": "Business",
-      "source": "WWD",
-      "sourceUrl": "https://wwd.com",
-      "title": "80% of Retailers Plan to Expand Self-Service Technology",
-      "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxQa291cWVJRWdkYm1WcGF2TnFQVXpNOXpTTUVZN1FqdFZCYmctbE1pZGZGX1IybG45QUFJemVSNWxuNXJtZGNKVGdkaENFRG5mVzlfYUdEdlVPUWFvU0RjY2s4MFcyVmdHb0dDSzByMG1pRGxzSURSdjBuUF9WblpjeE9oSVFDZ1Y1QS1SZm5vekI0bUJTcEJkRG54RnlKS3I3Q1pRTW5XNGUzay04ZHNSRG5R?oc=5",
-      "publishedAt": "2026-09-23T18:07:46+00:00",
-      "summary": "80% of Retailers Plan to Expand Self-Service Technology WWD",
       "toeicScore": 70
     },
     {
@@ -93,6 +80,19 @@
       "toeicScore": 66
     },
     {
+      "id": "rss-amazon-nl-launches-its-fastest-same-day-delivery-service",
+      "origin": "live",
+      "articleType": "Live News",
+      "category": "Business",
+      "source": "About Amazon Europe",
+      "sourceUrl": "https://www.aboutamazon.eu",
+      "title": "Amazon.nl launches its fastest Same-Day Delivery service",
+      "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxOeGc3czIxaEJHWjNnVjRxRTlYMXcwUUFHTEFZdDMzQmhmdjhtNDNTSk1Wb3NoUGRnTlBtMzA1U0tMc2lwSzdYWmRMbGZONExIcWFRYjdncmpUTFFPZnRQZUZNVk91aENmenF1UlcxMzdoWFJheEMwSHo4MkxmQU9mUmhwSlZTOVVD?oc=5",
+      "publishedAt": "2026-09-24T07:06:52+00:00",
+      "summary": "Amazon.nl launches its fastest Same-Day Delivery service About Amazon Europe",
+      "toeicScore": 66
+    },
+    {
       "id": "rss-raton-public-service-company-board-directors-regular-meeting-monday-september",
       "origin": "live",
       "articleType": "Live News",
@@ -103,6 +103,19 @@
       "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxQczhGaXBjQndTdlF0N0R6TnRHZVB1Umk4RW1SNVdLSWY1UmZEV21QSWtaZEhFWDJlTFV1T055bW5vQlY0NlVqUE11dUs0TGQ3RnZ3RTU4WUJPN2RraThnS3BhQm5qbDRxVGwyc3ZNb1RlUnZZcEZnMmxnWUpYMlFTNVBwREx3XzU2UFVjOVYyWHFDSEtWOWpiMktNRVVNNWJvR0o2MHdLa0lsYlJJY2dpaWhGTTRJeEp6ak02N1NYQmZ4U1NZdkF4MTd4dUg1Zw?oc=5",
       "publishedAt": "2026-09-23T23:16:56+00:00",
       "summary": "Raton Public Service Company Board of Directors Regular Meeting Monday, September 28, 2026, at 5:30 p.m KRTN",
+      "toeicScore": 66
+    },
+    {
+      "id": "rss-core-retail-sales-hit-record-as-store-spending-rises",
+      "origin": "live",
+      "articleType": "Live News",
+      "category": "Business",
+      "source": "CRE Daily",
+      "sourceUrl": "https://www.credaily.com",
+      "title": "Core Retail Sales Hit Record as In-Store Spending Rises",
+      "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxQM3NIc3o4WmFUZ2FnQ0Z4MmZhM0JxMmJqU2ZnTjNuSmlxWE9kV203QmR0R0U1NjZ3OGRtREdkZUNhQ2gyVlZnaVMtbHhqZndSNTJWQmlWT1lPbDZZN0swcWJiaUI4ZUJHOGRBai1nRUtFb1lYRUZ2c0twczZVU3BuMEdFR1dmSDJPTWFBNEstUWZVZw?oc=5",
+      "publishedAt": "2026-09-24T05:06:03+00:00",
+      "summary": "Core Retail Sales Hit Record as In-Store Spending Rises CRE Daily",
       "toeicScore": 66
     },
     {
@@ -132,19 +145,6 @@
       "toeicScore": 66
     },
     {
-      "id": "rss-family-owned-milo-s-tea-company-surpasses-1-billion-annual",
-      "origin": "live",
-      "articleType": "Live News",
-      "category": "Business",
-      "source": "PR Newswire",
-      "sourceUrl": "https://www.prnewswire.com",
-      "title": "Family-Owned Milo's Tea Company Surpasses $1 Billion in Annual Retail Sales, Solidifying Its Position as the No. 1 Growth Driver in the Tea and Lemonade Categories in America",
-      "url": "https://news.google.com/rss/articles/CBMiygJBVV95cUxNQ1NLN0ZINHZiV2lJVnhyVDkyMVFaYWxBWkFRS0JRdUdSU3p5dTVEcy1kNUFBR2JlSFhDNmJlTkNEMVVQa25RcEsta1BLRHhUVzV0ZUZCTTV6YS04RERwYkltRXdaQ0RVTjJLM3B2MDZfNGNWTDJNaTlPMUI0Q1h0YnNsemItTTIxNXY3ZDdOOHh6aElNdDMwcngyTWp2dkNLdEhmU1p5Z25aV0paNE8xQlBsQU5ZUjBYZTRhOFJ2amdtRVV2SDRYR3BRSVR6Nl84RGg5NzRvYnZFZzJOTzVQaER3VERnQm9JeUpsc09RSklmaG9lY2VYNHc4eE5BU0hFM3Q3Tzg0Rjd2d0Y5d2lPRFJrNnV3RkdtOXhtZXhyYkxDYWtseDBqdDdma2Mxd1ktclUybm10UXFTaDQ2cms2SDMybXB6Ymt4MUE?oc=5",
-      "publishedAt": "2026-09-23T13:00:00+00:00",
-      "summary": "Family-Owned Milo's Tea Company Surpasses $1 Billion in Annual Retail Sales, Solidifying Its Position as the No. 1 Growth Driver in the Tea and Lemonade Categories in America PR Newswire",
-      "toeicScore": 66
-    },
-    {
       "id": "rss-china-nev-retail-sales-fall-9-first-20-days-september",
       "origin": "live",
       "articleType": "Live News",
@@ -158,16 +158,42 @@
       "toeicScore": 66
     },
     {
-      "id": "rss-retail-sales-surge-despite-price-hikes",
+      "id": "rss-usps-management-pressured-some-employees-go-along-scheme-boost-customer",
       "origin": "live",
       "articleType": "Live News",
       "category": "Business",
-      "source": "AM 870 The ANSWER",
-      "sourceUrl": "https://am870theanswer.com",
-      "title": "Retail Sales Surge Despite Price Hikes",
-      "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxNVjZUQ2FEWUs2UnM1NDhIc1BjTEQ5bTNNLVNSWVpaXzlMMDRLZk9EZnV0aWxLS3hfRUhTNk9FVV9xbTZZbWFaLVo0bW8yUF93U1FEbGVnN2RlNThYZUY4OENOV2NUbXA3MS1ZcFNzQVUwMEhaMWR2eDAxQTRHaHJ6WXNnQlRyVkk?oc=5",
-      "publishedAt": "2026-09-23T22:53:26+00:00",
-      "summary": "Retail Sales Surge Despite Price Hikes AM 870 The ANSWER",
+      "source": "FEDweek",
+      "sourceUrl": "https://www.fedweek.com",
+      "title": "USPS Management Pressured Some Employees to Go Along With Scheme to Boost Customer Service Data, IG Says",
+      "url": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxNaUh5cTRscWRzSEVrYklLWGdlclhtMU1kNmU1Ym1jcmtweHA5MkU1VWp0WnR5M2d1eHh1VVl4OFpRcUl2MVRIWGxKbEhXd21NU25Cd1dheVdPMV9wbmMzNVl0NXV5TW5RWnQwUzl5UDhvM203MGxUMlg4LVRzc3oxbFVpdEFRTWxDeFZ6Z2lYakxYUGhFdl9mV0xzYk1Td0JkOHZldXFjcFlkOHlWUWNZMXNaS1lsNWx5M1ByelJESzlqa283d3VJREN4YVlwbExWTl9xYg?oc=5",
+      "publishedAt": "2026-09-22T21:23:08+00:00",
+      "summary": "USPS Management Pressured Some Employees to Go Along With Scheme to Boost Customer Service Data, IG Says FEDweek",
+      "toeicScore": 66
+    },
+    {
+      "id": "rss-family-owned-milo-s-tea-company-surpasses-1-billion-annual",
+      "origin": "live",
+      "articleType": "Live News",
+      "category": "Business",
+      "source": "PR Newswire",
+      "sourceUrl": "https://www.prnewswire.com",
+      "title": "Family-Owned Milo's Tea Company Surpasses $1 Billion in Annual Retail Sales, Solidifying Its Position as the No. 1 Growth Driver in the Tea and Lemonade Categories in America",
+      "url": "https://news.google.com/rss/articles/CBMiygJBVV95cUxNQ1NLN0ZINHZiV2lJVnhyVDkyMVFaYWxBWkFRS0JRdUdSU3p5dTVEcy1kNUFBR2JlSFhDNmJlTkNEMVVQa25RcEsta1BLRHhUVzV0ZUZCTTV6YS04RERwYkltRXdaQ0RVTjJLM3B2MDZfNGNWTDJNaTlPMUI0Q1h0YnNsemItTTIxNXY3ZDdOOHh6aElNdDMwcngyTWp2dkNLdEhmU1p5Z25aV0paNE8xQlBsQU5ZUjBYZTRhOFJ2amdtRVV2SDRYR3BRSVR6Nl84RGg5NzRvYnZFZzJOTzVQaER3VERnQm9JeUpsc09RSklmaG9lY2VYNHc4eE5BU0hFM3Q3Tzg0Rjd2d0Y5d2lPRFJrNnV3RkdtOXhtZXhyYkxDYWtseDBqdDdma2Mxd1ktclUybm10UXFTaDQ2cms2SDMybXB6Ymt4MUE?oc=5",
+      "publishedAt": "2026-09-23T13:00:00+00:00",
+      "summary": "Family-Owned Milo's Tea Company Surpasses $1 Billion in Annual Retail Sales, Solidifying Its Position as the No. 1 Growth Driver in the Tea and Lemonade Categories in America PR Newswire",
+      "toeicScore": 66
+    },
+    {
+      "id": "rss-auditor-cites-customer-service-failures-unemployment-agency",
+      "origin": "live",
+      "articleType": "Live News",
+      "category": "Business",
+      "source": "Worcester Business Journal",
+      "sourceUrl": "https://wbjournal.com",
+      "title": "Auditor cites customer service failures at unemployment agency",
+      "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxOSElLbjFuS3NRRHJYTHJ2ampuYXZhTElhaUo0VndrVVhVNkU4VUVPTFlUNUt0T2FaNFQ5TGpqVWxsbG9SYjZpUS1OaTN1dXRKUUpWZlk4UHUxWGdIaHZJWWJRV0pNY0t2UEhRMDNJMEhLcEN2MEhEOHNvTW1lN3VCazlpN0Fod1NUM1FmSmxCQUJ0SWFaMDhSOQ?oc=5",
+      "publishedAt": "2026-09-22T13:30:57+00:00",
+      "summary": "Auditor cites customer service failures at unemployment agency Worcester Business Journal",
       "toeicScore": 66
     },
     {
@@ -188,38 +214,12 @@
       "origin": "live",
       "articleType": "Live News",
       "category": "Business",
-      "source": "Morningstar",
+      "source": "morningstar.com",
       "sourceUrl": "https://www.morningstar.com",
       "title": "CBTS Unveils Blueprint for 100% Agentic Delivery After Scaling Anthropic Company-Wide, Giving Mid-Market Companies a Proven Path to AI-Fueled Growth",
       "url": "https://news.google.com/rss/articles/CBMisgJBVV95cUxNZ3I3X0Q2QU02TDB4MFBsR3J0aUl5QzRIdGpka3F0Z19pMHFOZVhMbmpYWV9IMVNFNW9UYU9sU09ncXktRS1iYzdGMTdxWktLR3VPS3N3MmJsZTlsdjNMbU8xblpEcDh6TkpteDVKeG9NOUo2b2U0d3BaX1RqdE5EV2F1WXpQQnd1TUhIdVpTVWhFTDRQdXlJdV9qMjQ2TnkzbGk5SHBmQVZkM1VEY09oemlCRFIycEM1Y3dkR2MwazAwcmJXdjM5a0F6NzR2b1Y2TkdKQWdfR0dkOW44dVpDNDBhUnFTX002YXRCdDFNdVhiZVNnNExkWjFxbnZ5MEFZcHdOU3l4S2pWWWt5dlZxRjN5WF9sRFZGOFpEUDMzR3BjdXhhU2VkVy16UEl3NXo4enc?oc=5",
       "publishedAt": "2026-09-23T13:00:00+00:00",
-      "summary": "CBTS Unveils Blueprint for 100% Agentic Delivery After Scaling Anthropic Company-Wide, Giving Mid-Market Companies a Proven Path to AI-Fueled Growth Morningstar",
-      "toeicScore": 66
-    },
-    {
-      "id": "rss-gtt-achieves-hpe-global-service-provider-partner-status-enhancing-gtt",
-      "origin": "live",
-      "articleType": "Live News",
-      "category": "Business",
-      "source": "Business Wire",
-      "sourceUrl": "https://www.businesswire.com",
-      "title": "GTT Achieves HPE Global Service Provider Partner Status, Enhancing GTT Customer Experience",
-      "url": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxQMEJGXy1qb2lBRmt6Ymw1R09kUUNLM0x6V1Fwa1NoLXBBc3lQS2JqVUUxWWhnN0dqcWItenVlTTIxQTRzMHY2T04tTTFfRW5uNF9Hdi0wUTNvM2JwZWo3Q1g5clRMYTN1bDBpOUNCUDRNR19uSVJiYTE0d08zNGg5eEpncUJHOEF6Y1JKRld4R1VmZTNEY3RzQ3ZCT1lDZjBUZ0N6VmlwRnpyN3pHbUVLYWQ5WS0xcTBlSGUzdFVwY0NNWXkwOU5tN3dvbEVFak9wS3VBaEFmbDZFZ2ctUmNF?oc=5",
-      "publishedAt": "2026-09-23T12:00:00+00:00",
-      "summary": "GTT Achieves HPE Global Service Provider Partner Status, Enhancing GTT Customer Experience Business Wire",
-      "toeicScore": 66
-    },
-    {
-      "id": "rss-auditor-cites-customer-service-failures-unemployment-agency",
-      "origin": "live",
-      "articleType": "Live News",
-      "category": "Business",
-      "source": "Worcester Business Journal",
-      "sourceUrl": "https://wbjournal.com",
-      "title": "Auditor cites customer service failures at unemployment agency",
-      "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxOSElLbjFuS3NRRHJYTHJ2ampuYXZhTElhaUo0VndrVVhVNkU4VUVPTFlUNUt0T2FaNFQ5TGpqVWxsbG9SYjZpUS1OaTN1dXRKUUpWZlk4UHUxWGdIaHZJWWJRV0pNY0t2UEhRMDNJMEhLcEN2MEhEOHNvTW1lN3VCazlpN0Fod1NUM1FmSmxCQUJ0SWFaMDhSOQ?oc=5",
-      "publishedAt": "2026-09-22T13:30:57+00:00",
-      "summary": "Auditor cites customer service failures at unemployment agency Worcester Business Journal",
+      "summary": "CBTS Unveils Blueprint for 100% Agentic Delivery After Scaling Anthropic Company-Wide, Giving Mid-Market Companies a Proven Path to AI-Fueled Growth morningstar.com",
       "toeicScore": 66
     },
     {
@@ -244,74 +244,48 @@
       "sourceUrl": "https://www.khq.com",
       "title": "Airway Heights delivery company for Amazon closes, lays off 120 employees",
       "url": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxQZ0FRUXdtSDB1YTBHWnhQU2lQaGxKQUNyRVZYWVZDU2ZITzlueG1VRHF1WklYaHdvSzJVeWdMX0wyR3dMXzhqNkdTVXU4bmhsSkdualprRWlLY3FCYUZOMVV5NGlMRTdTOS12eWFEYzMzS3RwWDN4aE5xcldNb3U2WjN1LXhvU0NkVDFCdVR0UkwydmtFTTRWYWVJUGdKb1dBX05wb3JiYWFyVElmb1R4eXlFR1lIVzhZUUZLVW1mWFd5YkFlV2FkLXVyaTBGcmkwNzhVUzJ6ZjNDVGJndW9Daw?oc=5",
-      "publishedAt": "2026-09-22T16:07:00+00:00",
+      "publishedAt": "2026-09-22T15:48:00+00:00",
       "summary": "Airway Heights delivery company for Amazon closes, lays off 120 employees NonStop Local KHQ",
       "toeicScore": 66
     },
     {
-      "id": "rss-usps-management-pressured-some-employees-go-along-scheme-boost-customer",
+      "id": "rss-gtt-achieves-hpe-global-service-provider-partner-status-enhancing-gtt",
       "origin": "live",
       "articleType": "Live News",
       "category": "Business",
-      "source": "FEDweek",
-      "sourceUrl": "https://www.fedweek.com",
-      "title": "USPS Management Pressured Some Employees to Go Along With Scheme to Boost Customer Service Data, IG Says",
-      "url": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxNaUh5cTRscWRzSEVrYklLWGdlclhtMU1kNmU1Ym1jcmtweHA5MkU1VWp0WnR5M2d1eHh1VVl4OFpRcUl2MVRIWGxKbEhXd21NU25Cd1dheVdPMV9wbmMzNVl0NXV5TW5RWnQwUzl5UDhvM203MGxUMlg4LVRzc3oxbFVpdEFRTWxDeFZ6Z2lYakxYUGhFdl9mV0xzYk1Td0JkOHZldXFjcFlkOHlWUWNZMXNaS1lsNWx5M1ByelJESzlqa283d3VJREN4YVlwbExWTl9xYg?oc=5",
-      "publishedAt": "2026-09-22T21:23:08+00:00",
-      "summary": "USPS Management Pressured Some Employees to Go Along With Scheme to Boost Customer Service Data, IG Says FEDweek",
+      "source": "Business Wire",
+      "sourceUrl": "https://www.businesswire.com",
+      "title": "GTT Achieves HPE Global Service Provider Partner Status, Enhancing GTT Customer Experience",
+      "url": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxQMEJGXy1qb2lBRmt6Ymw1R09kUUNLM0x6V1Fwa1NoLXBBc3lQS2JqVUUxWWhnN0dqcWItenVlTTIxQTRzMHY2T04tTTFfRW5uNF9Hdi0wUTNvM2JwZWo3Q1g5clRMYTN1bDBpOUNCUDRNR19uSVJiYTE0d08zNGg5eEpncUJHOEF6Y1JKRld4R1VmZTNEY3RzQ3ZCT1lDZjBUZ0N6VmlwRnpyN3pHbUVLYWQ5WS0xcTBlSGUzdFVwY0NNWXkwOU5tN3dvbEVFak9wS3VBaEFmbDZFZ2ctUmNF?oc=5",
+      "publishedAt": "2026-09-23T12:00:00+00:00",
+      "summary": "GTT Achieves HPE Global Service Provider Partner Status, Enhancing GTT Customer Experience Business Wire",
       "toeicScore": 66
     },
     {
-      "id": "rss-reno-airport-improves-parking-reservation-system-travelers",
+      "id": "rss-downtown-lynchburg-s-craddock-terry-hotel-close-its-restaurant-expand",
       "origin": "live",
       "articleType": "Live News",
       "category": "Travel",
-      "source": "KTVN",
-      "sourceUrl": "https://www.2news.com",
-      "title": "Reno airport improves parking reservation system for travelers",
-      "url": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxPX3NxZTkzNEQzdy1nbTZ5OFJpMmNsU2g3M3RQcDdlbEdCT2t0YWxDVHdaR1laVkZRRTY1RHE5TnM2NUkyY0M5dkRBOURRakRranp2RXNPNjdCUi1aTTY0eTFtSXNkc0NXTGJRYnQ4Q1B1a2RnMTRmNkpNc1FqbThKV3paQzFOTTZPRG02eG1ldWlUblM1cVcwNGs5SWlqLUJTWTh3dzNwdTRsaGxpMU9uRFplV05pV21EdHdfbE81WVhlb3AwSkhHajd6RkJiV3hoRWlNVU9NdDk0SnVZaFE?oc=5",
-      "publishedAt": "2026-09-23T16:40:00+00:00",
-      "summary": "Reno airport improves parking reservation system for travelers KTVN",
+      "source": "Cardinal News",
+      "sourceUrl": "https://cardinalnews.org",
+      "title": "Downtown Lynchburg’s Craddock Terry Hotel to close its restaurant, expand rooms",
+      "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxOVTJsdnRIZE5jX0V0ZDF6dUgxeHdheUQ5ZVY3VEZxcEl3SFlTYWZYUkI5QXRCUHNYR3RBdE5RR2VwcmREVU5fZ1EwOFVtYi0tY082b19XVU5VREdLQl9zOHhQeUpSZW1aMEJjUEdiR0tobVRxX2NwZkZXT0FlaTA4bV9lSnU2UlZBYnRRYzF1d2lGYnJ3Y2g5LWxQZjJZWEhkemFOcjVHZFIzbW9UUmxuMG5PeXI?oc=5",
+      "publishedAt": "2026-09-24T08:05:00+00:00",
+      "summary": "Downtown Lynchburg’s Craddock Terry Hotel to close its restaurant, expand rooms Cardinal News",
       "toeicScore": 66
     },
     {
-      "id": "rss-new-albany-airport-ceo-s-first-priority-meet-every-employee",
+      "id": "rss-reno-airport-launch-new-parking-reservation-system-oct-13",
       "origin": "live",
       "articleType": "Live News",
       "category": "Travel",
-      "source": "The Business Journals",
-      "sourceUrl": "https://www.bizjournals.com",
-      "title": "New Albany airport CEO's first priority: Meet every employee",
-      "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxQd0NJdkpiVXpsLWljbDVSLTdyanZpZ2FCT1BwekdsSlh0bFA0dWZKSkJPVGFlUEF0UWJyREFIamxRc0hHREt0U0lnMF9VUDlYNzNud2NobWNXNzdPSXFHa0VrZUVrYVRhVzJiRXI5aUxTUlpsU0pMbHkwMkFLYTdxVEx5SVdWekF3cVBzQzdB?oc=5",
-      "publishedAt": "2026-09-23T21:16:00+00:00",
-      "summary": "New Albany airport CEO's first priority: Meet every employee The Business Journals",
+      "source": "This Is Reno",
+      "sourceUrl": "https://thisisreno.com",
+      "title": "Reno airport to launch new parking reservation system Oct. 13",
+      "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxPWHVxTlNEeUZlTVAzNHJBSzh3Wjh2dE5UeEVNN0ZCaFdXeGVOaVRyMi1KcFpsQ2M3V25CdlpjcnBEUEg3V0FBeGVsMEgwbzJhdUJCdmdDLUZqUmhrTzk5N3lpcXdhTDl2dUE0WWN0VllkbHU5bVBKdnJGOWUxb0Y5Y1M1aw?oc=5",
+      "publishedAt": "2026-09-24T00:00:00+00:00",
+      "summary": "Reno airport to launch new parking reservation system Oct. 13 This Is Reno",
       "toeicScore": 66
-    },
-    {
-      "id": "rss-bilt-amtrak-partner-turn-housing-payments-into-train-travel-first",
-      "origin": "live",
-      "articleType": "Live News",
-      "category": "Travel",
-      "source": "Amtrak Media",
-      "sourceUrl": "https://media.amtrak.com",
-      "title": "Bilt and Amtrak Partner to Turn Housing Payments Into Train Travel in First-of-Its-Kind Loyalty Partnership",
-      "url": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxPSFVRcnpPYzlULXpOZlVtMkhwaEV6M2ZoeUVsTmR4ZXlfQkI1LU5fN2pzMEJJVU9RSFdLU3VjT1RTWDJyRV9aUTdURVBCNzlGU0RYYXE4ZGlFNVppVl9lRTZyVi1lU0lIWTlwTXo0S1p2SjFRTWt0N0pUeUFKY21uLWpka0ZJZ2xlOWk3YkFnR1pBOTh6c0c2eGdfWlNSbkUwNnFkdVpBa0RMNVdWNDA5YzJYcjRPQ0JGUTlRVFF3V3p0T1Bjdzk3S1RaU1VuaEdhVnNYejAxZmo?oc=5",
-      "publishedAt": "2026-09-23T13:11:22+00:00",
-      "summary": "Bilt and Amtrak Partner to Turn Housing Payments Into Train Travel in First-of-Its-Kind Loyalty Partnership Amtrak Media",
-      "toeicScore": 63
-    },
-    {
-      "id": "rss-person-was-taken-into-custody-after-reports-shots-fired-miami",
-      "origin": "live",
-      "articleType": "Live News",
-      "category": "Travel",
-      "source": "facebook.com",
-      "sourceUrl": "https://www.facebook.com",
-      "title": "A person was taken into custody after reports of shots fired at Miami International Airport triggered a massive law enforcement response Wednesday evening, authorities said. Miami-Dade Sheriff's Office officials said deputies responded to reports of shots fired",
-      "url": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxPVXd1bFhNbktWaHRCRjBuLW1Nek5nNnNEdmRhdzhuR1ZXYUFrZG8xdDVwbWZjOVdOQ1R0TlM0VkpRR3dlbWRnTW94Z2JjbDV1azBFdURwdEt2LXBfcDZiUUYwV0FzWmktNnpuOWFBYTRvWjRqYS1xblVYUm03REhFdWtKUUdnWkw0VGwzemFSZE9XMno3Q2tqTVc5MU9fNENURXo2ak1Kc2VkaVdTUXlQbUZhWFlYOHhpTm55NmJHSUdwdEtIWjM0dmJTTjdUTjEwbUtnWTdybEhmeE5Kd2REMw?oc=5",
-      "publishedAt": "2026-09-23T21:53:39+00:00",
-      "summary": "A person was taken into custody after reports of shots fired at Miami International Airport triggered a massive law enforcement response Wednesday evening, authorities said. Miami-Dade Sheriff's Office officials said deputies responded to reports of shots fired facebook.com",
-      "toeicScore": 63
     },
     {
       "id": "rss-potential-nor-easter-may-disrupt-flights-boston-s-logan-airport",
@@ -340,55 +314,55 @@
       "toeicScore": 63
     },
     {
-      "id": "rss-ethiopian-airlines-cancels-flights-tigray-capital-as-fighters-take-over",
-      "origin": "live",
-      "articleType": "Live News",
-      "category": "Travel",
-      "source": "AP News",
-      "sourceUrl": "https://apnews.com",
-      "title": "Ethiopian Airlines cancels flights to Tigray capital as fighters take over airport",
-      "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxPY1RRd0dhejBhZzI4ODRpdFFzSUtTSTFXTms4U2xLdjlPb01TWHFNTmxZeEc5SE5sUl9fYmRxTkpmS1FCYW5vUkQ3MjdKd3plTUZ6T3ljeXh1NDNXTndYV1ZMM0dYcU5fN00yNG5STmtXa2lMTGpTbVlDTEctakVzVlMtblhPWFZ4UmxQcC1wOGcxM2dCX3h6Yl9ySHZudw?oc=5",
-      "publishedAt": "2026-09-23T18:04:00+00:00",
-      "summary": "Ethiopian Airlines cancels flights to Tigray capital as fighters take over airport AP News",
-      "toeicScore": 63
-    },
-    {
       "id": "rss-passenger-says-united-trapped-her-next-man-who-masturbated-flight",
       "origin": "live",
       "articleType": "Live News",
       "category": "Travel",
-      "source": "NBC News",
+      "source": "nbcnews.com",
       "sourceUrl": "https://www.nbcnews.com",
       "title": "Passenger says United ‘trapped’ her next to a man who masturbated on flight. Then the airline let him leave.",
       "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxOWFd1ZmhLVzVick1BUllxRTdaRHVkZkJXSmU4RGVaLWl3cUxSdzRHVnpmTWpPejFPSlB2aUkxdk9iMVEtOW9wTS0xLWNCZlRlLWJlUUxIclpaZ1pIZGNHZUZ1T2NoNFVwcjFFdloyc2FuYjVOQW5wQlNDd0djR3gtdlNSa3E3bnljVkVyVE1aOGw1OHBTVU1JemFjSlZ3WV9Ka2ZXa2MwOHVqaUlEdVVpWnRIeG5oeUpGQ3c?oc=5",
       "publishedAt": "2026-09-23T19:50:00+00:00",
-      "summary": "Passenger says United ‘trapped’ her next to a man who masturbated on flight. Then the airline let him leave. NBC News",
+      "summary": "Passenger says United ‘trapped’ her next to a man who masturbated on flight. Then the airline let him leave. nbcnews.com",
       "toeicScore": 63
     },
     {
-      "id": "rss-austin-airport-rideshare-pickup-is-changing-what-travelers-should-know",
+      "id": "rss-ethiopian-airlines-cancels-flights-tigray-capital-as-fighters-take-over",
       "origin": "live",
       "articleType": "Live News",
       "category": "Travel",
-      "source": "Austin American-Statesman",
-      "sourceUrl": "https://www.statesman.com",
-      "title": "Austin airport rideshare pickup is changing. What travelers should know.",
-      "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxPX3QydVJkNDJsMF84RW0xcE9TNUxlOHNQYW54aUo4NWE2WGQ0VXRXdEtxQVRRNGRuLVpWS1hZZGhudzhrVG9qemhnSHhrMWRBZFBoOHI0b0ZwRTFrSWd2RHBQVWFSWFMxNUZxTGFOcFdNWjhxRDFncWpEZE9fVTFkT1Vnb3MwUERyRUVqRlphUkFtRFV6Mm1wbDdxVThMX1dUX1E?oc=5",
-      "publishedAt": "2026-09-23T21:07:26+00:00",
-      "summary": "Austin airport rideshare pickup is changing. What travelers should know. Austin American-Statesman",
+      "source": "apnews.com",
+      "sourceUrl": "https://apnews.com",
+      "title": "Ethiopian Airlines cancels flights to Tigray capital as fighters take over airport",
+      "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxPY1RRd0dhejBhZzI4ODRpdFFzSUtTSTFXTms4U2xLdjlPb01TWHFNTmxZeEc5SE5sUl9fYmRxTkpmS1FCYW5vUkQ3MjdKd3plTUZ6T3ljeXh1NDNXTndYV1ZMM0dYcU5fN00yNG5STmtXa2lMTGpTbVlDTEctakVzVlMtblhPWFZ4UmxQcC1wOGcxM2dCX3h6Yl9ySHZudw?oc=5",
+      "publishedAt": "2026-09-23T18:04:00+00:00",
+      "summary": "Ethiopian Airlines cancels flights to Tigray capital as fighters take over airport apnews.com",
       "toeicScore": 63
     },
     {
-      "id": "rss-travel-delays-linger-after-equipment-outages-force-ground-stops-northeast",
+      "id": "rss-reno-tahoe-international-airport-transitioning-new-parking-reservation-system",
       "origin": "live",
       "articleType": "Live News",
       "category": "Travel",
-      "source": "6abc.com",
-      "sourceUrl": "https://6abc.com",
-      "title": "Travel delays linger after equipment outages force ground stops at Northeast airports, including PHL",
-      "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxNMC1YbTZpcmZoUkQ4Wm9VTEpQOFRvV012NjFESkVWSkNjZ2pVSHg2OXRMTnVpTF9oQnpveGk0ejhpSVhUMVd4MEZ4Q1ZTd1RuYnFnanN4eWJ2blMxNkxvR0ZoeEZkaDNHOEE0M1V0aGtaME80d0JLTDVOWS1kVzFVSjJxaVVVc3FOY2d1TFNZd2p5UVRZbEpoNWxQTmhCWUdTTng5ZHVyaGJ2ZTNhc1lIUGh3SmZtakd1eFNycGpTc9IBxAFBVV95cUxNNkQzcXQzckFmSjZITmVWOHkwVjllSU1zVnl3amZ1N0E5WkhCc0pGSk1Jc2NsaGJGMXhNRGlJVUlYbmt6N0tfTGdmdExKRVprMFhKM3NJSlRaa2E1cjRRV3o3MElReDZrdGVad0JNc2Nrc3oyNFh3M29jcmF1SlVPUjhHYnA4TDhjVE1mbDY3S3QtVzdUTEp5UHJqODNqVGpMOEpQSi1nRWR6cy1UN1g0WDRfSmdoS3lEdVRjeXFKYTNXT1RX?oc=5",
-      "publishedAt": "2026-09-23T00:37:10+00:00",
-      "summary": "Travel delays linger after equipment outages force ground stops at Northeast airports, including PHL 6abc.com",
+      "source": "KOLO | 8 News Now",
+      "sourceUrl": "https://www.kolotv.com",
+      "title": "Reno Tahoe International Airport transitioning to new parking reservation system",
+      "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxOUThiQUpta2NTNzF6WG9oR3JuOTJrdGxYd0N3SGpMcHM4YkVKZmc0R3pwNTBkVFJGMTJjSUFtdGhEcm1VZlVHUWdvSjUzeDVfSVRaRDhqOVlCRGNNSGxZcERoZGxEUGJIM0NTemFWaUdjY2x3Z0NFVWhtbEViMkpUc21HNlZMSkZGbDIxMWh2MnE5bWJaZy1JYkswcjV0aGhaTXo2Q0JnVGZvRGJjRDBKQkZn?oc=5",
+      "publishedAt": "2026-09-23T16:39:00+00:00",
+      "summary": "Reno Tahoe International Airport transitioning to new parking reservation system KOLO | 8 News Now",
+      "toeicScore": 63
+    },
+    {
+      "id": "rss-melissa-sims-has-been-appointed-as-general-manager-four-seasons",
+      "origin": "live",
+      "articleType": "Live News",
+      "category": "Travel",
+      "source": "Hospitality Net",
+      "sourceUrl": "https://www.hospitalitynet.org",
+      "title": "Melissa Sims has been appointed as General Manager at Four Seasons Hotel and Residences Jacksonville",
+      "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE51QURGTU5zR1pNYjBTQmdTNFBnYlV1cnBMZUlmQWR4a3REU29zNS11Rkd6amY4ckNjUHhUWkVUN05Jak9pRWRRclpPVTdKcGNxbEdhd0pHaXo3NlVyVFVMQmI2akF2M3JhakYwUndxSDRsQQ?oc=5",
+      "publishedAt": "2026-09-24T07:44:00+00:00",
+      "summary": "Melissa Sims has been appointed as General Manager at Four Seasons Hotel and Residences Jacksonville Hospitality Net",
       "toeicScore": 63
     },
     {
@@ -405,19 +379,6 @@
       "toeicScore": 70
     },
     {
-      "id": "rss-leedon-technology-expands-healthcare-technical-capabilities-authorised-imt-analytics-service",
-      "origin": "live",
-      "articleType": "Live News",
-      "category": "Technology",
-      "source": "The Manila Times",
-      "sourceUrl": "https://www.manilatimes.net",
-      "title": "Leedon Technology Expands Healthcare Technical Capabilities with Authorised IMT Analytics Service Centre in Singapore",
-      "url": "https://news.google.com/rss/articles/CBMimAJBVV95cUxNTE9JSnFmbHBDY2tJVEdwZjlRWTJ3NVNBeXA1LVlDamxqWGpJekh1VUxSbGM0clNOVHFxT0hJUGktOXhEOXprT0hTQUQ3YVRyWjRPYUdUVVVteF82ejNZQXF1MGdwUFN4WGphM1YyNThwTnM3QTR3VHpsbkpxdnVJWVlYQ1FPSS1jVXNfU2t0bXBxTHNHUFhvVDhwdUVGZUJpeUtVM1hJRU04TVJuNlVBeHdSNlFjbGx2aW53aEdVb21QaWxSQnFpcG83NlFFbmxlX016eG45NDh0VWxlNUVJQkhJWFRfQXFsTUZlbEtsSkoyVnhwX09yZ2k4dU9TSE9ja1FVQy1UTnFNWU0tTjlfQ1N5ZmFxRmhV0gGeAkFVX3lxTE8tVzBIRTMwRVI1V3UtQmZDR29zTGwwbmxKSl84VW9CbVMzT1k1cmZFaGQ1V2JsaG15aVdQMUZ1b3lieVQwY1QtSnNUT2JCQlViVl9LMHE2eUhDVHhwRVJhRkUwZEpPMGhBMnNQeWxzRTdxSE02NmNhblJLUXhOZl82cWNielJzRVEzT1lyNzM5clZzbWxKUFpYa216TnRfeGhJNl9LNmYyWTBiZTU4R1RIaC1CSXZHSkMzc0JxQVVKS2R3LU5SbHJNWDFEV0hvaUFCU3NOZ1NDRG84M3lOZ1p1cC1rSzlESlFYWFlQYmFXZ3QxQlF4ak80emhoQVNCNFptaEhabzYzYkxZMTRvWmt3YjNLV2VUZzl0NE0wSEE?oc=5",
-      "publishedAt": "2026-09-23T11:33:17+00:00",
-      "summary": "Leedon Technology Expands Healthcare Technical Capabilities with Authorised IMT Analytics Service Centre in Singapore The Manila Times",
-      "toeicScore": 66
-    },
-    {
       "id": "rss-chesapeake-bank-reading-cooperative-bank-partner-rebolt-launch-first-bank",
       "origin": "live",
       "articleType": "Live News",
@@ -428,6 +389,19 @@
       "url": "https://news.google.com/rss/articles/CBMilAJBVV95cUxOODlXcldUbVpBTGFmMG9mUzE3VjdzNWtSVk9LZUtOWk56ZWZHLThfVGxYdktKRXJQaVBoMEdLY3dGajFGVDdFbGdFaTdiZHZvTzBCLWx3Yl83RU12enRhX1U1dXY5YmZwNHA1RDFSdzNPU0NYdHlPcnJHcUE0TG9zdDJ1Yi1HaGJ2R0ZDamdHZURudHUxSmZkZEp2Yy1NNVBIaVJHSG9kUkt6Tm5wMEtGTWlQMW9fUkt3RDR6UmdubmIyeFJVbXd1c21heWdvMFJTX0U2ZVg2ckN0UUdQWUJVTE1zYl9hX2lzRFJxSFFmUGNjNVJHaHlYb2ZQSzltUGRFT0RYREV1TXNvVDN2NEF4aDl4Q0I?oc=5",
       "publishedAt": "2026-09-21T14:00:00+00:00",
       "summary": "Chesapeake Bank and Reading Cooperative Bank Partner with Rebolt to Launch First Bank-Owned Payment Utility for Small Business TradingView",
+      "toeicScore": 66
+    },
+    {
+      "id": "rss-leedon-technology-expands-healthcare-technical-capabilities-authorised-imt-analytics-service",
+      "origin": "live",
+      "articleType": "Live News",
+      "category": "Technology",
+      "source": "The Manila Times",
+      "sourceUrl": "https://www.manilatimes.net",
+      "title": "Leedon Technology Expands Healthcare Technical Capabilities with Authorised IMT Analytics Service Centre in Singapore",
+      "url": "https://news.google.com/rss/articles/CBMimAJBVV95cUxNTE9JSnFmbHBDY2tJVEdwZjlRWTJ3NVNBeXA1LVlDamxqWGpJekh1VUxSbGM0clNOVHFxT0hJUGktOXhEOXprT0hTQUQ3YVRyWjRPYUdUVVVteF82ejNZQXF1MGdwUFN4WGphM1YyNThwTnM3QTR3VHpsbkpxdnVJWVlYQ1FPSS1jVXNfU2t0bXBxTHNHUFhvVDhwdUVGZUJpeUtVM1hJRU04TVJuNlVBeHdSNlFjbGx2aW53aEdVb21QaWxSQnFpcG83NlFFbmxlX016eG45NDh0VWxlNUVJQkhJWFRfQXFsTUZlbEtsSkoyVnhwX09yZ2k4dU9TSE9ja1FVQy1UTnFNWU0tTjlfQ1N5ZmFxRmhV0gGeAkFVX3lxTE8tVzBIRTMwRVI1V3UtQmZDR29zTGwwbmxKSl84VW9CbVMzT1k1cmZFaGQ1V2JsaG15aVdQMUZ1b3lieVQwY1QtSnNUT2JCQlViVl9LMHE2eUhDVHhwRVJhRkUwZEpPMGhBMnNQeWxzRTdxSE02NmNhblJLUXhOZl82cWNielJzRVEzT1lyNzM5clZzbWxKUFpYa216TnRfeGhJNl9LNmYyWTBiZTU4R1RIaC1CSXZHSkMzc0JxQVVKS2R3LU5SbHJNWDFEV0hvaUFCU3NOZ1NDRG84M3lOZ1p1cC1rSzlESlFYWFlQYmFXZ3QxQlF4ak80emhoQVNCNFptaEhabzYzYkxZMTRvWmt3YjNLV2VUZzl0NE0wSEE?oc=5",
+      "publishedAt": "2026-09-23T11:33:17+00:00",
+      "summary": "Leedon Technology Expands Healthcare Technical Capabilities with Authorised IMT Analytics Service Centre in Singapore The Manila Times",
       "toeicScore": 66
     },
     {
@@ -455,6 +429,19 @@
       "publishedAt": "2026-09-22T12:23:05+00:00",
       "summary": "Formalising trust: How digital verification and protected payments are transforming Accra’s informal service economy Business & Financial Times",
       "toeicScore": 66
+    },
+    {
+      "id": "rss-tencent-launches-payment-app-foreign-visitors-ahead-apec-summit",
+      "origin": "live",
+      "articleType": "Live News",
+      "category": "Technology",
+      "source": "South China Morning Post",
+      "sourceUrl": "https://www.scmp.com",
+      "title": "Tencent launches payment app for foreign visitors ahead of Apec summit",
+      "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxNLXk2ZDNYRmFNcnI0ZElFSEFKcTU3Um9IYVd3MVNlOFBjUTk4cDRPZ2diejkxU3plWG15bEh1WUYwZHgyWlpmMUpCXzQ4QkpzZmlUVC1uMWVXN215V3IwdGlpZlgySXktUXJPZkVyM25SQnhEaWFiMGhWem4ycFhRRzlCeDdyWVFheVJzc05KeU1OcXcyMEZnSElBM1RSVnJydzBmY25RTEt0WWJOYjFfXzIxcWRUZXpoZ0s3RdIBvAFBVV95cUxNYWVCMHZxWG1pWlUxekdSZWg4OE1DQjN0T0ZCVWRWRmxuQTkzWjVwWGdwMnREZHVtMWpHQ01GUldrQzNtOFYwaGozRmx5MnZSUFNTdEdWMEVzc1FhNGo3N2d2bjBjSFhqX2V1VDhrclFMVXhvU0pBTi1JaDVMaUt0Y1o0MGxNcU5DUHV3ZXYyUlllelJ0bnkyd1hOYVU3SF9IRnpqUE1hbEVXV2VTRDhFTEVsWWwxVFVBcWxmaA?oc=5",
+      "publishedAt": "2026-09-24T05:19:05+00:00",
+      "summary": "Tencent launches payment app for foreign visitors ahead of Apec summit South China Morning Post",
+      "toeicScore": 63
     },
     {
       "id": "rss-musk-s-starlink-partners-comms-company-phone-service-rural-locales",
@@ -496,19 +483,6 @@
       "toeicScore": 63
     },
     {
-      "id": "rss-samvriddhi-inclusive-growth-network-gets-rbi-principle-nod-operate-as",
-      "origin": "live",
-      "articleType": "Live News",
-      "category": "Technology",
-      "source": "The Hindu",
-      "sourceUrl": "https://www.thehindu.com",
-      "title": "Samvriddhi Inclusive Growth Network gets RBI in-principle nod to operate as an Online Payment Aggregator",
-      "url": "https://news.google.com/rss/articles/CBMi7wFBVV95cUxQS0l6WFNEclhEZ2lHSEhRNW5vQjlHeE5SZlh1N0NvRU5kUTY3OG1lNkltM3E2WmRXSmtqajBSVDZnbHQxQnUxLTFiSi1QVUEzQVhnQ3lrdmlqTzA5dU1NUDJuNGpMR2JCaWdZcWI3aUIxenNOOFRGbUdxMDY2Vno0c1hQclJpa2U1YXlwb3FmTDRnUno4ZnFlZ1hXd0RPb2JJakFJQUdTODAxVUtWRnVRZUN4TlNzMzVkOFdzbTU4M0ZJODlzc1VSWlAxbUhKTExrR2xIdHpCc1k1d0VhNFdVbHN5MlZrWFJUSlVSeDJMbw?oc=5",
-      "publishedAt": "2026-09-23T22:10:00+00:00",
-      "summary": "Samvriddhi Inclusive Growth Network gets RBI in-principle nod to operate as an Online Payment Aggregator The Hindu",
-      "toeicScore": 63
-    },
-    {
       "id": "rss-medical-care-technologies-inc-otcid-mdce-presents-strainscan-pro-first",
       "origin": "live",
       "articleType": "Live News",
@@ -522,6 +496,19 @@
       "toeicScore": 63
     },
     {
+      "id": "rss-samvriddhi-inclusive-growth-network-gets-rbi-principle-nod-operate-as",
+      "origin": "live",
+      "articleType": "Live News",
+      "category": "Technology",
+      "source": "The Hindu",
+      "sourceUrl": "https://www.thehindu.com",
+      "title": "Samvriddhi Inclusive Growth Network gets RBI in-principle nod to operate as an Online Payment Aggregator",
+      "url": "https://news.google.com/rss/articles/CBMi9gFBVV95cUxNUzZmQk1ncEJIVFd1Vk43VTV2eVRzOS1vemptckd5czdvdG4zMFV1N2x0MThlMWEyWUM0R1lTSjBYM1VPeFNLR1V5Ynd6UEM4NUp5MHYyWmpNNERyamZxTDBfMmdoU3JQVDRIeThnajV3ektyVHlEczhYcnlvSGF2MWk2b29ZVHc2NjhwVkZHeW02eW1FZjRaMTRKVWh3UUNZb1pyeVl2d3pLdXRRU0FmSkVwYzdzSTFGV0s0NFRFUTZlSDNFLTdlU2xmSUYwUUMyVnhiemVuRGZtYm5mRno1QkpYODJpWWNuUVl4cU5KSjVjQnN1Y1HSAfYBQVVfeXFMTVM2ZkJNZ3BCSFRXdVZON1U1dnlUczktb3pqbXJHeXM3b3RuMzBVdTdsdDE4ZTFhMllDNEdZU0owWDNVT3hTS0dVeWJ3elBDODVKeTB2MlpqTTREcmpmcUwwXzJnaFNyUFQ0SHk4Z2o1d3pLclR5RHM4WHJ5b0hhdjFpNm9vWVR3NjY4cFZGR3ltNnltRWY0WjE0SlVod1FDWW9acnlZdnd6S3V0UVNBZkpFcGM3c0kxRldLNDRURVE2ZUgzRS03ZVNsZklGMFFDMlZ4YnplbkRmbWJuZkZ6NUJKWDgyaVljblFZeHFOSko1Y0JzdWNR?oc=5",
+      "publishedAt": "2026-09-23T22:10:00+00:00",
+      "summary": "Samvriddhi Inclusive Growth Network gets RBI in-principle nod to operate as an Online Payment Aggregator The Hindu",
+      "toeicScore": 63
+    },
+    {
       "id": "rss-osprey-launches-uk-wide-autocharge-service",
       "origin": "live",
       "articleType": "Live News",
@@ -532,6 +519,19 @@
       "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxPTnlabWVjXzZTS0dnenNEcUtIUUdPRE5TNzdxRjV5Yy01VzlndXRHN05xVHlPeVp3bzRScGdiajJUcHhJaFRNcHJpdHR5dUdLS3Z0ektNQkVCNWVqU1E3alFzUW5OZldmdmx5eWpZVm1mQktmcmpZMXFhM1g0TW8zU3ZzU3dyRXc?oc=5",
       "publishedAt": "2026-09-22T13:31:52+00:00",
       "summary": "Osprey launches UK-wide Autocharge service electrive.com",
+      "toeicScore": 63
+    },
+    {
+      "id": "rss-sign-receives-rbi-nod-online-payment-aggregator-licence",
+      "origin": "live",
+      "articleType": "Live News",
+      "category": "Technology",
+      "source": "IBS Intelligence",
+      "sourceUrl": "https://ibsintelligence.com",
+      "title": "SIGN receives RBI nod for online payment aggregator licence",
+      "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxPMWlaZzdabEpKckYtOVFaWGViLXJPU1JFQVRUUU0tMzNrZTZJN2RvcFhkaHRScGpKMGdrU3ZyRlQ3bGhiQTI4TzFWcTlrdW9Hc2ROWjQwQm9keTRFUmg5ZElrMDllT252STZpVktVUmR5MEtMc2NUbzlrOGMyVlpfMWQ0UlBqeVdwNlNKUXBoMjNRSWFneUM0NjMySkNfbkU?oc=5",
+      "publishedAt": "2026-09-24T07:44:03+00:00",
+      "summary": "SIGN receives RBI nod for online payment aggregator licence IBS Intelligence",
       "toeicScore": 63
     },
     {
@@ -561,32 +561,6 @@
       "toeicScore": 63
     },
     {
-      "id": "rss-space42-plans-2029-launch-satellite-phone-service-end-mobile-dead",
-      "origin": "live",
-      "articleType": "Live News",
-      "category": "Technology",
-      "source": "Gulf News",
-      "sourceUrl": "https://gulfnews.com",
-      "title": "Space42 plans 2029 launch of satellite phone service to end mobile dead zones",
-      "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxPXzZFczd2dHBOUWtZUEJKS2J5YlF5MjF6N3BxdDNDQXZaQjR3VUVSYU96d2UzeVRKV0FzVmpWWTB3a3pfeWlxMzNWenlKVEJ0eVBBaWxIMV9qSk9qNnlSaWZZNW5kcXV4aWhDU1p2dmhCUmF6d1JkODJCRk45WWdpeWU1VWFyUFNFel9ONm1aQ0cwNkpocmJKQkZwQ3RHTXdEdUhJa2p6MF9FdWRDaDhVU2ZmNXhiUU1oVVlKS1BB0gHOAUFVX3lxTE8xTHp2Qi1iMkZUZHM3bTNhNWpkMmFJanpKelFjbEs4cnY0aVBaVVNVQUtCLWlPRlNfdjgxZHViZHBfTkNidm5YYk5IZUdfMVc0Q2d3Nl9uYjJKYXZDaHVqaUI1aEhTdnRwY2VMeW02TzV2MjlkZ2JxZEw1MkdXM1ZNLWdzWTdBV1l2V1FOTURuV080dU50WjJuc2xoYzBtb1dSMFc5OEp1a3k3QW5pSU4ycExIODVPZzYtaUlLR3psQ0EwdC1oaGVtNmF5dEpn?oc=5",
-      "publishedAt": "2026-09-22T08:28:11+00:00",
-      "summary": "Space42 plans 2029 launch of satellite phone service to end mobile dead zones Gulf News",
-      "toeicScore": 63
-    },
-    {
-      "id": "rss-behind-every-trusted-online-payment-intelligence-securing-digital-commerce",
-      "origin": "live",
-      "articleType": "Live News",
-      "category": "Technology",
-      "source": "Techeconomy",
-      "sourceUrl": "https://techeconomy.ng",
-      "title": "Behind Every Trusted Online Payment: The Intelligence Securing Digital Commerce",
-      "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxOWno0aWJZeEU4TS1iX1JBcDVDT1NPTlVmMDZrdklETWhzOW1mWTFxbHJBVmhudEF4aDkwV0tRenNxYTNEVWlTcUZHalllQTFBTmthREo3anVGZzlnSUJpSnB3Tkd4V0VPQkxmOXVsSmxSRmZUYUJIQ0lPWWk1Q3BoMlJMUVJVWEJsUWNiYTZhWEV3YVhJMzIzeWplTXh2d1g4TlBV?oc=5",
-      "publishedAt": "2026-09-21T09:42:53+00:00",
-      "summary": "Behind Every Trusted Online Payment: The Intelligence Securing Digital Commerce Techeconomy",
-      "toeicScore": 63
-    },
-    {
       "id": "rss-94-customers-say-technology-influences-which-quick-service-restaurant-they",
       "origin": "live",
       "articleType": "Live News",
@@ -598,19 +572,6 @@
       "publishedAt": "2026-09-23T15:00:00+00:00",
       "summary": "94% of Customers Say Technology Influences Which Quick-Service Restaurant They Eat At, Canopy Research Finds Yahoo Finance",
       "toeicScore": 70
-    },
-    {
-      "id": "rss-new-sendik-s-grocery-store-whitefish-bay-features-restaurant-live",
-      "origin": "live",
-      "articleType": "Live News",
-      "category": "Daily Life",
-      "source": "jsonline.com",
-      "sourceUrl": "https://www.jsonline.com",
-      "title": "New Sendik's grocery store in Whitefish Bay features restaurant, live music",
-      "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxQZS1oaTUzLXo2TERCNm9IUjJyRm54MzlOYm8zdm5FQlhwaC1WZkVoV2huVFFZVUEyRGRlOXpxTEl5ZkE2U1VWbWJSajNqeUxBZXJHcWcwelc0a3JSTG9CcWlHQVQyVUliWXBkdTU5WXFJWkFWVnpRUlpfWk5KSnAwS1NhOGlBNXFIR1J0d09xMTg0YkhGLXhNM090NG1DWUE0aUJnZFBRb1VHazNsazlTSXR3?oc=5",
-      "publishedAt": "2026-09-23T15:27:00+00:00",
-      "summary": "New Sendik's grocery store in Whitefish Bay features restaurant, live music jsonline.com",
-      "toeicScore": 66
     },
     {
       "id": "rss-mcdonald-s-invest-8-5-billion-restaurant-upgrades-technology",
@@ -626,29 +587,16 @@
       "toeicScore": 66
     },
     {
-      "id": "rss-rma-acquires-maryland-s-eyre-bus-service-expanding-mid-atlantic",
+      "id": "rss-nissan-s-smart-mobility-field-tests-evolve-into-public-transportation",
       "origin": "live",
       "articleType": "Live News",
       "category": "Daily Life",
-      "source": "citybiz",
-      "sourceUrl": "https://www.citybiz.co",
-      "title": "RMA Acquires Maryland’s Eyre Bus Service, Expanding Mid-Atlantic Transportation Operations",
-      "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxQam5IYmFUcng0akJNYjdqczY2ZzlfR0xsWDdiWnBwVmVkTGZXSi1ERE9tcm54SElwZnNjRVlZNkdtZzZpX01lZkZXNVVwUnFvNmIwOU85RFE5M1Y1UGNFS08tZ1I2bmRiaVZKZ2FFUmVFakJOUHpua2NoMkxPMzh2VnRGNFQxMmdsM29BMmVkT0p0MU5RcTJ4emdMWHhfcWpPRzNYR3c1LUNFYXY5QWdobkVVNHVZNDJLamNTZ3U3R2hvMDZlRnc?oc=5",
-      "publishedAt": "2026-09-22T20:04:12+00:00",
-      "summary": "RMA Acquires Maryland’s Eyre Bus Service, Expanding Mid-Atlantic Transportation Operations citybiz",
-      "toeicScore": 66
-    },
-    {
-      "id": "rss-n-c-forest-service-reminds-public-increased-wildfire-risk-urges",
-      "origin": "live",
-      "articleType": "Live News",
-      "category": "Daily Life",
-      "source": "WataugaOnline.com",
-      "sourceUrl": "https://wataugaonline.com",
-      "title": "N.C. Forest Service Reminds Public of Increased Wildfire Risk, Urges Caution With Outdoor Burning",
-      "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxNc0lzR0FWYndCeWhfd083TThWUS0xZ2Z4a18wbHJrWUZpSkxmRTBJVEluekJvTlpsVllOSGxLTE5zS3g0ZF81el85NlZSR0tCdXA2bkt1VlhtcW5QZUcyM2FqM196SS1qcld4WFRnZ3ZvTjAwV3N1VU93bnhneURRUmh2Z3hBb3h2M09rRHJ4ZjljeUpjR2tPVi1vSklYa1dWbXRKX1BJclVYM2xWZ21NMmJKMTl5VGU2S18zRjlOaw?oc=5",
-      "publishedAt": "2026-09-23T21:28:45+00:00",
-      "summary": "N.C. Forest Service Reminds Public of Increased Wildfire Risk, Urges Caution With Outdoor Burning WataugaOnline.com",
+      "source": "日産自動車ニュースルーム",
+      "sourceUrl": "https://global.nissannews.com",
+      "title": "Nissan’s Smart Mobility field tests evolve into a public transportation service",
+      "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxPOUQ0TVpmYlUwVFMtM0ctQVAwV3RtTUZLMDVHUEtSNi12QW9hR3NUaTQ1WDZxZHBTd0I2WGxCS2dnV3pZWXh3LVltRDAxbUdKSk5VMUk0QjdIeGhSQ2p1WUR3NjJDT2hSOHRLSEZTbGtuckZmaVJ4QUJxS3NFa2hDenBXU3ZZcUoxSHhzd3IyZWpmUG5pMEdEbGhvMWtjcmZ4MC1FalJVbHNpVzJwT0Z1T2VicGw4cTFldkFN?oc=5",
+      "publishedAt": "2026-09-24T05:00:00+00:00",
+      "summary": "Nissan’s Smart Mobility field tests evolve into a public transportation service 日産自動車ニュースルーム",
       "toeicScore": 63
     },
     {
@@ -665,6 +613,32 @@
       "toeicScore": 63
     },
     {
+      "id": "rss-n-c-forest-service-reminds-public-increased-wildfire-risk-urges",
+      "origin": "live",
+      "articleType": "Live News",
+      "category": "Daily Life",
+      "source": "WataugaOnline.com",
+      "sourceUrl": "https://wataugaonline.com",
+      "title": "N.C. Forest Service Reminds Public of Increased Wildfire Risk, Urges Caution With Outdoor Burning",
+      "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxNc0lzR0FWYndCeWhfd083TThWUS0xZ2Z4a18wbHJrWUZpSkxmRTBJVEluekJvTlpsVllOSGxLTE5zS3g0ZF81el85NlZSR0tCdXA2bkt1VlhtcW5QZUcyM2FqM196SS1qcld4WFRnZ3ZvTjAwV3N1VU93bnhneURRUmh2Z3hBb3h2M09rRHJ4ZjljeUpjR2tPVi1vSklYa1dWbXRKX1BJclVYM2xWZ21NMmJKMTl5VGU2S18zRjlOaw?oc=5",
+      "publishedAt": "2026-09-23T21:28:45+00:00",
+      "summary": "N.C. Forest Service Reminds Public of Increased Wildfire Risk, Urges Caution With Outdoor Burning WataugaOnline.com",
+      "toeicScore": 63
+    },
+    {
+      "id": "rss-new-sendik-s-grocery-store-whitefish-bay-features-restaurant-live",
+      "origin": "live",
+      "articleType": "Live News",
+      "category": "Daily Life",
+      "source": "Milwaukee Journal Sentinel",
+      "sourceUrl": "https://www.jsonline.com",
+      "title": "New Sendik's grocery store in Whitefish Bay features restaurant, live music",
+      "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxQZS1oaTUzLXo2TERCNm9IUjJyRm54MzlOYm8zdm5FQlhwaC1WZkVoV2huVFFZVUEyRGRlOXpxTEl5ZkE2U1VWbWJSajNqeUxBZXJHcWcwelc0a3JSTG9CcWlHQVQyVUliWXBkdTU5WXFJWkFWVnpRUlpfWk5KSnAwS1NhOGlBNXFIR1J0d09xMTg0YkhGLXhNM090NG1DWUE0aUJnZFBRb1VHazNsazlTSXR3?oc=5",
+      "publishedAt": "2026-09-23T15:27:00+00:00",
+      "summary": "New Sendik's grocery store in Whitefish Bay features restaurant, live music Milwaukee Journal Sentinel",
+      "toeicScore": 63
+    },
+    {
       "id": "rss-making-physical-storefront-retail-s-most-valuable-digital-asset",
       "origin": "live",
       "articleType": "Live News",
@@ -675,19 +649,6 @@
       "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxNR1VIbWVZa0gtb3lpSUdfU1Zud2VVR0JQbjVuUDF0dHpaVFpfeWtSV0dzUHd0VXFkZFdKMVhzdF9wV3Bkb2FQdkp2aXhlV05KQ2FMd2lRX0Y0cmdOSENsYzk0MUVYeW5TUk1OeXNoRk56ZW9fT1hUemFsb21FRWxvN2R0WFQ5T2g1dk92TjVzeGNVZw?oc=5",
       "publishedAt": "2026-09-23T18:30:57+00:00",
       "summary": "Making the physical storefront retail's most valuable digital asset Chain Store Age",
-      "toeicScore": 63
-    },
-    {
-      "id": "rss-wisconsin-s-second-carhartt-store-open-bayshore-mall-sept-24",
-      "origin": "live",
-      "articleType": "Live News",
-      "category": "Daily Life",
-      "source": "jsonline.com",
-      "sourceUrl": "https://www.jsonline.com",
-      "title": "Wisconsin's second Carhartt store to open at Bayshore mall Sept. 24",
-      "url": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxOQzFLT0xmQ0tiSDZON1FCS0F5NTc2ZUk3MTJyeEo2bGhQeERGSGE4SDVoQW5TQnhzRnhCOF92YU5tXzBfb2NPMEJXOGNOMHpPZmpJQjUtaWttQkhLaTdoeElrckREQTFWdXRWZm91dHpfcjVjWmlhVlRPZW96NFFUX1AxRjdFZlhubzZqdDkzNVFOaFo4YXVjaWlFclpXNWhGaDEwc3kxa0N3ZFpGYm90eEN1M2xaU0xScmdMWWJ6Mjk2UjQ2bGprSEo5OFY0TlNSV1M4?oc=5",
-      "publishedAt": "2026-09-23T17:14:00+00:00",
-      "summary": "Wisconsin's second Carhartt store to open at Bayshore mall Sept. 24 jsonline.com",
       "toeicScore": 63
     },
     {
@@ -704,29 +665,42 @@
       "toeicScore": 63
     },
     {
-      "id": "rss-peregrine-falcons-tracked-over-thousands-miles-travel-thanks-new-transmitters",
+      "id": "rss-wasn-t-easy-but-necessary-middle-tennessee-burger-restaurant-announces",
       "origin": "live",
       "articleType": "Live News",
       "category": "Daily Life",
-      "source": "Wisconsin Public Service",
-      "sourceUrl": "https://news.wisconsinpublicservice.com",
-      "title": "Peregrine falcons tracked over thousands of miles of travel thanks to new transmitters",
-      "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxQT3dyRlVNdW5UdHVNbllmMTRTenZMOFRjdUlpUkJGM0lPOFIzYWpJbHJDMGtQc0ZnNWFYWWdxb0FfNzZqamZJV3l3akxlX1U1MVBvMzZOU3VRUC1GRGJTN1ZUVmd0Y0JCT2xZM1FLdl9rY3l3ZjVYcGQ3Tm1uNHZtb3NvRDUzdHUwY0FfQlVOMk1BYkZGMEloNHVzbGRuV215Z2tmR2lkODd4Vk15TDNhN2ttYTV4R3lDajJEcmxuTVZFendZcVE?oc=5",
-      "publishedAt": "2026-09-22T16:13:25+00:00",
-      "summary": "Peregrine falcons tracked over thousands of miles of travel thanks to new transmitters Wisconsin Public Service",
+      "source": "WSMV",
+      "sourceUrl": "https://www.wsmv.com",
+      "title": "‘Wasn’t easy, but necessary.’ Middle Tennessee burger restaurant announces closure after nearly 10 years of service",
+      "url": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxOeHlKdU5saWV4WlFYT1RGV0tGQVJsS2sxMUk4SF96SjlBYmMwYnVRYTlBcDllejVfWDdyNGtaZHJaNUtuU1BDNElIS2dRQVc4eGFKcXE4NGJNUUo1VFhaV1VuTFB6YmFOWDlrWFRyb0JBVkxuMWVoaGN3SXNPdS1oSGZTWWNIUHNTaWx2SGNPSlEzRUw5VlpZMy1oMkM4Z0g4dm93SGk2QWs3Ni1aYzNDTnVNSUlfdHpmQnJweGpFVGdGNFpwT1JQbmFucXJKbkZhdFE?oc=5",
+      "publishedAt": "2026-09-22T16:31:00+00:00",
+      "summary": "‘Wasn’t easy, but necessary.’ Middle Tennessee burger restaurant announces closure after nearly 10 years of service WSMV",
       "toeicScore": 63
     },
     {
-      "id": "rss-retail-employment-sales-show-uneven-growth-mexico",
+      "id": "rss-19-public-health-scholars-quit-mandatory-service-but-korea-can",
+      "origin": "live",
+      "articleType": "Live News",
+      "category": "Daily Life",
+      "source": "Korea Biomedical Review",
+      "sourceUrl": "https://www.koreabiomed.com",
+      "title": "19 public health scholars quit mandatory service, but Korea can’t track repayments",
+      "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE1VX1hVUWVSdTZiMTZoNUNweS1FVFdadU1RTXJNaFRGb1lYRnozMl92Y1VqZHUxd0dMWldPQy1FSWVYclM5VGVzRjlOMmZvcE5jVHJYRmlPX19GRmJ2Zldjd1VCakowd1ZDaDItLWFn0gFyQVVfeXFMTWRhRlBrZ01Jcks0bkpFdGpIR3B4T19pUnV5dFF2dEUxRmo3U1hybWVJM2pYRkRvWC0xR21GbXBSZ0pvUC1jR3JSR3hKRjd3RldFdlh1UVQwdzNfTUlwZXR3WkVfR3doMllEcTdPQkl1dGl3?oc=5",
+      "publishedAt": "2026-09-23T05:21:11+00:00",
+      "summary": "19 public health scholars quit mandatory service, but Korea can’t track repayments Korea Biomedical Review",
+      "toeicScore": 63
+    },
+    {
+      "id": "rss-pound-canadian-dollar-price-news-forecast-canadian-retail-sales-could",
       "origin": "live",
       "articleType": "Live News",
       "category": "Business",
-      "source": "Mexico Business News",
-      "sourceUrl": "https://mexicobusiness.news",
-      "title": "Retail Employment and Sales Show Uneven Growth in Mexico",
-      "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxQRHEwWEhpTHRFd1h2VEk0Z0swak55MmNHMVYweHNzRnVXYmxrR3d2VFdSRUgtQ1YwNW8wQUtpY1d5M1hPUHVmZGR5QWswMkFZQkhNZFk5Zm5ET1kzSk5PWGp6TElMYldGTFU3VVAya2Z3QUdQWmROd2FJbXVYVEVINzVoUkdGVVM5alJSTVRPT3BmcjhtX0hRTVJzR2o?oc=5",
-      "publishedAt": "2026-09-21T19:43:33+00:00",
-      "summary": "Retail Employment and Sales Show Uneven Growth in Mexico Mexico Business News",
+      "source": "Exchange Rates UK",
+      "sourceUrl": "https://www.exchangerates.org.uk",
+      "title": "Pound To Canadian Dollar Price News, Forecast: Canadian Retail Sales Could Lift CAD",
+      "url": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxNX1hsMFNNVFdMZllkUHdjLU1sWXNMTUFqQkp3ZEx5Q2h6bUxTSUxacWpBaEJ3NUdVeTM4Xy1HNDRFdmFoWDBDN21tV1Y2Zk1PN1hlS0FUZjlhQjFjNzB5bDdLU2hmQkZlOTNjQk5xajlZdGxpUUpqaWZPaGU4WVMtTVBTbjBhX01zdlFrT0otVGZQUmpxQzZpUTBVLWlZV0hZOXFOaGoyUTFBUGpsT1pSTEdnTjd3MXZIQ3RmWHVsV0tRWGVpVHJId0VBWHYyZWF2V3dLRnlnajg?oc=5",
+      "publishedAt": "2026-09-24T06:00:00+00:00",
+      "summary": "Pound To Canadian Dollar Price News, Forecast: Canadian Retail Sales Could Lift CAD Exchange Rates UK",
       "toeicScore": 66
     },
     {
@@ -747,12 +721,12 @@
       "origin": "live",
       "articleType": "Live News",
       "category": "Business",
-      "source": "Diginomica",
+      "source": "diginomica",
       "sourceUrl": "https://diginomica.com",
       "title": "What’s up doc? How Dr Martens re-invented Customer Service with Salesforce",
       "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxQNGZOd0MtQ1hxNzVxLUd0YWxRZkZuaERjd3VxclBac0YzNldNRkRyTWx0QzJCTGlmbFo0SnZELXhwUG81UGxUVjhCMEFfUzBlT2JHSi1SeFZQQVVneUdxcnRDVFZJaldTRzlnTG9aQURqbC02SGVCcHdTX3ZSNHhpOGwtank5YURuZ25mSVRvMFo?oc=5",
       "publishedAt": "2026-09-22T10:05:01+00:00",
-      "summary": "What’s up doc? How Dr Martens re-invented Customer Service with Salesforce Diginomica",
+      "summary": "What’s up doc? How Dr Martens re-invented Customer Service with Salesforce diginomica",
       "toeicScore": 66
     },
     {
@@ -779,6 +753,32 @@
       "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxNQm9PLVpQektxRnRFWTlUb3JHeTBmam0xSVBnRE81eFRibTRtU002bm5mQ1M4bVVCelpKbXRnV1pJUVo2bmdob1pFRE5tWHoxZllzanY4MWgxaGJwRjlMemw1VFNLWWZlcHNtUEVmVWlreXJPUDZZY21iX3hjVXIxZ3V2S2IyeHhBVHlwc24yTmdGekduZEhZYzhxdzA2Zw?oc=5",
       "publishedAt": "2026-09-23T15:22:52+00:00",
       "summary": "Holiday spending forecast 2026: Retail sales expected to grow 5.5% as AI shapes shopping Mastercard",
+      "toeicScore": 63
+    },
+    {
+      "id": "rss-us-retail-sales-rise-august",
+      "origin": "live",
+      "articleType": "Live News",
+      "category": "Business",
+      "source": "Rapaport",
+      "sourceUrl": "https://rapaport.com",
+      "title": "US Retail Sales Rise in August",
+      "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE9IT1p6WmViQlJDblA4M1drOFdySVhRLUtCUjdDRDd6TnJ6N0EwSzJIMWJqbEdRZ2VRU0ZjMExxb01qb2ZHRV9BYkJWVWR3T21aUm9DWVpxTG9XZlBsdDRnUzk0cUdvNWNX?oc=5",
+      "publishedAt": "2026-09-23T10:54:56+00:00",
+      "summary": "US Retail Sales Rise in August Rapaport",
+      "toeicScore": 63
+    },
+    {
+      "id": "rss-customer-project-associate-arizona-public-service-aps",
+      "origin": "live",
+      "articleType": "Live News",
+      "category": "Business",
+      "source": "energynews.pro",
+      "sourceUrl": "https://energynews.pro",
+      "title": "Customer Project Associate — Arizona Public Service - APS",
+      "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxNNXNkMnJscFgyNXhiT3lGQW12dU5VQVp4OHdlWi1MdHVsZ3g5RHlqemNodm5yd0MtWloxdWR3ajQyVlRzc0hGMU9jbnAzS3RNMHZWQ0lXN01rRm5wVUFBcUZjbGNFWjVpdy0wek43LUtCNmRiMndacmYxOHdxak5FU0pnbXlWX3RfNE93RWZVYw?oc=5",
+      "publishedAt": "2026-09-24T04:49:01+00:00",
+      "summary": "Customer Project Associate — Arizona Public Service - APS energynews.pro",
       "toeicScore": 63
     }
   ]
