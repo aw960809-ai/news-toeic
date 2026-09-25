@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-25T19:16:19.518671+00:00",
+  "updatedAt": "2026-09-25T23:57:34.694638+00:00",
   "articles": [
     {
       "id": "rss-test-every-business-should-run-before-letting-ai-calculate-prices",
@@ -19,12 +19,25 @@
       "origin": "live",
       "articleType": "Live News",
       "category": "Business",
-      "source": "africa.businessinsider.com",
+      "source": "Business Insider Africa",
       "sourceUrl": "https://africa.businessinsider.com",
       "title": "PayWithPlay launches CallGPT, an AI-powered voice technology to help businesses answer every customer call",
       "url": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxQdEs4dFNDb2RlLWR4eVpoeFhrTlhZU0s4QzRwTU9RaGNHNXVFUFRtaEt4N2oyMl9NakZmVlhUcEt0VWJHUzdiWWZnMzZPUzJqWENCdWctdUFVdWZMMGRDOVNzaXV4YlVXSzJzV2psODhtdWU1dVpaamJ5bWt1NWFxWUV5azJpSThuaW1fVFY0OVZkbVlTUEoyU2l3TDhmcm5LRGc0T2ZVcC1acHZtSDRKV2RnTmhzRVJ6MjdYNGM0VHFReHNReVBZVExKN1pYMllBNzJCdjVINjdtUQ?oc=5",
       "publishedAt": "2026-09-25T13:26:24+00:00",
-      "summary": "PayWithPlay launches CallGPT, an AI-powered voice technology to help businesses answer every customer call africa.businessinsider.com",
+      "summary": "PayWithPlay launches CallGPT, an AI-powered voice technology to help businesses answer every customer call Business Insider Africa",
+      "toeicScore": 70
+    },
+    {
+      "id": "rss-salesforce-acquires-fin-revolutionize-customer-service-automation",
+      "origin": "live",
+      "articleType": "Live News",
+      "category": "Business",
+      "source": "Small Business Trends",
+      "sourceUrl": "https://smallbiztrends.com",
+      "title": "Salesforce Acquires Fin to Revolutionize Customer Service Automation",
+      "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxPeE51MFI2TDBwbjd1azBYQXlEdk1TOHZ5Y0d3OFNhWmhzQ0p6TUxqdUVrRDdnMl9fRG1MRGg5Wm9IMlFJWm4zamJMb1k5Nm10VHVVdmNfYzFGN25fdHRUWWVjRmF5dmdpakszbWpOTWZEVk5GeXZSRUJyR0k5OXpSdU82TzBjcnc5ek5wUXJaSzgtaTJhaG43ckN2Z2I?oc=5",
+      "publishedAt": "2026-09-25T16:11:00+00:00",
+      "summary": "Salesforce Acquires Fin to Revolutionize Customer Service Automation Small Business Trends",
       "toeicScore": 70
     },
     {
@@ -41,29 +54,16 @@
       "toeicScore": 70
     },
     {
-      "id": "rss-afriland-c-te-d-ivoire-chairman-jean-gakam-sky-motors",
+      "id": "rss-retail-sales-climb-again-august",
       "origin": "live",
       "articleType": "Live News",
       "category": "Business",
-      "source": "Business in Cameroon",
-      "sourceUrl": "https://www.businessincameroon.com",
-      "title": "Afriland Côte d’Ivoire Chairman Jean Gakam and Sky Motors CEO Launch Logistics Company in Cameroon",
-      "url": "https://news.google.com/rss/articles/CBMi9AFBVV95cUxPLU1HcTZ5dzNGVDI2YTVzT3FlcjhrMmdER2NYdWhRS2h5Y1l1NHlNVFVWbm0wRDV5ODZXNUktbGhUamZjeG1RRUMzalBIaDV1UTYxUTVCRngzb0FoZi13OWxaRkp0M0Raa2tMei13bU5jVGd0OTRJdHktYnlrVXVXY3NENTdOOWprbG1hX3ZraFEyUWZBejVva0g2VmZIZHhEMElSVW5QaVN5QXJsYk5tRm5CQlNWanhKSEt6RmZVQkZUZzUzMmQ3b2FqMzZuQ1F6YW92Y1hoZHdSbkZyOTk1c3NUVHVIQjV5bmdTOWd5TlRkdW1Y?oc=5",
-      "publishedAt": "2026-09-25T15:31:18+00:00",
-      "summary": "Afriland Côte d’Ivoire Chairman Jean Gakam and Sky Motors CEO Launch Logistics Company in Cameroon Business in Cameroon",
-      "toeicScore": 70
-    },
-    {
-      "id": "rss-postal-service-employee-manipulation-schemes-impacted-customer-service-scores-report",
-      "origin": "live",
-      "articleType": "Live News",
-      "category": "Business",
-      "source": "federalnewsnetwork.com",
-      "sourceUrl": "https://federalnewsnetwork.com",
-      "title": "Postal Service employee manipulation schemes impacted customer service scores, report finds",
-      "url": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxQWEthOWt6Ulp6LU5MeU5PTkRqNThpMG12bmViUDV2TzhFV255VmZoMkpvLUFoemZiZmVWRHQ0S3ZhTjlQYklCbnRpcmhONEstT21jN2pLQ3ZSTG84RFV0NnZnMGVVNnpEY1h0cUp4SlpEYzBFWm9jbnZvempCZ0VTeFlOVG1jNHVSSE9WSUxTSll4Y0ZqRHRYa1ZqbDdDYVJrNW52XzhKTlJ3ME9ELVZ0VFVveTF5M2dPLXlnRGZoTmZZaEg5LU8tQW5KSVpBSVFPRjZhektudEhKYnFPeGNENw?oc=5",
-      "publishedAt": "2026-09-22T23:22:11+00:00",
-      "summary": "Postal Service employee manipulation schemes impacted customer service scores, report finds federalnewsnetwork.com",
+      "source": "massmarketretailers.com",
+      "sourceUrl": "https://massmarketretailers.com",
+      "title": "Retail sales climb again in August",
+      "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTE9sbFdBWEdjOUdHV0EyU3gxYlJLMEVLUE5tNHY3ODIyV2JmaFVDZ2NJSjVUWnVrTnBvT0FnU0dqWFpyMFR0WFhLNDJXMWpxY2oxOGdvYXJ0aHEyaUFNeDB4X0NEMzljYjBrbXJqX0dDQldIaHd6ekE?oc=5",
+      "publishedAt": "2026-09-25T20:23:15+00:00",
+      "summary": "Retail sales climb again in August massmarketretailers.com",
       "toeicScore": 66
     },
     {
@@ -90,32 +90,6 @@
       "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxNREhmLXUzQ0NDN09zQVcwcVl3TkI1Uzc0aTBIREYwYloxMFFPT0FiQTBCaXc3dUYwTUtHU1Y2VmQyTFdxMnQ2VnM4MmpCblp0OXU4M0ZHTDdVSFRLa253NzBqSkVwclJ4Y0V3a1FCM1pjYlVqXzVKaTJYZHZUaTNJTzNCWW9yc3ZGbU1Ec3Zn?oc=5",
       "publishedAt": "2026-09-25T10:00:00+00:00",
       "summary": "Holiday sales projected to grow 4% to 7% Retail Customer Experience",
-      "toeicScore": 66
-    },
-    {
-      "id": "rss-uk-retailers-report-sales-drop-biggest-cutback-orders-record-cbi",
-      "origin": "live",
-      "articleType": "Live News",
-      "category": "Business",
-      "source": "Reuters",
-      "sourceUrl": "https://www.reuters.com",
-      "title": "UK retailers report sales drop, biggest cutback in orders on record: CBI",
-      "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxOWFJUdEFXUUVULWk5d05lMWVQbElXUEhrUnZDbEtFZ183bkRLTHVpaFpsZ0JNQ1BJVURXRU51ZXJHX21VbHFndjktZ1JSd21DZ3V2Sjl2Qjg3a1B4bmtVVlpGc2NWcFFpbjhXU2U4LTRSQXlSRjdnNHNYdGd4U01XRE82T0lQaE9fMHNRWElQS2w1TkV5c3o0OGlUUXVzemVPS1ROQWJfT1d3YTZZYnc?oc=5",
-      "publishedAt": "2026-09-24T10:08:58+00:00",
-      "summary": "UK retailers report sales drop, biggest cutback in orders on record: CBI Reuters",
-      "toeicScore": 66
-    },
-    {
-      "id": "rss-employees-pressured-go-along-usps-customer-service-ratings-scheme-ig",
-      "origin": "live",
-      "articleType": "Live News",
-      "category": "Business",
-      "source": "FEDweek",
-      "sourceUrl": "https://www.fedweek.com",
-      "title": "Employees Pressured to Go Along With USPS Customer Service Ratings Scheme, IG Says",
-      "url": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxNaUh5cTRscWRzSEVrYklLWGdlclhtMU1kNmU1Ym1jcmtweHA5MkU1VWp0WnR5M2d1eHh1VVl4OFpRcUl2MVRIWGxKbEhXd21NU25Cd1dheVdPMV9wbmMzNVl0NXV5TW5RWnQwUzl5UDhvM203MGxUMlg4LVRzc3oxbFVpdEFRTWxDeFZ6Z2lYakxYUGhFdl9mV0xzYk1Td0JkOHZldXFjcFlkOHlWUWNZMXNaS1lsNWx5M1ByelJESzlqa283d3VJREN4YVlwbExWTl9xYg?oc=5",
-      "publishedAt": "2026-09-22T21:23:08+00:00",
-      "summary": "Employees Pressured to Go Along With USPS Customer Service Ratings Scheme, IG Says FEDweek",
       "toeicScore": 66
     },
     {
@@ -158,16 +132,16 @@
       "toeicScore": 66
     },
     {
-      "id": "rss-chinese-delivery-company-launch-switzerland",
+      "id": "rss-amazon-nl-launches-its-fastest-same-day-delivery-service",
       "origin": "live",
       "articleType": "Live News",
       "category": "Business",
-      "source": "lenews.ch",
-      "sourceUrl": "https://lenews.ch",
-      "title": "Chinese delivery company to launch in Switzerland",
-      "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxONS1XNnVGZmVxYXplWEZXekw2UUF6ZmV3TXEwVTBkV29rN3U3WlVUQVpPVjR2MHp5Z2dDcS1fVEJUX2Z3NjBEdHhqY3pTa1Z5empWV21fR2s3dE52dmVENGRrbWN5SzdMVE40aWNKa29COHktRGJBeGhzWm5wU2Z4NVBoLW03UQ?oc=5",
-      "publishedAt": "2026-09-25T18:14:48+00:00",
-      "summary": "Chinese delivery company to launch in Switzerland lenews.ch",
+      "source": "aboutamazon.eu",
+      "sourceUrl": "https://www.aboutamazon.eu",
+      "title": "Amazon.nl launches its fastest Same-Day Delivery service",
+      "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxOeGc3czIxaEJHWjNnVjRxRTlYMXcwUUFHTEFZdDMzQmhmdjhtNDNTSk1Wb3NoUGRnTlBtMzA1U0tMc2lwSzdYWmRMbGZONExIcWFRYjdncmpUTFFPZnRQZUZNVk91aENmenF1UlcxMzdoWFJheEMwSHo4MkxmQU9mUmhwSlZTOVVD?oc=5",
+      "publishedAt": "2026-09-24T09:06:35+00:00",
+      "summary": "Amazon.nl launches its fastest Same-Day Delivery service aboutamazon.eu",
       "toeicScore": 66
     },
     {
@@ -184,42 +158,16 @@
       "toeicScore": 66
     },
     {
-      "id": "rss-amazon-nl-launches-its-fastest-same-day-delivery-service",
+      "id": "rss-chinese-delivery-company-launch-switzerland",
       "origin": "live",
       "articleType": "Live News",
       "category": "Business",
-      "source": "About Amazon Europe",
-      "sourceUrl": "https://www.aboutamazon.eu",
-      "title": "Amazon.nl launches its fastest Same-Day Delivery service",
-      "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxOeGc3czIxaEJHWjNnVjRxRTlYMXcwUUFHTEFZdDMzQmhmdjhtNDNTSk1Wb3NoUGRnTlBtMzA1U0tMc2lwSzdYWmRMbGZONExIcWFRYjdncmpUTFFPZnRQZUZNVk91aENmenF1UlcxMzdoWFJheEMwSHo4MkxmQU9mUmhwSlZTOVVD?oc=5",
-      "publishedAt": "2026-09-24T09:06:35+00:00",
-      "summary": "Amazon.nl launches its fastest Same-Day Delivery service About Amazon Europe",
-      "toeicScore": 66
-    },
-    {
-      "id": "rss-startup-spotlight-marketing-vets-launch-kompeld-measure-if-company-s",
-      "origin": "live",
-      "articleType": "Live News",
-      "category": "Business",
-      "source": "GeekWire",
-      "sourceUrl": "https://www.geekwire.com",
-      "title": "Startup Spotlight: Marketing vets launch Kompeld to measure if a company’s story is actually working",
-      "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxPZTVhaGJCNktRakFBblpWS0J1MzB0Y2JMbFFSdFJEdVZmaWpiTGJKVGhtUTBUM1FOdmt0QlpzZ2lQcHN4MzRlYlRGSFZmTmNadjZoT011MFQ3dGcxdUJtdk9xTVFGSEZfNGZncFQ3M0hPVFhPVUdCckVzLUJ6UUotNHZuOVJHTkhnUVdOamYyV3dmUEt6UEh1a2V5R2JMdmxOTEZmY3QyUXRWWEZPRHhfNEd3bjZiZG5UMnhRZzZjZGx0QzRYbGt4SA?oc=5",
-      "publishedAt": "2026-09-24T22:03:18+00:00",
-      "summary": "Startup Spotlight: Marketing vets launch Kompeld to measure if a company’s story is actually working GeekWire",
-      "toeicScore": 66
-    },
-    {
-      "id": "rss-ird-staff-undergoes-customer-service-training",
-      "origin": "live",
-      "articleType": "Live News",
-      "category": "Business",
-      "source": "St Vincent Times",
-      "sourceUrl": "https://www.stvincenttimes.com",
-      "title": "IRD Staff Undergoes Customer Service Training",
-      "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxQX0N6ZUFjYzl4OWgzNzEtakpFVTNkYTJkcnRFTzljSG1iTVNOVUo4d05wTHZEbDBFb3JCV01wU0pJYTVVNGFGREJUdkxJNnpCUnlFRzh0ZHlMZ0NBVU1DRS1HeFlZZjcya1dJQm1DdEEwMVBzS1B1V0RnZUlkYTVOSW5tSVgzZC1XdzFN?oc=5",
-      "publishedAt": "2026-09-24T22:57:58+00:00",
-      "summary": "IRD Staff Undergoes Customer Service Training St Vincent Times",
+      "source": "lenews.ch",
+      "sourceUrl": "https://lenews.ch",
+      "title": "Chinese delivery company to launch in Switzerland",
+      "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxONS1XNnVGZmVxYXplWEZXekw2UUF6ZmV3TXEwVTBkV29rN3U3WlVUQVpPVjR2MHp5Z2dDcS1fVEJUX2Z3NjBEdHhqY3pTa1Z5empWV21fR2s3dE52dmVENGRrbWN5SzdMVE40aWNKa29COHktRGJBeGhzWm5wU2Z4NVBoLW03UQ?oc=5",
+      "publishedAt": "2026-09-25T18:14:48+00:00",
+      "summary": "Chinese delivery company to launch in Switzerland lenews.ch",
       "toeicScore": 66
     },
     {
@@ -236,16 +184,42 @@
       "toeicScore": 66
     },
     {
-      "id": "rss-call-energy-suppliers-improve-customer-service",
+      "id": "rss-startup-spotlight-marketing-vets-launch-kompeld-measure-if-company-s",
       "origin": "live",
       "articleType": "Live News",
       "category": "Business",
-      "source": "Credit Connect",
-      "sourceUrl": "https://www.credit-connect.co.uk",
-      "title": "Call for energy suppliers to improve customer service",
-      "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxNWk1QVTdNdUwtdHdDN05fU0QtT1hMUHNpbXQxRHJPNkV5V3A1bWxYNnFJeGN4cTZUeTdBMHpmU1BHNlRGUjBXX21pMl9xVHhFTlliY01CeWFqZmVUNTBPQXRDNno4TUcwS0d5eWtheTQzWFB5WDNvelhSdDR4WDZxZEdBOU5zRDl6eFA4NHI4cmFxX0RudnZr?oc=5",
-      "publishedAt": "2026-09-25T07:43:09+00:00",
-      "summary": "Call for energy suppliers to improve customer service Credit Connect",
+      "source": "GeekWire",
+      "sourceUrl": "https://www.geekwire.com",
+      "title": "Startup Spotlight: Marketing vets launch Kompeld to measure if a company’s story is actually working",
+      "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxPZTVhaGJCNktRakFBblpWS0J1MzB0Y2JMbFFSdFJEdVZmaWpiTGJKVGhtUTBUM1FOdmt0QlpzZ2lQcHN4MzRlYlRGSFZmTmNadjZoT011MFQ3dGcxdUJtdk9xTVFGSEZfNGZncFQ3M0hPVFhPVUdCckVzLUJ6UUotNHZuOVJHTkhnUVdOamYyV3dmUEt6UEh1a2V5R2JMdmxOTEZmY3QyUXRWWEZPRHhfNEd3bjZiZG5UMnhRZzZjZGx0QzRYbGt4SA?oc=5",
+      "publishedAt": "2026-09-24T22:03:18+00:00",
+      "summary": "Startup Spotlight: Marketing vets launch Kompeld to measure if a company’s story is actually working GeekWire",
+      "toeicScore": 66
+    },
+    {
+      "id": "rss-ford-dealership-terminates-two-employees-over-racial-slur-customer-service",
+      "origin": "live",
+      "articleType": "Live News",
+      "category": "Business",
+      "source": "MotorBiscuit",
+      "sourceUrl": "https://www.motorbiscuit.com",
+      "title": "Ford Dealership Terminates Two Employees Over Racial Slur on Customer Service Stickers",
+      "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxPQVM4dUk5M295X1FIX3FaSk01ZHFFWk00TjdESjZsMF90a2tBUE80NERKWGVLeEJGTmJoUl9HS0E1N0JzVV96VEJ0VTBxMlo3V2d4YUxDZ2F5T3EzNG1WVkhzeXlNSE54YjdmNC0za2J0S3ZYTzMtRlJINVk3RmJXeGVISnBYWU4wd292MGtjMVFMU1R5ZkxFYUozUjg4cnd6WUtkUldjWjNWS0lJckxPMklsb0hRSUE?oc=5",
+      "publishedAt": "2026-09-24T10:04:56+00:00",
+      "summary": "Ford Dealership Terminates Two Employees Over Racial Slur on Customer Service Stickers MotorBiscuit",
+      "toeicScore": 66
+    },
+    {
+      "id": "rss-ird-staff-undergoes-customer-service-training",
+      "origin": "live",
+      "articleType": "Live News",
+      "category": "Business",
+      "source": "St Vincent Times",
+      "sourceUrl": "https://www.stvincenttimes.com",
+      "title": "IRD Staff Undergoes Customer Service Training",
+      "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxQX0N6ZUFjYzl4OWgzNzEtakpFVTNkYTJkcnRFTzljSG1iTVNOVUo4d05wTHZEbDBFb3JCV01wU0pJYTVVNGFGREJUdkxJNnpCUnlFRzh0ZHlMZ0NBVU1DRS1HeFlZZjcya1dJQm1DdEEwMVBzS1B1V0RnZUlkYTVOSW5tSVgzZC1XdzFN?oc=5",
+      "publishedAt": "2026-09-24T22:57:58+00:00",
+      "summary": "IRD Staff Undergoes Customer Service Training St Vincent Times",
       "toeicScore": 66
     },
     {
@@ -262,29 +236,55 @@
       "toeicScore": 66
     },
     {
-      "id": "rss-meeting-event-planning-guide-signia-hotel-track-welcome-guests-december",
+      "id": "rss-indian-eagle-reviews-2026-what-travelers-say-about-flight-booking",
+      "origin": "live",
+      "articleType": "Live News",
+      "category": "Business",
+      "source": "IndianEagle",
+      "sourceUrl": "https://www.indianeagle.com",
+      "title": "Indian Eagle Reviews 2026: What Travelers Say About Flight Booking and Customer Service",
+      "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxOZUI4V3RlUmV5bVk2T0dwZy1jN3h6WDc0Yjg3QWdiRVJ1ZGhkenBVRVIxSnJ3MElwZ2JoZnZ6cEZUdDR6NkkwRVZYSkRRZkNoVGtDNS02M3RYTmdYemJKWVZhakdYVzlKUzFneXljaHpWQVNJMDdEd3hhQnF3UVNHdzRTU2R5cklrcS1ZbTlZUEtrMkxwZ1hKUA?oc=5",
+      "publishedAt": "2026-09-24T09:56:24+00:00",
+      "summary": "Indian Eagle Reviews 2026: What Travelers Say About Flight Booking and Customer Service IndianEagle",
+      "toeicScore": 66
+    },
+    {
+      "id": "rss-call-energy-suppliers-improve-customer-service",
+      "origin": "live",
+      "articleType": "Live News",
+      "category": "Business",
+      "source": "Credit Connect",
+      "sourceUrl": "https://www.credit-connect.co.uk",
+      "title": "Call for energy suppliers to improve customer service",
+      "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxNWk1QVTdNdUwtdHdDN05fU0QtT1hMUHNpbXQxRHJPNkV5V3A1bWxYNnFJeGN4cTZUeTdBMHpmU1BHNlRGUjBXX21pMl9xVHhFTlliY01CeWFqZmVUNTBPQXRDNno4TUcwS0d5eWtheTQzWFB5WDNvelhSdDR4WDZxZEdBOU5zRDl6eFA4NHI4cmFxX0RudnZr?oc=5",
+      "publishedAt": "2026-09-25T07:43:09+00:00",
+      "summary": "Call for energy suppliers to improve customer service Credit Connect",
+      "toeicScore": 66
+    },
+    {
+      "id": "rss-5-major-airlines-issue-travel-waivers-weekend-nor-easter-hundreds",
       "origin": "live",
       "articleType": "Live News",
       "category": "Travel",
-      "source": "Indianapolis Business Journal",
-      "sourceUrl": "https://www.ibj.com",
-      "title": "Meeting and Event Planning Guide: Signia hotel on track to welcome guests in December",
-      "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxNMmMtZzVJUHV5Zkdib1RYai0tYnVJbllVR1dYUXI5YmY1QmZmbVJCc09aTFBkLWhwekRrVzhDWVVHWGVvYXZUMG5Xa1hCYnBXQnlvT25NR2E0Q3Z6WWpacFRPX19Pa0VZNVh6Yy1ZMTZyYmRLMUpVeFdCb2F2MFllbTVaSm5pcFhhZmdFTGYwTG93XzNaOWI5SFByeVhQZXhZZUYyTXRtUDhUMDhGUm12VG5jWQ?oc=5",
-      "publishedAt": "2026-09-25T18:00:00+00:00",
-      "summary": "Meeting and Event Planning Guide: Signia hotel on track to welcome guests in December Indianapolis Business Journal",
-      "toeicScore": 66
+      "source": "Forbes",
+      "sourceUrl": "https://www.forbes.com",
+      "title": "5 Major Airlines Issue Travel Waivers For Weekend Nor’easter—Hundreds Of Flights Delayed",
+      "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxQNmplSDZHdmpnTFJxN2EwMDFaQ2J0c25hRjFackVPOXExSTA2MlZ3MnZpU3F5T1hQRVQ2ODhRUTdLSEtZT29rcF9ERWR0SG5tMlR3TDJ1REVuZGxBc2gxYURZWU1FdktDMjRESElYN3lnMTFER3F2U2hGRGVGdTZfeTlENkxHWm5vTFJzOUdjLVVma1BNOGMxd1hrb0kydTF6VFlkQTBrVTk3aVdRZC1QTjdB?oc=5",
+      "publishedAt": "2026-09-25T18:51:00+00:00",
+      "summary": "5 Major Airlines Issue Travel Waivers For Weekend Nor’easter—Hundreds Of Flights Delayed Forbes",
+      "toeicScore": 63
     },
     {
       "id": "rss-trump-s-transportation-secretary-sean-p-duffy-announces-84-4",
       "origin": "live",
       "articleType": "Live News",
       "category": "Travel",
-      "source": "Department of Transportation (.gov)",
+      "source": "transportation.gov",
       "sourceUrl": "https://www.transportation.gov",
       "title": "Trump’s Transportation Secretary Sean P. Duffy Announces $84.4 Million for Airport Improvements in Texas, North Carolina, and Wyoming | US Department of Transportation",
       "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxPNDNLV0tvV3NSd1M5Q0pTWG90LXJkb21BaVNHbUNCXzR1ejJLLUpxazFuRTIxOGI0UHRWR2t2aXUzZUFlcEswVjNDVnVqNjIyaU0yVmR1RWMtNExzcG9oNHVVbDNhcTA0Zldpb2Z4NlUyWkRqRDd1c0VmMFFuNDZ5Y1hyLVVQQnJzSEdfc2tVTWNVbkFYWXB3NHFHOFlGNkNBS0RWSTJLOGtTZ1FLaGhpdkFoRVVxYjdTTUNV?oc=5",
       "publishedAt": "2026-09-25T15:58:18+00:00",
-      "summary": "Trump’s Transportation Secretary Sean P. Duffy Announces $84.4 Million for Airport Improvements in Texas, North Carolina, and Wyoming | US Department of Transportation Department of Transportation (.gov)",
+      "summary": "Trump’s Transportation Secretary Sean P. Duffy Announces $84.4 Million for Airport Improvements in Texas, North Carolina, and Wyoming | US Department of Transportation transportation.gov",
       "toeicScore": 63
     },
     {
@@ -301,6 +301,19 @@
       "toeicScore": 63
     },
     {
+      "id": "rss-orlando-international-airport-conduct-emergency-training-exercise",
+      "origin": "live",
+      "articleType": "Live News",
+      "category": "Travel",
+      "source": "FOX 35 Orlando",
+      "sourceUrl": "https://www.fox35orlando.com",
+      "title": "Orlando International Airport to conduct emergency training exercise",
+      "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxQWGV3YVY1Qk9pa041aUYwZ2dIaW1EN2NpNUxFVWwwLVNCU3RMbUJNSzB1TlFteHEyVVprcGp6LXAxUWlGZ1FCNDk0dFZ2VVVITXI4MTJPenJfSVZ2c1A3NVZpRUVTS2c0RDQ4dXBqSEZOSGluNUhBVzZxX0lUMVNDY3ltN29HTUlENXVIdVk1Uzk2UFlrcGtMaThaM1BqYlZq?oc=5",
+      "publishedAt": "2026-09-25T19:46:56+00:00",
+      "summary": "Orlando International Airport to conduct emergency training exercise FOX 35 Orlando",
+      "toeicScore": 63
+    },
+    {
       "id": "rss-sea-tac-s-big-airport-upgrades-are-paying-off-travelers",
       "origin": "live",
       "articleType": "Live News",
@@ -311,19 +324,6 @@
       "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxON0J1QVhWUUFlaE9oeXpXM2htaHBOZERyTUJPWXpQQjdpY29wbm14WGZNRGVFVUlhSjI2dm40YVhZXzNOd1BMeEtETkRqSnhRSWtWQV9MaFVkZXlaNG5SendEbWJ3WHZQVzYwREl3bnFudUFZSHc1Sk5LMUkzaEJNSkNKdUp1YnBpSS1lcl9saHJtaU80cXloeE9UNTNqeG1QbkR2NQ?oc=5",
       "publishedAt": "2026-09-25T13:38:17+00:00",
       "summary": "Sea-Tac's big airport upgrades are paying off with travelers Axios",
-      "toeicScore": 63
-    },
-    {
-      "id": "rss-3-major-airlines-issue-travel-waivers-weekend-nor-easter",
-      "origin": "live",
-      "articleType": "Live News",
-      "category": "Travel",
-      "source": "Forbes",
-      "sourceUrl": "https://www.forbes.com",
-      "title": "3 Major Airlines Issue Travel Waivers For Weekend Nor’Easter",
-      "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxQNmplSDZHdmpnTFJxN2EwMDFaQ2J0c25hRjFackVPOXExSTA2MlZ3MnZpU3F5T1hQRVQ2ODhRUTdLSEtZT29rcF9ERWR0SG5tMlR3TDJ1REVuZGxBc2gxYURZWU1FdktDMjRESElYN3lnMTFER3F2U2hGRGVGdTZfeTlENkxHWm5vTFJzOUdjLVVma1BNOGMxd1hrb0kydTF6VFlkQTBrVTk3aVdRZC1QTjdB?oc=5",
-      "publishedAt": "2026-09-25T13:28:11+00:00",
-      "summary": "3 Major Airlines Issue Travel Waivers For Weekend Nor’Easter Forbes",
       "toeicScore": 63
     },
     {
@@ -340,6 +340,32 @@
       "toeicScore": 63
     },
     {
+      "id": "rss-gwinnett-airport-s-only-restaurant-serves-its-last-burgers-saturday",
+      "origin": "live",
+      "articleType": "Live News",
+      "category": "Travel",
+      "source": "WSB-TV",
+      "sourceUrl": "https://www.wsbtv.com",
+      "title": "Gwinnett Airport’s only restaurant serves its last burgers Saturday",
+      "url": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxPNk5PSE1tdGt2SDNxSUJwbG4td0JjN1h5RTlDSFpfcHN6YXVXM0hQeHJsdFdNeU8zNkFfWWtTeFAwSG9rbmdqakdEWE1VOWJqelE4NzNId3NZUEFNU3ZNV01NSXQ0YVhFVnlQS1ZJU1k0TWd0dlplUkwyRHZsVnJvRTRoUzlkbzNjdkZfTmNqMUZlX1VTNmNiUEJfQl9hWlVod3ZoZVB6eWI3T2llenNIcUhocGZSWFhyNUN3cy1VQ25MX29oYnA5Zk5CM2xEUGtlb2VqNWltM1hLZFXSAe8BQVVfeXFMTm90ckl4dTBrSGFYdF90M0YteU4wRGRqdDc4V2QtVnM0ck9LS2tUTDlFcHZpWGdrWU1iNzRReWRrQTZnM0VxX0lIM25IZFl0ck01bzd6ampHQnFKcTMwaE5OQTdMXzREZ2FPd0Q3cVBhbXNRc3lVYmt5eGxuMHBZVENJck1wVllVLWpOeGFtcmRWd3ZjTl9EZGhwQ282YUFoWERhdU1Eam0zenlFbFZ4cFI5WVVXWEFRRDhfM0g5WmNoVmNkQmN1MzBLaVI0dzhBWFFoM0E4YW51UU01SkRPd2JDQnpaekdZZWdMVkRpTm8?oc=5",
+      "publishedAt": "2026-09-25T21:47:02+00:00",
+      "summary": "Gwinnett Airport’s only restaurant serves its last burgers Saturday WSB-TV",
+      "toeicScore": 63
+    },
+    {
+      "id": "rss-airport-x-ray-reveals-shocking-illegal-stash-concealed-beside-passenger",
+      "origin": "live",
+      "articleType": "Live News",
+      "category": "Travel",
+      "source": "Fox News",
+      "sourceUrl": "https://www.foxnews.com",
+      "title": "Airport X-ray reveals shocking illegal stash concealed beside passenger's Xbox",
+      "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxOSmtPTkZtdVhfZmZRQy1OdnZFYkZYN05TTjA5X1BZYmZNSHYyVE9uVk1zSWNFSEpQOTJTTTlVWnlFNy03NGZ5TEZ5Nkw3SXVlNFpEeEZBRFZpQldBZU5mZmNOLVdpSkpzY09ETGp2MV9tTGRpa0xRb094VU5UVnMyZ1JGR3BNN08xaDVtQ0E0RTRudVl1VzVJd21ZRnBKV3FmZDU4OThVMm15eUND0gGyAUFVX3lxTE9iRTZINmlmaTJSNFp0T0JNUWd4M0NBdmRIQ1RuNmhaWko4Mkxqcl9fRnpZMi1YWmlyWmRWam1sTWcwQTBtOFlDU0hVV1VIUzhIeFNrWm5oZDdPcnZBQkJ6RTA0bFNFbWZqQUxqTHIzT0FPaHhYWThGMkp0YW10REFJUmFhSXZmZno2aU5DT0FUdHBCTWZoMVJYVU9zbDdCWmltV011cVFoc0plV3JHYjFlWmc?oc=5",
+      "publishedAt": "2026-09-25T19:00:33+00:00",
+      "summary": "Airport X-ray reveals shocking illegal stash concealed beside passenger's Xbox Fox News",
+      "toeicScore": 63
+    },
+    {
       "id": "rss-boise-state-starts-process-possible-hotel-conference-event-retail-dining",
       "origin": "live",
       "articleType": "Live News",
@@ -347,22 +373,22 @@
       "source": "Boise Dev",
       "sourceUrl": "https://boisedev.com",
       "title": "Boise State starts process for possible 'hotel, conference, event, retail, dining, housing... parking' project by stadium",
-      "url": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxQUUxaZm45UTJkaEgwQ2FXZFI2eXJ5cGtsVzBwMDRPdW9vMzFqUUlubFJZWng5TENoTGRtd3JKbEo1WnFqQnUzWWp2S0tBOG02QU9xMlE2dUNnTkM5RTFodUUzTzFPbWtyUVpfOEp6NGpEdFNSVWtLZUJ0eDZJY1lRNGx2ck9CLUVxVDZPLUpoMWstaktiVVdPeFhUMENuVVdXMnJodE5BdHBpUnJMOGpuT0JySzhzYU9UNjg1ZWFGT3hjSUY3TVZFZGI0ZlZSMmJiV2dNZnBZM3NSMDZJ?oc=5",
+      "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTFB1WXZYeHk1QWtidmFFRHdCN3JTWDBlTmpEd3Q0RzYzSG9ZbERaOHplY0kwaEVfOFlhZWMyM29XQnVrQVpoY1BZSk5mT1h6NTBITlpvOUw5cEhWc240RzZKTDlpUVZ3UmxZcjZDSzN3?oc=5",
       "publishedAt": "2026-09-25T18:16:30+00:00",
       "summary": "Boise State starts process for possible 'hotel, conference, event, retail, dining, housing... parking' project by stadium Boise Dev",
       "toeicScore": 63
     },
     {
-      "id": "rss-travel-max-i-hear-it-s-beautiful-tourism-tagline-fitting",
+      "id": "rss-this-baltimore-airport-restaurant-says-it-was-promised-10-year",
       "origin": "live",
       "articleType": "Live News",
       "category": "Travel",
-      "source": "Greenfield Recorder",
-      "sourceUrl": "https://recorder.com",
-      "title": "Travel with Max: ‘I Hear it’s Beautiful’ tourism tagline fitting for Croatia",
-      "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTE11Sk1HbHVTM3hHLUJHbHdoT0ZoX2l5SU91ZW1sRkxqYkw2Nk9UVDhBVUN2WE5oTDVVQUNMTmtSWm5EZHh2cTJ5QndOVXplSHUzNGd4ZjItRE1uZ05nUDY3c0llcEhSaFFOSWsw?oc=5",
-      "publishedAt": "2026-09-25T13:00:00+00:00",
-      "summary": "Travel with Max: ‘I Hear it’s Beautiful’ tourism tagline fitting for Croatia Greenfield Recorder",
+      "source": "inc.com",
+      "sourceUrl": "https://www.inc.com",
+      "title": "This Baltimore Airport Restaurant Says It Was Promised a 10-Year Lease. Now It’s Suing to Stay Open",
+      "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxQMlA0X2ctakJHVUN5SkRudW5SbGpWTUVGcHF0VWtJOEtrQlBUaU5ELXgxY3BvTnptdnhUSFNWMzRhaEhMUVJxNExzSHIyNXhsZ0JQeGVtZDVZOXVFQllGUVY5NHlpTEc2SnAwaTJqQWxHaUpSaG8wRkFEcTFMcEF5UkdNZ3VXbEllUG11MkdUZDJyMEZwdzg0dVRLUDBDNHdrRGZ4cGEzVlVtVm12ZHRNOGtiNUhELXYzODR5MktqdlplTzJ1R29JcHVkOFhwNjA?oc=5",
+      "publishedAt": "2026-09-25T19:22:42+00:00",
+      "summary": "This Baltimore Airport Restaurant Says It Was Promised a 10-Year Lease. Now It’s Suing to Stay Open inc.com",
       "toeicScore": 63
     },
     {
@@ -379,81 +405,16 @@
       "toeicScore": 63
     },
     {
-      "id": "rss-kissimmee-gateway-airport-plans-upgrades-support-larger-planes-international-travel",
-      "origin": "live",
-      "articleType": "Live News",
-      "category": "Travel",
-      "source": "WESH",
-      "sourceUrl": "https://www.wesh.com",
-      "title": "Kissimmee Gateway Airport plans upgrades to support larger planes, international travel",
-      "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTFB1NTRDMGIwNU9FSHRNajZJVGlkVGZMY1Y2eEZSTElmTnVCZlVWSnhWNktaeUllSFB5Sm1NWG1TQU1XTW0yMnVjZFdWVy1QQTR6N1I1NVNkWWtwVWVOUEF1X09pWENIMENpSGNtbmdGX1JWSkpmMGdCeFB3?oc=5",
-      "publishedAt": "2026-09-25T17:24:00+00:00",
-      "summary": "Kissimmee Gateway Airport plans upgrades to support larger planes, international travel WESH",
-      "toeicScore": 63
-    },
-    {
-      "id": "rss-rebranded-downtown-raleigh-hotel-set-open",
-      "origin": "live",
-      "articleType": "Live News",
-      "category": "Travel",
-      "source": "The Business Journals",
-      "sourceUrl": "https://www.bizjournals.com",
-      "title": "Rebranded Downtown Raleigh hotel set to open",
-      "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxOd2Nsbi1ZMVRkVmlSTlRWcXVxZF9SZllhdGg5OWx0QTFub3NPS2lCaUVyckdDRWlwc1VnTUtTOFhOU2MzUEQzWC1Jdmpkd0t0a3NhYjVVYnJDTV9KTHdmTzJiQ2Q2YmM1RVBBRVRhTlZLQnVUN2tpcW9sSUkwd0ZWMTVFcFFxc3E5c09XTlJGQ0hxMzFLVXdsdTdnMy0yUWFXdWc?oc=5",
-      "publishedAt": "2026-09-25T17:30:00+00:00",
-      "summary": "Rebranded Downtown Raleigh hotel set to open The Business Journals",
-      "toeicScore": 63
-    },
-    {
-      "id": "rss-mckinney-cleared-airline-service",
-      "origin": "live",
-      "articleType": "Live News",
-      "category": "Travel",
-      "source": "AVweb",
-      "sourceUrl": "https://avweb.com",
-      "title": "McKinney Cleared for Airline Service",
-      "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE9ndVhKX1J5cWtNMDBtRXcweU54STdvVVhaOTh6U29DN2xzNDc3MVBVQjJZVjJiZ2Q1cHdqQWNzMEd4cjVKMVg3REJNRTNWYk1uSkRreEE1SHBaSHZQc3I0anVOcU5zbHZzVkNzU2lwZ2s2clowdnctQQ?oc=5",
-      "publishedAt": "2026-09-25T16:30:00+00:00",
-      "summary": "McKinney Cleared for Airline Service AVweb",
-      "toeicScore": 63
-    },
-    {
-      "id": "rss-state-wildlife-officials-euthanize-bear-cub-found-near-heber-valley",
-      "origin": "live",
-      "articleType": "Live News",
-      "category": "Travel",
-      "source": "Park Record",
-      "sourceUrl": "https://www.parkrecord.com",
-      "title": "State wildlife officials euthanize bear cub found near Heber Valley Airport after it bites officer",
-      "url": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxOQmx4STM4RVpoN0M0NVpuaDg0MkJIWmRoUlQ4U1d6aFZKeXNXUGNlUkJPVElFVlBQVEVaLWRfLVVMUzFlRENHQnBMdklQczc5QmtBdWhxZDRiLUpUM1B3R2JlU2REMC1QZl9zaGZKSjBnbU00ZjkyMGxSU3pnSGJtMFJ4VEx2QXI5Yl9NUjVrWDJrT0ZkUGJBYzNlZGF4NGMyT0ZGUjZPcWZHakNCN2lWRjNPVnF4R2tZUlB3LUFhTlFvV1lxRXNxVVRERjV4OG1hOWYw?oc=5",
-      "publishedAt": "2026-09-25T17:10:32+00:00",
-      "summary": "State wildlife officials euthanize bear cub found near Heber Valley Airport after it bites officer Park Record",
-      "toeicScore": 63
-    },
-    {
-      "id": "rss-breeze-airways-starts-service-south-carolina-trenton-mercer-airport",
-      "origin": "live",
-      "articleType": "Live News",
-      "category": "Travel",
-      "source": "ROI-NJ",
-      "sourceUrl": "https://www.roi-nj.com",
-      "title": "Breeze Airways starts service to South Carolina from Trenton-Mercer Airport",
-      "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxNUU8zeFVUOExmaVJldzhYN3NidWF4TENuQjNwN0lXZGd3dEhuRmVqYVhUU3FJeHgxVEx4UFVUZk1fN1VRV0pCS1VnbUp6a05UNVk2MER5bVowQUtKSnQ1MnpWS1Vjd3pYb2l2b3RFZnhYN3NCcmxRcmdPb29sWExaRVVWOVlPUHhhRHdhTkdfUnVGaHVCTDRaRk9OYTludEJ4RzVMZTZoRkw1TVJ4dGFkLXBTVlR3VFhyZDlNWEZQOHZmUzA?oc=5",
-      "publishedAt": "2026-09-25T09:26:07+00:00",
-      "summary": "Breeze Airways starts service to South Carolina from Trenton-Mercer Airport ROI-NJ",
-      "toeicScore": 63
-    },
-    {
       "id": "rss-tech-giant-tencent-launches-payment-app-inbound-visitors-as-china",
       "origin": "live",
       "articleType": "Live News",
       "category": "Technology",
-      "source": "Macau Business",
+      "source": "macaubusiness.com",
       "sourceUrl": "https://macaubusiness.com",
       "title": "Tech giant Tencent launches payment app for inbound visitors as \"China Travel\" surges",
       "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxQNy1DdWZURzFJMEE3NS1WZnUxeDFzbzJ3Z0JrY2M1dkFvX3VLRENsUGVoLTFxSlVRb0FaeVFzaDdrbFd4aDFleURhVHVVbGhiZEFaMklSY0FCUDRvMkt1cG5YYlNESlFaU3FtTS1OcFdoSHh5T0ZUelNmVFBlN094STZtbUFQWjU2R1d1R0loTi1LU0lTa3lra21EVUl5UGt0ZUkzSlRJbWFNNFpoYnBj?oc=5",
       "publishedAt": "2026-09-25T05:34:21+00:00",
-      "summary": "Tech giant Tencent launches payment app for inbound visitors as \"China Travel\" surges Macau Business",
+      "summary": "Tech giant Tencent launches payment app for inbound visitors as \"China Travel\" surges macaubusiness.com",
       "toeicScore": 70
     },
     {
@@ -470,6 +431,19 @@
       "toeicScore": 70
     },
     {
+      "id": "rss-lowe-s-is-launching-drone-delivery-service-partnership-doordash-alphabet",
+      "origin": "live",
+      "articleType": "Live News",
+      "category": "Technology",
+      "source": "CNBC",
+      "sourceUrl": "https://www.cnbc.com",
+      "title": "Lowe's is launching a drone delivery service in partnership with DoorDash, Alphabet",
+      "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxOajlnWFBNOHhmT01YZnBlRzhTMVNPejN4V2RfME5aU0JmdEdsUFdEWmN4UU1JN1luNFE2MVJGU0xuMGdjd01Ud2dYYXI1NF9tak44NTZsZmRPMG1sX3JvUFpkUnczaG15VWl4TmJhbTlZbnVFZ1RpWHpOZ3J2azlqT2lR0gGHAUFVX3lxTFBhWW44QVFHaTBVZzh2X3JNRjVZS3lMazBIYXROXzhDZjl6eEFGd1BuTnpndVdOQzgzNF8xLTB1ektINDZHU1FkZFZQNWdUcjB3VHZEeFFkMVIxS0RKbGlrYlNyRUE1REtrZG9BZ0Z6MWRpay1hMW5GdWMtazVVYnVQd2hRYzVfQQ?oc=5",
+      "publishedAt": "2026-09-24T12:00:01+00:00",
+      "summary": "Lowe's is launching a drone delivery service in partnership with DoorDash, Alphabet CNBC",
+      "toeicScore": 66
+    },
+    {
       "id": "rss-uk-s-syw-links-h-m-offer-online-repair-service",
       "origin": "live",
       "articleType": "Live News",
@@ -480,19 +454,6 @@
       "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxPejN4Y2Q1Rm1oNDJiNE9UZFlENDNJTVhhdllFYkxXS0kyamNTb0JsX05ObVpvbEx3cWlEN043NG5ucHFxdldwaVJBT1JfcWpBeHhVTThUWTR3VWlhV3JiVURNYXlUaXpWY1lIX1hXSUVFejl4TGhVUWFSR1VybndZNU5yMGZZSGhtWnNMdExqbFVjTkpXbk9fN05QcDFnaVpLQ3Jra3FhcjZscU04d2JtRXhR?oc=5",
       "publishedAt": "2026-09-25T14:21:44+00:00",
       "summary": "UK's SYW links with H&M to offer online repair service in France FashionNetwork - The World's Fashion Business News",
-      "toeicScore": 66
-    },
-    {
-      "id": "rss-lowe-s-is-launching-drone-delivery-service-partnership-doordash-alphabet",
-      "origin": "live",
-      "articleType": "Live News",
-      "category": "Technology",
-      "source": "cnbc.com",
-      "sourceUrl": "https://www.cnbc.com",
-      "title": "Lowe's is launching a drone delivery service in partnership with DoorDash, Alphabet",
-      "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxOajlnWFBNOHhmT01YZnBlRzhTMVNPejN4V2RfME5aU0JmdEdsUFdEWmN4UU1JN1luNFE2MVJGU0xuMGdjd01Ud2dYYXI1NF9tak44NTZsZmRPMG1sX3JvUFpkUnczaG15VWl4TmJhbTlZbnVFZ1RpWHpOZ3J2azlqT2lR0gGHAUFVX3lxTFBhWW44QVFHaTBVZzh2X3JNRjVZS3lMazBIYXROXzhDZjl6eEFGd1BuTnpndVdOQzgzNF8xLTB1ektINDZHU1FkZFZQNWdUcjB3VHZEeFFkMVIxS0RKbGlrYlNyRUE1REtrZG9BZ0Z6MWRpay1hMW5GdWMtazVVYnVQd2hRYzVfQQ?oc=5",
-      "publishedAt": "2026-09-24T12:00:01+00:00",
-      "summary": "Lowe's is launching a drone delivery service in partnership with DoorDash, Alphabet cnbc.com",
       "toeicScore": 66
     },
     {
@@ -522,19 +483,6 @@
       "toeicScore": 66
     },
     {
-      "id": "rss-epiq-acquires-canopy-unite-cyber-incident-response-technology-service-expertise",
-      "origin": "live",
-      "articleType": "Live News",
-      "category": "Technology",
-      "source": "The Manila Times",
-      "sourceUrl": "https://www.manilatimes.net",
-      "title": "Epiq Acquires Canopy To Unite Cyber Incident Response Technology and Service Expertise",
-      "url": "https://news.google.com/rss/articles/CBMi8gFBVV95cUxNSXlFNDV2eGJaQ0hIWjJXb3g1UWl3Y3BWX2dIUDZVTkpDRHM5QThpQkhOY3ZyZ09HTy1OU1F1eHBWeUpqTlIyQjNKaTRVWFRtZlBuZ0FELXBxU05weE03YU5zQjRIZU5pd0ZfbTNWMEZReFVBX3J5QlBHeXJyNEpUOC16dmRHbzBXMXMwM25ScEJjSHNGX0JLNDZQdGhGR3A4ZkJNaGhrUTg2YTFoMGVZOERKRFYxaDZNV3R2NXV5M05JdHJySjRVVkN6blowc2I1eGFZR0pnZUxsWkY1cEdUMUVwUWVwRE9VRF9fN1dvcjIyd9IB9wFBVV95cUxOWThmTFVUak9kU1FGTEZKb3VmN3Y2UDJuRVN0WDlvalBKNVVVbEs5aFJjbllBa05GZnQtMWxTY1U0b2Jwb0UtRHZvcjV1WkY5a2hTSEtoWllhRXRFa3k4ZzZKMWhLUnBHOW9PMkprS0I3NmNLNHYxbXBtODBVdE9QeDBtRU1DS29XcG9MdlFTQXhZZWNQaFpGWUhweXpKOGtQQnRncE9qbzg1RU5OSnVBQ2NCekotWjJyazRKdURXbHU0OWlyR3hpbXdMa2pLc3p2dU50RmZpek9UNXdRZEN5aDVEeXJLZHhhTWNkRHdyLTUtNV94NW1r?oc=5",
-      "publishedAt": "2026-09-25T13:10:26+00:00",
-      "summary": "Epiq Acquires Canopy To Unite Cyber Incident Response Technology and Service Expertise The Manila Times",
-      "toeicScore": 63
-    },
-    {
       "id": "rss-tencent-launches-payment-app-foreign-visitors-ahead-apec-summit",
       "origin": "live",
       "articleType": "Live News",
@@ -545,19 +493,6 @@
       "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxNLXk2ZDNYRmFNcnI0ZElFSEFKcTU3Um9IYVd3MVNlOFBjUTk4cDRPZ2diejkxU3plWG15bEh1WUYwZHgyWlpmMUpCXzQ4QkpzZmlUVC1uMWVXN215V3IwdGlpZlgySXktUXJPZkVyM25SQnhEaWFiMGhWem4ycFhRRzlCeDdyWVFheVJzc05KeU1OcXcyMEZnSElBM1RSVnJydzBmY25RTEt0WWJOYjFfXzIxcWRUZXpoZ0s3RdIBvAFBVV95cUxNYWVCMHZxWG1pWlUxekdSZWg4OE1DQjN0T0ZCVWRWRmxuQTkzWjVwWGdwMnREZHVtMWpHQ01GUldrQzNtOFYwaGozRmx5MnZSUFNTdEdWMEVzc1FhNGo3N2d2bjBjSFhqX2V1VDhrclFMVXhvU0pBTi1JaDVMaUt0Y1o0MGxNcU5DUHV3ZXYyUlllelJ0bnkyd1hOYVU3SF9IRnpqUE1hbEVXV2VTRDhFTEVsWWwxVFVBcWxmaA?oc=5",
       "publishedAt": "2026-09-24T05:19:05+00:00",
       "summary": "Tencent launches payment app for foreign visitors ahead of Apec summit South China Morning Post",
-      "toeicScore": 63
-    },
-    {
-      "id": "rss-online-retailer-shut-down-had-6-3-million-unexplained-transactions",
-      "origin": "live",
-      "articleType": "Live News",
-      "category": "Technology",
-      "source": "GOV.UK",
-      "sourceUrl": "https://www.gov.uk",
-      "title": "Online retailer shut down had £6.3 million unexplained transactions",
-      "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxQVjRRLUs5OElRd2s0MWtoOHp2V1p3TVZNNkFuQ0Q0SktNUC10SndEb2J4QWFEU05nTXVtMElZa0V3cW9ZRUJBdWJ5WUIyR1pLN0tiYTdmMEY3RmVuU2JvdXhBQS1ib3Zqai1NTXJ0Qi1PRG12QkJDUzN3Z3pQMzdpY3FoUGdLS3BEc0YxVW9IU2xnZnYwb1FnRlFvUkFvR2lZcWc?oc=5",
-      "publishedAt": "2026-09-25T13:05:48+00:00",
-      "summary": "Online retailer shut down had £6.3 million unexplained transactions GOV.UK",
       "toeicScore": 63
     },
     {
@@ -574,16 +509,29 @@
       "toeicScore": 63
     },
     {
-      "id": "rss-china-has-launched-new-payment-app-foreign-tourists",
+      "id": "rss-online-retailer-shut-down-had-6-3-million-unexplained-transactions",
       "origin": "live",
       "articleType": "Live News",
       "category": "Technology",
-      "source": "LIGA.net",
-      "sourceUrl": "https://tech.liga.net",
-      "title": "China has launched a new payment app for foreign tourists",
-      "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxOQkJqRHZvRkl4anRPMi1BV3BGMGNEaGFfNHlFcm1mdmlxenNCRWwybkh5Rk9rTndXbEtZcW5LQ0lYWDI4MkRPRU9TeVVQc0ZMbWl5N010dm14V3p2UWFnejljbHI1NWV2eDA5UW9sdlV0NXZUUHRzc0Z0dFktRWNlN0tReTg2ZDZvYXd5XzR1WXd0S0RrRS00aEM0dXdRWjVwdWRZ0gGoAUFVX3lxTE5ldVNkakhEaXdJdGZEdndvWHN3T3g0WXA2azhteE9odG1vMXhXcVg0TkRRMXR5dGQ4SGRXVmNKNkN6QW5GMWloNDRvbzdsSElNcEVwZ21rdnN2UEdRLUdUOVRQNjJObF9DdTBDZ2FaWXhQbUdkc2pwWE9tdTN0a1BjbHVXa3pKbEdXQzZOaDV6UmhPNFVvMHRRR0xzTVdDMnlzZzBQRFMxSw?oc=5",
-      "publishedAt": "2026-09-25T08:59:10+00:00",
-      "summary": "China has launched a new payment app for foreign tourists LIGA.net",
+      "source": "GOV.UK",
+      "sourceUrl": "https://www.gov.uk",
+      "title": "Online retailer shut down had £6.3 million unexplained transactions",
+      "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxQVjRRLUs5OElRd2s0MWtoOHp2V1p3TVZNNkFuQ0Q0SktNUC10SndEb2J4QWFEU05nTXVtMElZa0V3cW9ZRUJBdWJ5WUIyR1pLN0tiYTdmMEY3RmVuU2JvdXhBQS1ib3Zqai1NTXJ0Qi1PRG12QkJDUzN3Z3pQMzdpY3FoUGdLS3BEc0YxVW9IU2xnZnYwb1FnRlFvUkFvR2lZcWc?oc=5",
+      "publishedAt": "2026-09-25T13:05:48+00:00",
+      "summary": "Online retailer shut down had £6.3 million unexplained transactions GOV.UK",
+      "toeicScore": 63
+    },
+    {
+      "id": "rss-wechat-launches-new-payment-app-tourists-china-gsmarena-com-news",
+      "origin": "live",
+      "articleType": "Live News",
+      "category": "Technology",
+      "source": "GSMArena.com",
+      "sourceUrl": "https://www.gsmarena.com",
+      "title": "WeChat launches a new payment app for tourists in China - GSMArena.com news",
+      "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxOVWJCRXF5RzhoVlBmbWUxdDhpTVhQUXlsZlQtV3B3RlJSZVdnR3cycDFjQkhTbERJZ0I3X09ZdGVRS01lWExaYWNEX1Ewb0ZxTmV6YTJ2alpqRm93MnhKa2h1N191ZFVaa05GajRHMGdFZndfY0hySkRhOHNSTktBN0lUM2RrbXhINGVYSTlFN0JIUDBQU2hwa293QdIBlwFBVV95cUxPcjFGYjZocC0wWkRPYzVHRkNJNjV2X1VFemdLaDZfQW9lR0JoVWdvT1Vlb2tTWXE5UUtaUjNlWXM3ZUlBd1pRWFk0VlQ1X2ZIQ1NTbkNMblFQdlZoZ0p5U3BRdWZxN05EZWMyY0hXaHNoN2czU3ZEUWFuNHBBMWxfSWdsWGVOajVPc2pvSHZZM1ZTVVFwbXpF?oc=5",
+      "publishedAt": "2026-09-25T07:31:02+00:00",
+      "summary": "WeChat launches a new payment app for tourists in China - GSMArena.com news GSMArena.com",
       "toeicScore": 63
     },
     {
@@ -600,16 +548,16 @@
       "toeicScore": 63
     },
     {
-      "id": "rss-wechat-launches-new-payment-app-tourists-china-gsmarena-com-news",
+      "id": "rss-china-has-launched-new-payment-app-foreign-tourists",
       "origin": "live",
       "articleType": "Live News",
       "category": "Technology",
-      "source": "GSMArena.com",
-      "sourceUrl": "https://www.gsmarena.com",
-      "title": "WeChat launches a new payment app for tourists in China - GSMArena.com news",
-      "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxOVWJCRXF5RzhoVlBmbWUxdDhpTVhQUXlsZlQtV3B3RlJSZVdnR3cycDFjQkhTbERJZ0I3X09ZdGVRS01lWExaYWNEX1Ewb0ZxTmV6YTJ2alpqRm93MnhKa2h1N191ZFVaa05GajRHMGdFZndfY0hySkRhOHNSTktBN0lUM2RrbXhINGVYSTlFN0JIUDBQU2hwa293QdIBlwFBVV95cUxPcjFGYjZocC0wWkRPYzVHRkNJNjV2X1VFemdLaDZfQW9lR0JoVWdvT1Vlb2tTWXE5UUtaUjNlWXM3ZUlBd1pRWFk0VlQ1X2ZIQ1NTbkNMblFQdlZoZ0p5U3BRdWZxN05EZWMyY0hXaHNoN2czU3ZEUWFuNHBBMWxfSWdsWGVOajVPc2pvSHZZM1ZTVVFwbXpF?oc=5",
-      "publishedAt": "2026-09-25T07:31:02+00:00",
-      "summary": "WeChat launches a new payment app for tourists in China - GSMArena.com news GSMArena.com",
+      "source": "tech.liga.net",
+      "sourceUrl": "https://tech.liga.net",
+      "title": "China has launched a new payment app for foreign tourists",
+      "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxOQkJqRHZvRkl4anRPMi1BV3BGMGNEaGFfNHlFcm1mdmlxenNCRWwybkh5Rk9rTndXbEtZcW5LQ0lYWDI4MkRPRU9TeVVQc0ZMbWl5N010dm14V3p2UWFnejljbHI1NWV2eDA5UW9sdlV0NXZUUHRzc0Z0dFktRWNlN0tReTg2ZDZvYXd5XzR1WXd0S0RrRS00aEM0dXdRWjVwdWRZ0gGoAUFVX3lxTE5ldVNkakhEaXdJdGZEdndvWHN3T3g0WXA2azhteE9odG1vMXhXcVg0TkRRMXR5dGQ4SGRXVmNKNkN6QW5GMWloNDRvbzdsSElNcEVwZ21rdnN2UEdRLUdUOVRQNjJObF9DdTBDZ2FaWXhQbUdkc2pwWE9tdTN0a1BjbHVXa3pKbEdXQzZOaDV6UmhPNFVvMHRRR0xzTVdDMnlzZzBQRFMxSw?oc=5",
+      "publishedAt": "2026-09-25T08:59:10+00:00",
+      "summary": "China has launched a new payment app for foreign tourists tech.liga.net",
       "toeicScore": 63
     },
     {
@@ -639,16 +587,42 @@
       "toeicScore": 63
     },
     {
-      "id": "rss-raton-public-service-company-board-directors-regular-meeting-monday-september",
+      "id": "rss-epiq-acquires-canopy-unite-cyber-incident-response-technology-service-expertise",
+      "origin": "live",
+      "articleType": "Live News",
+      "category": "Technology",
+      "source": "The Manila Times",
+      "sourceUrl": "https://www.manilatimes.net",
+      "title": "Epiq Acquires Canopy To Unite Cyber Incident Response Technology and Service Expertise",
+      "url": "https://news.google.com/rss/articles/CBMi9wFBVV95cUxOWThmTFVUak9kU1FGTEZKb3VmN3Y2UDJuRVN0WDlvalBKNVVVbEs5aFJjbllBa05GZnQtMWxTY1U0b2Jwb0UtRHZvcjV1WkY5a2hTSEtoWllhRXRFa3k4ZzZKMWhLUnBHOW9PMkprS0I3NmNLNHYxbXBtODBVdE9QeDBtRU1DS29XcG9MdlFTQXhZZWNQaFpGWUhweXpKOGtQQnRncE9qbzg1RU5OSnVBQ2NCekotWjJyazRKdURXbHU0OWlyR3hpbXdMa2pLc3p2dU50RmZpek9UNXdRZEN5aDVEeXJLZHhhTWNkRHdyLTUtNV94NW1r0gH3AUFVX3lxTE5ZOGZMVVRqT2RTUUZMRkpvdWY3djZQMm5FU3RYOW9qUEo1VVVsSzloUmNuWUFrTkZmdC0xbFNjVTRvYnBvRS1Edm9yNXVaRjlraFNIS2haWWFFdEVreThnNkoxaEtScEc5b08ySmtLQjc2Y0s0djFtcG04MFV0T1B4MG1FTUNLb1dwb0x2UVNBeFllY1BoWkZZSHB5eko4a1BCdGdwT2pvODVFTk5KdUFDY0J6Si1aMnJrNEp1RFdsdTQ5aXJHeGltd0xraktzenZ1TnRGZml6T1Q1d1FkQ3loNUR5cktkeGFNY2REd3ItNS01X3g1bWs?oc=5",
+      "publishedAt": "2026-09-25T13:10:26+00:00",
+      "summary": "Epiq Acquires Canopy To Unite Cyber Incident Response Technology and Service Expertise The Manila Times",
+      "toeicScore": 63
+    },
+    {
+      "id": "rss-sullivan-county-offers-free-transportation-service-local-veterans-traveling-medical",
       "origin": "live",
       "articleType": "Live News",
       "category": "Daily Life",
-      "source": "KRTN",
-      "sourceUrl": "https://krtnradio.com",
-      "title": "Raton Public Service Company Board of Directors Regular Meeting Monday, September 28, 2026, at 5:30 p.m",
-      "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxQczhGaXBjQndTdlF0N0R6TnRHZVB1Umk4RW1SNVdLSWY1UmZEV21QSWtaZEhFWDJlTFV1T055bW5vQlY0NlVqUE11dUs0TGQ3RnZ3RTU4WUJPN2RraThnS3BhQm5qbDRxVGwyc3ZNb1RlUnZZcEZnMmxnWUpYMlFTNVBwREx3XzU2UFVjOVYyWHFDSEtWOWpiMktNRVVNNWJvR0o2MHdLa0lsYlJJY2dpaWhGTTRJeEp6ak02N1NYQmZ4U1NZdkF4MTd4dUg1Zw?oc=5",
-      "publishedAt": "2026-09-23T23:16:56+00:00",
-      "summary": "Raton Public Service Company Board of Directors Regular Meeting Monday, September 28, 2026, at 5:30 p.m KRTN",
+      "source": "WTHI-TV",
+      "sourceUrl": "https://www.wthitv.com",
+      "title": "Sullivan County offers free transportation service for local veterans traveling to medical care",
+      "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxPZ0NGS3EwSDY0VUt0blJfQmhqbjJwRXdISkpjenNyT3BhX2tNOG1MOE5YTDl2UHU4ZjdKX2lyOHdjX01lMDhmaTlnbm5kcDkxVkZxX1FmbUtkUk9JbDZQYmtnX3lNdEFNZGl6Q2xrZGxwQmRiRHRNdWExRG5CV25JcXVaMXdDd3g3SUE5REdxUDU4eFJPYktmUVBDY0g0QU51ckpfRUJMUXR5VWtEQ0llSURJQ2FnS2FuUC1OTXVTZUPSAdQBQVVfeXFMTnJocEotU3J2TDA3aGw3djBPcVY4OGU4MnZMM3NtUTQ1azUtR1VkdzhqSC1vd0hfNF9kaTF0eG9qbVRwdUFIcG50MXQ2U1N5NlNLYmtONlFYcHNmeFdVRTUwQlVJY0w2b0trQzMtRXVFQjQtVlk4emJrV3RZQlA1WC05T28wNi1GQTJXbGhTRTRoRGw2TVZOSUJmbjZfVUU3bGFwWk1WUjNaaS1iOEx1TkFLd2FIc2J5UEc4dTdaeWdUcjRKczZNOHg4X1FIWUFCQlFJcVQ?oc=5",
+      "publishedAt": "2026-09-25T21:43:00+00:00",
+      "summary": "Sullivan County offers free transportation service for local veterans traveling to medical care WTHI-TV",
+      "toeicScore": 66
+    },
+    {
+      "id": "rss-gift-demand-transportation-service-expanding-ammon",
+      "origin": "live",
+      "articleType": "Live News",
+      "category": "Daily Life",
+      "source": "East Idaho News",
+      "sourceUrl": "https://www.eastidahonews.com",
+      "title": "GIFT on-demand transportation service expanding to Ammon",
+      "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxQa3lONmlqN19tMWxtSEhEZDI0RzJZNWFySWExRmhzYnRYVjFYY0NSckZSQTRkQjlvRDY5RmZFZXlMaTJTQ2VCTGxYT3h6a05INWpFaUVuYVJCOXdUREN6RUVuTmdkTVVjby1TaEhPT0dDeTRuM25KSThka01EWUNYZGRaYUJlUXJLMHU2R1hFalpXVEhTT0tLMVA2OA?oc=5",
+      "publishedAt": "2026-09-25T22:00:00+00:00",
+      "summary": "GIFT on-demand transportation service expanding to Ammon East Idaho News",
       "toeicScore": 66
     },
     {
@@ -669,12 +643,12 @@
       "origin": "live",
       "articleType": "Live News",
       "category": "Daily Life",
-      "source": "kark.com",
+      "source": "KARK",
       "sourceUrl": "https://www.kark.com",
       "title": "KFC’s new restaurant concept will offer breakfast, boba and table service",
       "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxOVzNub0hqcWdWR2xFeHhXZTVJbFlxTFNHTlhjUkpva1BmN1Q2dEE3VGlOYWwweHBMcWw3SUJmbE9STmxaQmRrcjVtVXRTOHc5bFFPb0dfekZER3dIR1dwRkxWclhsLWRnZmg5UXU1d2U0ajFpTXBWSVpCazRGYUdwdUlxZmV1d1Z1SGpONWVZY1Rwelc3RXk1LVQtc25UcGpSNFlHdnpQaUNGN1RNb1E?oc=5",
       "publishedAt": "2026-09-25T16:45:08+00:00",
-      "summary": "KFC’s new restaurant concept will offer breakfast, boba and table service kark.com",
+      "summary": "KFC’s new restaurant concept will offer breakfast, boba and table service KARK",
       "toeicScore": 63
     },
     {
@@ -691,29 +665,16 @@
       "toeicScore": 63
     },
     {
-      "id": "rss-kfc-debuts-new-next-gen-open-house-restaurant-texas",
-      "origin": "live",
-      "articleType": "Live News",
-      "category": "Daily Life",
-      "source": "Chain Store Age",
-      "sourceUrl": "https://chainstoreage.com",
-      "title": "KFC debuts new next-gen 'Open House' restaurant in Texas",
-      "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxQSVFTN1ZQOFhmUE1lNFhzeDU3dGlqZUNqNEFvdTZ3UU1IaEhfZy1hYlJNdW1yblFTZEM0bGVaOWxnOTBTbWU4anQ5TUpqaHZvaW5LdnJVaUhFNFU5SVBWaElUdHFyWUZSZkFndFVfSFVzbjVSYTc0Y3BSUm1ETWtNY3BIYw?oc=5",
-      "publishedAt": "2026-09-25T14:43:31+00:00",
-      "summary": "KFC debuts new next-gen 'Open House' restaurant in Texas Chain Store Age",
-      "toeicScore": 63
-    },
-    {
       "id": "rss-kfc-tries-out-breakfast-tableside-service-new-concept-restaurant",
       "origin": "live",
       "articleType": "Live News",
       "category": "Daily Life",
-      "source": "The Independent",
-      "sourceUrl": "https://www.independent.co.uk",
+      "source": "Yahoo News New Zealand",
+      "sourceUrl": "https://nz.news.yahoo.com",
       "title": "KFC tries out breakfast and tableside service at new concept restaurant",
-      "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxQM29mUUswT2NMazVZMVIzRnhoTXZKbEZxdDFsM2N0SWRhb3JDUm1RNDl2OVhLVnI0RFNBMDhfWVowSmxwTTBJeXVUMW1JMEV6a1ZBcE9WeHFHa2xwY3RaZVJkYmtuTW1MNHp5UnNOSENiZVFGMUs1anRudmhicnEzYnZQTWNwampjcklFMU1iRUdseVJMMHk0bg?oc=5",
-      "publishedAt": "2026-09-25T13:59:00+00:00",
-      "summary": "KFC tries out breakfast and tableside service at new concept restaurant The Independent",
+      "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxQQkdNWUItbnFUSzF6QVZOYS1kaERTREU0cThTRGswYV8xa3VoNmk5bE45bmpYLWV4WGdmVExmaHRnOTF1R01aaXhtMk01X0FXVV9iNkxGeG1BcVBzNWJ6QU5qWlFVaFJLU3YtVjhRcmhjdzhVd1lReHlWT1dTVHhwUmp6cm8?oc=5",
+      "publishedAt": "2026-09-25T13:59:28+00:00",
+      "summary": "KFC tries out breakfast and tableside service at new concept restaurant Yahoo News New Zealand",
       "toeicScore": 63
     },
     {
@@ -730,6 +691,19 @@
       "toeicScore": 63
     },
     {
+      "id": "rss-very-best-public-service-naming-aurora-fire-station-honours-patrick",
+      "origin": "live",
+      "articleType": "Live News",
+      "category": "Daily Life",
+      "source": "NewmarketToday.ca",
+      "sourceUrl": "https://www.newmarkettoday.ca",
+      "title": "'Very best of public service': Naming of Aurora fire station honours Patrick family legacy",
+      "url": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxPZHdIVERERk5Xay1jektOdVFoSFlkQUZ0MDZZcGRJbzhsTkRhb0Nkb25WTFRkdzFpMnk3OVNHNWJXcnJURVRWcUdKYVhhekk3V0pYblpoelUyVVhtZHlVMTNsRkswamFtWVIzYWhpT242SDB0aUN3T2hlb0pGRnNCR3phcm80dGJ6d2FvTHFtcnBHcDM1ZkVoM2VHNWNFTTRBXzYwYzE3ZE45cmJIeTByUDZPMFFHdmttQXFXVENad1gybHRoS24wbzJ5dlg5NU1QZFNv?oc=5",
+      "publishedAt": "2026-09-25T22:03:21+00:00",
+      "summary": "'Very best of public service': Naming of Aurora fire station honours Patrick family legacy NewmarketToday.ca",
+      "toeicScore": 63
+    },
+    {
       "id": "rss-ncs-multistage-inc-v-nine-energy-service-inc-private-sales",
       "origin": "live",
       "articleType": "Live News",
@@ -738,7 +712,7 @@
       "sourceUrl": "https://natlawreview.com",
       "title": "NCS Multistage Inc. v. Nine Energy Service, Inc.: Private Sales Are Not Necessarily Public Disclosures Under the AIA",
       "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxNQmplYlBlUTM3TTNGbDEzLUR1amZqZmhnbDVWZWNSQzN4enI1VmFGQTdyZGJ5Vm83MFVnVkJZdERyZ1EzVW9Cclk2MWNNUERIaTNrbllKMTVfVTBpU2ozWTgxNDF6T1p4Sk9QN29qck5EXzFmeFVBdzhiYVZ1QVR6aWlrSHVrZkR0aFNQMDluVzYwRVVGX2lOMUYzYmxIcENETExhbU45QU03Y3l1VlJaUtIBtgFBVV95cUxQZFVUTDJjY3ctTTVuV1J0bTN0ZDRheTVZMHVkZnRCNjFyTDlSeU5sakRNc3ZBTVh3b29XallYRFEyQW9ibG4tMTBObkxOeEg1MFVZUDJLZnlBU2RRNnBIZ0dFYkFRQnE1OUdzTkhxSFIzbmhkX0hIX3dnb1lENnF1OXRNYWNNcVhmX0hXVE1OV3hYZ1BvcmxfblZrOU5Eb1ZQR043RkRtVEhpc1AxeUh4T04wN1ViZw?oc=5",
-      "publishedAt": "2026-09-25T13:34:14+00:00",
+      "publishedAt": "2026-09-25T13:37:06+00:00",
       "summary": "NCS Multistage Inc. v. Nine Energy Service, Inc.: Private Sales Are Not Necessarily Public Disclosures Under the AIA The National Law Review",
       "toeicScore": 63
     },
@@ -756,30 +730,56 @@
       "toeicScore": 63
     },
     {
-      "id": "rss-nissan-s-smart-mobility-field-tests-evolve-into-public-transportation",
-      "origin": "live",
-      "articleType": "Live News",
-      "category": "Daily Life",
-      "source": "日産自動車ニュースルーム",
-      "sourceUrl": "https://global.nissannews.com",
-      "title": "Nissan’s Smart Mobility field tests evolve into a public transportation service",
-      "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxPOUQ0TVpmYlUwVFMtM0ctQVAwV3RtTUZLMDVHUEtSNi12QW9hR3NUaTQ1WDZxZHBTd0I2WGxCS2dnV3pZWXh3LVltRDAxbUdKSk5VMUk0QjdIeGhSQ2p1WUR3NjJDT2hSOHRLSEZTbGtuckZmaVJ4QUJxS3NFa2hDenBXU3ZZcUoxSHhzd3IyZWpmUG5pMEdEbGhvMWtjcmZ4MC1FalJVbHNpVzJwT0Z1T2VicGw4cTFldkFN?oc=5",
-      "publishedAt": "2026-09-24T05:00:00+00:00",
-      "summary": "Nissan’s Smart Mobility field tests evolve into a public transportation service 日産自動車ニュースルーム",
-      "toeicScore": 63
-    },
-    {
-      "id": "rss-ford-dealership-terminates-two-employees-over-racial-slur-customer-service",
+      "id": "rss-retail-sales-rise-11th-straight-month",
       "origin": "live",
       "articleType": "Live News",
       "category": "Business",
-      "source": "Yahoo",
-      "sourceUrl": "https://www.yahoo.com",
-      "title": "Ford Dealership Terminates Two Employees Over Racial Slur on Customer Service Stickers",
-      "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxQazJkV1ZUZG5sajFNUGplMl9sV1lhYllrTS1zeHd2V3FmNm81Rm5GRHhiZ1l6Z25kWjBzSk9Uc0Rud3hqZzd2VmYzQ1g2WVJKVGFJU0FzU21NZXBLWV9kVFdrZzcyUlM2SjdHU0FtM3NueWZjWnNmcmxnaldtVGx0Y2RmWXBObHZwcHFsUnRSbDlhU1p6aWwxUDR3?oc=5",
-      "publishedAt": "2026-09-24T10:00:00+00:00",
-      "summary": "Ford Dealership Terminates Two Employees Over Racial Slur on Customer Service Stickers Yahoo",
-      "toeicScore": 66
+      "source": "Chain Drug Review",
+      "sourceUrl": "https://chaindrugreview.com",
+      "title": "Retail sales rise for 11th straight month",
+      "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTE9WQ1I5NTN1TjFPZHI3NTVrNVRYekRYUDZUNkR0V25XR1BKejRiUVZuaVo1VTVnUER0UGFQNVJHSmU5dXRkaVhBcVk5QlcyVXNtWjBvVzlEQ0UwUVU3R1JzTGtnd2pqZjZBeWpjeDhkc3g3RzJ1b05UUHFR?oc=5",
+      "publishedAt": "2026-09-25T21:46:02+00:00",
+      "summary": "Retail sales rise for 11th straight month Chain Drug Review",
+      "toeicScore": 63
+    },
+    {
+      "id": "rss-taking-mystery-out-customer-service",
+      "origin": "live",
+      "articleType": "Live News",
+      "category": "Business",
+      "source": "SAM Magazine",
+      "sourceUrl": "https://www.saminfo.com",
+      "title": "Taking the Mystery Out of Customer Service",
+      "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTE9nQVhwbkRVS2lITlhjLTFzTHZJRkpYT1c3dDZCejc1UF9wOTk2elYyNVNYYi16dHhTWEUxb2c3Rnp0UkZfUDh0Y2k1Z1pJYm5tXzRWLW93VjF0enRuOWFTNDJDbXF1a0VsUWo2TGNwajdLWHlFMGc?oc=5",
+      "publishedAt": "2026-09-25T16:42:09+00:00",
+      "summary": "Taking the Mystery Out of Customer Service SAM Magazine",
+      "toeicScore": 63
+    },
+    {
+      "id": "rss-maryland-dot-defeats-customer-service-worker-s-retaliation-case",
+      "origin": "live",
+      "articleType": "Live News",
+      "category": "Business",
+      "source": "news.bgov.com",
+      "sourceUrl": "https://news.bgov.com",
+      "title": "Maryland DOT Defeats Customer Service Worker’s Retaliation Case",
+      "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxQQWNyeG40UVE0aVpPVXBVTTZicXhobGQzTUlBYWlFODNaRWxwdk5vUTRMYi1lUE1DME9oTnBadkppN1lJaHdNQXNBOWN4d28ybkoxNXBoTTltRnFBeVBZZWh1c085RGY1dmp4OEhxeDN0ZTN0NkphWnN0SW02WlJwWmhTWnVGbGxZNHp1VVB4TjAyNWMwUE9faTFoNnV3bjJ2UWc3dDJn?oc=5",
+      "publishedAt": "2026-09-25T19:31:00+00:00",
+      "summary": "Maryland DOT Defeats Customer Service Worker’s Retaliation Case news.bgov.com",
+      "toeicScore": 63
+    },
+    {
+      "id": "rss-consumers-use-ai-agents-deal-customer-service-ai-agents-09",
+      "origin": "live",
+      "articleType": "Live News",
+      "category": "Business",
+      "source": "MediaPost",
+      "sourceUrl": "https://www.mediapost.com",
+      "title": "Consumers Use AI Agents To Deal With Customer Service AI Agents 09/25/2026",
+      "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxNSFhEUHZ4SE1ZWDFPUlB0OUxDdHhaMkxEdUFCNnc1b0dZdWloVWt3bFVVeDNPLU9jWG1meGxCTGRYOHZDMVhfZVNTSWxEcVpwTUFMZ2h6UllVNWRoRlIweWo4M0lPZ2FvNEV6S2oyeWFscVBrLThzUGxiVjBOZ05ydmN0WlVha1R5OERzcUFHWUFPc3pKRXJFRzBwVk1YOWFycG9FdjlSVjlKTlY2bXlveXBkTkk5SmlIdV9JX0QzUWt6dw?oc=5",
+      "publishedAt": "2026-09-25T17:03:17+00:00",
+      "summary": "Consumers Use AI Agents To Deal With Customer Service AI Agents 09/25/2026 MediaPost",
+      "toeicScore": 63
     }
   ]
 }
