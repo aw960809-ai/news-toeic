@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-27T14:44:18.260170+00:00",
+  "updatedAt": "2026-09-27T18:59:39.222867+00:00",
   "articles": [
     {
       "id": "rss-southampton-transportation-company-highlights-corporate-car-service-benefits-business-travelers",
@@ -75,8 +75,21 @@
       "sourceUrl": "https://www.thestreet.com",
       "title": "Lowe’s launches a new service as it works to win back customers",
       "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxOVnlaMzdBNU1vb1BmRlhzTm4ybm8yNEZmZTB0aS1GN2thZ0w3dTZxNUxhRzRsdVk0YUhsNThhcEtuVEMzNlg1WS1lbFYzaEVYVFFna2d1dXV2YTY1Z25UcDRqUUowcWQwR1pSaVdGV0R5XzctRUdJeVlXTUFsZlFRYmZUOFg4MVhrNEJyS1M4MXZoeEcxeHdsWEY1eko?oc=5",
-      "publishedAt": "2026-09-27T12:17:00+00:00",
+      "publishedAt": "2026-09-27T13:09:09+00:00",
       "summary": "Lowe’s launches a new service as it works to win back customers thestreet.com",
+      "toeicScore": 66
+    },
+    {
+      "id": "rss-inteletravel-unveils-customer-service-academy",
+      "origin": "live",
+      "articleType": "Live News",
+      "category": "Business",
+      "source": "Travel Weekly - Home",
+      "sourceUrl": "https://travelweekly.co.uk",
+      "title": "InteleTravel unveils customer service ‘academy’",
+      "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxQeXVnOVQ0Z1B1SmNpc0pvYmhoQjVGS1gwTU1nNjN4TGRfcGNiSXk0NXRZTFZsZ203MUJ1Si1ZaDBSX2RuRVZzT2phVVI5TXkxRUUtM0pzM2Z6MGgtVk5xMTc2VkJxNEZ5NVdpZ3FUUkVTRTFZSU0yekFFRmZyRWJwbkpXOA?oc=5",
+      "publishedAt": "2026-09-27T15:51:22+00:00",
+      "summary": "InteleTravel unveils customer service ‘academy’ Travel Weekly - Home",
       "toeicScore": 66
     },
     {
@@ -97,38 +110,12 @@
       "origin": "live",
       "articleType": "Live News",
       "category": "Business",
-      "source": "Mass Market Retailers",
+      "source": "massmarketretailers.com",
       "sourceUrl": "https://massmarketretailers.com",
       "title": "Retail sales climb again in August",
       "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTE9sbFdBWEdjOUdHV0EyU3gxYlJLMEVLUE5tNHY3ODIyV2JmaFVDZ2NJSjVUWnVrTnBvT0FnU0dqWFpyMFR0WFhLNDJXMWpxY2oxOGdvYXJ0aHEyaUFNeDB4X0NEMzljYjBrbXJqX0dDQldIaHd6ekE?oc=5",
       "publishedAt": "2026-09-25T20:23:15+00:00",
-      "summary": "Retail sales climb again in August Mass Market Retailers",
-      "toeicScore": 66
-    },
-    {
-      "id": "rss-virgin-media-o2-launches-customer-service-ai-voice-agent",
-      "origin": "live",
-      "articleType": "Live News",
-      "category": "Business",
-      "source": "Sierra AI Agents",
-      "sourceUrl": "https://sierra.ai",
-      "title": "Virgin Media O2 launches customer service AI voice agent",
-      "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE5xZDlxUVFhd0o1V19KZ1FqOFYyWm15V0xJWmpZbVJsSVZjaHNzbW5TQl81Q2dnNmtvWEZWY3RXQ1NNSmNtS1dwaUFNN2Z4Tzc1TndMMzdn?oc=5",
-      "publishedAt": "2026-09-24T18:47:51+00:00",
-      "summary": "Virgin Media O2 launches customer service AI voice agent Sierra AI Agents",
-      "toeicScore": 66
-    },
-    {
-      "id": "rss-pv-retail-sales-may-grow-15-16-september-business-guardian",
-      "origin": "live",
-      "articleType": "Live News",
-      "category": "Business",
-      "source": "Magzter",
-      "sourceUrl": "https://www.magzter.com",
-      "title": "PV retail sales may grow 15-16% in September | The Business Guardian - newspaper",
-      "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxOTG5GMnJHM0xDM3FTdDhhWFFuQWM1V0FLWklDMjJHTk1SYzRGOUlseXNMcFNIQXoyLXRSVzlJVk9DQWdscWF3ajJIOGppTGhvcHI3WWZ2c2luU2VVck1TZXp6dVB0czZtVGhHRTh4Z21MTHdtY3lFUUxQZV9lX0NLSU1zMkJVRUhBdjFKVktQZnpuLXZaMjVwczZacXZGS3Q0Vzd5eGhCU3V2Zw?oc=5",
-      "publishedAt": "2026-09-27T11:38:33+00:00",
-      "summary": "PV retail sales may grow 15-16% in September | The Business Guardian - newspaper Magzter",
+      "summary": "Retail sales climb again in August massmarketretailers.com",
       "toeicScore": 66
     },
     {
@@ -145,6 +132,19 @@
       "toeicScore": 66
     },
     {
+      "id": "rss-pv-retail-sales-may-grow-15-16-september-business-guardian",
+      "origin": "live",
+      "articleType": "Live News",
+      "category": "Business",
+      "source": "Magzter",
+      "sourceUrl": "https://www.magzter.com",
+      "title": "PV retail sales may grow 15-16% in September | The Business Guardian - newspaper",
+      "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxOTG5GMnJHM0xDM3FTdDhhWFFuQWM1V0FLWklDMjJHTk1SYzRGOUlseXNMcFNIQXoyLXRSVzlJVk9DQWdscWF3ajJIOGppTGhvcHI3WWZ2c2luU2VVck1TZXp6dVB0czZtVGhHRTh4Z21MTHdtY3lFUUxQZV9lX0NLSU1zMkJVRUhBdjFKVktQZnpuLXZaMjVwczZacXZGS3Q0Vzd5eGhCU3V2Zw?oc=5",
+      "publishedAt": "2026-09-27T11:38:33+00:00",
+      "summary": "PV retail sales may grow 15-16% in September | The Business Guardian - newspaper Magzter",
+      "toeicScore": 66
+    },
+    {
       "id": "rss-holiday-sales-projected-grow-4-7",
       "origin": "live",
       "articleType": "Live News",
@@ -155,19 +155,6 @@
       "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxNREhmLXUzQ0NDN09zQVcwcVl3TkI1Uzc0aTBIREYwYloxMFFPT0FiQTBCaXc3dUYwTUtHU1Y2VmQyTFdxMnQ2VnM4MmpCblp0OXU4M0ZHTDdVSFRLa253NzBqSkVwclJ4Y0V3a1FCM1pjYlVqXzVKaTJYZHZUaTNJTzNCWW9yc3ZGbU1Ec3Zn?oc=5",
       "publishedAt": "2026-09-25T10:00:00+00:00",
       "summary": "Holiday sales projected to grow 4% to 7% retailcustomerexperience.com",
-      "toeicScore": 66
-    },
-    {
-      "id": "rss-startup-spotlight-marketing-vets-launch-kompeld-measure-if-company-s",
-      "origin": "live",
-      "articleType": "Live News",
-      "category": "Business",
-      "source": "GeekWire",
-      "sourceUrl": "https://www.geekwire.com",
-      "title": "Startup Spotlight: Marketing vets launch Kompeld to measure if a company’s story is actually working",
-      "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxPZTVhaGJCNktRakFBblpWS0J1MzB0Y2JMbFFSdFJEdVZmaWpiTGJKVGhtUTBUM1FOdmt0QlpzZ2lQcHN4MzRlYlRGSFZmTmNadjZoT011MFQ3dGcxdUJtdk9xTVFGSEZfNGZncFQ3M0hPVFhPVUdCckVzLUJ6UUotNHZuOVJHTkhnUVdOamYyV3dmUEt6UEh1a2V5R2JMdmxOTEZmY3QyUXRWWEZPRHhfNEd3bjZiZG5UMnhRZzZjZGx0QzRYbGt4SA?oc=5",
-      "publishedAt": "2026-09-24T22:03:18+00:00",
-      "summary": "Startup Spotlight: Marketing vets launch Kompeld to measure if a company’s story is actually working GeekWire",
       "toeicScore": 66
     },
     {
@@ -184,6 +171,19 @@
       "toeicScore": 66
     },
     {
+      "id": "rss-startup-spotlight-marketing-vets-launch-kompeld-measure-if-company-s",
+      "origin": "live",
+      "articleType": "Live News",
+      "category": "Business",
+      "source": "GeekWire",
+      "sourceUrl": "https://www.geekwire.com",
+      "title": "Startup Spotlight: Marketing vets launch Kompeld to measure if a company’s story is actually working",
+      "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxPZTVhaGJCNktRakFBblpWS0J1MzB0Y2JMbFFSdFJEdVZmaWpiTGJKVGhtUTBUM1FOdmt0QlpzZ2lQcHN4MzRlYlRGSFZmTmNadjZoT011MFQ3dGcxdUJtdk9xTVFGSEZfNGZncFQ3M0hPVFhPVUdCckVzLUJ6UUotNHZuOVJHTkhnUVdOamYyV3dmUEt6UEh1a2V5R2JMdmxOTEZmY3QyUXRWWEZPRHhfNEd3bjZiZG5UMnhRZzZjZGx0QzRYbGt4SA?oc=5",
+      "publishedAt": "2026-09-24T22:03:18+00:00",
+      "summary": "Startup Spotlight: Marketing vets launch Kompeld to measure if a company’s story is actually working GeekWire",
+      "toeicScore": 66
+    },
+    {
       "id": "rss-ird-staff-undergoes-customer-service-training",
       "origin": "live",
       "articleType": "Live News",
@@ -194,6 +194,32 @@
       "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxQX0N6ZUFjYzl4OWgzNzEtakpFVTNkYTJkcnRFTzljSG1iTVNOVUo4d05wTHZEbDBFb3JCV01wU0pJYTVVNGFGREJUdkxJNnpCUnlFRzh0ZHlMZ0NBVU1DRS1HeFlZZjcya1dJQm1DdEEwMVBzS1B1V0RnZUlkYTVOSW5tSVgzZC1XdzFN?oc=5",
       "publishedAt": "2026-09-24T22:57:58+00:00",
       "summary": "IRD Staff Undergoes Customer Service Training St Vincent Times",
+      "toeicScore": 66
+    },
+    {
+      "id": "rss-china-retail-august-2026-market-down-24-leapmotor-breaks-record",
+      "origin": "live",
+      "articleType": "Live News",
+      "category": "Business",
+      "source": "Best Selling Cars Blog",
+      "sourceUrl": "https://bestsellingcarsblog.com",
+      "title": "China retail August 2026: Market down -24%, Leapmotor breaks record, Fang Cheng Bao, Luxeed and MG in shape, Xiaomi Sky Nomad launches",
+      "url": "https://news.google.com/rss/articles/CBMi_AFBVV95cUxOQzRrOXlmZTNScDM1R181b2pNRzZXcHZ0SnhibGZYYU44YjFDUUhDVlA2MmtTU2xQbzRHWDN2UDAzbUw4YktlM2xpeTh5RXVRREpYa1dDZFQzTFNwY2JhVTVDU0Z6cTk4WElQVnhjTkVUaEdwcWl2dE9XWVR5UF9kNUpfYzN5UlZ5bFZCUUJsbm1jV1hELTlJYkctaUJsVXdzcFk5Sk90c1FuUGd5M2NEb2FlUFRuV1ZrMkxJcWh3eWdVbXBha050M2hmUXMxWWhRNUdLakduRzd5ck5iVHBtaFllak9FUDJ5Zld2NGxkVTFkeWtydGhxZnI1YzA?oc=5",
+      "publishedAt": "2026-09-25T04:51:16+00:00",
+      "summary": "China retail August 2026: Market down -24%, Leapmotor breaks record, Fang Cheng Bao, Luxeed and MG in shape, Xiaomi Sky Nomad launches Best Selling Cars Blog",
+      "toeicScore": 66
+    },
+    {
+      "id": "rss-resolution-revolution-why-customer-service-must-move-beyond-containment",
+      "origin": "live",
+      "articleType": "Live News",
+      "category": "Business",
+      "source": "igamingbusiness.com",
+      "sourceUrl": "https://igamingbusiness.com",
+      "title": "Resolution revolution: Why customer service must move beyond containment",
+      "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxQbkU5Q0d1NEJaOHFiUlRPYVNsOGFra1ZTRGJSZDN2MUJlZllXMFA4clZkdkVnNFZobmt0dHBmUm9HZUdlc2RjR2ktZ0xheElPeGY2X09OTUdiV1dfenBuRVFUN2ZqcV8zZnUwOGZHMVY2bS00MnI5c0ppLVJpR2Q5M21ZMWdkdzNOSkVqMGh2SFlCblBWQ04xYWJucmg3c2lZb1JXSzRMT2g0Wk1oaFhhTHZwdS0?oc=5",
+      "publishedAt": "2026-09-25T11:27:08+00:00",
+      "summary": "Resolution revolution: Why customer service must move beyond containment igamingbusiness.com",
       "toeicScore": 66
     },
     {
@@ -210,29 +236,16 @@
       "toeicScore": 66
     },
     {
-      "id": "rss-resolution-revolution-why-customer-service-must-move-beyond-containment",
+      "id": "rss-passenger-vehicle-retail-sales-grow-15-16-september-amid-steady",
       "origin": "live",
       "articleType": "Live News",
       "category": "Business",
-      "source": "iGaming Business",
-      "sourceUrl": "https://igamingbusiness.com",
-      "title": "Resolution revolution: Why customer service must move beyond containment",
-      "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxQbkU5Q0d1NEJaOHFiUlRPYVNsOGFra1ZTRGJSZDN2MUJlZllXMFA4clZkdkVnNFZobmt0dHBmUm9HZUdlc2RjR2ktZ0xheElPeGY2X09OTUdiV1dfenBuRVFUN2ZqcV8zZnUwOGZHMVY2bS00MnI5c0ppLVJpR2Q5M21ZMWdkdzNOSkVqMGh2SFlCblBWQ04xYWJucmg3c2lZb1JXSzRMT2g0Wk1oaFhhTHZwdS0?oc=5",
-      "publishedAt": "2026-09-25T11:27:08+00:00",
-      "summary": "Resolution revolution: Why customer service must move beyond containment iGaming Business",
-      "toeicScore": 66
-    },
-    {
-      "id": "rss-locus-launches-delivery-promise-management-access-ahead-peak-season-2026",
-      "origin": "live",
-      "articleType": "Live News",
-      "category": "Business",
-      "source": "CustomerThink",
-      "sourceUrl": "https://customerthink.com",
-      "title": "Locus Launches Delivery Promise Management Access Ahead of Peak Season 2026",
-      "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxQa0lENVM1aklOTEc3ZTkwN0hWc09Fbmg2aVJCZENJUUFpOHlSV3RObWpDSF9lUHYzZVY3ZXZTQ0I2X1Q2clMyc2lpeEY0NmJqTXYyUHNoc1VrOHJINUphbTV2a09HT0NmNlp6Y1dncVMwQXpxNW9vYWl2UVBHa1pkZUVzUzNrLVNTMjVlUVVmLXpCWDZDT3k3OTFnTWM0X0lzZVVoUQ?oc=5",
-      "publishedAt": "2026-09-24T17:42:48+00:00",
-      "summary": "Locus Launches Delivery Promise Management Access Ahead of Peak Season 2026 CustomerThink",
+      "source": "The Tribune",
+      "sourceUrl": "https://www.tribuneindia.com",
+      "title": "Passenger vehicle retail sales to grow 15-16% in September amid steady demand: Yes Securities",
+      "url": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxPNzUyb3NQUmZHQWxzQlk0eDNoaEFmR2ItVUFENTV5aEFpLTgxWlZxbmZGMzBOeFdOczd2M2hpclQxZWcxdlNmbEc1cXBXeHBYZzh6RFJub1dFUXNIekdMOG1ZdS1wd29zaHQtV01JY0hDN3hFeXF0Y05ra0dTeW55VldqZ19mRmEySDVxZzR0R0s5bkRZZnJPeFRrZGw1RjZEZFV5UFU4UzFVWlMxdXMyTGs1S2xRQnY4Ri1yQmljMGZueVI2YUxMeGVTckRWeXBTSGtDRNIB1AFBVV95cUxPNzUyb3NQUmZHQWxzQlk0eDNoaEFmR2ItVUFENTV5aEFpLTgxWlZxbmZGMzBOeFdOczd2M2hpclQxZWcxdlNmbEc1cXBXeHBYZzh6RFJub1dFUXNIekdMOG1ZdS1wd29zaHQtV01JY0hDN3hFeXF0Y05ra0dTeW55VldqZ19mRmEySDVxZzR0R0s5bkRZZnJPeFRrZGw1RjZEZFV5UFU4UzFVWlMxdXMyTGs1S2xRQnY4Ri1yQmljMGZueVI2YUxMeGVTckRWeXBTSGtDRA?oc=5",
+      "publishedAt": "2026-09-26T03:02:23+00:00",
+      "summary": "Passenger vehicle retail sales to grow 15-16% in September amid steady demand: Yes Securities The Tribune",
       "toeicScore": 66
     },
     {
@@ -249,19 +262,6 @@
       "toeicScore": 63
     },
     {
-      "id": "rss-retail-snowsports-sales-rose-slightly-this-fall",
-      "origin": "live",
-      "articleType": "Live News",
-      "category": "Business",
-      "source": "SAM Magazine",
-      "sourceUrl": "https://www.saminfo.com",
-      "title": "Retail Snowsports Sales Rose Slightly This Fall",
-      "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxQbXk4U0lNeVBBRkdHTV96SklrOTdYTEdzbV9ab1VjUXRMdnNxeEpaOEFJeFV4THRPcmhuZTdoOEFFUlk1ckVZblN4SzBkVXpxOUtDdTFhQzJoS3JwNC1FZkN3U3ktbC1LR0x6aXVuMzRIUHBtQkUyaXUxRjlvN3VfTXhUOVE4bmRQeGc?oc=5",
-      "publishedAt": "2026-09-26T18:49:36+00:00",
-      "summary": "Retail Snowsports Sales Rose Slightly This Fall SAM Magazine",
-      "toeicScore": 63
-    },
-    {
       "id": "rss-voyager-park-set-bring-high-end-hotels-restaurants-near-cleveland",
       "origin": "live",
       "articleType": "Live News",
@@ -275,17 +275,30 @@
       "toeicScore": 66
     },
     {
-      "id": "rss-cadd-emirates-partners-hotelworld-ai-expand-ai-hotel-technology-across",
+      "id": "rss-ben-gurion-airport-parking-lots-full-travelers-told-arrive-public",
       "origin": "live",
       "articleType": "Live News",
       "category": "Travel",
-      "source": "Hotel Technology News",
-      "sourceUrl": "https://hoteltechnologynews.com",
-      "title": "CADD Emirates Partners with Hotelworld.ai to Expand AI Hotel Technology Across the Middle East",
-      "url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxOakp4SU12NHFOSWZsbERzYVYycktxZVkycWZJcDNLdnF2SVZ1aDNHQVpfeHhsbXNfUUlvZ0FzUl9NMjZGTF9NdjVURVBHdmVGSVdzZlFENkJUbWs2cmhZdXZwLURza3VGdDd5bXYxS1JxYmRiUERBSWM3ZTg3YjJZYmkzaXpnWTBHZWNKTEpweXNuWDRpeWV3ZlhycWYycDRXcmhTQ2VHNUVrME9BMjBLLXF1LXZyRldUaVZGdzd0RS1DR2xVbHZHeVg1LVI2bHRx?oc=5",
-      "publishedAt": "2026-09-27T11:59:29+00:00",
-      "summary": "CADD Emirates Partners with Hotelworld.ai to Expand AI Hotel Technology Across the Middle East Hotel Technology News",
+      "source": "The Times of Israel",
+      "sourceUrl": "https://www.timesofisrael.com",
+      "title": "Ben Gurion Airport parking lots full, travelers told to arrive by public transportation",
+      "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxNbDBGUkhFaFZadmpmTlRqNXh0cjVfajFLdEVJdjRvd3JYMjU4NDNoY3MxX0tvalFVSHdtTTJGbHVSWTRrNW5oUVB1TURwRVp4TDI3X3g2ZkNVeUxqdDNTTUJ1WXUtZlYzeXNXUmtMVDZ2QkwySGlKZWoxRng0YldNVWVBNjByc3FOQVpNZk11Y2NJZHIwVDBmVXZ5bDBDNTU2eFdqaGxabVEwSkNmYXk5SUpJM3ZCVDdC?oc=5",
+      "publishedAt": "2026-09-27T16:40:58+00:00",
+      "summary": "Ben Gurion Airport parking lots full, travelers told to arrive by public transportation The Times of Israel",
       "toeicScore": 66
+    },
+    {
+      "id": "rss-israeli-passengers-stopped-searched-dutch-airport-as-west-bank-import",
+      "origin": "live",
+      "articleType": "Live News",
+      "category": "Travel",
+      "source": "The Jerusalem Post",
+      "sourceUrl": "https://www.jpost.com",
+      "title": "Israeli passengers stopped, searched at Dutch airport as West Bank import crackdown begins",
+      "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE41YUpZU1did24zanVmekJvSEppM0NFSGVvdnZiSHc5dEJ3cXBWUkpqcWs1RldETktqaWdTa2NxM05JTHVjam5zUXFrU0Rlbi03VU56Q2VselctVTVY?oc=5",
+      "publishedAt": "2026-09-27T15:05:24+00:00",
+      "summary": "Israeli passengers stopped, searched at Dutch airport as West Bank import crackdown begins The Jerusalem Post",
+      "toeicScore": 63
     },
     {
       "id": "rss-ben-gurion-airport-parking-lots-full-amid-holiday-travel-surge",
@@ -298,19 +311,6 @@
       "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE1xbE1DNFRjM0JCQ1hTRm9PdEprbmVGTWhsdWNvQTBjejk2dFRVSUZhdWVFNTczaktiQzlKa0JLbWZXSmpMd0VGV3MxNGlkbzloUVB3SkpUQkRaRm9X?oc=5",
       "publishedAt": "2026-09-27T13:40:23+00:00",
       "summary": "Ben-Gurion Airport parking lots full amid holiday travel surge The Jerusalem Post",
-      "toeicScore": 63
-    },
-    {
-      "id": "rss-getting-tickets-passenger-train-ride",
-      "origin": "live",
-      "articleType": "Live News",
-      "category": "Travel",
-      "source": "raccoonvalleyradio.com",
-      "sourceUrl": "https://www.raccoonvalleyradio.com",
-      "title": "Getting Tickets for Passenger Train Ride",
-      "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxQMlFPYzBxbEprWk9NbjlDU1c4bml3dTVqa2VxTkNOQ0oyejlDTmZIT01KZGdjQTRvaUxIVzJsOVd3dEcybmk3Y1RIcEMwUjhKbWxVRmF3aUhDRWRrZzRIWk51SVBqVnpVelV4WGZBM0R4MzcyQ1Z1b2ltQmpXcTRXblJjbVlRS1RqanN0dlhjSGsyS3c?oc=5",
-      "publishedAt": "2026-09-27T13:35:15+00:00",
-      "summary": "Getting Tickets for Passenger Train Ride raccoonvalleyradio.com",
       "toeicScore": 63
     },
     {
@@ -327,42 +327,94 @@
       "toeicScore": 63
     },
     {
-      "id": "rss-witch-hunt-israeli-passengers-stopped-searched-dutch-airport-as-nl",
+      "id": "rss-employees-injured-after-lufthansa-boeing-787-nose-gear-collapses-frankfurt",
       "origin": "live",
       "articleType": "Live News",
       "category": "Travel",
-      "source": "The Jerusalem Post",
-      "sourceUrl": "https://www.jpost.com",
-      "title": "'Witch hunt': Israeli passengers stopped, searched in Dutch airport as NL begins import crackdown",
-      "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE41YUpZU1did24zanVmekJvSEppM0NFSGVvdnZiSHc5dEJ3cXBWUkpqcWs1RldETktqaWdTa2NxM05JTHVjam5zUXFrU0Rlbi03VU56Q2VselctVTVY?oc=5",
-      "publishedAt": "2026-09-27T13:49:53+00:00",
-      "summary": "'Witch hunt': Israeli passengers stopped, searched in Dutch airport as NL begins import crackdown The Jerusalem Post",
+      "source": "ABC News - Breaking News, Latest News and Videos",
+      "sourceUrl": "https://abcnews.com",
+      "title": "Employees injured after Lufthansa Boeing 787 nose gear collapses at Frankfurt Airport",
+      "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxOQWJ5SUQtY29BZ09jZnYyeFFLRk04ZTBqWTlqZnBxR1ludGl1cFpoeUFlR3A5b2sxdEVNZEU3b0NvRGJ5NHpyVkRZZFltVGZXcHF5d0RGOTZWU19KNnp6YmRERnJzY2dVSjZmRU85VEpwOWxWeERkVHNDX2xCcm5tVFNxeW1XOVFYOE9UUnIta0lpdzRqeHJ5WTVTakRRZm9xZ2V6TDcxVWQtLTDSAbABQVVfeXFMTTcwY2lWVVJUbVdvQUZLNkhhaHdLN3VEYWx1SGVUYkNnN2ZYYWxERkpFSXM3SkJuV0VPT3NNOWdRQTY2T2FPSzEzV2ZIaUwzTGQ0b3VIR1Y4TVZiU05OOW5Jc2FabGJSY284cnJMRHl3UXhqako5N3VPaWJsX203ZUhSekU3alJ3U251RTNrdXRxMGJiTDVQMTBLS3NCM09pZHU1a2xEd2NySUcxVEZhaEQ?oc=5",
+      "publishedAt": "2026-09-27T12:58:18+00:00",
+      "summary": "Employees injured after Lufthansa Boeing 787 nose gear collapses at Frankfurt Airport ABC News - Breaking News, Latest News and Videos",
       "toeicScore": 63
     },
     {
-      "id": "rss-ben-gurion-airport-says-parking-lots-capacity-travelers-should-arrive",
+      "id": "rss-la-posada-hotel-catholic-charities-launch-christmas-toy-drive",
       "origin": "live",
       "articleType": "Live News",
       "category": "Travel",
-      "source": "The Times of Israel",
-      "sourceUrl": "https://www.timesofisrael.com",
-      "title": "Ben Gurion Airport says parking lots at capacity, travelers should arrive by public transport only",
-      "url": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxOMzhGSlBUUjhLaTAxMTI2aDdIcVZJZFNKUjk0VDhlZmlXQ1MzVVRmUVk3YV8zMDJKYVRRTnNYQ1lVOHB4Wk5lSDlDTU9mZ25pVmZXMXkxQlR3alpSRGtkU0xMdXZ2b3l1UWltSDNtZFBTcmJjbjVrZEtmN0JNSG85WFNTWnVheEFsS3ZCNXpBZ2RQbkVIdFBtUjZwcTFaemhKWWRvdDZTR2xsUmlMN3lFZ3dLVnAwUGpsaEhXWVRFWHI5bHZwTEZzX0JqQ1RzQ3laNldiTkFJR2Q1V1E?oc=5",
-      "publishedAt": "2026-09-27T13:05:51+00:00",
-      "summary": "Ben Gurion Airport says parking lots at capacity, travelers should arrive by public transport only The Times of Israel",
+      "source": "Laredo Morning Times",
+      "sourceUrl": "https://www.lmtonline.com",
+      "title": "La Posada Hotel, Catholic Charities launch Christmas Toy Drive",
+      "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxNdmwzR2tYVkZNNVZ4bHF6S2JkUHdBNHJVMjcyX1UyUzczRHV2NVJ4eXczRzZ0ZXhqS0dMcEx4Vmh3M1JBUUhpTTB3eVNzUVBpckNfMEItajFQTmFrcVBKUGN2YnVHOE5KQ0VEODFDdHFPVXY0amRzSGtzOWZDUmJ4U0VVYlZnajFXR1pxR2JMYkZTMEE0SkNqdFlrWDJBdDU1T2xJ?oc=5",
+      "publishedAt": "2026-09-27T16:03:18+00:00",
+      "summary": "La Posada Hotel, Catholic Charities launch Christmas Toy Drive Laredo Morning Times",
       "toeicScore": 63
     },
     {
-      "id": "rss-hundreds-flights-canceled-boston-logan-airport-as-nor-easter-disrupts",
+      "id": "rss-wyoming-county-chamber-tourism-announces-new-director-business-visitor-engagement",
       "origin": "live",
       "articleType": "Live News",
       "category": "Travel",
-      "source": "Boston 25 News",
-      "sourceUrl": "https://www.boston25news.com",
-      "title": "Hundreds of flights canceled at Boston Logan Airport as nor’easter disrupts travel",
-      "url": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxNcmFHdlg3QmozZ3lPbm5IQmh2T254bkR3ZnYwbDkyb1cxZnhtbWczWWc1NDFZV3k2RTl0eHFNX0k4OFRpRHVibVZXcG5BbG8xWmgzbDZVa25DaXFCTXlpNGduSXRSYWJWVm5td3ZpNTJ4bmtiNk1OZGVVWmx1eWNVcjVkT19xVWxHcWg3SnZEQW9sWUVtekZIaGlWQ0pDbFdUYmp4S0F1b1F3NHBzc3dLb1FHM1NIN0NjNVlQdm5nQ1V3NnpnUm1sTnJqTUxYMVlXOUduY3ZHTdIB6wFBVV95cUxPVTBEQmh5YTNlMTg5RTAyNDhmcXQzYmRSb2NUbkVNVndkYml6TFg5Z3F1VGlJRGh4ZWQ4OEI5UUhDdWh1MW16blV0M25EandEZENGVHZwTG5TV2ZoZmNkY3hxRWVka3RMY3RseUVEaWN3UHFBM0lodlJ1SjVqX0dJZ1hGOFFoQ0xqeThTYzdRWXpJU01OMmcyb0lReHh3eWpiNnZEc2xLbmZOSTBmMXBQR0VuZ3BCTUFSUlpwb241Nm10dU5SaUNyc1d2ei1za0dVUjZSdDlwM3lJSWF1NnFFMWhQcm5ZdlZnOWxR?oc=5",
-      "publishedAt": "2026-09-26T15:33:51+00:00",
-      "summary": "Hundreds of flights canceled at Boston Logan Airport as nor’easter disrupts travel Boston 25 News",
+      "source": "Video News Service",
+      "sourceUrl": "https://videonewsservice.net",
+      "title": "WYOMING COUNTY/Chamber & tourism announces new director of business and visitor engagement",
+      "url": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxOSlUtdFF3d2lSWkxYRVhxZlhDRkJIQkxsTDF6NHhzVXZ4VFY2VDhiR0tnWm1taVZqYlFoSHh4Q2xlWjVPY3Q3VVNZSUVrMjFDQmVScGVwYUFOWFhrNVNHbm81Vzd6VFNKcEhNSWZGU29jYm9CZURNXzg3aEdBOGlsZW03bE9RaGQwMkV0Y0J5b21sbUo4S3NseUZCWVNUekk3MVBNTHNJTlFqNlVkTUg4SXNpQXYwMEZBYktUV284RF9RazNVRWxWZlJKT0lZYW5KTzFPVzZ3?oc=5",
+      "publishedAt": "2026-09-27T18:03:08+00:00",
+      "summary": "WYOMING COUNTY/Chamber & tourism announces new director of business and visitor engagement Video News Service",
+      "toeicScore": 63
+    },
+    {
+      "id": "rss-getting-tickets-passenger-train-ride",
+      "origin": "live",
+      "articleType": "Live News",
+      "category": "Travel",
+      "source": "Raccoon Valley Radio",
+      "sourceUrl": "https://www.raccoonvalleyradio.com",
+      "title": "Getting Tickets for Passenger Train Ride",
+      "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxQMlFPYzBxbEprWk9NbjlDU1c4bml3dTVqa2VxTkNOQ0oyejlDTmZIT01KZGdjQTRvaUxIVzJsOVd3dEcybmk3Y1RIcEMwUjhKbWxVRmF3aUhDRWRrZzRIWk51SVBqVnpVelV4WGZBM0R4MzcyQ1Z1b2ltQmpXcTRXblJjbVlRS1RqanN0dlhjSGsyS3c?oc=5",
+      "publishedAt": "2026-09-27T13:35:15+00:00",
+      "summary": "Getting Tickets for Passenger Train Ride Raccoon Valley Radio",
+      "toeicScore": 63
+    },
+    {
+      "id": "rss-china-southern-airlines-marks-70th-anniversary-mid-autumn-festival-times",
+      "origin": "live",
+      "articleType": "Live News",
+      "category": "Travel",
+      "source": "Metropolitan Airport News",
+      "sourceUrl": "https://metroairportnews.com",
+      "title": "China Southern Airlines Marks 70th Anniversary and Mid-Autumn Festival in Times Square",
+      "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxPbnhjd3N6cUxtY0tvOV9fQm9mcUtDalVQVDVPSXRJU2JOLWRTWXQwUmZSOUVhSHpidEFpbUtBYVBFZmNJTTY1QUZ2aWlDMHk3MVc4X1gyeXh6bFNLMHJnZ0YyZTdvRl9MR1BUbjNQSUNnR05GYUl1YnhsTENGeTdhNVA4VjJaRElhZ2RLUlZlVVdOOFB5c3lrNER2bzNZSDZwc09JNExiSkRsMEdXd0UzLVprRklfVlE?oc=5",
+      "publishedAt": "2026-09-27T18:17:13+00:00",
+      "summary": "China Southern Airlines Marks 70th Anniversary and Mid-Autumn Festival in Times Square Metropolitan Airport News",
+      "toeicScore": 63
+    },
+    {
+      "id": "rss-fire-contained-ground-floor-business-historic-wineman-hotel-building",
+      "origin": "live",
+      "articleType": "Live News",
+      "category": "Travel",
+      "source": "edhat",
+      "sourceUrl": "https://www.edhat.com",
+      "title": "Fire Contained to Ground-Floor Business in Historic Wineman Hotel Building",
+      "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxORUpsbWlyZVBhQnJVSlNEcnZrQjRLU1RFMHpfVjdlN3J1cmY5MUxQUDhzYklxem41NXlvWFEtUUpPRzhaZXVMY2NoMEMzRlZOZm5vWkNBRGVFdkhjM1MwdkVnV21QSk1paV9kMlViN3NVTE51ejRRU0FzWTdmNEs4WDlqeU1hM0dpVnZ5SklsMnRIVDVEUkZDU19JMUI4ZUY5cEtZS1lhcnFVUQ?oc=5",
+      "publishedAt": "2026-09-27T15:49:10+00:00",
+      "summary": "Fire Contained to Ground-Floor Business in Historic Wineman Hotel Building edhat",
+      "toeicScore": 63
+    },
+    {
+      "id": "rss-frontier-airlines-jet-strikes-person-runway-denver-international-airport-officials",
+      "origin": "live",
+      "articleType": "Live News",
+      "category": "Travel",
+      "source": "ABC News - Breaking News, Latest News and Videos",
+      "sourceUrl": "https://abcnews.com",
+      "title": "Frontier Airlines jet strikes person on runway at Denver International Airport: Officials",
+      "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxOdVRrclhhcGFxcnpTdkZuWHhIaHpNRnBkakNvT2NuUEhwMW9FdWZDVDB4SlBTUjVCOGk3NGo1WUFWYV9GQVZOX1FfbjgxRlFJNTV0S1ZacU1xWnNEX3JkNzdjeC0wWUxvb2JxVzhWZWNibWN5YzdSOXRXNnBNUzlNN016WGI4bnNwN08wR05Zc1Joc1AxR3NsdzJqXzRRMDNGT2tzS0lWVjMxQdIBrwFBVV95cUxNdUNOTUZsblVDM2F1SHViVnE4aDNsMEZNSDVseF84ZlRQclE2RlZoc3l3Z0N5Zkh0TTJIR0thUGEtM25BMlRvUU5Ia3RoN2JEcEdRUWpLUnFHSzZaTTRucTQ2aS01WGM2RFQ1N3ExRGFCaVRzUDJiQWFjVmtfdU81b2ROYW94anNQaklUSHNfWGp0ZUMyeDVyQ1g0eWlaOHA2cUk5dEUyQ0FZekxYY0xj?oc=5",
+      "publishedAt": "2026-09-26T19:49:52+00:00",
+      "summary": "Frontier Airlines jet strikes person on runway at Denver International Airport: Officials ABC News - Breaking News, Latest News and Videos",
       "toeicScore": 63
     },
     {
@@ -379,58 +431,6 @@
       "toeicScore": 63
     },
     {
-      "id": "rss-air-france-has-expanded-its-train-air-service",
-      "origin": "live",
-      "articleType": "Live News",
-      "category": "Travel",
-      "source": "Visit Ukraine Today",
-      "sourceUrl": "https://visitukraine.today",
-      "title": "Air France has expanded its Train + Air service",
-      "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxNUWNRVWFjTVJUV0FKanMyZzFCX2dBOGVabDV6YTE2QnNoOTJPVFdWaFZKUng4QTlOemlLRllVcWE0YVp2QmhQWEFlNWRGU3ZyYjQ0UE5nWDNzdVZFU3NQOUxDNGhZM0JRd3RDQVRjZVUxVGR0bVVBN25ZQWxUdFdqaHZDbnhvcGU5Y1E?oc=5",
-      "publishedAt": "2026-09-27T09:33:55+00:00",
-      "summary": "Air France has expanded its Train + Air service Visit Ukraine Today",
-      "toeicScore": 63
-    },
-    {
-      "id": "rss-naked-truth-about-hotel-bathrooms",
-      "origin": "live",
-      "articleType": "Live News",
-      "category": "Travel",
-      "source": "cntraveller.in",
-      "sourceUrl": "https://www.cntraveller.in",
-      "title": "The naked truth about hotel bathrooms",
-      "url": "https://news.google.com/rss/articles/CBMie0FVX3lxTE5GVWJFSkw1N3lycVpZSlZtZ0p3NEYtXzY2aDBJUE1vaXZwSHZrMjBZcWJlNFRHc0gyQ19SQlVSWW1ncU50cHBSaWVjZ2JCTFM0azdOVlBGUHRlOFBWRXRRMXBYcXBOTG9qUUJ4cHJGNkZjOEJJdVNaSmJjOA?oc=5",
-      "publishedAt": "2026-09-27T08:30:00+00:00",
-      "summary": "The naked truth about hotel bathrooms cntraveller.in",
-      "toeicScore": 63
-    },
-    {
-      "id": "rss-kansai-airport-eyes-more-int-l-flights-resume-india-indonesia",
-      "origin": "live",
-      "articleType": "Live News",
-      "category": "Travel",
-      "source": "Japan Wire by Kyodo News",
-      "sourceUrl": "https://english.kyodonews.net",
-      "title": "Kansai airport eyes more int'l flights, resume India, Indonesia routes",
-      "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE14N20xOVp3X210THdwZ29OVjNzTTFvM3h2NzBXYnFvcFZxZWw1RF9rZ0ppemtWYTlSQlltSFhWcmpscWl5bUdNNFZHT1ZtUTBLdm02aEt6aU85QQ?oc=5",
-      "publishedAt": "2026-09-27T03:20:00+00:00",
-      "summary": "Kansai airport eyes more int'l flights, resume India, Indonesia routes Japan Wire by Kyodo News",
-      "toeicScore": 63
-    },
-    {
-      "id": "rss-employees-injured-after-lufthansa-boeing-787-nose-gear-collapses-frankfurt",
-      "origin": "live",
-      "articleType": "Live News",
-      "category": "Travel",
-      "source": "ABC News - Breaking News, Latest News and Videos",
-      "sourceUrl": "https://abcnews.com",
-      "title": "Employees injured after Lufthansa Boeing 787 nose gear collapses at Frankfurt Airport",
-      "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxOQWJ5SUQtY29BZ09jZnYyeFFLRk04ZTBqWTlqZnBxR1ludGl1cFpoeUFlR3A5b2sxdEVNZEU3b0NvRGJ5NHpyVkRZZFltVGZXcHF5d0RGOTZWU19KNnp6YmRERnJzY2dVSjZmRU85VEpwOWxWeERkVHNDX2xCcm5tVFNxeW1XOVFYOE9UUnIta0lpdzRqeHJ5WTVTakRRZm9xZ2V6TDcxVWQtLTDSAbABQVVfeXFMTTcwY2lWVVJUbVdvQUZLNkhhaHdLN3VEYWx1SGVUYkNnN2ZYYWxERkpFSXM3SkJuV0VPT3NNOWdRQTY2T2FPSzEzV2ZIaUwzTGQ0b3VIR1Y4TVZiU05OOW5Jc2FabGJSY284cnJMRHl3UXhqako5N3VPaWJsX203ZUhSekU3alJ3U251RTNrdXRxMGJiTDVQMTBLS3NCM09pZHU1a2xEd2NySUcxVEZhaEQ?oc=5",
-      "publishedAt": "2026-09-26T20:37:53+00:00",
-      "summary": "Employees injured after Lufthansa Boeing 787 nose gear collapses at Frankfurt Airport ABC News - Breaking News, Latest News and Videos",
-      "toeicScore": 63
-    },
-    {
       "id": "rss-tech-giant-tencent-launches-payment-app-inbound-visitors-as-china",
       "origin": "live",
       "articleType": "Live News",
@@ -442,6 +442,19 @@
       "publishedAt": "2026-09-25T05:34:21+00:00",
       "summary": "Tech giant Tencent launches payment app for inbound visitors as \"China Travel\" surges Macau Business",
       "toeicScore": 70
+    },
+    {
+      "id": "rss-online-ride-hailing-service-indriver-is-set-launch-harare",
+      "origin": "live",
+      "articleType": "Live News",
+      "category": "Technology",
+      "source": "itnewsafrica.com",
+      "sourceUrl": "https://www.itnewsafrica.com",
+      "title": "Online ride-hailing service, inDriver, is set to launch in Harare",
+      "url": "https://news.google.com/rss/articles/CBMi4wFBVV95cUxQOUNSQ2hpSzBJM2FHcS10LVlDSDVpLWlqVTk0UWU3Z0t6TUNUcU5xTkZkdG5tdkNZZWU2M2FlU0tkLXVkQ1pWZ1dFYWx1LUhFU2Z2OEgyS3R1bzctaXhESWtTYkViOHpXSHVVdWpGTHFkTGlxb2psakZIdVBpS1lRMXhiU1JlWjFRQ0hwcDNBbDl6a2NDbGpfLVZCd0ZxTDhBcnNSRmJ4RjktanR1QXJkWExRWVN6RUVBVTNCaGl4YlZXVVRlV3FNQzhWellLOWNwdmV1TENqeDZGRW00dVltb3FxYw?oc=5",
+      "publishedAt": "2026-09-26T17:20:14+00:00",
+      "summary": "Online ride-hailing service, inDriver, is set to launch in Harare itnewsafrica.com",
+      "toeicScore": 66
     },
     {
       "id": "rss-mandatory-travel-insurance-georgia-2026-polis-ge-online-service-partners",
@@ -457,29 +470,42 @@
       "toeicScore": 66
     },
     {
-      "id": "rss-uklon-has-launched-its-store-service-dnipro-odesa",
+      "id": "rss-detroit-s-leading-it-company-shares-insights-developing-it-strategy",
       "origin": "live",
       "articleType": "Live News",
       "category": "Technology",
-      "source": "UA.NEWS",
-      "sourceUrl": "https://ua.news",
-      "title": "Uklon has launched its Store service in Dnipro and Odesa",
-      "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTE1vS3ZSdm1hUmxvM0JYT0NuTHloeVBRTTRlN0NkOGktUWdxYWs1aXdpU1BCeEpqMXBydS05UjBwMzAwVHhTOFB6TG1JSVdVVnB6dklrWmFKYVUtaU1BbncxenlSQVExQ1VsT1NRTDBmX0NURXF6R254SHpR?oc=5",
-      "publishedAt": "2026-09-24T16:20:10+00:00",
-      "summary": "Uklon has launched its Store service in Dnipro and Odesa UA.NEWS",
-      "toeicScore": 66
+      "source": "Chinook Observer",
+      "sourceUrl": "https://pr.chinookobserver.com",
+      "title": "Detroit's Leading IT Company Shares Insights on Developing an IT Strategy Press Services",
+      "url": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxPcXExZl9fcGVBMVBLLXVFc2pranliRjJhXzlBd1NvRy02SXdJLUVsdkt5ZHAzSXlUcnlsRzM0dThWRXRFSDZhQmswQUdlMmlRc0tYZzZrOFAwbDJ1ejN6UFMwSVVtaUw5bGJxeDgwYXhPdkJOOXp3cEtBeXdncDdQeFdHT0hyYU5XU1NGZGRyb0N3NTFUUVQ3bXJrYU91eEF5eEM1NzRfNHRXWW5JLWR4LW5jSlJlVHNCdWo4TnV5cHNYbWE3Yy1GZkxnVU10bGxtY1E?oc=5",
+      "publishedAt": "2026-09-26T07:27:29+00:00",
+      "summary": "Detroit's Leading IT Company Shares Insights on Developing an IT Strategy Press Services Chinook Observer",
+      "toeicScore": 63
     },
     {
-      "id": "rss-amazon-prime-air-drone-delivery-launches-cleveland-area",
+      "id": "rss-delivery-versus-payment-dvp-what-it-is-how-it-works",
       "origin": "live",
       "articleType": "Live News",
       "category": "Technology",
-      "source": "Cleveland.com",
-      "sourceUrl": "https://www.cleveland.com",
-      "title": "Amazon Prime Air drone delivery launches in Cleveland area",
-      "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxQNnV4cnlTOGdnQ3NHS3EyYzhIa3BxYUNpWURzeHhlLTJDRm5EbXZaUDZWNHFJcnkyLXJLcEdCMHhRZFM2TFpCU0J5NFQwWlJPQlF3VXdJX1BVNXZhcnE1cmk3WlIwd2Y1Q0V1QTFDRjZ6VjdSRXFSYjlReDgzamZHZDNiRnZiWkkxYnY0THhENGFyV2RxY0Z4b0NsbzhKUW1vXzdvRdIBuAFBVV95cUxOOXZ3VVF2YkpLMU9qbUpncExFeDBaNk5VLTVlM01OTjljbWdXbnBrZWEyYkxIa0toZm4yTUtwbVVSLUJkQ0VNTzZDTmdaRmkyUHdhNEpxTWtvVVFUM295aS00emNoR0ZZdUJfTUs2eElsYkh3ZjFILVEyUXlQdFl1ZThXNjVCUDhUOHlwX2YyTENfWjl3N055QVkyMVNkZFJTVm9BcnBLRVZqdm5zOGRvVXo5S2kxSGpi?oc=5",
-      "publishedAt": "2026-09-24T18:01:00+00:00",
-      "summary": "Amazon Prime Air drone delivery launches in Cleveland area Cleveland.com",
+      "source": "Investopedia",
+      "sourceUrl": "https://www.investopedia.com",
+      "title": "Delivery Versus Payment (DVP): What It Is and How It Works",
+      "url": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE50OUw2TmZtQnhsOWQ1U20xSkJjSjZORWFRS1lKcGJmbnplUWdURlZFT0VxclBxRHRINEtRSjU4YlFEZ3g4SkV4VThyVUVwNXgxWHZRcnVIUQ?oc=5",
+      "publishedAt": "2026-09-25T07:00:00+00:00",
+      "summary": "Delivery Versus Payment (DVP): What It Is and How It Works Investopedia",
+      "toeicScore": 63
+    },
+    {
+      "id": "rss-online-retailer-shut-down-had-6-3-million-unexplained-transactions",
+      "origin": "live",
+      "articleType": "Live News",
+      "category": "Technology",
+      "source": "gov.uk",
+      "sourceUrl": "https://www.gov.uk",
+      "title": "Online retailer shut down had £6.3 million unexplained transactions",
+      "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxQVjRRLUs5OElRd2s0MWtoOHp2V1p3TVZNNkFuQ0Q0SktNUC10SndEb2J4QWFEU05nTXVtMElZa0V3cW9ZRUJBdWJ5WUIyR1pLN0tiYTdmMEY3RmVuU2JvdXhBQS1ib3Zqai1NTXJ0Qi1PRG12QkJDUzN3Z3pQMzdpY3FoUGdLS3BEc0YxVW9IU2xnZnYwb1FnRlFvUkFvR2lZcWc?oc=5",
+      "publishedAt": "2026-09-25T13:05:48+00:00",
+      "summary": "Online retailer shut down had £6.3 million unexplained transactions gov.uk",
       "toeicScore": 63
     },
     {
@@ -496,19 +522,6 @@
       "toeicScore": 63
     },
     {
-      "id": "rss-online-retailer-shut-down-had-6-3-million-unexplained-transactions",
-      "origin": "live",
-      "articleType": "Live News",
-      "category": "Technology",
-      "source": "GOV.UK",
-      "sourceUrl": "https://www.gov.uk",
-      "title": "Online retailer shut down had £6.3 million unexplained transactions",
-      "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxQVjRRLUs5OElRd2s0MWtoOHp2V1p3TVZNNkFuQ0Q0SktNUC10SndEb2J4QWFEU05nTXVtMElZa0V3cW9ZRUJBdWJ5WUIyR1pLN0tiYTdmMEY3RmVuU2JvdXhBQS1ib3Zqai1NTXJ0Qi1PRG12QkJDUzN3Z3pQMzdpY3FoUGdLS3BEc0YxVW9IU2xnZnYwb1FnRlFvUkFvR2lZcWc?oc=5",
-      "publishedAt": "2026-09-25T13:05:48+00:00",
-      "summary": "Online retailer shut down had £6.3 million unexplained transactions GOV.UK",
-      "toeicScore": 63
-    },
-    {
       "id": "rss-wechat-launches-new-payment-app-tourists-china-gsmarena-com-news",
       "origin": "live",
       "articleType": "Live News",
@@ -522,6 +535,19 @@
       "toeicScore": 63
     },
     {
+      "id": "rss-vip2cuci-online-casino-9-payment-methods-that-make-deposits-withdrawals",
+      "origin": "live",
+      "articleType": "Live News",
+      "category": "Technology",
+      "source": "nerdbot",
+      "sourceUrl": "https://nerdbot.com",
+      "title": "Vip2cuci Online Casino: 9 Payment Methods That Make Deposits and Withdrawals Faster for Malaysian Players",
+      "url": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxNN2JKV2hCdW9VRDlxSlowSXBKaVVsVDlzZlUyeDNETWRmbkJzdzRjN2pteHZrNHFxb2JGbFJkRXozS2lrb1J3UWF0aHFZNV96SkQ1Y3RFNWUwVUxGbXV6cldhSi1LTVFuX1N5NlotbmMtQzhpaEdpODI3MURjWk56ZEdjRm1OV1hKcTMxSHhMZHFNNVV0NUgyQklPWGtXS1J5WnkyWTBMWVBiS3Rha2tONUZPTFZkMmN6Zi1ZeEg3SUdRT3lJdHM1N0Z4NzI5UTk0a1E?oc=5",
+      "publishedAt": "2026-09-25T11:36:36+00:00",
+      "summary": "Vip2cuci Online Casino: 9 Payment Methods That Make Deposits and Withdrawals Faster for Malaysian Players nerdbot",
+      "toeicScore": 63
+    },
+    {
       "id": "rss-china-has-launched-new-payment-app-foreign-tourists",
       "origin": "live",
       "articleType": "Live News",
@@ -532,19 +558,6 @@
       "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxOQkJqRHZvRkl4anRPMi1BV3BGMGNEaGFfNHlFcm1mdmlxenNCRWwybkh5Rk9rTndXbEtZcW5LQ0lYWDI4MkRPRU9TeVVQc0ZMbWl5N010dm14V3p2UWFnejljbHI1NWV2eDA5UW9sdlV0NXZUUHRzc0Z0dFktRWNlN0tReTg2ZDZvYXd5XzR1WXd0S0RrRS00aEM0dXdRWjVwdWRZ0gGoAUFVX3lxTE5ldVNkakhEaXdJdGZEdndvWHN3T3g0WXA2azhteE9odG1vMXhXcVg0TkRRMXR5dGQ4SGRXVmNKNkN6QW5GMWloNDRvbzdsSElNcEVwZ21rdnN2UEdRLUdUOVRQNjJObF9DdTBDZ2FaWXhQbUdkc2pwWE9tdTN0a1BjbHVXa3pKbEdXQzZOaDV6UmhPNFVvMHRRR0xzTVdDMnlzZzBQRFMxSw?oc=5",
       "publishedAt": "2026-09-25T08:59:10+00:00",
       "summary": "China has launched a new payment app for foreign tourists LIGA.net",
-      "toeicScore": 63
-    },
-    {
-      "id": "rss-vip2cuci-online-casino-9-payment-methods-that-make-deposits-withdrawals",
-      "origin": "live",
-      "articleType": "Live News",
-      "category": "Technology",
-      "source": "nerdbot.com",
-      "sourceUrl": "https://nerdbot.com",
-      "title": "Vip2cuci Online Casino: 9 Payment Methods That Make Deposits and Withdrawals Faster for Malaysian Players",
-      "url": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxNN2JKV2hCdW9VRDlxSlowSXBKaVVsVDlzZlUyeDNETWRmbkJzdzRjN2pteHZrNHFxb2JGbFJkRXozS2lrb1J3UWF0aHFZNV96SkQ1Y3RFNWUwVUxGbXV6cldhSi1LTVFuX1N5NlotbmMtQzhpaEdpODI3MURjWk56ZEdjRm1OV1hKcTMxSHhMZHFNNVV0NUgyQklPWGtXS1J5WnkyWTBMWVBiS3Rha2tONUZPTFZkMmN6Zi1ZeEg3SUdRT3lJdHM1N0Z4NzI5UTk0a1E?oc=5",
-      "publishedAt": "2026-09-25T11:36:36+00:00",
-      "summary": "Vip2cuci Online Casino: 9 Payment Methods That Make Deposits and Withdrawals Faster for Malaysian Players nerdbot.com",
       "toeicScore": 63
     },
     {
@@ -571,19 +584,6 @@
       "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxPRlNoeXVmVV8tNFJfNWg0cmdQdzA1QWF3Y1RWX0ZwRlV3UkJ1VllLdGo5UXc4a3l0WU1KWGp3eXJwVU5DSmRWM2dCNEdzbEJ0RFNCb3J6dlc4Qk9HSm4wRUZ1c2FGUmZ6SlJkamdJSFZiQ2pZV2tkcWtzZ21vS3VYWTNzWE8weDFPOFE?oc=5",
       "publishedAt": "2026-09-26T01:50:17+00:00",
       "summary": "Uber Launches Robotaxi Service In London After Nigeria Exit LEADERSHIP Newspapers",
-      "toeicScore": 63
-    },
-    {
-      "id": "rss-streaming-price-hike-tracker-how-much-every-major-service-will",
-      "origin": "live",
-      "articleType": "Live News",
-      "category": "Technology",
-      "source": "PCMag",
-      "sourceUrl": "https://www.pcmag.com",
-      "title": "Streaming Price Hike Tracker: How Much Every Major Service Will Cost You",
-      "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxON3pYcFUtT28ta2k1RHNrYWJZNk5SeGd1ZlNnM0stSDNJRFMtMXNXSDJPS083aWdtV3dBVXRudU9PYUtJN0NnVGpmNHMtR1RMWG16bWpTUUpqVmhSVEphSDJCWTFlRFp5ODVMRUdpR2JDQnpBMWVxQXB1blZ5enZuQThQTXZCTlgwXzVCV2x0WVBkS3BhZDlyYjhiUjdrMW5DSnpR?oc=5",
-      "publishedAt": "2026-09-24T15:58:24+00:00",
-      "summary": "Streaming Price Hike Tracker: How Much Every Major Service Will Cost You PCMag",
       "toeicScore": 63
     },
     {
@@ -617,12 +617,12 @@
       "origin": "live",
       "articleType": "Live News",
       "category": "Daily Life",
-      "source": "wthitv.com",
+      "source": "WTHI-TV",
       "sourceUrl": "https://www.wthitv.com",
       "title": "Sullivan County offers free transportation service for local veterans traveling to medical care",
       "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxPZ0NGS3EwSDY0VUt0blJfQmhqbjJwRXdISkpjenNyT3BhX2tNOG1MOE5YTDl2UHU4ZjdKX2lyOHdjX01lMDhmaTlnbm5kcDkxVkZxX1FmbUtkUk9JbDZQYmtnX3lNdEFNZGl6Q2xrZGxwQmRiRHRNdWExRG5CV25JcXVaMXdDd3g3SUE5REdxUDU4eFJPYktmUVBDY0g0QU51ckpfRUJMUXR5VWtEQ0llSURJQ2FnS2FuUC1OTXVTZUPSAdQBQVVfeXFMTnJocEotU3J2TDA3aGw3djBPcVY4OGU4MnZMM3NtUTQ1azUtR1VkdzhqSC1vd0hfNF9kaTF0eG9qbVRwdUFIcG50MXQ2U1N5NlNLYmtONlFYcHNmeFdVRTUwQlVJY0w2b0trQzMtRXVFQjQtVlk4emJrV3RZQlA1WC05T28wNi1GQTJXbGhTRTRoRGw2TVZOSUJmbjZfVUU3bGFwWk1WUjNaaS1iOEx1TkFLd2FIc2J5UEc4dTdaeWdUcjRKczZNOHg4X1FIWUFCQlFJcVQ?oc=5",
       "publishedAt": "2026-09-25T21:43:00+00:00",
-      "summary": "Sullivan County offers free transportation service for local veterans traveling to medical care wthitv.com",
+      "summary": "Sullivan County offers free transportation service for local veterans traveling to medical care WTHI-TV",
       "toeicScore": 66
     },
     {
@@ -637,6 +637,19 @@
       "publishedAt": "2026-09-25T22:00:00+00:00",
       "summary": "GIFT on-demand transportation service expanding to Ammon East Idaho News",
       "toeicScore": 66
+    },
+    {
+      "id": "rss-mcdonald-s-stock-slide-puts-quick-service-restaurant-shares-focus",
+      "origin": "live",
+      "articleType": "Live News",
+      "category": "Daily Life",
+      "source": "simplywall.st",
+      "sourceUrl": "https://simplywall.st",
+      "title": "McDonald’s Stock Slide Puts Quick Service Restaurant Shares In Focus",
+      "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxOWW9zS2pRaHlWdE1CaEwzRTdTU09CRGdobE56YzNwV3l1SFNGWGdwNnVCdk5tTmdzUVlFMURBWjZkRVp4QVJjNkhxN0NqMHlyT0p4SV9YNnlGVXdyN1R3elc4b3RiZmxpWGo3VEp0Q1BMSjB1MGEzY3h6Q2g2VlVRNmY0X0FKS0MyWExUZXZnSXZBNzNaZmcxbVNYN3hvenIwWVhFWGdmc01ucjVGRmZTOVNoZjVSTXFXRTRxQU9INUIyY0hMYndTMVJOSkJQQmPSAdQBQVVfeXFMTkxqOGx2S3ViWnJyVXJNVWZQM2YwWXdMajNiQ2hXMWdhcUtmQ2MwMlpXYUQ3N1VtWklvTVF3aGg4Vjcxcm1vRFJqSlQwbnFXbTFLSzB5UXFVblM2ZTlzX1RKN1VILWo2Mm15NnBwYTZwUWo0djA2U0ZNSmlLLUp5OVl4ZzgtbG12LU0weXlJUFcwSWxiR3N2Y1FrTk9OME5CeXJjdjFBT1ZaNDctLU9PWDhUNVExY3gxSldtdndDZDFnY3JEMHVCckZnaENUbF9QWHpJQWo?oc=5",
+      "publishedAt": "2026-09-27T18:32:31+00:00",
+      "summary": "McDonald’s Stock Slide Puts Quick Service Restaurant Shares In Focus simplywall.st",
+      "toeicScore": 63
     },
     {
       "id": "rss-ncdot-ferry-division-begin-emergency-stumpy-point-rodanthe-service",
@@ -662,19 +675,6 @@
       "url": "https://news.google.com/rss/articles/CBMi4gFBVV95cUxPdVRRcnhmbTlrZU83Vm16cHk5V1AxLWFxdDlqUUFTN0w4a09PVlg3WGdhX01fR0lodmNXelh0S01tVnhhN2hoR2E5b0ZWV0VfTjZMMnh4VlBLUjVfVDU4U1dpNWlYdXN1NS1pQ0o3Mk9jMDVHZmVSdjNFVGgxWjFxVWx0MDFxUkJNUW8yTjhzSmV3RnRzQnlFT2EtekNqdmx3NUtKMHRpT3NGSnNzRHlrZnJBYnNTMEhhSEw0dTBMcmlVbkhVd1p3TUk4S2hQOHZhOEtmZVRjRFpRTU94bVN0aTNB?oc=5",
       "publishedAt": "2026-09-26T17:28:41+00:00",
       "summary": "Ulster medical transportation service owner gets up to 9 years in prison in $1.1 million Medicaid fraud case Daily Freeman",
-      "toeicScore": 63
-    },
-    {
-      "id": "rss-beyond-ride-announces-medical-transportation-service-vashon-island",
-      "origin": "live",
-      "articleType": "Live News",
-      "category": "Daily Life",
-      "source": "einpresswire.com",
-      "sourceUrl": "https://www.einpresswire.com",
-      "title": "Beyond Ride Announces Medical Transportation Service for Vashon Island",
-      "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxQNmxkMkZRbmx2cUl4dEVBME5MSkZhSW5lRVd0X2wyY3dEd21CVjdUM29CbG5Odjh3UW1ubm1yeXgtWTFKM0I2Z0ttVGhLbjJobmN0RUctekphbTZCc0xKVktsOVJDeEZhVmNtTGdvQ0NZclNqR0VOYXl5TG9CRzI1anJoUHFseUFqQUFwSXhlMlhzU1lQUm9aODVWN1FlMF9sSldDWGV0MVFvYVk5bUxMcTJnaVY2ZTMz?oc=5",
-      "publishedAt": "2026-09-26T18:58:00+00:00",
-      "summary": "Beyond Ride Announces Medical Transportation Service for Vashon Island einpresswire.com",
       "toeicScore": 63
     },
     {
@@ -717,6 +717,19 @@
       "toeicScore": 63
     },
     {
+      "id": "rss-beyond-ride-announces-medical-transportation-service-vashon-island",
+      "origin": "live",
+      "articleType": "Live News",
+      "category": "Daily Life",
+      "source": "EIN Presswire",
+      "sourceUrl": "https://www.einpresswire.com",
+      "title": "Beyond Ride Announces Medical Transportation Service for Vashon Island",
+      "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxQNmxkMkZRbmx2cUl4dEVBME5MSkZhSW5lRVd0X2wyY3dEd21CVjdUM29CbG5Odjh3UW1ubm1yeXgtWTFKM0I2Z0ttVGhLbjJobmN0RUctekphbTZCc0xKVktsOVJDeEZhVmNtTGdvQ0NZclNqR0VOYXl5TG9CRzI1anJoUHFseUFqQUFwSXhlMlhzU1lQUm9aODVWN1FlMF9sSldDWGV0MVFvYVk5bUxMcTJnaVY2ZTMz?oc=5",
+      "publishedAt": "2026-09-26T18:58:00+00:00",
+      "summary": "Beyond Ride Announces Medical Transportation Service for Vashon Island EIN Presswire",
+      "toeicScore": 63
+    },
+    {
       "id": "rss-fort-myers-city-manager-retiring-after-43-years-public-service",
       "origin": "live",
       "articleType": "Live News",
@@ -727,19 +740,6 @@
       "url": "https://news.google.com/rss/articles/CBMi4wFBVV95cUxNeFB0ZVRmYm1jNnhsMVppNFZvWDE3dS1BUXJYcmY5ZTFYdm5xTWpyb1h5UDBrSlY4ajVvdXNEb1JsYzF1MXYwT3pwazJJSEpNTXQya011ckEzNzVsV0NkMm1tT2lKZGJQX3lxWUVKQ1U3RGpCb25aMkg2NXBHdzg2c29tX0x6dG5Vcm1abkFYX3lobUZ4UlpyOW54eUFYSHl0SF9mRG83TnBPd1RZdVcwblZnSDM2bG9CWTVsZnlTX2hCXzJoSThNT2pMWi1jY3hxQ0RiRkN4QlhWRGFHM240VGZKNA?oc=5",
       "publishedAt": "2026-09-24T21:15:00+00:00",
       "summary": "Fort Myers city manager retiring after 43 years in public service WINK News",
-      "toeicScore": 63
-    },
-    {
-      "id": "rss-everything-store-world-market-brings-global-shopping-experience-south-florida",
-      "origin": "live",
-      "articleType": "Live News",
-      "category": "Daily Life",
-      "source": "WPTV",
-      "sourceUrl": "https://www.wptv.com",
-      "title": "'EVERYTHING STORE': World Market brings global shopping experience to South Florida",
-      "url": "https://news.google.com/rss/articles/CBMi5wFBVV95cUxQLVlSQUNsRmJTYl93NmE5cDY5NHpJMEs0SFpCWWJjMjdORFpONHR1NkNQQmZ3Z25JTlJTUjM1Vk1rLWhHd3E3ZVRfVVlPbE9haEtrYWExTktDVVJIVDBld0ZKNWNpaEYwTm9FQlZRU01oVVVldkNmbXlGd1pkZWZfUlY4bU14Tnp6a0FmZDd6cm1qcDNHaTdpV0U1NEJLcnZWZEI2cHJBRGh1UVJTSEhodUE1SHN6b0xpSFJSMWZNc2t1T0RZcVdTMU9ETW9oUnA2REVDeDlLalZvUTRuWUFUUGVRVWc5RWM?oc=5",
-      "publishedAt": "2026-09-25T14:40:10+00:00",
-      "summary": "'EVERYTHING STORE': World Market brings global shopping experience to South Florida WPTV",
       "toeicScore": 63
     },
     {
@@ -769,16 +769,16 @@
       "toeicScore": 63
     },
     {
-      "id": "rss-maryland-dot-defeats-customer-service-worker-s-retaliation-case",
+      "id": "rss-taking-mystery-out-customer-service",
       "origin": "live",
       "articleType": "Live News",
       "category": "Business",
-      "source": "Bloomberg Law News",
-      "sourceUrl": "https://news.bloomberglaw.com",
-      "title": "Maryland DOT Defeats Customer Service Worker’s Retaliation Case",
-      "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxOTG4wUXBxcFc1R0s4a0R6M3J3eklELU5wempYSGN0ZHZ0ekhiTjZ6THRGcXkwR3MxLU1hQUdBcWd3b1BXTGFkQk8zSzBvVXRhVzE4N0xsQzNrbnNNYXRLbVpUTGF6X0pmdm43OVV6U0p1VXhsVlVWVW1tSGtTNEJ1c01ITjJIczJkLTZUUFk3MU5mdnpuT0hkSTF6dmJERDZxOWVhWkFCWTh0UklFWEpVbg?oc=5",
-      "publishedAt": "2026-09-25T19:31:00+00:00",
-      "summary": "Maryland DOT Defeats Customer Service Worker’s Retaliation Case Bloomberg Law News",
+      "source": "saminfo.com",
+      "sourceUrl": "https://www.saminfo.com",
+      "title": "Taking the Mystery Out of Customer Service",
+      "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTE9nQVhwbkRVS2lITlhjLTFzTHZJRkpYT1c3dDZCejc1UF9wOTk2elYyNVNYYi16dHhTWEUxb2c3Rnp0UkZfUDh0Y2k1Z1pJYm5tXzRWLW93VjF0enRuOWFTNDJDbXF1a0VsUWo2TGNwajdLWHlFMGc?oc=5",
+      "publishedAt": "2026-09-25T16:42:09+00:00",
+      "summary": "Taking the Mystery Out of Customer Service saminfo.com",
       "toeicScore": 63
     }
   ]
