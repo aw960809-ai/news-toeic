@@ -126,3 +126,50 @@ body.toeic-v27{background:var(--v27-bg)!important;color:var(--v27-ink);-webkit-f
 .v28-feedback-meta{display:flex;gap:6px;flex-wrap:wrap;margin:8px 0}.v28-result-skills{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0}
 .v28-result-skills span{padding:5px 8px;border-radius:999px;background:#eef2f5;color:#64717c;font-size:.74rem}.v28-timer-note{font-size:.76rem!important}
 @media(max-width:380px){.v28-mode-grid{grid-template-columns:1fr}.v28-recall-rate{grid-template-columns:1fr}}
+
+/* ===== TOEIC 2.8.1 — vocabulary pause / restart / abandon ===== */
+.v281-session-card{
+  margin:10px 0 14px;
+  padding:14px!important;
+  display:grid;
+  gap:11px;
+  border-color:#dbe4ec!important;
+}
+.v281-session-title{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  flex-wrap:wrap;
+}
+.v281-session-copy p{
+  margin:6px 0 0!important;
+  font-size:.78rem!important;
+}
+.v281-session-actions{
+  display:grid;
+  grid-template-columns:1fr 1fr 1fr;
+  gap:7px;
+}
+.v281-session-actions button{
+  min-height:42px!important;
+  padding:7px 8px!important;
+  font-size:.8rem!important;
+}
+.v281-danger{
+  color:#8a3d3d!important;
+  background:#f8eeee!important;
+}
+.v281-dialog-controls{
+  display:grid;
+  grid-template-columns:1fr 1fr 1fr;
+  gap:6px;
+  margin:0 0 12px;
+}
+.v281-dialog-controls button{
+  min-height:38px!important;
+  padding:6px 7px!important;
+  font-size:.76rem!important;
+}
+@media(max-width:380px){
+  .v281-session-actions,.v281-dialog-controls{grid-template-columns:1fr}
+}

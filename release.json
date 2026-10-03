@@ -1,7 +1,7 @@
 {
-  "version": "2.8.0",
-  "bundleId": "toeic-vocab-multiskill-20261003-v280",
-  "sourceBaseline": "58c2b93525427d691c72ac9a401fe5ada7759652",
+  "version": "2.8.1",
+  "bundleId": "toeic-vocab-session-controls-20261003-v281",
+  "sourceBaseline": "fed39d250390dc49b943fd8283c5cecc194ab365",
   "scope": "News × TOEIC standalone",
   "modules": [
     "review",
@@ -34,11 +34,15 @@
     "vocabulary-spelling",
     "vocabulary-context",
     "vocabulary-collocation",
-    "vocabulary-skill-srs"
+    "vocabulary-skill-srs",
+    "vocabulary-pause",
+    "vocabulary-restart",
+    "vocabulary-abandon",
+    "legacy-vocab-round-recovery"
   ],
   "sourceDataPolicy": "Existing articles, vocabulary bank, legacy spelling progress, review history, writing, goals and periods remain unchanged. Five-skill progress is added lazily per word; legacy vocabulary stage is inherited as spelling progress.",
   "runtimeSha256": {
-    "app.js": "fe33a8eca35d6ea28d39cc2e9e1e4087a0f87c09397fd30c3a029f6df0323ea8",
+    "app.js": "163a605d0343ce1481f884ff0c376886069e2d68a6747b93aa1c714264726d3b",
     "toeic-random-engine.js": "ec59a0595b97275d783094c9cc085102a9d3f3377b73548dff4ea9f25298f820",
     "voice-image-upgrade.js": "d2f87d6be42ecd715430adab3e1adc6260d0c4fa5eed0cbbd9163aedf27916fe",
     "analysis-appdeploy-parity.js": "363dc25d5753e9f024dd35cf004b031818d42d53ab3e925dfcf5b7a16c41b4d6",
@@ -49,13 +53,14 @@
     "vocab-goal-sync.js": "2b3d01e41e14a73813e7324ee84eb8d656370fd0916c1ec358ee2bc45f973518",
     "study-workbench.js": "c033a642342f0eb773c569f55cc37a1beb02b23954cf413d1b65c14d30279c2d",
     "vocab-multiskill-v28.js": "46aca30c1c33618e89fa76ffb440e29120fc529af036dfe14abd635da42cc3b6",
+    "vocab-session-controls-v281.js": "9f72e3aac5d430aab7096d2eaaae4ec7e4b07258206edf9775566955c0d83377",
     "ui-feedback.js": "c99bc70a3e329c3e48a7b8cef0d00a10850f4a51fe4ea29a8af50b7714993968",
     "ui-v27.js": "7bfa94cc6d01eca7212dc5eac19b1cb825e7fc9abf5ec7688cd90003790ecebf",
     "pwa-runtime.js": "eff6f9372f077d015aa11e16f8a8f79c52c2236f9f68b29a918de7abf777715f",
-    "index.html": "5a42aa8bf795b61dc52fdc3aec58455d5c1caaae4261ecd7b169619556082c18",
+    "index.html": "b2ef03a1abd47e72e65ed202be95a7b613e73b5836a9182ef42f1bbbaea4ad95",
     "styles.css": "5b0b61ab706c1c489a2ef180dc2b1b20a6ff04e6f385133f2e094ba36acb1ad0",
-    "ui-v27.css": "f6ae27ec6fcfc24c2fe87516955de38a0a7f7fe20663abe8bd98b4c794de1c95",
-    "sw.js": "2e502d8399d0dd7686de12f4745e588346bef9d6ce687fb8e93c1b152e539135",
+    "ui-v27.css": "0f10a046d4ce966f84c02c995726025b8cf83994be0a1cbeed5d3940bb80fd74",
+    "sw.js": "fe96d311258b631bd41f9757195c10b0b61ba7a6f14c99fb3719265a8f19bd0e",
     "manifest-original.webmanifest": "432a293b504b78a70f36ae095d4cdd9a9b87ce21cfb7b7386ddd15307247cf09"
   },
   "readingQuestionBank": {
