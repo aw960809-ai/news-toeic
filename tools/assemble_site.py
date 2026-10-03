@@ -3,7 +3,7 @@ import re,shutil,json
 R=Path(__file__).resolve().parents[1];out=R/'_site'
 if out.exists():shutil.rmtree(out)
 out.mkdir()
-files=['index.html','styles.css','sw.js','manifest-original.webmanifest','manifest.webmanifest','icon-original-192.png','icon-original-512.png','apple-touch-original.png','release.json']
+files=['index.html','styles.css','ui-v27.css','sw.js','manifest-original.webmanifest','manifest.webmanifest','icon-original-192.png','icon-original-512.png','apple-touch-original.png','release.json']
 files += re.findall(r'<script[^>]+src="\./([^"]+)"',(R/'index.html').read_text())
 for name in files:
  src=R/name
