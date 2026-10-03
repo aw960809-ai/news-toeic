@@ -1,7 +1,7 @@
 (() => {
   'use strict';
 
-  document.body.classList.add('toeic-v27', 'toeic-v271');
+  document.body.classList.add('toeic-v27', 'toeic-v272');
 
   const baseBind = window.bind;
   let newsVisible = 6;
@@ -33,7 +33,7 @@
   }
 
   function chips(values){
-    return `<div class="v271-chips">${values.filter(Boolean).map(v => `<span>${esc(v)}</span>`).join('')}</div>`;
+    return `<div class="v272-chips">${values.filter(Boolean).map(v => `<span>${esc(v)}</span>`).join('')}</div>`;
   }
 
   window.todayPage = function(){
@@ -55,12 +55,12 @@
       <div class="progressbar"><i style="width:${pct}%"></i></div>
 
       <section class="v27-quick">
-        <div class="v271-quick-head">
+        <div class="v272-quick-head">
           <div>
             <p class="eyebrow">QUICK START</p>
             <h2>現在有多少時間？</h2>
           </div>
-          <span class="v271-mini-note">Reading</span>
+          <span class="v272-mini-note">Reading</span>
         </div>
         <div class="v27-time-grid">
           <button class="v27-time quick-time" data-min="1">1 分</button>
@@ -73,15 +73,15 @@
       <div class="section-head"><h3>今天讀一篇</h3><span class="badge">推薦</span></div>
       <section class="card v27-recommend">
         ${chips([lesson.category || 'Business', targetWords() + ' words', '約 5–8 分'])}
-        <h3 class="v271-title-2">${esc(lesson.title)}</h3>
-        <div class="v271-action-row">
+        <h3 class="v272-title-2">${esc(lesson.title)}</h3>
+        <div class="v272-action-row">
           <button class="primary v27-start-lesson" data-id="${esc(lesson.id)}">開始閱讀</button>
           <button class="secondary" id="chooseNewsV27">換一篇</button>
         </div>
       </section>
 
       <div class="section-head"><h3>再戰一次</h3><span class="badge">${reviews} 題</span></div>
-      <section class="card v271-review-card">
+      <section class="card v272-review-card">
         <div>
           <strong>${reviews ? `有 ${reviews} 題還沒完全掌握` : '目前沒有待複習題目'}</strong>
           <p class="muted">${reviews ? '把以前錯過的題目重新做一次。' : '今天可以把時間留給新題或閱讀。'}</p>
@@ -96,9 +96,9 @@
     const items = all.slice(0, newsVisible);
     const remaining = Math.max(0, all.length - items.length);
 
-    return `<section class="hero v27-hero v271-compact-hero">
+    return `<section class="hero v27-hero v272-compact-hero">
       <p class="eyebrow">READING CENTER</p>
-      <div class="v271-hero-row">
+      <div class="v272-hero-row">
         <div>
           <h2>閱讀教材</h2>
           <p>新聞題材 → 理解題 → 單字／句型 → 複習。</p>
@@ -107,29 +107,29 @@
       </div>
     </section>
 
-    <div class="section-head v271-material-head">
+    <div class="section-head v272-material-head">
       <h3>最新題材</h3>
-      <button id="reloadNews" class="secondary v271-small-btn">更新</button>
+      <button id="reloadNews" class="secondary v272-small-btn">更新</button>
     </div>
 
-    <section class="v271-material-list">${items.length ? items.map(n => `
-      <article class="card v271-material-card">
+    <section class="v272-material-list">${items.length ? items.map(n => `
+      <article class="card v272-material-card">
         ${chips([n.category || 'Business', shortSource(n.source)])}
-        <h3 class="v271-title-2">${esc(n.title)}</h3>
-        <div class="v271-material-actions">
+        <h3 class="v272-title-2">${esc(n.title)}</h3>
+        <div class="v272-material-actions">
           <button class="primary make-lesson" data-id="${esc(n.id)}">閱讀</button>
           ${n.url ? `<a class="secondary" href="${esc(n.url)}" target="_blank" rel="noopener">來源</a>` : ''}
         </div>
       </article>`).join('') : '<div class="card"><p class="muted">目前沒有可用新聞題材；既有教材與題目仍可使用。</p></div>'}
     </section>
 
-    ${remaining ? `<button id="showMoreMaterials" class="v271-more">再顯示 ${Math.min(6, remaining)} 篇 <span>剩餘 ${remaining}</span></button>` : ''}`;
+    ${remaining ? `<button id="showMoreMaterials" class="v272-more">再顯示 ${Math.min(6, remaining)} 篇 <span>剩餘 ${remaining}</span></button>` : ''}`;
   };
 
   window.practicePage = function(){
-    return `<section class="hero v27-hero v271-compact-hero">
+    return `<section class="hero v27-hero v272-compact-hero">
       <p class="eyebrow">PRACTICE</p>
-      <div class="v271-hero-row">
+      <div class="v272-hero-row">
         <div>
           <h2>Part 5–7 練習</h2>
           <p>日常練習只保留 Reading。</p>
@@ -146,7 +146,7 @@
     </section>
 
     <div class="section-head"><h3>能力檢驗</h3></div>
-    <section class="card v271-mock-card">
+    <section class="card v272-mock-card">
       <div>
         <h3>全真模考</h3>
         <p class="muted">完整 200 題；Listening 只在全真模考使用。</p>
@@ -164,9 +164,9 @@
       + ps.reduce((a,b)=>a+(Number(b.durationMinutes)||0),0)
       + mh.reduce((a,b)=>a+(Number(b.durationMinutes)||0),0);
 
-    return `<section class="hero v27-hero v271-compact-hero">
+    return `<section class="hero v27-hero v272-compact-hero">
       <p class="eyebrow">MY TOEIC</p>
-      <div class="v271-hero-row">
+      <div class="v272-hero-row">
         <div>
           <h2>${settings.currentLevel} → ${settings.targetScore}</h2>
           <p>學習資料與設定集中管理。</p>
@@ -175,26 +175,35 @@
       </div>
     </section>
 
-    <section class="v271-stat-row">
+    <section class="v272-stat-row">
       <div><small>閱讀</small><strong>${ss.length}</strong></div>
       <div><small>練習</small><strong>${ps.length}</strong></div>
       <div><small>模考</small><strong>${mh.length}</strong></div>
     </section>
 
+    <div class="section-head"><h3>設定</h3></div>
+    <button id="openSettingsV27" class="card v272-settings-row">
+      <span class="v272-settings-icon">⚙</span>
+      <span class="v272-settings-copy">
+        <strong>設定與同步</strong>
+        <small>目標分數 · 每日分鐘 · Goal Sync · 系統更新 · 備份</small>
+      </span>
+      <span class="v272-settings-arrow">›</span>
+    </button>
+
     <div class="section-head"><h3>學習資料</h3></div>
-    <section class="v271-action-grid">
-      <button id="openReviewV27" class="card v271-action-card">
-        <strong>錯題複習</strong><span>${reviews} 題待處理</span>
-      </button>
-      <button id="openSettingsV27" class="card v271-action-card">
-        <strong>設定與同步</strong><span>目標 · Goal Sync · 備份</span>
-      </button>
-    </section>
+    <button id="openReviewV27" class="card v272-review-row">
+      <span>
+        <strong>錯題與複習</strong>
+        <small>${reviews} 題待處理</small>
+      </span>
+      <span>›</span>
+    </button>
 
     <div class="section-head"><h3>近期閱讀</h3></div>
-    <section class="v271-recent-list">${ss.length ? ss.slice(-6).reverse().map(x => `
-      <article class="card v271-recent-row">
-        <strong class="v271-title-2">${esc(x.title || '訓練')}</strong>
+    <section class="v272-recent-list">${ss.length ? ss.slice(-6).reverse().map(x => `
+      <article class="card v272-recent-row">
+        <strong class="v272-title-2">${esc(x.title || '訓練')}</strong>
         <span>${esc(x.date || '')} · ${x.correct || 0}/${x.total || 0} · ${displayWpm(x.wpm)}</span>
       </article>`).join('') : '<div class="card"><p class="muted">尚無紀錄。</p></div>'}
     </section>`;
@@ -225,5 +234,5 @@
     });
   };
 
-  try{ render(); }catch(e){ console.error('TOEIC v2.7.1 UI', e); }
+  try{ render(); }catch(e){ console.error('TOEIC v2.7.2 UI', e); }
 })();

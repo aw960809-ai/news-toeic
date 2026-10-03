@@ -1,4 +1,4 @@
-const VERSION='2.7.1';
+const VERSION='2.7.2';
 const CACHE_PREFIX='news-toeic-github-';
 const CACHE=CACHE_PREFIX+VERSION;
 const SHELL=["./", "./index.html", "./app.js", "./styles.css", "./toeic-random-engine.js", "./voice-image-upgrade.js", "./analysis-appdeploy-parity.js", "./reading-question-bank.js", "./appdeploy-parity-runtime.js", "./headline-lesson-generator.js", "./lesson-flow-parity.js", "./vocab-goal-sync.js","./study-workbench.js", "./ui-feedback.js", "./pwa-runtime.js", "./ui-v27.js", "./ui-v27.css", "./manifest-original.webmanifest", "./icon-original-192.png", "./icon-original-512.png", "./apple-touch-original.png", "./data/news.json", "./data/part1-bank.json", "./audio/manifest.json", "./assets/part1/airport-counter.svg", "./assets/part1/conference-presentation.svg", "./assets/part1/train-platform.svg", "./assets/part1/office-notes.svg", "./assets/part1/delivery-box.svg", "./assets/part1/warehouse-boxes.svg", "./assets/part1/meeting-table.svg", "./assets/part1/store-display.svg"];

@@ -1,7 +1,7 @@
 {
-  "version": "2.7.1",
-  "bundleId": "toeic-ui-polish-20261003-v271",
-  "sourceBaseline": "7b55044b1994b45ea11012346386f28a4f90f5f4",
+  "version": "2.7.2",
+  "bundleId": "toeic-ui-settings-20261003-v272",
+  "sourceBaseline": "faaed18364eb792d467d4c38e83aae8d3fb4c88f",
   "scope": "News × TOEIC standalone",
   "modules": [
     "review",
@@ -25,11 +25,13 @@
     "four-tab-navigation",
     "ui-polish-v271",
     "compact-material-list",
-    "paged-materials"
+    "paged-materials",
+    "ui-polish-v272",
+    "settings-first-level-v272"
   ],
   "sourceDataPolicy": "Existing articles, review history, writing, goals and periods remain unchanged. New measured vocabulary rounds are saved in a separate same-origin journal and imported once per practice date.",
   "runtimeSha256": {
-    "app.js": "cbdfeab4bbdd2e44747b8817636a93247aa27b2b09f54453f01c714c66cfcfb3",
+    "app.js": "00f69220279772f9f0f50dcbb43baccb0c1b99adf864a355c6ba0c11cdaa0bc3",
     "toeic-random-engine.js": "ec59a0595b97275d783094c9cc085102a9d3f3377b73548dff4ea9f25298f820",
     "voice-image-upgrade.js": "d2f87d6be42ecd715430adab3e1adc6260d0c4fa5eed0cbbd9163aedf27916fe",
     "analysis-appdeploy-parity.js": "363dc25d5753e9f024dd35cf004b031818d42d53ab3e925dfcf5b7a16c41b4d6",
@@ -41,12 +43,12 @@
     "pwa-runtime.js": "eff6f9372f077d015aa11e16f8a8f79c52c2236f9f68b29a918de7abf777715f",
     "index.html": "bd3cbee0c337c762158b0a76fd168c4be65e3ca04e8c6cc7f7d417619cc15989",
     "styles.css": "5b0b61ab706c1c489a2ef180dc2b1b20a6ff04e6f385133f2e094ba36acb1ad0",
-    "sw.js": "682ca069381d1727b24ab59505b852a2e77a0910da614a5565e37ecf6effdc1b",
+    "sw.js": "752462b8995a60d9dd9b61dbfe7dd3cb33139d528e771d0553adc7e8309e54b2",
     "manifest-original.webmanifest": "432a293b504b78a70f36ae095d4cdd9a9b87ce21cfb7b7386ddd15307247cf09",
     "vocab-goal-sync.js": "2b3d01e41e14a73813e7324ee84eb8d656370fd0916c1ec358ee2bc45f973518",
     "reading-question-bank.js": "dd59c7e3af1b6bd1010114272012819898b6ebac41f4c5ad36324599baa44e1d",
-    "ui-v27.js": "b6966c2d95ce7d695af4014348cd0a193b0a6d28efff77f8c3fda0c0777c6d74",
-    "ui-v27.css": "d493738b292b5a46f6cf6b420313abab7057792b05b9c1952c6b4b1dd402d6f7"
+    "ui-v27.js": "7bfa94cc6d01eca7212dc5eac19b1cb825e7fc9abf5ec7688cd90003790ecebf",
+    "ui-v27.css": "d9b5a041dc8949dc7a9f0b1fd8e19d14507d5f57d39d5ea39209d0cc52804795"
   },
   "readingQuestionBank": {
     "part6": {

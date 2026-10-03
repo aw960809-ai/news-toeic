@@ -16,7 +16,7 @@ for f in ['manifest-original.webmanifest','data/part1-bank.json','audio/manifest
  json.loads((R/f).read_text());print('PASS JSON',f)
 for f in (R/'tools').glob('*.py'):compile(f.read_text(),str(f),'exec')
 versions=[re.search(r"const VERSION='([^']+)'",(R/f).read_text()).group(1).replace('-github','') for f in ['app.js','sw.js']]
-must(versions[0]==versions[1]=='2.7.1','application/service-worker version match')
+must(versions[0]==versions[1]=='2.7.2','application/service-worker version match')
 shell=json.loads(re.search(r'const SHELL=(\[.*?\]);',(R/'sw.js').read_text()).group(1))
 for f in shell:
  if f=='./':continue
