@@ -12,6 +12,7 @@
   <link rel="icon" href="./icon-original-512.png" type="image/png" sizes="512x512">
   <link rel="apple-touch-icon" href="./apple-touch-original.png" sizes="180x180">
   <link rel="stylesheet" href="./styles.css">
+  <link rel="stylesheet" href="./ui-v27.css">
 </head>
 <body>
   <div id="app">
@@ -23,12 +24,10 @@
     </header>
     <main id="appMain"></main>
     <nav class="bottom-nav" aria-label="主要導覽">
-      <button data-route="today" class="nav-btn active"><span>⌂</span><small>今日</small></button>
-      <button data-route="news" class="nav-btn"><span>▤</span><small>新聞</small></button>
-      <button data-route="practice" class="nav-btn"><span>7</span><small>題型</small></button>
-      <button data-route="review" class="nav-btn"><span>↺</span><small>複習</small></button>
-      <button data-route="progress" class="nav-btn"><span>◔</span><small>分析</small></button>
-      <button data-route="settings" class="nav-btn"><span>⚙</span><small>設定</small></button>
+      <button data-route="today" class="nav-btn active"><span>◉</span><small>今日</small></button>
+      <button data-route="practice" class="nav-btn"><span>✎</span><small>練習</small></button>
+      <button data-route="news" class="nav-btn"><span>▤</span><small>教材</small></button>
+      <button data-route="progress" class="nav-btn"><span>◎</span><small>我的</small></button>
     </nav>
     <dialog id="lessonDialog" class="lesson-dialog">
       <form method="dialog" class="dialog-head">
@@ -52,7 +51,7 @@
   <script src="./lesson-flow-parity.js"></script>
   <script src="./vocab-goal-sync.js"></script>
   <script src="./study-workbench.js"></script>
-  <script src="./ui-feedback.js"></script>
+  <script src="./ui-feedback.js"></script>\n  <script src="./ui-v27.js"></script>
   <script src="./pwa-runtime.js"></script>
 </body>
 </html>

@@ -1,6 +1,6 @@
 'use strict';
 
-const VERSION='2.6.3-github';
+const VERSION='2.7.0-github';
 const KEYS={
  generated:'generated',sessions:'sessions',mistakes:'mistakes',settings:'settings',
  daily:'dailyMainAssignment',dailyHistory:'dailyMainHistory',dailyPool:'dailyMainCandidatePool',
