@@ -14,7 +14,9 @@
       .reduce((n,x) => n + (Number(x.durationMinutes) || 0), 0);
     const mock = mockHistory().filter(x => x.date === d)
       .reduce((n,x) => n + (Number(x.durationMinutes) || 0), 0);
-    return Math.round(reading + practice + mock);
+    const review = load('toeicIntegratedReviewEventsV282',[]).filter(x => x.date === d)
+      .reduce((n,x) => n + (Number(x.durationSeconds) || 0) / 60, 0);
+    return Math.round(reading + practice + mock + review);
   }
 
   function reviewCount(){
@@ -38,7 +40,7 @@
 
   window.todayPage = function(){
     const mins = todayMinutes();
-    const goal = Math.max(1, Number(settings.dailyMinutes) || 30);
+    const goal = ToeicIntegratedGoalPolicyV282.clampMobileMinutes(settings.dailyMinutes);
     const pct = Math.min(100, Math.round(mins / goal * 100));
     const lesson = currentLesson();
     const reviews = reviewCount();
@@ -48,7 +50,7 @@
         <div>
           <p class="eyebrow">TODAY · ${dayKey()}</p>
           <div class="v27-minutes"><strong>${mins}</strong><span>min</span></div>
-          <p class="v27-sub">今日學習 · 目標 ${goal} 分鐘</p>
+          <p class="v27-sub">今日已學 · 日常手機單次上限 ${goal} 分鐘</p>
         </div>
         <span class="badge">${pct}%</span>
       </div>
@@ -162,7 +164,8 @@
     const reviews = reviewCount();
     const mins = ss.reduce((a,b)=>a+(Number(b.durationMinutes)||0),0)
       + ps.reduce((a,b)=>a+(Number(b.durationMinutes)||0),0)
-      + mh.reduce((a,b)=>a+(Number(b.durationMinutes)||0),0);
+      + mh.reduce((a,b)=>a+(Number(b.durationMinutes)||0),0)
+      + load('toeicIntegratedReviewEventsV282',[]).reduce((a,b)=>a+(Number(b.durationSeconds)||0)/60,0);
 
     return `<section class="hero v27-hero v272-compact-hero">
       <p class="eyebrow">MY TOEIC</p>
@@ -186,7 +189,7 @@
       <span class="v272-settings-icon">⚙</span>
       <span class="v272-settings-copy">
         <strong>設定與同步</strong>
-        <small>目標分數 · 每日分鐘 · Goal Sync · 系統更新 · 備份</small>
+        <small>目標分數 · 手機單次上限 · Goal Sync · 系統更新 · 備份</small>
       </span>
       <span class="v272-settings-arrow">›</span>
     </button>

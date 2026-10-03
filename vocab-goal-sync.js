@@ -75,7 +75,7 @@
     const daily=Object.entries(timing?.days||{}).filter(([,ms])=>Number.isFinite(ms)&&ms>0).sort(([a],[b])=>a.localeCompare(b)).map(([date,ms])=>({date,lastStudiedAt:timing.lastAt?.[date]||(dateKey(Date.parse(endedAt))===date?endedAt:null),durationSeconds:round3(ms/1000),questionsAnswered:answers.filter(a=>a.date===date).length,correctAnswers:answers.filter(a=>a.date===date&&a.ok).length}));
     const seconds=round3(daily.reduce((n,d)=>n+d.durationSeconds,0));
     const event=seconds>0?{
-      schemaVersion:1,eventId:`toeic-vocab-${quiz.id}`,source:"news-toeic",activity:"toeic-vocabulary-training",goalKey:"foreign-language-preparation",goalLabels:["語言能力準備"],
+      schemaVersion:1,eventId:`toeic-vocab-${quiz.id}`,source:"news-toeic",activity:"toeic-vocabulary-training",learningUnit:"review",goalKey:"foreign-language-preparation",goalLabels:["語言能力準備"],
       channelId:localStorage.getItem("goalSyncChannel")||"github-direct",sessionId:quiz.id,startedAt:timing.startedAt,endedAt,studyDate:dateKey(Date.parse(endedAt)),
       timeZone:Intl.DateTimeFormat().resolvedOptions().timeZone,durationSeconds:seconds,durationMinutes:seconds/60,dailyDurations:daily,
       questionsAnswered:set.length,correctAnswers:correct,accuracy:correct/set.length,vocabularyAnswered:set.length,vocabularyCorrect:correct,
@@ -111,5 +111,5 @@
     if(receipt?.status==="deferred")return "紀錄已保留；沒有期間內對應的字彙行動，暫未計入";
     return "已保存至 Goal Sync；請在同一瀏覽器開啟 GitHub 目標管理，按「立即同步」";
   }
-  window.ToeicVocabSync=Object.freeze({version:"2.6.2",ROUND_PREFIX,RECEIPT_PREFIX,dateKey,keyFor,initTiming,addTime,createClock,acquire,makeRecord,complete,records,duration,status});
+  window.ToeicVocabSync=Object.freeze({version:"2.8.2",ROUND_PREFIX,RECEIPT_PREFIX,dateKey,keyFor,initTiming,addTime,createClock,acquire,makeRecord,complete,records,duration,status});
 })();

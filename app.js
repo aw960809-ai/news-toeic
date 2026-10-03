@@ -1,6 +1,6 @@
 'use strict';
 
-const VERSION='2.8.1-github';
+const VERSION='2.8.2-github';
 const KEYS={
  generated:'generated',sessions:'sessions',mistakes:'mistakes',settings:'settings',
  daily:'dailyMainAssignment',dailyHistory:'dailyMainHistory',dailyPool:'dailyMainCandidatePool',
@@ -17,7 +17,8 @@ const dayKey=(d=new Date())=>`${d.getFullYear()}-${String(d.getMonth()+1).padSta
 const now=()=>new Date().toISOString();
 const main=document.getElementById('appMain'),dialog=document.getElementById('lessonDialog'),dialogTitle=document.getElementById('lessonTitle'),body=document.getElementById('lessonBody');
 let route='today',news=load('toeicNewsSnapshotV1',{articles:[]}).articles||[],newsUpdatedAt=load('toeicNewsSnapshotV1',{}).updatedAt||'',activeLesson=null,lessonStarted=0,readingStarted=0,answers=[],qIndex=0;
-let settings={currentLevel:600,targetScore:750,dailyMinutes:30,category:'Balanced',...load(KEYS.settings,{})};
+let settings={currentLevel:600,targetScore:750,dailyMinutes:20,category:'Balanced',...load(KEYS.settings,{})};
+settings.dailyMinutes=ToeicIntegratedGoalPolicyV282.clampMobileMinutes(settings.dailyMinutes);
 
 const offlineLesson={
  id:'offline-retail-github',origin:'offline',articleType:'Main Article',category:'Business',
@@ -161,7 +162,7 @@ function migrateQueuedGoalEvents(){
 }
 function makeGoalEvent(title,duration,total,correct,wrongSkills=[],extra={}){
  const end=now(),start=new Date(Date.now()-Math.max(1,duration)*60000).toISOString();
- return{eventId:`toeic-github-${Date.now()}-${Math.random().toString(36).slice(2)}`,channelId:localStorage.getItem(KEYS.goalChannel)||'github-direct',source:'news-toeic',activity:'toeic-news-training',goalKey:'foreign-language-preparation',goalLabels:['語言能力準備'],startedAt:start,endedAt:end,durationMinutes:Math.max(1,Math.round(duration)),articleId:extra.articleId||'',articleTitle:title,category:extra.category||'Practice',articlesCompleted:extra.articlesCompleted||0,wordCount:extra.wordCount||0,questionsAnswered:total,correctAnswers:correct,accuracy:total?correct/total:0,readingWpm:extra.readingWpm||0,part1Answered:extra.part1Answered||0,part1Correct:extra.part1Correct||0,part2Answered:extra.part2Answered||0,part2Correct:extra.part2Correct||0,part3Answered:extra.part3Answered||0,part3Correct:extra.part3Correct||0,part4Answered:extra.part4Answered||0,part4Correct:extra.part4Correct||0,part5Answered:extra.part5Answered||0,part5Correct:extra.part5Correct||0,part6Answered:extra.part6Answered||0,part6Correct:extra.part6Correct||0,part7Answered:extra.part7Answered||0,part7Correct:extra.part7Correct||0,wrongSkills};
+ return{eventId:`toeic-github-${Date.now()}-${Math.random().toString(36).slice(2)}`,channelId:localStorage.getItem(KEYS.goalChannel)||'github-direct',source:'news-toeic',activity:'toeic-news-training',learningUnit:ToeicIntegratedGoalPolicyV282.inferLearningUnit(title,extra),goalKey:'foreign-language-preparation',goalLabels:['語言能力準備'],startedAt:start,endedAt:end,durationMinutes:Math.max(1,Math.round(duration)),articleId:extra.articleId||'',articleTitle:title,category:extra.category||'Practice',articlesCompleted:extra.articlesCompleted||0,wordCount:extra.wordCount||0,questionsAnswered:total,correctAnswers:correct,accuracy:total?correct/total:0,readingWpm:extra.readingWpm||0,part1Answered:extra.part1Answered||0,part1Correct:extra.part1Correct||0,part2Answered:extra.part2Answered||0,part2Correct:extra.part2Correct||0,part3Answered:extra.part3Answered||0,part3Correct:extra.part3Correct||0,part4Answered:extra.part4Answered||0,part4Correct:extra.part4Correct||0,part5Answered:extra.part5Answered||0,part5Correct:extra.part5Correct||0,part6Answered:extra.part6Answered||0,part6Correct:extra.part6Correct||0,part7Answered:extra.part7Answered||0,part7Correct:extra.part7Correct||0,wrongSkills};
 }
 
 function todayPage(){
@@ -204,12 +205,12 @@ function importBackup(file){
   const snap={at:now(),keys:{}};for(let i=0;i<localStorage.length;i++){const k=localStorage.key(i);if(k&&(MIGRATION_EXACT.has(k)||MIGRATION_PREFIXES.some(p=>k.startsWith(p))))snap.keys[k]=localStorage.getItem(k)}
   const snaps=load('toeicGithubMigrationSnapshotsV1',[]);snaps.push(snap);save('toeicGithubMigrationSnapshotsV1',snaps.slice(-5));
   let count=0;Object.entries(keys).forEach(([k,v])=>{if(MIGRATION_EXACT.has(k)||MIGRATION_PREFIXES.some(p=>k.startsWith(p))||k===KEYS.analysis||k===KEYS.articleReviews||k===KEYS.reviewEvents){localStorage.setItem(k,typeof v==='string'?v:JSON.stringify(v));count++}});
-  settings={currentLevel:600,targetScore:750,dailyMinutes:30,category:'Balanced',...load(KEYS.settings,{})};
+  settings={currentLevel:600,targetScore:750,dailyMinutes:20,category:'Balanced',...load(KEYS.settings,{})};settings.dailyMinutes=ToeicIntegratedGoalPolicyV282.clampMobileMinutes(settings.dailyMinutes);
   migrateQueuedGoalEvents();toast(`匯入完成 · ${count} 個資料鍵`);render();
  }catch(e){console.error(e);toast(`匯入失敗：${e.message||e}`)}};r.readAsText(file)
 }
 function settingsPage(){
- return`<div class="section-head"><h2>設定</h2><span class="badge">v${VERSION}</span></div><section class="card"><h3>個人學習設定</h3><label class="setting"><span>目前 TOEIC 基準</span><input class="settings-input" id="cur" type="number" value="${settings.currentLevel}"></label><label class="setting"><span>目標分數</span><input class="settings-input" id="goal" type="number" value="${settings.targetScore}"></label><label class="setting"><span>每日分鐘</span><input class="settings-input" id="mins" type="number" value="${settings.dailyMinutes}"></label><button id="saveSettings" class="primary wide">儲存設定</button></section><section class="card"><div class="section-head" style="margin-top:0"><h3>GitHub 直連 Goal Manager</h3><span class="badge ok">同網域</span></div><p class="muted">完成新聞訓練、Part 練習或模考後，事件會寫入同一 GitHub Pages 網域的共享儲存區，不需要 AppDeploy iframe 或同步碼。</p><button id="flushQueue" class="secondary wide">搬移舊 Goal Sync 待傳紀錄</button></section><section class="card"><h3>完整遷移備份</h3><p class="muted">匯入前會先保存目前 GitHub TOEIC 本機資料快照。AppDeploy 匯出的 localStorage keys 可直接匯入。</p><div class="actions"><button id="exportBackup" class="primary">匯出 GitHub 備份</button></div><input id="importFile" class="file-input" type="file" accept=".json,application/json"><button id="importBackup" class="secondary wide">匯入 AppDeploy／GitHub 備份</button></section><section class="card"><h3>系統模式</h3><p class="muted">新聞題材：GitHub Actions。教材／題型／解析：本機原創生成器。語音：裝置 Speech Synthesis。此版本沒有 AppDeploy 點數依賴。</p></section>`}
+ return`<div class="section-head"><h2>設定</h2><span class="badge">v${VERSION}</span></div><section class="card"><h3>個人學習設定</h3><label class="setting"><span>目前 TOEIC 基準</span><input class="settings-input" id="cur" type="number" value="${settings.currentLevel}"></label><label class="setting"><span>目標分數</span><input class="settings-input" id="goal" type="number" value="${settings.targetScore}"></label><label class="setting"><span>日常手機單次上限（分鐘）</span><input class="settings-input" id="mins" type="number" min="1" max="20" value="${settings.dailyMinutes}"></label><p class="muted">上限 20 分鐘；全真模考是獨立考試模式，不受此限制。</p><button id="saveSettings" class="primary wide">儲存設定</button></section><section class="card"><div class="section-head" style="margin-top:0"><h3>GitHub 直連 Goal Manager</h3><span class="badge ok">同網域</span></div><p class="muted">完成新聞訓練、Part 練習或模考後，事件會寫入同一 GitHub Pages 網域的共享儲存區，不需要 AppDeploy iframe 或同步碼。</p><button id="flushQueue" class="secondary wide">搬移舊 Goal Sync 待傳紀錄</button></section><section class="card"><h3>完整遷移備份</h3><p class="muted">匯入前會先保存目前 GitHub TOEIC 本機資料快照。AppDeploy 匯出的 localStorage keys 可直接匯入。</p><div class="actions"><button id="exportBackup" class="primary">匯出 GitHub 備份</button></div><input id="importFile" class="file-input" type="file" accept=".json,application/json"><button id="importBackup" class="secondary wide">匯入 AppDeploy／GitHub 備份</button></section><section class="card"><h3>系統模式</h3><p class="muted">新聞題材：GitHub Actions。教材／題型／解析：本機原創生成器。語音：裝置 Speech Synthesis。此版本沒有 AppDeploy 點數依賴。</p></section>`}
 
 function render(){
  main.innerHTML=({today:todayPage,news:newsPage,practice:practicePage,review:reviewPage,progress:progressPage,settings:settingsPage})[route]();
@@ -223,7 +224,7 @@ function bind(){
  document.querySelectorAll('[data-part]').forEach(b=>b.onclick=()=>startPractice(Number(b.dataset.part),practiceCount(Number(b.dataset.part))));
  document.querySelector('#startMock')?.addEventListener('click',()=>startFullMock('training'));
  document.querySelectorAll('.retry-review').forEach(b=>b.onclick=()=>appdeployRetryReview(b.dataset.kind,b.dataset.id));
- document.querySelector('#saveSettings')?.addEventListener('click',()=>{settings.currentLevel=Number(document.querySelector('#cur').value)||600;settings.targetScore=Number(document.querySelector('#goal').value)||750;settings.dailyMinutes=Number(document.querySelector('#mins').value)||30;save(KEYS.settings,settings);toast('設定已儲存');render()});
+ document.querySelector('#saveSettings')?.addEventListener('click',()=>{settings.currentLevel=Number(document.querySelector('#cur').value)||600;settings.targetScore=Number(document.querySelector('#goal').value)||750;settings.dailyMinutes=ToeicIntegratedGoalPolicyV282.clampMobileMinutes(document.querySelector('#mins').value);save(KEYS.settings,settings);toast('設定已儲存');render()});
  document.querySelector('#exportBackup')?.addEventListener('click',exportBackup);
  document.querySelector('#importBackup')?.addEventListener('click',()=>{const f=document.querySelector('#importFile').files?.[0];if(!f)return toast('請先選擇 JSON');importBackup(f)});
  document.querySelector('#flushQueue')?.addEventListener('click',()=>{migrateQueuedGoalEvents();toast('舊待傳紀錄已搬到 GitHub 直連同步中心')});
@@ -819,7 +820,7 @@ function bind(){
   document.querySelector('#saveSettings')?.addEventListener('click',()=>{
     settings.currentLevel=Number(document.querySelector('#cur').value)||600;
     settings.targetScore=Number(document.querySelector('#goal').value)||750;
-    settings.dailyMinutes=Number(document.querySelector('#mins').value)||30;
+    settings.dailyMinutes=ToeicIntegratedGoalPolicyV282.clampMobileMinutes(document.querySelector('#mins').value);
     settings.category=document.querySelector('#cat').value;
     settings.lengthMode=document.querySelector('#mode').value;
     const manual=document.querySelector('#manualLength')?.value.trim()||'250-400';
